@@ -10,7 +10,7 @@ composer require laravel/ui
 php artisan ui vue --auth
 php artisan migrate
 4. npm i > npm run dev > npm run dev
-## integrate multi-auth
+## Integrate multi-auth
 1. tạo bảng admin:
 - php artisan make:migration create_admins_table --create=admins
 - php artisan migrate
