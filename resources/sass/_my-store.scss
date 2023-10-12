@@ -12,6 +12,31 @@
             border: none;
         }
     }
+    .item{
+        width: 100%;
+        max-width: 350px;
+        padding: 20px;
+        border: solid 1px #000;
+        border-radius: 10px;
+        .name{
+            font-size: 24px;
+        }
+        .image-container{
+            margin-top: 8px;
+            display: flex;
+            img{
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .description{
+            margin-top: 8px;
+        }
+        .price{
+            margin-top: 8px;
+            font-size: 14px;
+        }
+    }
 }
 .currently-sale{
     padding-top: 30px;

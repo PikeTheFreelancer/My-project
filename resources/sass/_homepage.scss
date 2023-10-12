@@ -1,0 +1,20 @@
+.home-page{
+    .home-item{
+        width: 100%;
+        max-width: 350px;
+        background-color: rgba($color: #ddd, $alpha: 0.75);
+        border-radius: 10px;
+        transition: all .5s;
+        &:hover{
+            transition: all .5s;
+            box-shadow: 5px 10px 8px 0 #888;
+            transform: scale(1.01);
+        }
+        img{
+            width: 100%;
+            object-fit: cover;
+            max-height: 350px;
+            max-width: 350px;
+        }
+    }
+}

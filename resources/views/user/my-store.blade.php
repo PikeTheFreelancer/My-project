@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="my-store-page">
             <div class="card">
                 <div class="card-header">{{ __('My Store') }}</div>
 
@@ -16,7 +16,8 @@
                             </span>
                             <span>Add new merchandise</span>
                         </div>
-                        <form action="">
+                        <form action="{{ route('user.my-store.save') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-field">
                                 <label for="name">Merchandise</label>
                                 <input type="text" name="name" id="">
@@ -30,12 +31,32 @@
                                 <textarea name="description" id="" cols="30" rows="10"></textarea>
                             </div>
                             <div class="form-field">
+                                <label for="price">Price</label>
+                                <input type="text" name="price" id="">
+                            </div>
+                            <div class="form-field">
                                 <button class="btn btn-primary" type="submit">submit</button>
                             </div>
                         </form>
                     </div>
                     <div class="currently-sale">
-                        <p>You haven't added any merchandise yet!</p>
+                        @if (count($merchandises) > 0)
+                            @foreach ($merchandises as $item)
+                                <div class="item">
+                                    <p class="name">{{ $item->name }}</p>
+                                    <div class="image-container">
+                                        <img src="{{ $item->image }}" alt="">
+                                    </div>
+                                    <p class="description">{{ $item->description }}</p>
+                                    <div>
+                                        <span>@include('svg.pokedollars')</span>
+                                        <span class="price">{{ $item->price }}</span>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <p>You haven't added any merchandise yet!</p>
+                        @endif
                     </div>
                 </div>
             </div>

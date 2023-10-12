@@ -11,6 +11,7 @@ Route::middleware('auth:web')->group(function (){
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('/my-store', [MyStoreController::class, 'index'])->name('user.my-store');
+    Route::post('/my-store/save', [MyStoreController::class, 'save'])->name('user.my-store.save');
 });
 Auth::routes();
 
