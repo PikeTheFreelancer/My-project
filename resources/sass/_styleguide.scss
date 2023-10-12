@@ -5,16 +5,31 @@ body{
     margin: 0;
     padding: 0;
 }
-
+input, textarea{
+    display: block;
+    width: 100%;
+    resize: none;
+    outline: none;
+    border-radius: 3px;
+    font-family: 'Arial';
+}
+p{
+    font-family: 'Arial';
+}
+textarea{
+    padding: 10px;
+}
+input[type="file"]{
+    font-family: 'Retro-Computer';
+}
 input[type="text"],
 input[type="password"],
 input[type="email"]{
-    outline: none;
     border: none;
     height: 35px;
     border-radius: 3px;
     padding: 0 10px;
-    background-color: rgba(255, 255, 255, 0.5) !important;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 button{
@@ -110,6 +125,13 @@ button{
 }
 
 .basic-theme{
-    height: 100vh;
+    min-height: 100vh;
     background-color: antiquewhite;
+}
+
+a.dropdown-item:not(:first-child){
+    border-top: solid 1px #ddd;
+}
+a.dropdown-item:hover{
+    background-color: #ddd;
 }
