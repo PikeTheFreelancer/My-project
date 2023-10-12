@@ -7,3 +7,10 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Retro-Computer';
+    src: url("../fonts/retro_computer/retro_computer_personal_use.ttf");
+    font-weight: normal;
+    font-style: normal;
+}

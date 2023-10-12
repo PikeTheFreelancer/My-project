@@ -72,7 +72,7 @@
   --bs-dark-border-subtle: #adb5bd;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: "Nunito", sans-serif;
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
@@ -11977,8 +11977,8 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  font-family: "Retro-Gaming";
+* {
+  font-family: "Retro-Computer";
 }
 
 body {
@@ -12002,6 +12002,93 @@ button {
   border: none;
   min-height: 35px;
   border-radius: 3px;
+}
+
+.btn-primary {
+  background-color: #ec1818;
+  border: solid 1px #000;
+  position: relative;
+  transition: all 0.1s;
+}
+.btn-primary::before {
+  content: "";
+  background-color: #fff;
+  width: 23px;
+  height: 2px;
+  display: block;
+  position: absolute;
+  border-radius: 99px;
+  top: 3px;
+  left: 4px;
+  transition: all 0.1s;
+}
+.btn-primary:hover {
+  background-color: #9c1b1b;
+  border: solid 1px #000;
+  transition: all 0.1s;
+}
+.btn-primary:hover::before {
+  width: 0;
+  transition: all 0.1s;
+}
+
+.pokeball {
+  transform: rotate(90deg);
+  width: 40px;
+  height: 40px;
+  transition: all 0.25s;
+  transition-delay: 0.25s;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.pokeball .ball-text {
+  opacity: 0;
+  transition: all 0.1s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.pokeball .half-top {
+  transition: all 0.25s;
+  transform: translateX(8px);
+}
+.pokeball .half-bottom {
+  transition: all 0.25s;
+  transform: translateX(0);
+}
+.pokeball .half-pokeball {
+  display: inline-block;
+}
+.pokeball:hover {
+  transform: rotate(0);
+  overflow: unset;
+  transition: all 0.25s;
+}
+.pokeball:hover .ball-text {
+  display: inline-block;
+  opacity: 1;
+  transition: all 0.1s;
+  transition-delay: 0.25s;
+}
+.pokeball:hover .half-top {
+  transform: translateX(-100%);
+  transition: all 0.25s;
+  transition-delay: 0.25s;
+}
+.pokeball:hover .half-bottom {
+  transform: translateX(100%);
+  transition: all 0.25s;
+  transition-delay: 0.25s;
+}
+.pokeball:hover .half-pokeball {
+  display: inline-block;
+}
+
+.basic-theme {
+  height: 100vh;
+  background-color: antiquewhite;
 }
 
 .admin-login {

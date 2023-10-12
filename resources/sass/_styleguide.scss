@@ -1,5 +1,5 @@
-h1, h2, h3, h4, h5, h6{
-    font-family: 'Retro-Gaming';
+*{
+    font-family: 'Retro-Computer';
 }
 body{
     margin: 0;
@@ -22,4 +22,94 @@ button{
     border: none;
     min-height: 35px;
     border-radius: 3px;
+}
+
+.btn-primary{
+    background-color: #ec1818;
+    border: solid 1px #000;
+    position: relative;
+    transition: all .1s;
+    
+    &::before{
+        content: "";
+        background-color: #fff;
+        width: 23px;
+        height: 2px;
+        display: block;
+        position: absolute;
+        border-radius: 99px;
+        top: 3px;
+        left: 4px;
+        transition: all .1s;
+    }
+    &:hover{
+        background-color: #9c1b1b;
+        border: solid 1px #000;
+        transition: all .1s;
+        &::before{
+            width: 0;
+            transition: all .1s;
+        }
+    }
+}
+
+.pokeball{
+    transform: rotate(90deg);
+    width: 40px;
+    height: 40px;
+    transition: all 0.25s;
+    transition-delay: .25s;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    .ball-text{
+        opacity: 0;
+        transition: all 0.1s;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .half-top{
+        transition: all 0.25s;
+        // transition-delay: .25s;
+        transform: translateX(8px);
+    }
+    .half-bottom{
+        transition: all 0.25s;
+        // transition-delay: .25s;
+        transform: translateX(0);
+    }
+    .half-pokeball{
+        display: inline-block;
+    }
+    &:hover{
+        transform: rotate(0);
+        overflow: unset;
+        transition: all 0.25s;
+        .ball-text{
+            display: inline-block;
+            opacity: 1;
+            transition: all .1s;
+            transition-delay: .25s;
+        }
+        .half-top{
+            transform: translateX(-100%);
+            transition: all 0.25s;
+            transition-delay: .25s;
+        }
+        .half-bottom{
+            transform: translateX(100%);
+            transition: all 0.25s;
+            transition-delay: .25s;
+        }
+        .half-pokeball{
+            display: inline-block;
+        }
+    }
+}
+
+.basic-theme{
+    height: 100vh;
+    background-color: antiquewhite;
 }
