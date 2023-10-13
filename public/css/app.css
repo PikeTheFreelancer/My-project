@@ -12018,6 +12018,15 @@ input[type=email] {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+input.input-border,
+textarea.input-border {
+  border: solid 2px #ddd;
+}
+
+.thumbnail {
+  max-width: 100px;
+}
+
 button {
   outline: none;
   border: none;
@@ -12129,9 +12138,6 @@ a.dropdown-item:hover {
   background-image: linear-gradient(green, lightgreen);
   /* text styles */
   text-decoration: none;
-  color: #fff;
-  font-size: 25px;
-  font-family: sans-serif;
   font-weight: 100;
 }
 
@@ -12169,6 +12175,15 @@ a.dropdown-item:hover {
   */ /* FF3.6+ */ /* Chrome,Safari4+ */ /* Chrome10+,Safari5.1+ */ /* Opera 11.10+ */ /* IE10+ */
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00ffffff", endColorstr="#007db9e8",GradientType=1 ); /* IE6-9 */
+}
+
+.zoom-on-hover {
+  transition: all 0.5s;
+}
+.zoom-on-hover:hover {
+  transition: all 0.5s;
+  box-shadow: 5px 10px 8px 0 #888;
+  transform: scale(1.01);
 }
 
 /* animation */
@@ -12257,6 +12272,22 @@ a.dropdown-item:hover {
   max-width: 350px;
 }
 
+.merchandise .accordion-box {
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+}
+.merchandise .accordion-box .plus-icon {
+  display: inline-block;
+  transition: all 0.5s;
+}
+.merchandise .accordion-box:hover span:not(.plus-icon) {
+  background-color: #ddd;
+}
+.merchandise .accordion-box:hover .plus-icon {
+  transform: rotate(360deg);
+  transition: all 0.5s;
+}
 .merchandise .add {
   padding-top: 14px;
   padding-bottom: 30px;
@@ -12274,8 +12305,11 @@ a.dropdown-item:hover {
   width: 100%;
   max-width: 350px;
   padding: 20px;
-  border: solid 1px #000;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ddd;
+  background-image: none;
 }
 .merchandise .item .name {
   font-size: 24px;
@@ -12283,6 +12317,7 @@ a.dropdown-item:hover {
 .merchandise .item .image-container {
   margin-top: 8px;
   display: flex;
+  max-height: 250px;
 }
 .merchandise .item .image-container img {
   width: 100%;
@@ -12291,6 +12326,14 @@ a.dropdown-item:hover {
 }
 .merchandise .item .description {
   margin-top: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.merchandise .item .price-box {
+  margin-top: auto;
 }
 .merchandise .item .price {
   margin-top: 8px;
@@ -12301,4 +12344,8 @@ a.dropdown-item:hover {
   padding-top: 30px;
   border-top: solid 1px #ddd;
   min-height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }

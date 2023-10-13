@@ -1,4 +1,22 @@
 .merchandise{
+    .accordion-box{
+        cursor: pointer;
+        border-radius: 5px;
+        display: inline-block;
+        .plus-icon{
+            display: inline-block;
+            transition: all .5s;
+        }
+        &:hover{
+            span:not(.plus-icon){
+                background-color: #ddd;
+            }
+            .plus-icon{
+                transform: rotate(360deg);
+                transition: all .5s;
+            }
+        }
+    }
     .add{
         padding-top: 14px;
         padding-bottom: 30px;
@@ -16,14 +34,18 @@
         width: 100%;
         max-width: 350px;
         padding: 20px;
-        border: solid 1px #000;
         border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: #ddd;
+        background-image: none;
         .name{
             font-size: 24px;
         }
         .image-container{
             margin-top: 8px;
             display: flex;
+            max-height: 250px;
             img{
                 width: 100%;
                 object-fit: cover;
@@ -31,6 +53,14 @@
         }
         .description{
             margin-top: 8px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        .price-box{
+            margin-top: auto;
         }
         .price{
             margin-top: 8px;
@@ -42,4 +72,7 @@
     padding-top: 30px;
     border-top: solid 1px #ddd;
     min-height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
 }

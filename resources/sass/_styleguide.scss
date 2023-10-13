@@ -32,7 +32,13 @@ input[type="email"]{
     padding: 0 10px;
     background-color: rgba(255, 255, 255, 0.5);
 }
-
+input.input-border,
+textarea.input-border{
+    border: solid 2px #ddd;
+}
+.thumbnail{
+    max-width: 100px;
+}
 button{
     outline: none;
     border: none;
@@ -148,9 +154,6 @@ a.dropdown-item:hover{
 
 	/* text styles */
 	text-decoration: none;
-	color: #fff;
-	font-size: 25px;
-	font-family: sans-serif;
 	font-weight: 100;
 }
 .glass::before{
@@ -195,6 +198,15 @@ a.dropdown-item:hover{
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
   }
   
+    //zoom on hover
+  .zoom-on-hover{
+    transition: all .5s;
+      &:hover{
+        transition: all .5s;
+        box-shadow: 5px 10px 8px 0 #888;
+        transform: scale(1.01);
+      }
+  }
   /* animation */
   
   @keyframes slide {

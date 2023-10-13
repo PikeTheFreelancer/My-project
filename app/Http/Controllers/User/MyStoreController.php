@@ -35,4 +35,11 @@ class MyStoreController extends Controller
         $merchandise->save();
         return redirect()->route('user.my-store');
     }
+
+    public function getMerchandiseFields(Request $request)
+    {
+        $merchandise_id = $request->input('merchandise_id');
+        $item = Merchandise::find($merchandise_id);
+        return view('layouts.edit-merchandise', ['item' => $item]);
+    }
 }

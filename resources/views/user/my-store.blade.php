@@ -2,6 +2,8 @@
 @section('title', 'My Store')
 
 @section('content')
+
+@include('layouts.edit-merchandise')
 <div class="container">
     <div class="row justify-content-center">
         <div class="my-store-page">
@@ -16,7 +18,7 @@
                             </span>
                             <span>Add new merchandise</span>
                         </div>
-                        <form action="{{ route('user.my-store.save') }}" method="POST" enctype="multipart/form-data">
+                        <form id="add-merchandise" action="{{ route('user.my-store.save') }}" method="POST" enctype="multipart/form-data" style="display: none">
                             @csrf
                             <div class="form-field">
                                 <label for="name">Merchandise</label>
@@ -42,13 +44,13 @@
                     <div class="currently-sale">
                         @if (count($merchandises) > 0)
                             @foreach ($merchandises as $item)
-                                <div class="item">
+                                <div data-id="{{ $item->id }}" class="item glass shiny zoom-on-hover" data-toggle="modal" data-target="#exampleModal">
                                     <p class="name">{{ $item->name }}</p>
                                     <div class="image-container">
                                         <img src="{{ $item->image }}" alt="">
                                     </div>
                                     <p class="description">{{ $item->description }}</p>
-                                    <div>
+                                    <div class="price-box">
                                         <span>@include('svg.pokedollars')</span>
                                         <span class="price">{{ $item->price }}</span>
                                     </div>

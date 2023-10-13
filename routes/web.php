@@ -12,6 +12,7 @@ Route::middleware('auth:web')->group(function (){
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('/my-store', [MyStoreController::class, 'index'])->name('user.my-store');
     Route::post('/my-store/save', [MyStoreController::class, 'save'])->name('user.my-store.save');
+    Route::post('/my-store/get-merchandise-fields', [MyStoreController::class, 'getMerchandiseFields'])->name('user.my-store.get-merchandise-fields');
 });
 Auth::routes();
 
