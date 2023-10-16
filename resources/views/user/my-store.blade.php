@@ -47,15 +47,32 @@
                     <div class="currently-sale">
                         @if (count($merchandises) > 0)
                             @foreach ($merchandises as $item)
-                                <div data-id="{{ $item->id }}" class="item glass shiny zoom-on-hover" data-toggle="modal" data-target="#exampleModal">
+                                <div data-id="{{ $item->id }}" class="item glass">
                                     <p class="name">{{ $item->name }}</p>
-                                    <div class="image-container">
-                                        <img src="{{ $item->image }}" alt="">
+                                    <div class="image-container @if(!$item->image) no-image @endif">
+                                        @if (!$item->image)
+                                            No image provided
+                                        @else
+                                            <img src="{{ $item->image }}" alt="">
+                                        @endif
                                     </div>
                                     <p class="description">{{ $item->description }}</p>
                                     <div class="price-box">
                                         <span>@include('svg.pokedollars')</span>
                                         <span class="price">{{ $item->price }}</span>
+                                    </div>
+                                    <div class="actions-box">
+                                        <button class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">edit</button>
+                                        <button class="btn btn-primary btn-delete">delete</button>
+                                    </div>
+                                    <div class="confirm-delete" style="display:none">
+                                        <div>
+                                            are you sure to delete this item?
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-primary btn-confirm-delete">Yes</button>
+                                            <button class="btn btn-secondary btn-cancel-delete">No</button>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach

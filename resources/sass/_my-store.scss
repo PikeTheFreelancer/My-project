@@ -39,21 +39,22 @@
         flex-direction: column;
         background-color: #ddd;
         background-image: none;
-        cursor: pointer;
-        .name{
-            font-size: 24px;
-        }
+        
         .image-container{
             margin-top: 8px;
             display: flex;
             height: 250px;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
             img{
-                width: 100%;
+                max-width: 100%;
                 object-fit: cover;
             }
         }
         .description{
             margin-top: 8px;
+            margin-bottom: 8px;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
@@ -67,6 +68,22 @@
             margin-top: 8px;
             font-size: 14px;
         }
+        .actions-box{
+            margin-top: 8px;
+        }
+        .confirm-delete{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 10px;
+            background-color: #fff;
+            height: 172px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
     }
 }
 .currently-sale{
@@ -76,4 +93,5 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    transition: all 1s;
 }

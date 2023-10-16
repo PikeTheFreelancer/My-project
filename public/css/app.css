@@ -11992,12 +11992,14 @@ input, textarea {
   resize: none;
   outline: none;
   border-radius: 3px;
-  font-family: "Arial";
+  font-family: "Vi-Retro";
 }
 
 p {
-  font-family: "Arial";
+  font-family: "Vi-Retro";
   margin-bottom: 0;
+  font-size: 12px;
+  line-height: 200%;
 }
 
 textarea {
@@ -12021,6 +12023,10 @@ input[type=email] {
 input.input-border,
 textarea.input-border {
   border: solid 2px #ddd;
+}
+
+.no-image {
+  border: solid 1px #000;
 }
 
 .image-uploader {
@@ -12066,13 +12072,12 @@ button {
   border-radius: 3px;
 }
 
-.btn-primary {
-  background-color: #ec1818;
+.btn {
   border: solid 1px #000;
-  position: relative;
   transition: all 0.1s;
+  position: relative;
 }
-.btn-primary::before {
+.btn::before {
   content: "";
   background-color: #fff;
   width: 23px;
@@ -12084,14 +12089,35 @@ button {
   left: 4px;
   transition: all 0.1s;
 }
+.btn:hover {
+  transition: all 0.1s;
+}
+.btn:hover::before {
+  width: 0;
+  transition: all 0.1s;
+}
+
+.btn-primary {
+  background-color: #ec1818;
+}
 .btn-primary:hover {
   background-color: #9c1b1b;
   border: solid 1px #000;
-  transition: all 0.1s;
 }
-.btn-primary:hover::before {
-  width: 0;
-  transition: all 0.1s;
+.btn-primary:focus {
+  box-shadow: unset;
+}
+
+.btn-secondary {
+  background-color: #1dab35;
+  border: solid 1px #000;
+}
+.btn-secondary:hover {
+  background-color: #0d4a17;
+  border: solid 1px #000;
+}
+.btn-secondary:focus {
+  box-shadow: unset;
 }
 
 .pokeball {
@@ -12342,23 +12368,23 @@ a.dropdown-item:hover {
   flex-direction: column;
   background-color: #ddd;
   background-image: none;
-  cursor: pointer;
-}
-.merchandise .item .name {
-  font-size: 24px;
 }
 .merchandise .item .image-container {
   margin-top: 8px;
   display: flex;
   height: 250px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 .merchandise .item .image-container img {
-  width: 100%;
+  max-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 .merchandise .item .description {
   margin-top: 8px;
+  margin-bottom: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -12372,6 +12398,22 @@ a.dropdown-item:hover {
   margin-top: 8px;
   font-size: 14px;
 }
+.merchandise .item .actions-box {
+  margin-top: 8px;
+}
+.merchandise .item .confirm-delete {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fff;
+  height: 172px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .currently-sale {
   padding-top: 30px;
@@ -12380,4 +12422,5 @@ a.dropdown-item:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  transition: all 1s;
 }

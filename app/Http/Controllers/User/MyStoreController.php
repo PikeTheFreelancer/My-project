@@ -22,11 +22,14 @@ class MyStoreController extends Controller
     {
         $merchandise = new Merchandise;
         $user_id = Auth::user()->id;
-        $imageName = time().'_'.$request->image->getClientOriginalName();
-        $request->image->move(public_path('images'), $imageName);
-        $imagePath = asset('images/' . $imageName);
+        if ($request->image) {
+            $imageName = time().'_'.$request->image->getClientOriginalName();
+            $request->image->move(public_path('images'), $imageName);
+            $imagePath = asset('images/' . $imageName);
+            
+            $merchandise->image = $imagePath;
+        }
         $merchandise->name = $request->name;
-        $merchandise->image = $imagePath;
         $merchandise->description = $request->description;
         $merchandise->price = $request->price;
         $merchandise->user_id = $user_id;
@@ -72,5 +75,22 @@ class MyStoreController extends Controller
 
         $merchandise->save();
         return redirect()->back();
+    }
+
+    public function delete(Request $request)
+    {
+        $merchandise_id = $request->input('merchandise_id');
+        $merchandise = Merchandise::find($merchandise_id);
+
+        //clear image
+        $parsedUrl = parse_url($merchandise->image);
+        $path = public_path($parsedUrl['path']);
+        if (File::exists($path)) {
+            File::delete($path);
+        }
+
+        $merchandise->delete();
+
+        return response()->json('deleted item');
     }
 }

@@ -16,9 +16,9 @@ class CreateMerchandisesTable extends Migration
         Schema::create('merchandises', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->text('description');
-            $table->decimal('price');
+            $table->decimal('price')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

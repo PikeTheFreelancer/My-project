@@ -14,3 +14,10 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Vi-Retro';
+    src: url("../fonts/retro_computer/vi-retro.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
