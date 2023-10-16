@@ -12,6 +12,6 @@ class HomeController extends Controller
     {
         $user = Auth::guard('web')->user();
 
-        return view('user.home')->with('user', $user);
+        return view('home')->with('user', $user);
     }
 }

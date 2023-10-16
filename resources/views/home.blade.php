@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    <a class="shiny home-item glass" href="{{ route('user.my-store') }}">
+                    <a class="shiny home-item glass" href="{{ route('market') }}">
                         <div class="image-container">
                             <img src="{{ asset('images/pokemart.png') }}" alt="">
                         </div>
