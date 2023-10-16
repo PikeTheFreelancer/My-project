@@ -36,8 +36,41 @@ input.input-border,
 textarea.input-border{
     border: solid 2px #ddd;
 }
-.thumbnail{
-    max-width: 100px;
+.image-uploader{
+    position: relative;
+    height: 250px;
+    background-color: #ddd;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+    cursor: pointer;
+    &:hover{
+        &::after{
+            content: "\f044";
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            color: #fff;
+            top: 5px;
+            left: 5px;
+        }
+        .thumbnail{
+            filter: brightness(0.5);
+        }
+    }
+    input[type="file"]{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        z-index: 1;
+        cursor: pointer;
+    }
+    .thumbnail{
+        height: 100%;
+        object-fit: cover;
+    }
 }
 button{
     outline: none;

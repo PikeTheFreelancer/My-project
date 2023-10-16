@@ -26,7 +26,10 @@
                             </div>
                             <div class="form-field">
                                 <label for="image">Image</label>
-                                <input type="file" name="image" id="">
+                                <div class="image-uploader">
+                                    <input type="file" name="image" id="image_uploader">
+                                    <img class="thumbnail" src="" alt="" id="item_image">
+                                </div>
                             </div>
                             <div class="form-field">
                                 <label for="description">Description</label>

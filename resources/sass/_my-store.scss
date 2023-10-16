@@ -31,7 +31,7 @@
         }
     }
     .item{
-        width: 100%;
+        width: calc(25% - 15px);
         max-width: 350px;
         padding: 20px;
         border-radius: 10px;
@@ -39,13 +39,14 @@
         flex-direction: column;
         background-color: #ddd;
         background-image: none;
+        cursor: pointer;
         .name{
             font-size: 24px;
         }
         .image-container{
             margin-top: 8px;
             display: flex;
-            max-height: 250px;
+            height: 250px;
             img{
                 width: 100%;
                 object-fit: cover;
@@ -74,5 +75,5 @@
     min-height: 500px;
     display: flex;
     flex-wrap: wrap;
-    column-gap: 20px;
+    gap: 20px;
 }

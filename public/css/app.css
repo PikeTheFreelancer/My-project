@@ -12023,8 +12023,40 @@ textarea.input-border {
   border: solid 2px #ddd;
 }
 
-.thumbnail {
-  max-width: 100px;
+.image-uploader {
+  position: relative;
+  height: 250px;
+  background-color: #ddd;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  cursor: pointer;
+}
+.image-uploader:hover::after {
+  content: "\f044";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  color: #fff;
+  top: 5px;
+  left: 5px;
+}
+.image-uploader:hover .thumbnail {
+  filter: brightness(0.5);
+}
+.image-uploader input[type=file] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+.image-uploader .thumbnail {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 button {
@@ -12302,7 +12334,7 @@ a.dropdown-item:hover {
   border: none;
 }
 .merchandise .item {
-  width: 100%;
+  width: calc(25% - 15px);
   max-width: 350px;
   padding: 20px;
   border-radius: 10px;
@@ -12310,6 +12342,7 @@ a.dropdown-item:hover {
   flex-direction: column;
   background-color: #ddd;
   background-image: none;
+  cursor: pointer;
 }
 .merchandise .item .name {
   font-size: 24px;
@@ -12317,7 +12350,7 @@ a.dropdown-item:hover {
 .merchandise .item .image-container {
   margin-top: 8px;
   display: flex;
-  max-height: 250px;
+  height: 250px;
 }
 .merchandise .item .image-container img {
   width: 100%;
@@ -12346,6 +12379,5 @@ a.dropdown-item:hover {
   min-height: 500px;
   display: flex;
   flex-wrap: wrap;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  gap: 20px;
 }
