@@ -3,6 +3,7 @@
 ## Các chức năng
 1. multi-authentication: admin và user đăng nhập riêng biệt
 2. user có thể  upload, sửa và xóa mặt hàng cần bán
+3. user có thể chỉnh sửa thông tin cá nhân bao gồm: avatar
 ## Initial project
 1. composer create-project laravel/laravel my-project
 2. create db > edit .env > migrate

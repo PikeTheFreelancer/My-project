@@ -12430,41 +12430,40 @@ a.dropdown-item:hover {
   border-top: none;
 }
 
-.demoWrapper {
-  padding: 20px;
-  border-top: 2px solid #eee;
-  width: 800px;
-  margin: auto;
+.preview {
+  text-align: center;
+  overflow: hidden;
+  width: 160px;
+  height: 160px;
+  margin: 10px;
+  border: 1px solid red;
 }
 
-.cropperContainer {
-  float: left;
-  border: 0px solid #eee;
-  min-width: 440px; /*Used to improve layout during loading the image.*/
-  min-height: 327px;
+.section {
+  margin-top: 150px;
+  background: #fff;
+  padding: 50px 30px;
 }
 
-.previews {
-  float: left;
-  margin-left: 0px;
+.modal-lg {
+  max-width: 1000px !important;
 }
 
-.previewSmall {
-  margin: 40px;
-  width: 60px;
-  height: 60px;
+.avatar-modal img {
+  max-width: 100%;
+  display: block;
 }
 
-.previewBig {
-  margin: 40px;
-  width: 100px;
-  height: 100px;
+.my-account-page .avatar-field {
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
 }
-
-.info {
-  clear: both;
-  padding: 5px;
-  font-family: Arial;
-  font-size: 12px;
-  color: #777;
+.my-account-page .image-uploader {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.my-account-page .form-field {
+  margin-top: 20px;
 }

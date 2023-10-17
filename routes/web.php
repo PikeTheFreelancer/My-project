@@ -12,6 +12,7 @@ Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name
 Route::middleware('auth:web')->group(function (){
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('/my-account', [UserController::class, 'index'])->name('user');
+    Route::post('/my-account', [UserController::class, 'store'])->name('user.save');
     Route::get('/my-store', [MyStoreController::class, 'index'])->name('user.my-store');
     Route::post('/my-store/save', [MyStoreController::class, 'save'])->name('user.my-store.save');
     Route::post('/my-store/delete', [MyStoreController::class, 'delete'])->name('user.my-store.delete');
