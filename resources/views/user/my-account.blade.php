@@ -24,22 +24,4 @@
         </div>
     </div>
 </div>
-<script>
-    var infoNode1 = document.getElementById('info1');
-    var ic1 = new ICropper(
-        'cropperContainer1'
-        ,{
-            ratio: 1
-            ,image: '{{ asset('images/demo.png') }}'
-            ,onChange: function(info){	//onChange must be set when constructing.
-                infoNode1.innerHTML = 'Left: ' + info.l + 'px, Top: '+info.t
-                    + 'px, Width: ' + info.w + 'px, Height: ' + info.h+'px';
-            }
-            ,preview: [
-                'previewSmall1'
-            ]
-        });
-    //use bindPreview to dynamically add preview nodes
-    ic1.bindPreview('previewBig1');
-</script>
 @endsection
