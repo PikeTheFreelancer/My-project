@@ -6,10 +6,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Auth\LogoutController;
 use App\Http\Controllers\User\MyStoreController;
 use App\Http\Controllers\User\MarketController;
+use App\Http\Controllers\User\UserController;
 
 Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('login');
 Route::middleware('auth:web')->group(function (){
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::get('/my-account', [UserController::class, 'index'])->name('user');
     Route::get('/my-store', [MyStoreController::class, 'index'])->name('user.my-store');
     Route::post('/my-store/save', [MyStoreController::class, 'save'])->name('user.my-store.save');
     Route::post('/my-store/delete', [MyStoreController::class, 'delete'])->name('user.my-store.delete');
