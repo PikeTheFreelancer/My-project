@@ -1,6 +1,39 @@
 .market-page{
-    .currently-sale{
-        padding-top: 0;
-        border-top: none;
+    .avatar-field{
+        display: flex;
+        flex-direction: column;
+    }
+    .merchandise{
+        display: flex;
+        column-gap: 20px;
+        box-shadow: 5px 4px 10px 2px #888;
+        padding: 20px;
+        &:not(:first-child){
+            margin-top: 25px;
+        }
+        .price-box{
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            border: solid 1px #000;
+            border-radius: 10px;
+        }
+        .note-box{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            padding: 10px;
+            border: solid 1px #000;
+            flex-grow: 1;
+            margin-top: 20px;
+        }
+    }
+    .merchandise-details{
+        img{
+            max-width: 100%;
+            object-fit: cover;
+        }
     }
 }
