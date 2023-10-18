@@ -3,7 +3,7 @@
 ## Các chức năng
 1. multi-authentication: admin và user đăng nhập riêng biệt
 2. user có thể  upload, sửa và xóa mặt hàng cần bán
-3. user có thể chỉnh sửa thông tin cá nhân bao gồm: avatar
+3. user có thể chỉnh sửa thông tin cá nhân bao gồm: avatar và các thông tin trong bảng user
 ## Initial project
 1. composer create-project laravel/laravel my-project
 2. create db > edit .env > migrate
@@ -24,6 +24,9 @@ php artisan migrate
 - config\auth.php > providers
 5. app/Providers/RouteServiceProvider.php > boot()
 6. chỉnh sửa Routes, Controller và view
+
+## Crop image using boostrap
+- xem tại MyStoreController function save() và custom.js > //crop image
 
 ## Tài liệu tham khảo:
 1. https://viblo.asia/p/multiple-authenticate-trong-laravel-8-oOVlYjqQ58W

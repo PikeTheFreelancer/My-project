@@ -17,6 +17,8 @@ class UserController extends Controller
             'user_name' => $user->name,
             'user_email' => $user->email,
             'avatar' => $user->avatar,
+            'pro_username' => $user->pro_username,
+            'pro_server' => $user->pro_server,
         ];
         return view('user.my-account', $data);
     }
@@ -24,56 +26,38 @@ class UserController extends Controller
     public function save(Request $request)
     {
         $user = Auth::user();
+        
+        //delete old image and load new one to model
         if ($request->avatar) {
-            //delete old one
+            $imageName = $request->avatar->getClientOriginalName();
             $parsedUrl = parse_url($user->avatar);
             $path = public_path($parsedUrl['path']);
             if (File::exists($path)) {
                 File::delete($path);
             }
-
-            //create new one
-            $imageName = time().'_'.$request->avatar->getClientOriginalName();
-            $request->avatar->move(public_path('images/avatars'), $imageName);
-            $imagePath = asset('images/avatars/' . $imageName);
-            
-            $user->avatar = $imagePath;
-            $user->save();
+            $user->avatar = $this->storeBase64($request->image_base64, $imageName);
         }
-        return redirect()->route('user');
-    }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request): RedirectResponse
-    {
-        $user = Auth::user();
-        $validatedData = $request->validate([
-            'image_base64' => 'required',
-        ]);
-        $user->avatar = $this->storeBase64($request->image_base64);
+        //load infomations to model then save
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->pro_username = $request->pro_username;
+        $user->pro_server = $request->pro_server;
         $user->save();
+
         return back()->with('success', 'Image uploaded successfully.');
     }
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-    private function storeBase64($imageBase64)
+    private function storeBase64($imageBase64, $imageName)
     {
         list($type, $imageBase64) = explode(';', $imageBase64);
         list(, $imageBase64)      = explode(',', $imageBase64);
         $imageBase64 = base64_decode($imageBase64);
-        $imageName= time().'.png';
+        $imageName= time().'_'.$imageName;
         $path = public_path() . "/images/avatars/" . $imageName;
         file_put_contents($path, $imageBase64);
 
-        $imageSource = asset('images/avatars/' . $imageName);
+        $imageSource = 'images/avatars/' . $imageName;
         return $imageSource;
     }
 }

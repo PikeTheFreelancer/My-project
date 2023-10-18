@@ -69,7 +69,7 @@
                                         <div>
                                             are you sure to delete this item?
                                         </div>
-                                        <div>
+                                        <div class="actions-box">
                                             <button class="btn btn-primary btn-confirm-delete">Yes</button>
                                             <button class="btn btn-secondary btn-cancel-delete">No</button>
                                         </div>

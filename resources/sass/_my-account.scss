@@ -28,6 +28,7 @@
         width: 100%;
         max-width: 250px;
         text-align: center;
+        margin-right: 20px;
     }
     .image-uploader{
         aspect-ratio: 1/1;
@@ -36,5 +37,14 @@
     }
     .form-field{
         margin-top: 20px;
+    }
+    .base-info{
+        display: flex;
+        justify-content: space-between;
+        .info-fields{
+            padding-left: 20px;
+            border-left: solid 1px #000;
+            width: 60%;
+        }
     }
 }
