@@ -11992,6 +11992,11 @@ input, textarea {
   font-family: "Vi-Retro";
 }
 
+a {
+  text-decoration: none;
+  color: #000;
+}
+
 p {
   font-family: "Vi-Retro";
   margin-bottom: 0;
@@ -12027,6 +12032,7 @@ textarea.input-border {
 }
 
 .image-uploader {
+  border: solid 1px #000;
   position: relative;
   height: 250px;
   background-color: #ddd;
@@ -12250,6 +12256,35 @@ a.dropdown-item:hover {
     transform: translateX(100%);
   }
 }
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.comment-item .comment-avatar {
+  max-width: 50px;
+  width: 100%;
+}
+.comment-item .comment-avatar img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.comment-item .comment-username {
+  font-size: 12px;
+  font-family: "Vi-Retro";
+}
+.comment-item .comment-content {
+  font-size: 10px;
+}
+.comment-item .commented-at {
+  color: #888;
+  font-size: 10px;
+  font-family: "Retro-Gaming";
+}
+
 .admin-login {
   height: 100vh;
   position: relative;
@@ -12466,6 +12501,25 @@ a.dropdown-item:hover {
   max-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.market-page .comment {
+  font-size: 12px;
+  overflow: hidden;
+}
+.market-page .form-comment .form-field {
+  display: flex;
+  align-items: flex-start;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  margin-top: 0;
+}
+.market-page .merchandise-description {
+  margin: 10px 0;
+}
+.market-page .comments-list {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: solid 1px #000;
 }
 
 .preview {

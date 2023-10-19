@@ -36,4 +36,24 @@
             object-fit: cover;
         }
     }
+    .comment{
+        font-size: 12px;
+        overflow: hidden;
+    }
+    .form-comment{
+        .form-field{
+            display: flex;
+            align-items: flex-start;
+            column-gap: 10px;
+            margin-top: 0;
+        }
+    }
+    .merchandise-description{
+        margin: 10px 0;
+    }
+    .comments-list{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top: solid 1px #000;
+    }
 }

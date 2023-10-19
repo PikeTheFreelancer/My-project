@@ -9,7 +9,7 @@
                 <div class="card-body">
                     @if (isset($merchandises) && count($merchandises) > 0)
                         @foreach ($merchandises as $item)
-                            <div class="merchandise">
+                            <div class="merchandise" data-id="{{ $item->id }}">
                                 <div class="avatar-field">
                                     <img src="{{asset($item->avatar)}}" alt="">
                                     <p>seller: {{$item->username}}</p>
@@ -21,7 +21,30 @@
                                 <div class="merchandise-details">
                                     <h2>{{ $item->name }}</h2>
                                     <img src="{{$item->image}}" alt="">
-                                    <p>{{$item->description}}</p>
+                                    <p class="merchandise-description">{{$item->description}}</p>
+                                    
+                                    {{-- comment appended here --}}
+                                    <div class="comments-list">
+                                        @foreach ($item->comments as $comment)
+                                            <div class='comment-item'>
+                                                <div class='comment-avatar'>
+                                                    <img src='{{asset($comment->avatar)}}' alt=''>
+                                                </div>
+                                                <div class='comment-col-right'>
+                                                    <a class='comment-username' href='#'>{{$comment->username}}</a>
+                                                    <p class='comment-content'>{{$comment->comment}}</p>
+                                                    <p class='commented-at'>{{$comment->updated_at}}</p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <form class="form-comment" action="">
+                                        @csrf
+                                        <div class="form-field">
+                                            <textarea class="comment" name="comment" placeholder="leave your comment"></textarea>
+                                            <button class="btn btn-primary btn-comment">comment</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         @endforeach
@@ -32,3 +55,51 @@
     </div>
 </div>
 @endsection
+@push('js')
+    <script>
+        //event comment
+        $(document).on('submit', '.form-comment', function(e) {
+            e.preventDefault();
+            var comment = $(this).find('.comment').val();
+            var merchandise_id = $(this).parents('.merchandise').data('id');
+
+            var commentsList = $(this).siblings('.comments-list');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/market/comment',
+                method: 'POST',
+                data: { 
+                    comment: comment,
+                    merchandise_id: merchandise_id
+                },
+                success: function(response) {
+
+                    var displayTime = 'just now' ;
+                    var commentedAt = commentsList.find('.commented-at');
+                    var username = commentsList.find('.comment-username');
+                    var avatar = commentsList.find('.comment-avatar');
+
+                    var commentElement = "<div class='comment-item'>"+
+                                    "<div class='comment-avatar'>"+
+                                        "<img src='"+response.user_avatar+"' alt=''>"+
+                                    "</div>"+
+                                    "<div class='comment-col-right'>"+
+                                        "<a class='comment-username' href='#'>"+response.username+"</a>"+
+                                        "<p class='comment-content'>"+response.comment+"</p>"+
+                                        "<p class='commented-at'>"+displayTime+"</p>"+
+                                    "</div>"+
+                                "</div>";
+                    commentsList.append(commentElement);
+                },
+                error: function(error) {
+                    // Handle any errors that occur during the Ajax request
+                    console.error('Error:', error);
+                }
+            });
+        })
+    </script>
+@endpush

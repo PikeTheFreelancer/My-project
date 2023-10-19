@@ -145,4 +145,22 @@ $(document).ready(function(){
             }
         });
     });
+
+    //auto increase height of textarea
+    let height;
+    $('textarea').each(function () {
+        this.style.height = (this.scrollHeight-20) + 'px';
+        height = this.style.height;
+      }).on('input', function () {
+        const lineHeight = parseFloat($(this).css("line-height"));
+        const totalHeight = this.scrollHeight;
+        const numberOfLines = totalHeight / lineHeight;
+
+        if (Math.floor(numberOfLines) == 2) {
+            this.style.height = height;
+        } else {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        }
+    });
 });

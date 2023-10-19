@@ -12,6 +12,10 @@ input, textarea{
     border-radius: 3px;
     font-family: 'Vi-Retro';
 }
+a{
+    text-decoration: none;
+    color: #000;
+}
 p{
     font-family: "Vi-Retro";
     margin-bottom: 0;
@@ -41,6 +45,7 @@ textarea.input-border{
     border: solid 1px #000;
 }
 .image-uploader{
+    border: solid 1px #000;
     position: relative;
     height: 250px;
     background-color: #ddd;
@@ -266,3 +271,30 @@ a.dropdown-item:hover{
       0% {transform:translateX(-100%);}
       100% {transform:translateX(100%);}
   }
+
+.comment-item{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 10px;
+    column-gap: 10px;
+    .comment-avatar{
+        max-width: 50px;
+        width: 100%;
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .comment-username{
+        font-size: 12px;
+        font-family: 'Vi-Retro';
+    }
+    .comment-content{
+        font-size: 10px;
+    }
+    .commented-at{
+        color: #888;
+        font-size: 10px;
+        font-family: 'Retro-Gaming';
+    }
+}
