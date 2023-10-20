@@ -14,7 +14,11 @@ Route::middleware('auth:web')->group(function (){
     Route::get('/my-account', [UserController::class, 'index'])->name('user');
     Route::post('/my-account', [UserController::class, 'save'])->name('user.save');
     Route::get('/my-store', [MyStoreController::class, 'index'])->name('user.my-store');
+
     Route::post('/market/comment', [MarketController::class, 'comment'])->name('user.my-store.comment');
+    Route::post('notification/send', [MarketController::class, 'sendNotification'])->name('notification.send');
+    Route::post('notification/mark-as-read', [MarketController::class, 'markAsRead'])->name('notification.mark-as-read');
+
     Route::post('/my-store/save', [MyStoreController::class, 'save'])->name('user.my-store.save');
     Route::post('/my-store/delete', [MyStoreController::class, 'delete'])->name('user.my-store.delete');
     Route::post('/my-store/get-merchandise-fields', [MyStoreController::class, 'getMerchandiseFields'])->name('user.my-store.get-merchandise-fields');

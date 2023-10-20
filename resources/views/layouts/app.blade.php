@@ -31,6 +31,21 @@
     <script src="{{ asset('js/custom.js') }}"></script>
 </head>
 <body>
+    @php
+        if (Auth::check()) {
+            $user_id = Auth::user()->id;
+            $notifications = DB::table('notifications')
+                ->where('data->noti_to', $user_id)
+                ->orderBy('created_at', 'desc')
+                ->limit(10)
+                ->get();
+            $unreadNotifications = $notifications->filter(function ($notification) {
+                return is_null($notification->read_at);
+            });
+        } else {
+            $notifications = [];
+        }
+    @endphp
     <div class="basic-theme" id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -91,6 +106,28 @@
                                     <a class="dropdown-item" href="{{ route('user') }}">My account</a>
                                 </div>
                             </li>
+                            <li class="nav-item dropdown dropdown-notifications">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle notification-box" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    @if (count($unreadNotifications) > 0)
+                                        <span class='new-notification'>!</span>
+                                    @endif
+                                    Notification<span class="caret"></span>
+                                </a>
+                                
+                                <div class="dropdown-menu dropdown-menu-right menu-notification" aria-labelledby="navbarDropdown">
+                                    @foreach ($notifications as $notification)
+                                        @php
+                                            $data = json_decode($notification->data);
+                                        @endphp
+                                        <a class="dropdown-item noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} href="#">
+                                            <span>{{ $data->noti_from }}</span><br>
+                                            @if (isset($data->comment))
+                                                <small>{{ $data->comment }}</small>
+                                            @endif
+                                        </a>
+                                    @endforeach
+                                </div>
+                            </li>
                         @endguest
                     </ul>
                 </div>
@@ -102,5 +139,58 @@
         </main>
     </div>
     @stack('js')
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        var pusher = new Pusher('{{ Config::get('broadcasting.connections.pusher.key') }}', {
+            encrypted: true,
+            cluster: "ap1"
+        });
+        @if (Auth::check()) 
+            var recipant = {{ Auth::user()->id }};
+            var channel = pusher.subscribe('CommentNotificationEvent');
+            channel.bind(recipant, function(data) {
+                var newNotificationHtml = `
+                <a class="dropdown-item noti-item noti-unread" href="#" data-id=${data.id}>
+                    <span>${data.noti_from}</span><br>
+                    <small>${data.comment}</small>
+                </a>
+                `;
+                var newNotilabel = "<span class='new-notification'>!</span>";
+                $('.menu-notification').prepend(newNotificationHtml);
+                $('.notification-box').prepend(newNotilabel);
+            });
+        @endif
+        $(document).on('click', '.notification-box', function() {
+            $('.new-notification').addClass('hidden');
+        })
+        $(document).on('click', '.noti-item', function(e) {
+            e.preventDefault();
+            var noti_id = $(this).data('id');
+            console.log(noti_id);
+            var this_noti = $(this);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: 'notification/mark-as-read',
+                method: 'POST',
+                data: { noti_id: noti_id }, // Send the ID as data
+                success: function(response) {
+                    // Handle the success response from the controller
+                    console.log('Marked as read:', response);
+                    this_noti.removeClass('noti-unread');
+                },
+                error: function(error) {
+                    // Handle any errors that occur during the Ajax request
+                    console.error('Error:', error);
+                }
+            });
+        })
+    </script>
 </body>
 </html>

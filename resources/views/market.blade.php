@@ -60,9 +60,11 @@
         //event comment
         $(document).on('submit', '.form-comment', function(e) {
             e.preventDefault();
-            var comment = $(this).find('.comment').val();
-            var merchandise_id = $(this).parents('.merchandise').data('id');
 
+            var merchandise_id = $(this).parents('.merchandise').data('id');
+            var comment = $(this).find('.comment').val();
+
+            // for comment method
             var commentsList = $(this).siblings('.comments-list');
             $.ajaxSetup({
                 headers: {
@@ -94,6 +96,29 @@
                                     "</div>"+
                                 "</div>";
                     commentsList.append(commentElement);
+                },
+                error: function(error) {
+                    // Handle any errors that occur during the Ajax request
+                    console.error('Error:', error);
+                }
+            });
+            //end comment method
+
+            //for send comment notification method
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/notification/send',
+                method: 'POST',
+                data: { 
+                    merchandise_id: merchandise_id,
+                    comment: comment
+                },
+                success: function(response) {
+                    console.log(response);
                 },
                 error: function(error) {
                     // Handle any errors that occur during the Ajax request

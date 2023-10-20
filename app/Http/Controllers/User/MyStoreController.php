@@ -90,6 +90,7 @@ class MyStoreController extends Controller
         }
 
         $merchandise->delete();
+        $merchandise->comment()->delete();
 
         return response()->json('deleted item');
     }
