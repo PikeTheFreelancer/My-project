@@ -321,14 +321,18 @@ a.dropdown-item:hover{
 .hidden{
     display: none;
 }
-.noti-item{
+.noti-item *{
     position: relative;
+    font-family: 'Vi-Retro';
 }
 .noti-item:not(:first-child){
     border-top: solid 1px #ddd;
 }
 .noti-item:hover{
     background-color: #ddd;
+}
+.noti-unread{
+    position: relative;
 }
 .noti-unread::after{
     content: '';

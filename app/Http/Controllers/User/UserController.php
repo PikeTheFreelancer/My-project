@@ -54,7 +54,14 @@ class UserController extends Controller
         list(, $imageBase64)      = explode(',', $imageBase64);
         $imageBase64 = base64_decode($imageBase64);
         $imageName= time().'_'.$imageName;
+        $directory = public_path('images/avatars');
+
+        if (!File::isDirectory($directory)) {
+            File::makeDirectory($directory, 0755, true, true);
+        }
+        
         $path = public_path() . "/images/avatars/" . $imageName;
+
         file_put_contents($path, $imageBase64);
 
         $imageSource = 'images/avatars/' . $imageName;

@@ -78,12 +78,13 @@
             right: 0;
             text-align: center;
             padding: 10px;
-            background-color: #fff;
             height: 172px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             border: solid 2px #000;
+            backdrop-filter: blur(8px);
+            background: hsla(0,0%,100%,.2);
             .actions-box{
                 display: flex;
                 column-gap: 20px;

@@ -86,9 +86,18 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item dropdown dropdown-notifications">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle notification-box" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    @if (count($unreadNotifications) > 0)
+                                        <span class='new-notification'>!</span>
+                                    @endif
+                                    <i class="fa-regular fa-bell"></i>
+                                </a>
+                            </li>
+                            
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                <a id="navbarDropdown" class="thumbnail-avatar" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <img src="{{ Auth::user()->avatar }}" alt="">
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -106,29 +115,20 @@
                                     <a class="dropdown-item" href="{{ route('user') }}">My account</a>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown dropdown-notifications">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle notification-box" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @if (count($unreadNotifications) > 0)
-                                        <span class='new-notification'>!</span>
-                                    @endif
-                                    Notification<span class="caret"></span>
-                                </a>
-                                
-                                <div class="dropdown-menu dropdown-menu-right menu-notification" aria-labelledby="navbarDropdown">
-                                    @foreach ($notifications as $notification)
-                                        @php
-                                            $data = json_decode($notification->data);
-                                        @endphp
-                                        <a class="dropdown-item noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} href="#">
-                                            <span>{{ $data->noti_from }}</span><br>
-                                            @if (isset($data->comment))
-                                                <small>{{ $data->comment }}</small>
-                                            @endif
-                                        </a>
-                                    @endforeach
-                                </div>
-                            </li>
                         @endguest
+                        <div class="menu-notification" aria-labelledby="navbarDropdown">
+                            @foreach ($notifications as $notification)
+                                @php
+                                    $data = json_decode($notification->data);
+                                @endphp
+                                <a class="dropdown-item noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} href="#">
+                                    <span>{{ $data->noti_from }}</span><br>
+                                    @if (isset($data->comment))
+                                        <small>{{ $data->comment }}</small>
+                                    @endif
+                                </a>
+                            @endforeach
+                        </div>
                     </ul>
                 </div>
             </div>

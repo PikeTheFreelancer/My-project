@@ -163,4 +163,9 @@ $(document).ready(function(){
             this.style.height = (this.scrollHeight) + 'px';
         }
     });
+
+    //notification dropdown
+    $(document).on('click', '.notification-box', function() {
+        $('.menu-notification').slideToggle();
+    })
 });
