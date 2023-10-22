@@ -168,4 +168,9 @@ $(document).ready(function(){
     $(document).on('click', '.notification-box', function() {
         $('.menu-notification').slideToggle();
     })
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.notification-box').length) {
+            $('.menu-notification').slideUp();
+        }
+    })
 });

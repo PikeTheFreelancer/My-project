@@ -164,7 +164,7 @@
             channel.bind(recipant, function(data) {
                 var newNotificationHtml = `
                 <a class="dropdown-item noti-item noti-unread" href="#" data-id=${data.id}>
-                    <p>${data.noti_from} ${data.title}
+                    <p>${data.title}
                         <small>${data.comment}</small>
                     </p>
                 </a>
