@@ -12182,7 +12182,7 @@ button {
   background-color: antiquewhite;
 }
 
-a.dropdown-item:not(:first-child) {
+a.dropdown-item {
   border-top: solid 1px #ddd;
 }
 
@@ -12287,6 +12287,14 @@ a.dropdown-item:hover {
 
 .notification-box {
   position: relative;
+  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.dropdown-notifications {
+  display: flex;
+  align-items: center;
 }
 
 .new-notification {
@@ -12338,6 +12346,19 @@ a.dropdown-item:hover {
   top: 50%;
   transform: translateY(-50%);
   border-radius: 50%;
+}
+
+.navbar-nav {
+  position: relative;
+}
+
+.menu-notification {
+  width: 360px;
+  box-shadow: 5px 4px 10px 2px #888;
+}
+
+.noti-label {
+  padding: 10px;
 }
 
 .admin-login {
@@ -12398,13 +12419,13 @@ a.dropdown-item:hover {
 }
 
 .thumbnail-avatar {
-  height: 100%;
-  max-height: 39px;
-  max-width: 39px;
+  height: 39px;
+  width: 39px;
   display: flex;
   padding: 0;
   border-radius: 50%;
   overflow: hidden;
+  border: solid 1px #ddd;
 }
 .thumbnail-avatar img {
   -o-object-fit: cover;
@@ -12421,7 +12442,16 @@ a.dropdown-item:hover {
   top: 100%;
 }
 .menu-notification .noti-item {
-  padding: 0 10px;
+  padding: 10px 20px;
+  display: block;
+  text-wrap: wrap;
+}
+.menu-notification .noti-item p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 .home-page .home-item {

@@ -194,7 +194,7 @@ button{
     background-color: antiquewhite;
 }
 
-a.dropdown-item:not(:first-child){
+a.dropdown-item{
     border-top: solid 1px #ddd;
 }
 a.dropdown-item:hover{
@@ -300,6 +300,13 @@ a.dropdown-item:hover{
 }
 .notification-box{
     position: relative;
+    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+.dropdown-notifications{
+    display: flex;
+    align-items: center;
 }
 .new-notification{
     position: absolute;
@@ -344,4 +351,14 @@ a.dropdown-item:hover{
     top: 50%;
     transform: translateY(-50%);
     border-radius: 50%;
+}
+.navbar-nav{
+    position: relative;
+}
+.menu-notification{
+    width: 360px;
+    box-shadow: 5px 4px 10px 2px #888;
+}
+.noti-label{
+    padding: 10px;
 }

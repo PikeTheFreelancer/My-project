@@ -100,6 +100,10 @@
                 error: function(error) {
                     // Handle any errors that occur during the Ajax request
                     console.error('Error:', error);
+                },
+                complete: function() {
+                    $(".form-comment")[0].reset();
+                    console.log('run here');
                 }
             });
             //end comment method

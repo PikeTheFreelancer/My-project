@@ -53,43 +53,63 @@ class MarketController extends Controller
     public function sendNotification(Request $request)
     {
         $user_id = Auth::user()->id;
+        
+        // commenter
         $user = User::find($user_id);
         $request['noti_from'] = $user->name;
 
-        $recipant =  Merchandise::find($request->input('merchandise_id'))->user;
-        $request['noti_to'] = $recipant->id;
-        if ($user_id == $request['noti_to']) {
-            return response()->json('no noti sent');
-        } else {
-            $data = $request->only([
-                'comment', 'noti_from', 'noti_to'
-            ]);
-    
-            // save recipant id to notifiable_id column
-            $recipant->notify(new CommentNotification($data));
-    
-            // pass notifiation id to view for unread function
-            $notification_id = DB::table('notifications')->orderBy('created_at', 'desc')->first()->id;
-            $data['id'] = $notification_id;
-    
-            $options = array(
-                'cluster' => 'ap1',
-                'encrypted' => true
-            );
-    
-            // do not use env() other than config files, use Config::get() instead
-            $pusher = new Pusher(
-                Config::get('broadcasting.connections.pusher.key'),
-                Config::get('broadcasting.connections.pusher.secret'),
-                Config::get('broadcasting.connections.pusher.app_id'),
-                $options
-            );
-    
-            // $request['noti_to'] is the chanel which passed to script to sent to a specific user
-            $pusher->trigger('CommentNotificationEvent', $recipant->id , $data);
-    
-            return response()->json('noti sent');
+        $recipant_ids = Comment::where('merchandise_id', $request->input('merchandise_id'))
+        ->distinct()
+        ->pluck('user_id');
+
+        $merchandise_owner = Merchandise::find($request->input('merchandise_id'))->user;
+
+        foreach ($recipant_ids as $recipant_id) {
+
+            $recipant = User::find($recipant_id);
+
+            $request['noti_to'] = $recipant_id;
+            $request['title'] = '';
+
+            if ($merchandise_owner->id == $recipant_id) {
+                $request['title'] = $request['noti_from'].' has commented on your merchandise:';
+            } else {
+                $request['title'] = $request['noti_from'].' has replied on their merchandise:';
+            }
+            
+
+            if ($user_id != $request['noti_to']) {
+            
+                $data = $request->only([
+                    'comment', 'noti_from', 'noti_to', 'title'
+                ]);
+        
+                // save recipant id to notifiable_id column
+                $recipant->notify(new CommentNotification($data));
+        
+                // pass notifiation id to view for unread function
+                $notification_id = DB::table('notifications')->orderBy('created_at', 'desc')->first()->id;
+                $data['id'] = $notification_id;
+        
+                $options = array(
+                    'cluster' => 'ap1',
+                    'encrypted' => true
+                );
+        
+                // do not use env() other than config files, use Config::get() instead
+                $pusher = new Pusher(
+                    Config::get('broadcasting.connections.pusher.key'),
+                    Config::get('broadcasting.connections.pusher.secret'),
+                    Config::get('broadcasting.connections.pusher.app_id'),
+                    $options
+                );
+        
+                // $request['noti_to'] is the chanel which passed to script to sent to a specific user
+                $pusher->trigger('CommentNotificationEvent', $recipant_id , $data);
+            }
         }
+
+        return response()->json();
     }
 
     public function markAsRead(Request $request)

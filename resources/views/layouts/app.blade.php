@@ -42,6 +42,7 @@
             $unreadNotifications = $notifications->filter(function ($notification) {
                 return is_null($notification->read_at);
             });
+
         } else {
             $notifications = [];
         }
@@ -97,7 +98,9 @@
                             
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="thumbnail-avatar" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{ Auth::user()->avatar }}" alt="">
+                                    @if (Auth::user()->avatar)
+                                        <img src="{{ Auth::user()->avatar }}" alt="">
+                                    @endif
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -117,17 +120,23 @@
                             </li>
                         @endguest
                         <div class="menu-notification" aria-labelledby="navbarDropdown">
-                            @foreach ($notifications as $notification)
-                                @php
-                                    $data = json_decode($notification->data);
-                                @endphp
-                                <a class="dropdown-item noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} href="#">
-                                    <span>{{ $data->noti_from }}</span><br>
-                                    @if (isset($data->comment))
-                                        <small>{{ $data->comment }}</small>
-                                    @endif
-                                </a>
-                            @endforeach
+                            <p class="noti-label">Notification</p>
+                            <div class="notifications-list">
+                                @foreach ($notifications as $notification)
+                                    @php
+                                        $data = json_decode($notification->data);
+                                    @endphp
+                                    <a class="dropdown-item noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} href="#">
+                                        @if (isset($data->comment) && isset($data->title))
+                                            <p>{{$data->title}}
+                                                @if (isset($data->comment))
+                                                    <small>{{ $data->comment }}</small>
+                                                @endif
+                                            </p>
+                                        @endif
+                                    </a>
+                                @endforeach
+                            </div>
                         </div>
                     </ul>
                 </div>
@@ -151,15 +160,17 @@
         @if (Auth::check()) 
             var recipant = {{ Auth::user()->id }};
             var channel = pusher.subscribe('CommentNotificationEvent');
+            var message;
             channel.bind(recipant, function(data) {
                 var newNotificationHtml = `
                 <a class="dropdown-item noti-item noti-unread" href="#" data-id=${data.id}>
-                    <span>${data.noti_from}</span><br>
-                    <small>${data.comment}</small>
+                    <p>${data.noti_from} ${data.title}
+                        <small>${data.comment}</small>
+                    </p>
                 </a>
                 `;
                 var newNotilabel = "<span class='new-notification'>!</span>";
-                $('.menu-notification').prepend(newNotificationHtml);
+                $('.notifications-list').prepend(newNotificationHtml);
                 $('.notification-box').prepend(newNotilabel);
             });
         @endif
