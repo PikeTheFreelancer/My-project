@@ -194,7 +194,7 @@ button{
     background-color: antiquewhite;
 }
 
-a.dropdown-item{
+a.dropdown-item:not(:first-child){
     border-top: solid 1px #ddd;
 }
 a.dropdown-item:hover{
@@ -361,4 +361,5 @@ a.dropdown-item:hover{
 }
 .noti-label{
     padding: 10px;
+    border-bottom: solid 1px #ddd;
 }

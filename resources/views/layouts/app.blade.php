@@ -72,7 +72,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto nav-right">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -88,7 +88,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown dropdown-notifications">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle notification-box" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a class="notification-box" href="/market">
                                     @if (count($unreadNotifications) > 0)
                                         <span class='new-notification'>!</span>
                                     @endif
@@ -126,7 +126,7 @@
                                     @php
                                         $data = json_decode($notification->data);
                                     @endphp
-                                    <a class="dropdown-item noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} href="#">
+                                    <a class="dropdown-item noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} href="{{route('market')}}#comment-{{$data->comment_id}}">
                                         @if (isset($data->comment) && isset($data->title))
                                             <p>{{$data->title}}
                                                 @if (isset($data->comment))
@@ -163,7 +163,7 @@
             var message;
             channel.bind(recipant, function(data) {
                 var newNotificationHtml = `
-                <a class="dropdown-item noti-item noti-unread" href="#" data-id=${data.id}>
+                <a class="dropdown-item noti-item noti-unread" href="{{route('market')}}#comment-${data.comment_id}" data-id=${data.id}>
                     <p>${data.title}
                         <small>${data.comment}</small>
                     </p>
@@ -174,34 +174,6 @@
                 $('.notification-box').prepend(newNotilabel);
             });
         @endif
-        $(document).on('click', '.notification-box', function() {
-            $('.new-notification').addClass('hidden');
-        })
-        $(document).on('click', '.noti-item', function(e) {
-            e.preventDefault();
-            var noti_id = $(this).data('id');
-            console.log(noti_id);
-            var this_noti = $(this);
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                url: 'notification/mark-as-read',
-                method: 'POST',
-                data: { noti_id: noti_id }, // Send the ID as data
-                success: function(response) {
-                    // Handle the success response from the controller
-                    console.log('Marked as read:', response);
-                    this_noti.removeClass('noti-unread');
-                },
-                error: function(error) {
-                    // Handle any errors that occur during the Ajax request
-                    console.error('Error:', error);
-                }
-            });
-        })
     </script>
 </body>
 </html>

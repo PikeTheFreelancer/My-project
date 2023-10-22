@@ -81,7 +81,7 @@ class MarketController extends Controller
             if ($user_id != $request['noti_to']) {
             
                 $data = $request->only([
-                    'comment', 'noti_from', 'noti_to', 'title'
+                    'comment', 'noti_from', 'noti_to', 'title', 'comment_id'
                 ]);
         
                 // save recipant id to notifiable_id column
@@ -120,7 +120,7 @@ class MarketController extends Controller
             $notification->markAsRead();
             return response()->json(['message' => 'Notification marked as read']);
         }else{
-            return response()->json(['error' => 'Notification not found'], 404);
+            return response()->json(['error' => 'Notification not found']);
         }
     }
 }

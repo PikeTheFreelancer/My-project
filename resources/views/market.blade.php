@@ -26,7 +26,7 @@
                                     {{-- comment appended here --}}
                                     <div class="comments-list">
                                         @foreach ($item->comments as $comment)
-                                            <div class='comment-item'>
+                                            <div id="comment-{{$comment->id}}" class='comment-item'>
                                                 <div class='comment-avatar'>
                                                     <img src='{{asset($comment->avatar)}}' alt=''>
                                                 </div>
@@ -96,6 +96,7 @@
                                     "</div>"+
                                 "</div>";
                     commentsList.append(commentElement);
+                    sendNotification(merchandise_id, comment, response.id);
                 },
                 error: function(error) {
                     // Handle any errors that occur during the Ajax request
@@ -108,6 +109,9 @@
             });
             //end comment method
 
+        })
+
+        function sendNotification(merchandise_id, comment, comment_id) {
             //for send comment notification method
             $.ajaxSetup({
                 headers: {
@@ -119,7 +123,8 @@
                 method: 'POST',
                 data: { 
                     merchandise_id: merchandise_id,
-                    comment: comment
+                    comment: comment,
+                    comment_id: comment_id
                 },
                 success: function(response) {
                     console.log(response);
@@ -129,6 +134,6 @@
                     console.error('Error:', error);
                 }
             });
-        })
+        }
     </script>
 @endpush

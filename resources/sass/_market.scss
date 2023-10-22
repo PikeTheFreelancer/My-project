@@ -57,3 +57,13 @@
         border-top: solid 1px #000;
     }
 }
+.highlight-background{
+    background-color: rgba($color: #3498db, $alpha: 0.5);
+    animation-name: bgcolor;
+    animation-duration: 5s;
+}
+
+@keyframes bgcolor {
+    from {background-color: rgba($color: #3498db, $alpha: 0.5);}
+    to {background-color: transparent;}
+}

@@ -12182,7 +12182,7 @@ button {
   background-color: antiquewhite;
 }
 
-a.dropdown-item {
+a.dropdown-item:not(:first-child) {
   border-top: solid 1px #ddd;
 }
 
@@ -12359,6 +12359,7 @@ a.dropdown-item:hover {
 
 .noti-label {
   padding: 10px;
+  border-bottom: solid 1px #ddd;
 }
 
 .admin-login {
@@ -12416,6 +12417,12 @@ a.dropdown-item:hover {
   background-image: repeating-linear-gradient(to right, purple, blue);
   background-position: 0;
   transition: 0.5s all;
+}
+
+.nav-right {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }
 
 .thumbnail-avatar {
@@ -12636,6 +12643,20 @@ a.dropdown-item:hover {
   border-top: solid 1px #000;
 }
 
+.highlight-background {
+  background-color: rgba(52, 152, 219, 0.5);
+  animation-name: bgcolor;
+  animation-duration: 5s;
+}
+
+@keyframes bgcolor {
+  from {
+    background-color: rgba(52, 152, 219, 0.5);
+  }
+  to {
+    background-color: transparent;
+  }
+}
 .preview {
   text-align: center;
   overflow: hidden;
