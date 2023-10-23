@@ -199,24 +199,24 @@ $(document).ready(function(){
                 console.error('Error:', error);
             }
         });
-        location.reload();
+        console.log(window.location.hash);
+        if (window.location.hash) {
+            var targetElement = $(window.location.hash);
+            if (targetElement.length > 0) {
+                $('html, body').animate({
+                    scrollTop: targetElement.offset().top
+                }, 1000);
+            }
+    
+            targetElement.addClass('highlight-background');
+    
+            setTimeout(function() {
+                targetElement.removeClass('highlight-background');
+            }, 5000);
+        }
     })
 
     // $(window).on('hashchange', function() {
     // });
-    if (window.location.hash) {
-        console.log('run here');
-        var targetElement = $(window.location.hash);
-        if (targetElement.length > 0) {
-            $('html, body').animate({
-                scrollTop: targetElement.offset().top
-            }, 1000);
-        }
-
-        targetElement.addClass('highlight-background');
-
-        setTimeout(function() {
-            targetElement.removeClass('highlight-background');
-        }, 5000);
-    }
+    
 });
