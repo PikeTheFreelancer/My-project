@@ -12124,36 +12124,36 @@ button {
 }
 
 .pokeball {
-  transform: rotate(90deg);
   width: 40px;
   height: 40px;
   transition: all 0.25s;
   transition-delay: 0.25s;
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
 }
 .pokeball .ball-text {
   opacity: 0;
   transition: all 0.1s;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: rotate(90deg);
 }
 .pokeball .half-top {
   transition: all 0.25s;
-  transform: translateX(8px);
 }
 .pokeball .half-bottom {
   transition: all 0.25s;
-  transform: translateX(0);
+}
+.pokeball .half-bottom svg {
+  overflow: hidden;
 }
 .pokeball .half-pokeball {
   display: inline-block;
+  position: absolute;
 }
 .pokeball:hover {
-  transform: rotate(0);
+  transform: rotate(-90deg);
   overflow: unset;
   transition: all 0.25s;
 }
@@ -12164,12 +12164,12 @@ button {
   transition-delay: 0.25s;
 }
 .pokeball:hover .half-top {
-  transform: translateX(-100%);
+  transform: translateY(calc(-100% - 8px));
   transition: all 0.25s;
   transition-delay: 0.25s;
 }
 .pokeball:hover .half-bottom {
-  transform: translateX(100%);
+  transform: translateY(100%);
   transition: all 0.25s;
   transition-delay: 0.25s;
 }
@@ -12362,6 +12362,27 @@ a.dropdown-item:hover {
   border-bottom: solid 1px #ddd;
 }
 
+.section-container {
+  display: flex;
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 60px;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.mobile {
+  display: none !important;
+}
+
+@media screen and (max-width: 767px) {
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none !important;
+  }
+}
 .admin-login {
   height: 100vh;
   position: relative;
@@ -12655,6 +12676,18 @@ a.dropdown-item:hover {
   }
   to {
     background-color: transparent;
+  }
+}
+@media screen and (max-width: 767px) {
+  .market-page .merchandise {
+    flex-direction: column;
+  }
+  .market-page .avatar-field.mobile {
+    flex-direction: row;
+  }
+  .market-page .avatar-field.mobile img {
+    width: 100%;
+    max-width: 50px;
   }
 }
 .preview {

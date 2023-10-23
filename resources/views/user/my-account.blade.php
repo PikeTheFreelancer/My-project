@@ -4,7 +4,7 @@
 @include('layouts.upload-avatar')
 
 @section('content')
-<div class="container">
+<div class="section-container">
     <div class="row justify-content-center">
         <div class="my-account-page">
             <div class="card">

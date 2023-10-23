@@ -134,37 +134,37 @@ button{
 }
 
 .pokeball{
-    transform: rotate(90deg);
     width: 40px;
     height: 40px;
     transition: all 0.25s;
     transition-delay: .25s;
     display: flex;
     justify-content: center;
+    align-items: center;
     position: relative;
     .ball-text{
         opacity: 0;
         transition: all 0.1s;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        transform: rotate(90deg);
     }
     .half-top{
         transition: all 0.25s;
         // transition-delay: .25s;
-        transform: translateX(8px);
     }
     .half-bottom{
         transition: all 0.25s;
         // transition-delay: .25s;
-        transform: translateX(0);
+        svg{
+            overflow: hidden;
+        }
     }
     .half-pokeball{
         display: inline-block;
+        position: absolute;
     }
     &:hover{
-        transform: rotate(0);
+        transform: rotate(-90deg);
         overflow: unset;
         transition: all 0.25s;
         .ball-text{
@@ -174,12 +174,12 @@ button{
             transition-delay: .25s;
         }
         .half-top{
-            transform: translateX(-100%);
+            transform: translateY(calc(-100% - 8px));
             transition: all 0.25s;
             transition-delay: .25s;
         }
         .half-bottom{
-            transform: translateX(100%);
+            transform: translateY(100%);
             transition: all 0.25s;
             transition-delay: .25s;
         }
@@ -362,4 +362,24 @@ a.dropdown-item:hover{
 .noti-label{
     padding: 10px;
     border-bottom: solid 1px #ddd;
+}
+.section-container{
+    display: flex;
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 60px;
+    margin: auto;
+    justify-content: space-between;
+}
+.mobile{
+    display: none !important;
+}
+
+@media screen and (max-width:767px) {
+    .mobile{
+        display: block;
+    }
+    .desktop{
+        display: none !important;
+    }
 }

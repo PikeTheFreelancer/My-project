@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="section-container">
     <div class="row justify-content-center">
         <div class="market-page">
             <div class="card">
@@ -10,7 +10,7 @@
                     @if (isset($merchandises) && count($merchandises) > 0)
                         @foreach ($merchandises as $item)
                             <div class="merchandise" data-id="{{ $item->id }}">
-                                <div class="avatar-field">
+                                <div class="avatar-field desktop">
                                     <img src="{{asset($item->avatar)}}" alt="">
                                     <p>seller: {{$item->username}}</p>
                                     <div class="price-box">
@@ -21,6 +21,14 @@
                                 <div class="merchandise-details">
                                     <h2>{{ $item->name }}</h2>
                                     <img src="{{$item->image}}" alt="">
+                                    <div class="avatar-field mobile">
+                                        <img src="{{asset($item->avatar)}}" alt="">
+                                        <p>seller: {{$item->username}}</p>
+                                        <div class="price-box">
+                                            <span>@include('svg.pokedollars')</span>
+                                            <span class="price">{{ number_format($item->price, 0, ",", ".") }}</span>
+                                        </div>
+                                    </div>
                                     <p class="merchandise-description">{{$item->description}}</p>
                                     
                                     {{-- comment appended here --}}

@@ -4,7 +4,7 @@
 @section('content')
 
 @include('layouts.edit-merchandise')
-<div class="container">
+<div class="section-container">
     <div class="row justify-content-center">
         <div class="my-store-page">
             <div class="card">

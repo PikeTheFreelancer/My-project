@@ -49,7 +49,7 @@
     @endphp
     <div class="basic-theme" id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="section-container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div class="pokeball">
                         <div class="half-pokeball half-top">
