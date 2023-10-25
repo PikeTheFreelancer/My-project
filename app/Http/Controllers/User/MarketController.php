@@ -5,8 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\Merchandise;
-use App\Models\User;
 use App\Notifications\CommentNotification;
+use App\Repositories\Comment\CommentRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -17,15 +17,17 @@ use App\Repositories\User\UserRepositoryInterface;
 
 class MarketController extends Controller
 {
-    protected $marketRepo, $userRepo;
+    protected $marketRepo, $userRepo, $commentRepo;
 
     public function __construct(
         MarketRepositoryInterface $marketRepo,
-        UserRepositoryInterface $userRepo
+        UserRepositoryInterface $userRepo,
+        CommentRepositoryInterface $commentRepo
     )
     {
         $this->marketRepo = $marketRepo;
         $this->userRepo = $userRepo;
+        $this->commentRepo = $commentRepo;
     }
 
     public function index()
@@ -42,20 +44,23 @@ class MarketController extends Controller
     public function comment(Request $request)
     {
         $user = Auth::user();
-        $user_id = $user->id;
-        $comment = new Comment;
         
-        $comment->comment = $request->input('comment');
-        $comment->merchandise_id = $request->input('merchandise_id');
-        $comment->user_id = $user_id;
+        $comment = $request->input('comment');
+        $merchandise_id = $request->input('merchandise_id');
+        $user_id = $user->id;
 
-        $comment->save();
+        $data = [
+            'comment' => $comment, 
+            'merchandise_id' => $merchandise_id, 
+            'user_id' => $user_id
+        ];
+        $this->commentRepo->create($data);
 
         //pass data to ajax
-        $comment->user_avatar = asset($user->avatar);
-        $comment->username = $user->name;
+        $data['user_avatar'] = asset($user->avatar);
+        $data['username'] = $user->name;
 
-        return response()->json($comment);
+        return response()->json($data);
     }
 
     public function sendNotification(Request $request)
@@ -66,7 +71,7 @@ class MarketController extends Controller
         $user = $this->userRepo->find($user_id);
         $request['noti_from'] = $user->name;
 
-        $recipant_ids = Comment::where('merchandise_id', $request->input('merchandise_id'))
+        $recipant_ids = $this->commentRepo->compareEqual('merchandise_id', $request->input('merchandise_id'))
         ->distinct()
         ->pluck('user_id');
 
@@ -117,7 +122,7 @@ class MarketController extends Controller
             }
         }
 
-        return response()->json();
+        return response()->json('noti sent');
     }
 
     public function markAsRead(Request $request)
