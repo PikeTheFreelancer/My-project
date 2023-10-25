@@ -12375,6 +12375,10 @@ a.dropdown-item:hover {
   display: none !important;
 }
 
+.page {
+  width: 100%;
+}
+
 @media screen and (max-width: 767px) {
   .mobile {
     display: block;
@@ -12601,7 +12605,6 @@ a.dropdown-item:hover {
   border-top: solid 1px #ddd;
   min-height: 200px;
   display: flex;
-  align-items: flex-start;
   flex-wrap: wrap;
   gap: 20px;
   transition: all 1s;

@@ -374,7 +374,9 @@ a.dropdown-item:hover{
 .mobile{
     display: none !important;
 }
-
+.page{
+    width: 100%;
+}
 @media screen and (max-width:767px) {
     .mobile{
         display: block;
