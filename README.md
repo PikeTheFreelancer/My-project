@@ -31,3 +31,4 @@ php artisan migrate
 ## Tài liệu tham khảo:
 1. https://viblo.asia/p/multiple-authenticate-trong-laravel-8-oOVlYjqQ58W
 2. https://github.com/PikeTheFreelancer/Multiple-Auth/tree/master
+3. https://viblo.asia/p/trien-khai-repository-trong-laravel-m68Z0x6MZkG

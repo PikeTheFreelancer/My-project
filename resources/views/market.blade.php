@@ -2,15 +2,25 @@
 
 @section('content')
 <div class="section-container">
-    <div class="row justify-content-center">
-        <div class="market-page">
-            <div class="card">
-                <div class="card-header">{{ __('Market') }}</div>
-                <div class="card-body">
-                    @if (isset($merchandises) && count($merchandises) > 0)
-                        @foreach ($merchandises as $item)
-                            <div class="merchandise" data-id="{{ $item->id }}">
-                                <div class="avatar-field desktop">
+    <div class="market-page page">
+        <div class="card">
+            <div class="card-header">{{ __('Market') }}</div>
+            <div class="card-body">
+                @if (isset($merchandises) && count($merchandises) > 0)
+                    @foreach ($merchandises as $item)
+                        <div class="merchandise" data-id="{{ $item->id }}">
+                            <div class="avatar-field desktop">
+                                <img src="{{asset($item->avatar)}}" alt="">
+                                <p>seller: {{$item->username}}</p>
+                                <div class="price-box">
+                                    <span>@include('svg.pokedollars')</span>
+                                    <span class="price">{{ number_format($item->price, 0, ",", ".") }}</span>
+                                </div>
+                            </div>
+                            <div class="merchandise-details">
+                                <h2>{{ $item->name }}</h2>
+                                <img src="{{$item->image}}" alt="">
+                                <div class="avatar-field mobile">
                                     <img src="{{asset($item->avatar)}}" alt="">
                                     <p>seller: {{$item->username}}</p>
                                     <div class="price-box">
@@ -18,46 +28,34 @@
                                         <span class="price">{{ number_format($item->price, 0, ",", ".") }}</span>
                                     </div>
                                 </div>
-                                <div class="merchandise-details">
-                                    <h2>{{ $item->name }}</h2>
-                                    <img src="{{$item->image}}" alt="">
-                                    <div class="avatar-field mobile">
-                                        <img src="{{asset($item->avatar)}}" alt="">
-                                        <p>seller: {{$item->username}}</p>
-                                        <div class="price-box">
-                                            <span>@include('svg.pokedollars')</span>
-                                            <span class="price">{{ number_format($item->price, 0, ",", ".") }}</span>
-                                        </div>
-                                    </div>
-                                    <p class="merchandise-description">{{$item->description}}</p>
-                                    
-                                    {{-- comment appended here --}}
-                                    <div class="comments-list">
-                                        @foreach ($item->comments as $comment)
-                                            <div id="comment-{{$comment->id}}" class='comment-item'>
-                                                <div class='comment-avatar'>
-                                                    <img src='{{asset($comment->avatar)}}' alt=''>
-                                                </div>
-                                                <div class='comment-col-right'>
-                                                    <a class='comment-username' href='#'>{{$comment->username}}</a>
-                                                    <p class='comment-content'>{{$comment->comment}}</p>
-                                                    <p class='commented-at'>{{$comment->updated_at}}</p>
-                                                </div>
+                                <p class="merchandise-description">{{$item->description}}</p>
+                                
+                                {{-- comment appended here --}}
+                                <div class="comments-list">
+                                    @foreach ($item->comments as $comment)
+                                        <div id="comment-{{$comment->id}}" class='comment-item'>
+                                            <div class='comment-avatar'>
+                                                <img src='{{asset($comment->avatar)}}' alt=''>
                                             </div>
-                                        @endforeach
-                                    </div>
-                                    <form class="form-comment" action="">
-                                        @csrf
-                                        <div class="form-field">
-                                            <textarea class="comment" name="comment" placeholder="leave your comment"></textarea>
-                                            <button class="btn btn-primary btn-comment">comment</button>
+                                            <div class='comment-col-right'>
+                                                <a class='comment-username' href='#'>{{$comment->username}}</a>
+                                                <p class='comment-content'>{{$comment->comment}}</p>
+                                                <p class='commented-at'>{{$comment->updated_at}}</p>
+                                            </div>
                                         </div>
-                                    </form>
+                                    @endforeach
                                 </div>
+                                <form class="form-comment" action="">
+                                    @csrf
+                                    <div class="form-field">
+                                        <textarea class="comment" name="comment" placeholder="leave your comment"></textarea>
+                                        <button class="btn btn-primary btn-comment">comment</button>
+                                    </div>
+                                </form>
                             </div>
-                        @endforeach
-                    @endif
-                </div>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
@@ -71,7 +69,7 @@
 
             var merchandise_id = $(this).parents('.merchandise').data('id');
             var comment = $(this).find('.comment').val();
-
+            var thisForm = $(this);
             // for comment method
             var commentsList = $(this).siblings('.comments-list');
             $.ajaxSetup({
@@ -111,8 +109,7 @@
                     console.error('Error:', error);
                 },
                 complete: function() {
-                    $(".form-comment")[0].reset();
-                    console.log('run here');
+                    thisForm[0].reset();
                 }
             });
             //end comment method

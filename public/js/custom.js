@@ -199,7 +199,6 @@ $(document).ready(function(){
                 console.error('Error:', error);
             }
         });
-        console.log(window.location.hash);
         if (window.location.hash) {
             var targetElement = $(window.location.hash);
             if (targetElement.length > 0) {
@@ -215,8 +214,4 @@ $(document).ready(function(){
             }, 5000);
         }
     })
-
-    // $(window).on('hashchange', function() {
-    // });
-    
 });

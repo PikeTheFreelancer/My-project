@@ -12,19 +12,27 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Pusher\Pusher;
 use Illuminate\Support\Facades\Config;
+use App\Repositories\Market\MarketRepositoryInterface;
+use App\Repositories\User\UserRepositoryInterface;
 
 class MarketController extends Controller
 {
+    protected $marketRepo, $userRepo;
+
+    public function __construct(
+        MarketRepositoryInterface $marketRepo,
+        UserRepositoryInterface $userRepo
+    )
+    {
+        $this->marketRepo = $marketRepo;
+        $this->userRepo = $userRepo;
+    }
+
     public function index()
     {
-        $merchandises = DB::table('merchandises')
-                        ->join('users', 'merchandises.user_id', '=', 'users.id')
-                        ->select('merchandises.*', 'users.avatar', 'users.name as username')->get();
+        $merchandises = $this->marketRepo->getAllMerchandises();
         foreach ($merchandises as $merchandise) {
-            $comments = Comment::where('merchandise_id', $merchandise->id)
-            ->join('users', 'comments.user_id', '=', 'users.id')
-            ->select('comments.*', 'users.avatar', 'users.name as username')                  
-            ->get();
+            $comments = $this->marketRepo->getAllComments($merchandise->id);
             $merchandise->comments = $comments;
         }
 
@@ -55,7 +63,7 @@ class MarketController extends Controller
         $user_id = Auth::user()->id;
         
         // commenter
-        $user = User::find($user_id);
+        $user = $this->userRepo->find($user_id);
         $request['noti_from'] = $user->name;
 
         $recipant_ids = Comment::where('merchandise_id', $request->input('merchandise_id'))
@@ -66,7 +74,7 @@ class MarketController extends Controller
 
         foreach ($recipant_ids as $recipant_id) {
 
-            $recipant = User::find($recipant_id);
+            $recipant = $this->userRepo->find($recipant_id);
 
             $request['noti_to'] = $recipant_id;
             $request['title'] = '';
