@@ -4,28 +4,32 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
-use App\Models\Merchandise;
-use App\Models\User;
 use App\Notifications\CommentNotification;
+use App\Repositories\Comment\CommentRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Pusher\Pusher;
 use Illuminate\Support\Facades\Config;
 use App\Repositories\Market\MarketRepositoryInterface;
+use App\Repositories\Merchandise\MerchandiseRepositoryInterface;
 use App\Repositories\User\UserRepositoryInterface;
 
 class MarketController extends Controller
 {
-    protected $marketRepo, $userRepo;
+    protected $marketRepo, $userRepo, $commentRepo, $merchandiseRepo;
 
     public function __construct(
         MarketRepositoryInterface $marketRepo,
-        UserRepositoryInterface $userRepo
+        UserRepositoryInterface $userRepo,
+        CommentRepositoryInterface $commentRepo,
+        MerchandiseRepositoryInterface $merchandiseRepo
     )
     {
         $this->marketRepo = $marketRepo;
         $this->userRepo = $userRepo;
+        $this->commentRepo = $commentRepo;
+        $this->merchandiseRepo = $merchandiseRepo;
     }
 
     public function index()
@@ -43,7 +47,7 @@ class MarketController extends Controller
     {
         $user = Auth::user();
         $user_id = $user->id;
-        $comment = new Comment;
+        $comment = new Comment();
         
         $comment->comment = $request->input('comment');
         $comment->merchandise_id = $request->input('merchandise_id');
@@ -66,11 +70,14 @@ class MarketController extends Controller
         $user = $this->userRepo->find($user_id);
         $request['noti_from'] = $user->name;
 
-        $recipant_ids = Comment::where('merchandise_id', $request->input('merchandise_id'))
+        $merchandise_owner = $this->merchandiseRepo->find($request->input('merchandise_id'))->user;
+
+        $recipant_ids = $this->commentRepo->compareEqual('merchandise_id', $request->input('merchandise_id'))
         ->distinct()
         ->pluck('user_id');
 
-        $merchandise_owner = Merchandise::find($request->input('merchandise_id'))->user;
+        $recipant_ids[] = $merchandise_owner->id;
+        $recipant_ids = $recipant_ids->unique();
 
         foreach ($recipant_ids as $recipant_id) {
 
@@ -117,7 +124,7 @@ class MarketController extends Controller
             }
         }
 
-        return response()->json();
+        return response()->json('noti sent');
     }
 
     public function markAsRead(Request $request)
