@@ -4,6 +4,8 @@
 1. multi-authentication: admin và user đăng nhập riêng biệt
 2. user có thể  upload, sửa và xóa mặt hàng cần bán
 3. user có thể chỉnh sửa thông tin cá nhân bao gồm: avatar và các thông tin trong bảng user
+4. user có thể comment trên mặt hàng đang bán trên market. Thông báo sẽ được gửi (realtime) cho những user khác cũng đang comment trên post đó.
+5. thông báo redirect đến comment tương ứng
 ## Initial project
 1. composer create-project laravel/laravel my-project
 2. create db > edit .env > migrate
