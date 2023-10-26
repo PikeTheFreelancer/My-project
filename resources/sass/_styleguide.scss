@@ -372,16 +372,25 @@ a.dropdown-item:hover{
     justify-content: space-between;
 }
 .mobile{
-    display: none !important;
+    display: none;
 }
 .page{
     width: 100%;
 }
+
+@media screen and (max-width: 991px) {
+    .section-container{
+        padding: 0 20px;
+    }
+}
 @media screen and (max-width:767px) {
+    .section-container{
+        padding: 0 15px;
+    }
     .mobile{
         display: block;
     }
     .desktop{
-        display: none !important;
+        display: none;
     }
 }

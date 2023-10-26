@@ -20,15 +20,13 @@
                             <div class="merchandise-details">
                                 <h2>{{ $item->name }}</h2>
                                 <img src="{{$item->image}}" alt="">
-                                <div class="avatar-field mobile">
-                                    <img src="{{asset($item->avatar)}}" alt="">
-                                    <p>seller: {{$item->username}}</p>
-                                    <div class="price-box">
-                                        <span>@include('svg.pokedollars')</span>
-                                        <span class="price">{{ number_format($item->price, 0, ",", ".") }}</span>
-                                    </div>
-                                </div>
                                 <p class="merchandise-description">{{$item->description}}</p>
+                                <div class="price-box mobile">
+                                    <span>
+                                        <img src="{{asset('images/svg/pokedollars.svg')}}" alt="">
+                                    </span>
+                                    <span class="price">{{ number_format($item->price, 0, ",", ".") }}</span>
+                                </div>
                                 
                                 {{-- comment appended here --}}
                                 <div class="comments-list">
@@ -39,6 +37,9 @@
                                             </div>
                                             <div class='comment-col-right'>
                                                 <a class='comment-username' href='#'>{{$comment->username}}</a>
+                                                @if ($comment->user_id == $item->user_id)
+                                                    <small class="user-label">seller</small>
+                                                @endif
                                                 <p class='comment-content'>{{$comment->comment}}</p>
                                                 <p class='commented-at'>{{$comment->updated_at}}</p>
                                             </div>

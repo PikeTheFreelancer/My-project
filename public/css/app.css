@@ -12372,19 +12372,27 @@ a.dropdown-item:hover {
 }
 
 .mobile {
-  display: none !important;
+  display: none;
 }
 
 .page {
   width: 100%;
 }
 
+@media screen and (max-width: 991px) {
+  .section-container {
+    padding: 0 20px;
+  }
+}
 @media screen and (max-width: 767px) {
+  .section-container {
+    padding: 0 15px;
+  }
   .mobile {
     display: block;
   }
   .desktop {
-    display: none !important;
+    display: none;
   }
 }
 .admin-login {
@@ -12632,6 +12640,9 @@ a.dropdown-item:hover {
   border: solid 1px #000;
   border-radius: 10px;
 }
+.market-page .merchandise .price-box.mobile {
+  display: none;
+}
 .market-page .merchandise .note-box {
   display: flex;
   justify-content: center;
@@ -12666,6 +12677,14 @@ a.dropdown-item:hover {
   padding-bottom: 10px;
   border-top: solid 1px #000;
 }
+.market-page .comments-list .user-label {
+  color: #888;
+  font-size: 10px;
+  font-family: "Retro-Gaming";
+  padding: 3px;
+  border: solid 1px #888;
+  border-radius: 3px;
+}
 
 .highlight-background {
   background-color: rgba(52, 152, 219, 0.5);
@@ -12685,12 +12704,13 @@ a.dropdown-item:hover {
   .market-page .merchandise {
     flex-direction: column;
   }
-  .market-page .avatar-field.mobile {
-    flex-direction: row;
+  .market-page .merchandise .price-box.mobile {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 0;
   }
-  .market-page .avatar-field.mobile img {
-    width: 100%;
-    max-width: 50px;
+  .market-page .avatar-field.desktop {
+    display: none;
   }
 }
 .preview {
