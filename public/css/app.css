@@ -12476,7 +12476,7 @@ a.dropdown-item:hover {
 .menu-notification .noti-item {
   padding: 10px 20px;
   display: block;
-  text-wrap: wrap;
+  white-space: normal;
 }
 .menu-notification .noti-item p {
   overflow: hidden;

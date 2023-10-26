@@ -21,7 +21,7 @@
     .noti-item{
         padding: 10px 20px;
         display: block;
-        text-wrap: wrap;
+        white-space: normal;
         p{
             overflow: hidden;
             text-overflow: ellipsis;
