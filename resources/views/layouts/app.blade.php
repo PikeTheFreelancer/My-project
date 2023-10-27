@@ -48,9 +48,9 @@
         }
     @endphp
     <div class="basic-theme" id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="section-container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+        <nav class="navbar-container bg-white shadow-sm">
+            <div class="main-navbar section-container">
+                <a class="home-link" href="{{ url('/') }}">
                     <div class="pokeball">
                         <div class="half-pokeball half-top">
                             @include('svg.half-top')
@@ -61,85 +61,126 @@
                         </div>
                     </div>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto nav-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
+                <div class="navbar-controll">
+                    <div class="nav-item dropdown dropdown-notifications">
+                        <a class="notification-box" href="/market">
+                            @if (isset($unreadNotifications) && count($unreadNotifications) > 0)
+                                <span class='new-notification'>!</span>
                             @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown dropdown-notifications">
-                                <a class="notification-box" href="/market">
-                                    @if (count($unreadNotifications) > 0)
-                                        <span class='new-notification'>!</span>
-                                    @endif
-                                    <i class="fa-regular fa-bell"></i>
-                                </a>
-                            </li>
-                            
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="thumbnail-avatar" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @if (Auth::user()->avatar)
-                                        <img src="{{ Auth::user()->avatar }}" alt="">
+                            <i class="fa-regular fa-bell" style="font-size: 21px;"></i>
+                        </a>
+                    </div>
+                    <div class="menu-notification" aria-labelledby="navbarDropdown">
+                        <p class="noti-label">Notification</p>
+                        <div class="notifications-list">
+                            @foreach ($notifications as $notification)
+                                @php
+                                    $data = json_decode($notification->data);
+                                @endphp
+                                <a class="noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} href="{{route('market')}}#comment-{{$data->comment_id}}">
+                                    @if (isset($data->comment) && isset($data->title))
+                                        <p>{{$data->title}}
+                                            @if (isset($data->comment))
+                                                <small>{{ $data->comment }}</small>
+                                            @endif
+                                        </p>
                                     @endif
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-
-                                    <a class="dropdown-item" href="{{ route('user.my-store') }}">My store</a>
-                                    <a class="dropdown-item" href="{{ route('user') }}">My account</a>
-                                </div>
-                            </li>
-                        @endguest
-                        <div class="menu-notification" aria-labelledby="navbarDropdown">
-                            <p class="noti-label">Notification</p>
-                            <div class="notifications-list">
-                                @foreach ($notifications as $notification)
-                                    @php
-                                        $data = json_decode($notification->data);
-                                    @endphp
-                                    <a class="dropdown-item noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} href="{{route('market')}}#comment-{{$data->comment_id}}">
-                                        @if (isset($data->comment) && isset($data->title))
-                                            <p>{{$data->title}}
-                                                @if (isset($data->comment))
-                                                    <small>{{ $data->comment }}</small>
-                                                @endif
-                                            </p>
+                            @endforeach
+                        </div>
+                    </div>
+                    <button class="mobile-navbar mobile">
+                        <i class="fa-solid fa-bars" style="color: #131313; font-size: 21px;"></i>
+                    </button>
+    
+                    <div class="desktop-navbar desktop">
+    
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ms-auto nav-right desktop">
+                            <!-- Authentication Links -->
+                            @guest
+                                @if (Route::has('login'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    </li>
+                                @endif
+    
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                @endif
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="thumbnail-avatar" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        @if (Auth::user()->avatar)
+                                            <img src="{{ Auth::user()->avatar }}" alt="">
                                         @endif
                                     </a>
-                                @endforeach
-                            </div>
-                        </div>
-                    </ul>
+    
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+    
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+    
+                                        <a class="dropdown-item" href="{{ route('user.my-store') }}">My store</a>
+                                        <a class="dropdown-item" href="{{ route('user') }}">My account</a>
+                                    </div>
+                                </li>
+                            @endguest
+                            
+                        </ul>
+                    </div>
                 </div>
+            </div>
+            <div class="mobile-nav-links">
+                <ul class="section-container">
+                    <!-- Authentication Links -->
+                    @guest
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                        @endif
+
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="mobile-nav-link">
+                            <a class="thumbnail-avatar" href="#">
+                                @if (Auth::user()->avatar)
+                                    <img src="{{ Auth::user()->avatar }}" alt="">
+                                @endif
+                            </a>
+                            <i class="fa-solid fa-caret-down" style="color: #131313;"></i>
+                            <ul class="sub-links">
+                                <a class="dropdown-item" href="{{ route('user.my-store') }}">My store</a>
+                                <a class="dropdown-item" href="{{ route('user') }}">My account</a>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                        
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                    @endguest
+                </ul>
             </div>
         </nav>
 
@@ -163,7 +204,7 @@
             var message;
             channel.bind(recipant, function(data) {
                 var newNotificationHtml = `
-                <a class="dropdown-item noti-item noti-unread" href="{{route('market')}}#comment-${data.comment_id}" data-id=${data.id}>
+                <a class="noti-item noti-unread" href="{{route('market')}}#comment-${data.comment_id}" data-id=${data.id}>
                     <p>${data.title}
                         <small>${data.comment}</small>
                     </p>

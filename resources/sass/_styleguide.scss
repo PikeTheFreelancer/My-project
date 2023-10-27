@@ -77,6 +77,7 @@ textarea.input-border{
         cursor: pointer;
     }
     .thumbnail{
+        width: 100%;
         height: 100%;
         object-fit: cover;
     }
@@ -271,98 +272,10 @@ a.dropdown-item:hover{
       0% {transform:translateX(-100%);}
       100% {transform:translateX(100%);}
   }
-
-.comment-item{
-    display: flex;
-    align-items: flex-start;
-    margin-top: 10px;
-    column-gap: 10px;
-    .comment-avatar{
-        max-width: 50px;
-        width: 100%;
-        img{
-            width: 100%;
-            object-fit: cover;
-        }
-    }
-    .comment-username{
-        font-size: 12px;
-        font-family: 'Vi-Retro';
-    }
-    .comment-content{
-        font-size: 10px;
-    }
-    .commented-at{
-        color: #888;
-        font-size: 10px;
-        font-family: 'Retro-Gaming';
-    }
-}
-.notification-box{
-    position: relative;
-    padding: 0;
-    padding-left: 0;
-    padding-right: 0;
-}
-.dropdown-notifications{
-    display: flex;
-    align-items: center;
-}
-.new-notification{
-    position: absolute;
-    top: 8px;
-    right: 4px;
-    padding: 5px;
-    border-radius: 50%;
-    background-color: red;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 15px;
-    height: 15px;
-    font-size: 10px;
-    line-height: 10px;
-    font-weight: bold;
-}
 .hidden{
     display: none;
 }
-.noti-item *{
-    position: relative;
-    font-family: 'Vi-Retro';
-}
-.noti-item:not(:first-child){
-    border-top: solid 1px #ddd;
-}
-.noti-item:hover{
-    background-color: #ddd;
-}
-.noti-unread{
-    position: relative;
-}
-.noti-unread::after{
-    content: '';
-    width: 5px;
-    height: 5px;
-    background-color: #0167cb;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 50%;
-}
-.navbar-nav{
-    position: relative;
-}
-.menu-notification{
-    width: 360px;
-    box-shadow: 5px 4px 10px 2px #888;
-}
-.noti-label{
-    padding: 10px;
-    border-bottom: solid 1px #ddd;
-}
+
 .section-container{
     display: flex;
     width: 100%;

@@ -32,7 +32,6 @@
     }
     .item{
         width: calc(25% - 15px);
-        max-width: 350px;
         padding: 20px;
         border-radius: 10px;
         display: flex;
@@ -48,6 +47,7 @@
             align-items: center;
             overflow: hidden;
             img{
+                width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
@@ -101,4 +101,26 @@
     flex-wrap: wrap;
     gap: 20px;
     transition: all 1s;
+}
+
+@media screen and (max-width: 1200px) {
+    .merchandise{
+        .item{
+            width: calc(33.33% - 15px);
+        }
+    }
+}
+@media screen and (max-width: 850px) {
+    .merchandise{
+        .item{
+            width: calc(50% - 15px);
+        }
+    }
+}
+@media screen and (max-width: 550px) {
+    .merchandise{
+        .item{
+            width: 100%;
+        }
+    }
 }

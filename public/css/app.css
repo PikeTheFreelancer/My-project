@@ -12063,6 +12063,7 @@ textarea.input-border {
   cursor: pointer;
 }
 .image-uploader .thumbnail {
+  width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -12256,110 +12257,8 @@ a.dropdown-item:hover {
     transform: translateX(100%);
   }
 }
-.comment-item {
-  display: flex;
-  align-items: flex-start;
-  margin-top: 10px;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
-}
-.comment-item .comment-avatar {
-  max-width: 50px;
-  width: 100%;
-}
-.comment-item .comment-avatar img {
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.comment-item .comment-username {
-  font-size: 12px;
-  font-family: "Vi-Retro";
-}
-.comment-item .comment-content {
-  font-size: 10px;
-}
-.comment-item .commented-at {
-  color: #888;
-  font-size: 10px;
-  font-family: "Retro-Gaming";
-}
-
-.notification-box {
-  position: relative;
-  padding: 0;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.dropdown-notifications {
-  display: flex;
-  align-items: center;
-}
-
-.new-notification {
-  position: absolute;
-  top: 8px;
-  right: 4px;
-  padding: 5px;
-  border-radius: 50%;
-  background-color: red;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 15px;
-  height: 15px;
-  font-size: 10px;
-  line-height: 10px;
-  font-weight: bold;
-}
-
 .hidden {
   display: none;
-}
-
-.noti-item * {
-  position: relative;
-  font-family: "Vi-Retro";
-}
-
-.noti-item:not(:first-child) {
-  border-top: solid 1px #ddd;
-}
-
-.noti-item:hover {
-  background-color: #ddd;
-}
-
-.noti-unread {
-  position: relative;
-}
-
-.noti-unread::after {
-  content: "";
-  width: 5px;
-  height: 5px;
-  background-color: #0167cb;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 50%;
-}
-
-.navbar-nav {
-  position: relative;
-}
-
-.menu-notification {
-  width: 360px;
-  box-shadow: 5px 4px 10px 2px #888;
-}
-
-.noti-label {
-  padding: 10px;
-  border-bottom: solid 1px #ddd;
 }
 
 .section-container {
@@ -12452,28 +12351,48 @@ a.dropdown-item:hover {
   transition: 0.5s all;
 }
 
+.navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.main-navbar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.navbar {
+  padding: 0;
+}
+
 .nav-right {
   display: flex;
+  flex-direction: row;
   -moz-column-gap: 10px;
        column-gap: 10px;
 }
 
-.thumbnail-avatar {
-  height: 39px;
-  width: 39px;
+.navbar-controll {
   display: flex;
-  padding: 0;
-  border-radius: 50%;
-  overflow: hidden;
-  border: solid 1px #ddd;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }
-.thumbnail-avatar img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
+
+.desktop-navbar {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-nav-links {
+  display: none;
 }
 
 .menu-notification {
+  border-top: solid 1px #ddd;
+  width: 360px;
+  box-shadow: 0px 5px 5px 0 #ddd;
   display: none;
   position: absolute;
   z-index: 2;
@@ -12492,6 +12411,174 @@ a.dropdown-item:hover {
   -webkit-line-clamp: 2;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+}
+
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.comment-item .comment-avatar {
+  max-width: 50px;
+  width: 100%;
+}
+.comment-item .comment-avatar img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.comment-item .comment-username {
+  font-size: 12px;
+  font-family: "Vi-Retro";
+}
+.comment-item .comment-content {
+  font-size: 10px;
+}
+.comment-item .commented-at {
+  color: #888;
+  font-size: 10px;
+  font-family: "Retro-Gaming";
+}
+
+.notification-box {
+  display: flex;
+  position: relative;
+  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.dropdown-notifications {
+  display: flex;
+  align-items: center;
+}
+
+.new-notification {
+  position: absolute;
+  top: 8px;
+  right: 4px;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: red;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: bold;
+}
+
+.noti-item * {
+  position: relative;
+  font-family: "Vi-Retro";
+}
+
+.noti-item:not(:first-child) {
+  border-top: solid 1px #ddd;
+}
+
+.noti-item:hover {
+  background-color: #ddd;
+}
+
+.noti-unread {
+  position: relative;
+}
+
+.noti-unread::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background-color: #0167cb;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.navbar-nav {
+  position: relative;
+}
+
+.noti-label {
+  padding: 10px;
+  border-bottom: solid 1px #ddd;
+}
+
+@media screen and (max-width: 767px) {
+  .mobile-navbar {
+    padding: 0 10px;
+    background-color: #fff;
+    border: solid 1px #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+  }
+  .nav-right.desktop {
+    display: none;
+  }
+  .navbar-collapse {
+    position: absolute;
+    top: 66px;
+    left: 0;
+    background-color: #fff;
+    z-index: 2;
+    width: 100%;
+  }
+  .sub-links {
+    display: none;
+  }
+  .mobile-nav-links {
+    padding: 10px 0;
+    border-top: solid 1px #ddd;
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0px 5px 5px 0 #ddd;
+  }
+  .mobile-nav-links .thumbnail-avatar {
+    display: inline-flex;
+  }
+  .mobile-nav-links ul {
+    list-style: none;
+    flex-direction: column;
+  }
+  .mobile-nav-links ul li {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+  }
+  .mobile-nav-links ul li:first-child {
+    border-top: none;
+  }
+  a.dropdown-item:not(:first-child) {
+    border-top: none;
+  }
+  .menu-notification {
+    width: 100%;
+  }
+}
+.thumbnail-avatar {
+  height: 39px;
+  width: 39px;
+  display: flex;
+  padding: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid 1px #ddd;
+}
+.thumbnail-avatar img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
 }
 
 .home-page .home-item {
@@ -12545,7 +12632,6 @@ a.dropdown-item:hover {
 }
 .merchandise .item {
   width: calc(25% - 15px);
-  max-width: 350px;
   padding: 20px;
   border-radius: 10px;
   display: flex;
@@ -12562,6 +12648,7 @@ a.dropdown-item:hover {
   overflow: hidden;
 }
 .merchandise .item .image-container img {
+  width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -12618,6 +12705,21 @@ a.dropdown-item:hover {
   transition: all 1s;
 }
 
+@media screen and (max-width: 1200px) {
+  .merchandise .item {
+    width: calc(33.33% - 15px);
+  }
+}
+@media screen and (max-width: 850px) {
+  .merchandise .item {
+    width: calc(50% - 15px);
+  }
+}
+@media screen and (max-width: 550px) {
+  .merchandise .item {
+    width: 100%;
+  }
+}
 .market-page .avatar-field {
   display: flex;
   flex-direction: column;
@@ -12740,7 +12842,6 @@ a.dropdown-item:hover {
 .my-account-page .avatar-field {
   width: 100%;
   max-width: 250px;
-  text-align: center;
   margin-right: 20px;
 }
 .my-account-page .image-uploader {
@@ -12759,4 +12860,19 @@ a.dropdown-item:hover {
   padding-left: 20px;
   border-left: solid 1px #000;
   width: 60%;
+}
+
+@media screen and (max-width: 767px) {
+  .my-account-page .base-info {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .my-account-page .base-info .info-fields {
+    padding-left: 0;
+    border-left: none;
+    width: 100%;
+  }
+  .my-account-page .avatar-field {
+    margin-right: 0;
+  }
 }
