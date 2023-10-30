@@ -1,4 +1,11 @@
 .market-page{
+    .comment-username-container{
+        display: flex;
+        column-gap: 5px;
+    }
+    .load-prev-comments{
+        font-size: 12px;
+    }
     .avatar-field{
         display: flex;
         flex-direction: column;
@@ -54,7 +61,7 @@
     .merchandise-description{
         margin: 10px 0;
     }
-    .comments-list{
+    .comment-place{
         padding-top: 10px;
         padding-bottom: 10px;
         border-top: solid 1px #000;

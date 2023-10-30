@@ -184,6 +184,7 @@ $(document).ready(function(){
         window.location.hash = '#' + $(this).attr('href').split('#')[1];
         var noti_id = $(this).data('id');
         var this_noti = $(this);
+        this_noti.removeClass('noti-unread');
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -196,7 +197,6 @@ $(document).ready(function(){
             success: function(response) {
                 // Handle the success response from the controller
                 console.log('Marked as read:', response);
-                this_noti.removeClass('noti-unread');
             },
             error: function(error) {
                 // Handle any errors that occur during the Ajax request
@@ -227,4 +227,66 @@ $(document).ready(function(){
     $('.mobile-nav-link').on('click', function() {
         $('.sub-links').slideToggle();
     })
+
+    $('.load-prev-comments').each(function() {
+        let amount = 6;
+        $(this).on('click', function(e) {
+            e.preventDefault();
+            var merchandise_id = $(this).parents('.merchandise').data('id');
+            var seller_id = $(this).parents('.merchandise').data('seller-id');
+            var commentList = $(this).parents('.merchandise').find('.comments-list');
+            var loadCommentsBtn = $(this);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/market/load-comments',
+                method: 'POST',
+                data: { 
+                    amount: amount,
+                    merchandise_id: merchandise_id
+                },
+                success: function(response) {
+                    if (response) {
+                        commentList.empty();
+                        response.forEach(item => {
+                            let isSeller = (seller_id == item.user_id) ? true : false;
+                            commentList.prepend(loadComments(item, isSeller));
+                        });
+                        amount = amount + 3;
+                    }else{
+                        loadCommentsBtn.hide();
+                    }
+                    
+                },
+                error: function(error) {
+                    // Handle any errors that occur during the Ajax request
+                    console.error('Error:', error);
+                }
+            });
+        })
+    })
+
+    function loadComments(item, isSeller) {
+        var commentElement = "<div class='comment-item'>" +
+        "<div class='comment-avatar'>" +
+        "<img src='" + item.avatar + "' alt=''>" +
+        "</div>" +
+        "<div class='comment-col-right'>" +
+        "<div class='comment-username-container'>"+
+        "<a class='comment-username' href='#'>" + item.username + "</a>";
+
+        if (isSeller) {
+            commentElement += "<small class='user-label'>seller</small>";
+        }
+
+        commentElement += "</div>" +
+            "<p class='comment-content'>" + item.comment + "</p>" +
+            "<p class='commented-at'>" + item.timeAgo + "</p>" +
+            "</div>" +
+            "</div>";
+        return commentElement;
+    }
 });

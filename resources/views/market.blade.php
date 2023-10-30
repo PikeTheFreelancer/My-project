@@ -8,7 +8,7 @@
             <div class="card-body">
                 @if (isset($merchandises) && count($merchandises) > 0)
                     @foreach ($merchandises as $item)
-                        <div class="merchandise" data-id="{{ $item->id }}">
+                        <div class="merchandise" data-id="{{ $item->id }}" data-seller-id="{{$item->user_id}}">
                             <div class="avatar-field desktop">
                                 <img src="{{asset($item->avatar)}}" alt="">
                                 <p>seller: {{$item->username}}</p>
@@ -29,22 +29,32 @@
                                 </div>
                                 
                                 {{-- comment appended here --}}
-                                <div class="comments-list">
-                                    @foreach ($item->comments as $comment)
-                                        <div id="comment-{{$comment->id}}" class='comment-item'>
-                                            <div class='comment-avatar'>
-                                                <img src='{{asset($comment->avatar)}}' alt=''>
+                                <div class="comment-place">
+                                    @if ($item->max_size > 3)
+                                        <a href="#" class="load-prev-comments">
+                                            load previous comments
+                                            <i class="fa-solid fa-caret-down" style="color: #131313;"></i>
+                                        </a>
+                                    @endif
+                                    <div class="comments-list">
+                                        @foreach ($item->comments as $comment)
+                                            <div id="comment-{{$comment->id}}" class='comment-item'>
+                                                <div class='comment-avatar'>
+                                                    <img src='{{asset($comment->avatar)}}' alt=''>
+                                                </div>
+                                                <div class='comment-col-right'>
+                                                    <div class="comment-username-container">
+                                                        <a class='comment-username' href='#'>{{$comment->username}}</a>
+                                                        @if ($comment->user_id == $item->user_id)
+                                                            <small class="user-label">seller</small>
+                                                        @endif
+                                                    </div>
+                                                    <p class='comment-content'>{{$comment->comment}}</p>
+                                                    <p class='commented-at'>{{$comment->timeAgo}}</p>
+                                                </div>
                                             </div>
-                                            <div class='comment-col-right'>
-                                                <a class='comment-username' href='#'>{{$comment->username}}</a>
-                                                @if ($comment->user_id == $item->user_id)
-                                                    <small class="user-label">seller</small>
-                                                @endif
-                                                <p class='comment-content'>{{$comment->comment}}</p>
-                                                <p class='commented-at'>{{$comment->updated_at}}</p>
-                                            </div>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
+                                    </div>
                                 </div>
                                 <form class="form-comment" action="">
                                     @csrf
@@ -88,10 +98,6 @@
                 success: function(response) {
 
                     var displayTime = 'just now' ;
-                    var commentedAt = commentsList.find('.commented-at');
-                    var username = commentsList.find('.comment-username');
-                    var avatar = commentsList.find('.comment-avatar');
-
                     var commentElement = "<div class='comment-item'>"+
                                     "<div class='comment-avatar'>"+
                                         "<img src='"+response.user_avatar+"' alt=''>"+

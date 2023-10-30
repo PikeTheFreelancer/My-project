@@ -17,7 +17,7 @@
                             <div class="form-field image-uploader">
                                 <input type="file" name="avatar" class="avatar">
                                 <input type="hidden" name="image_base64">
-                                <img class="thumbnail show-image" src="{{asset($avatar)}}" alt="">
+                                <img class="thumbnail show-image" src="{{$avatar}}" alt="">
                             </div>
                         </div>
                         <div class="info-fields">

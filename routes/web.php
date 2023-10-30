@@ -18,6 +18,7 @@ Route::middleware('auth:web')->group(function (){
     Route::post('/market/comment', [MarketController::class, 'comment'])->name('user.my-store.comment');
     Route::post('notification/send', [MarketController::class, 'sendNotification'])->name('notification.send');
     Route::post('notification/mark-as-read', [MarketController::class, 'markAsRead'])->name('notification.mark-as-read');
+    Route::post('/market/load-comments', [MarketController::class, 'loadPrevComments'])->name('load-comments');
 
     Route::post('/my-store/save', [MyStoreController::class, 'save'])->name('user.my-store.save');
     Route::post('/my-store/delete', [MyStoreController::class, 'delete'])->name('user.my-store.delete');

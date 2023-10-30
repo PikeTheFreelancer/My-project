@@ -3,6 +3,7 @@
 namespace App\Repositories\Market;
 
 use App\Models\Comment;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class MarketRepository implements MarketRepositoryInterface{
@@ -18,10 +19,31 @@ class MarketRepository implements MarketRepositoryInterface{
     public function getAllComments($merchandiseId)
     {
         $comments = Comment::where('merchandise_id', $merchandiseId)
-            ->join('users', 'comments.user_id', '=', 'users.id')
-            ->select('comments.*', 'users.avatar', 'users.name as username')                  
-            ->get();
+                            ->join('users', 'comments.user_id', '=', 'users.id')
+                            ->select('comments.*', 'users.avatar', 'users.name as username')
+                            ->orderBy('comments.id', 'desc')
+                            ->get();
+
+        //compare time comment with now
+        foreach ($comments as $comment) {
+            $comment->timeAgo = Carbon::parse($comment->created_at)->diffForHumans();
+        }
         
+        return $comments;
+    }
+
+    public function getSomeComments($merchandiseId, $amount)
+    {
+        $comments = Comment::where('merchandise_id', $merchandiseId)
+                            ->join('users', 'comments.user_id', '=', 'users.id')
+                            ->select('comments.*', 'users.avatar', 'users.name as username')
+                            ->orderBy('id', 'desc')
+                            ->limit($amount)
+                            ->get();
+
+        foreach ($comments as $comment) {
+            $comment->timeAgo = Carbon::parse($comment->created_at)->diffForHumans();
+        }
         return $comments;
     }
 }

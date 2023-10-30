@@ -36,10 +36,10 @@ class MarketController extends Controller
     {
         $merchandises = $this->marketRepo->getAllMerchandises();
         foreach ($merchandises as $merchandise) {
-            $comments = $this->marketRepo->getAllComments($merchandise->id);
+            $comments = $this->marketRepo->getAllComments($merchandise->id)->take(3)->reverse();
             $merchandise->comments = $comments;
+            $merchandise->max_size = $this->marketRepo->getAllComments($merchandise->id)->count();
         }
-
         return view('market', ['merchandises' => $merchandises]);
     }
 
@@ -137,5 +137,21 @@ class MarketController extends Controller
         }else{
             return response()->json(['error' => 'Notification not found']);
         }
+    }
+
+    public function loadPrevComments(Request $request)
+    {
+        $amount = $request->input('amount');
+        $merchandise_id = $request->input('merchandise_id');
+        $max_amount = $this->marketRepo->getAllComments($merchandise_id)->count();
+        if ($amount < $max_amount) {
+            # code...
+            $comments = $this->marketRepo->getSomeComments($merchandise_id, $amount);
+            return response()->json($comments);
+        } else {
+            return response()->json(0);
+        }
+        
+
     }
 }
