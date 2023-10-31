@@ -1,4 +1,23 @@
 .market-page{
+    .edit-comment-form{
+        display: none;
+    }
+    .comment-col-right{
+        width: 100%;
+    }
+    .edit-comment-field{
+        font-size: 10px;
+        height: 30px;
+    }
+    .comment-action,
+    .edit-action{
+        display: flex;
+        column-gap: 10px;
+        a, span{
+            font-size: 10px;
+            font-family: 'Vi-Retro';
+        }
+    }
     .comment-username-container{
         display: flex;
         column-gap: 5px;

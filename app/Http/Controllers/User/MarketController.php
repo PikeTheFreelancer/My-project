@@ -53,25 +53,6 @@ class MarketController extends Controller
         return view('merchandise', ['merchandise' => $merchandise]);
     }
 
-    public function comment(Request $request)
-    {
-        $user = Auth::user();
-        $user_id = $user->id;
-        $comment = new Comment();
-        
-        $comment->comment = $request->input('comment');
-        $comment->merchandise_id = $request->input('merchandise_id');
-        $comment->user_id = $user_id;
-
-        $comment->save();
-
-        //pass data to ajax
-        $comment->user_avatar = asset($user->avatar);
-        $comment->username = $user->name;
-
-        return response()->json($comment);
-    }
-
     public function sendNotification(Request $request)
     {
         $user_id = Auth::user()->id;

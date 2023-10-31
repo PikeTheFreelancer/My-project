@@ -290,4 +290,89 @@ $(document).ready(function(){
             "</div>";
         return commentElement;
     }
+
+    $(document).on('click', '.edit-comment', function(e) {
+        e.preventDefault();
+        let editBtn = $(this);
+        let editForm = editBtn.parents('.comment-action').siblings('.edit-comment-form');
+        let comment =  editBtn.parents('.comment-action').siblings('.comment-content');
+        let commentActions = editBtn.parents('.comment-action');
+        comment.hide();
+        commentActions.hide();
+        editForm.show();
+    })
+    $(document).on('click', '.cancel-edit', function(e) {
+        e.preventDefault();
+        let editForm = $(this).parents('.edit-comment-form');
+        let comment = $(this).parents('.edit-comment-form').siblings('.comment-content');
+        let commentActions = $(this).parents('.edit-comment-form').siblings('.comment-action');
+        editForm.hide();
+        comment.show();
+        commentActions.show();
+    })
+
+    $(document).on('click', '.save-comment', function (e) {
+        e.preventDefault();
+        let editForm = $(this).parents('.edit-comment-form');
+        editForm.submit();
+    })
+    $(document).on('submit', '.edit-comment-form', function (e) {
+        e.preventDefault();
+        let comment = $(this).children('.edit-comment-field').val();
+        let commentId = $(this).parents('.comment-item').attr('id');
+        let dbCommentId = parseInt(commentId.split('-')[1]);
+        let thisForm = $(this);
+        let commentContent = $(this).siblings('.comment-content');
+        let commentAction = $(this).siblings('.comment-action');
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: `/market/edit-comment/${dbCommentId}`,
+            method: 'POST',
+            data: { 
+                comment: comment
+            },
+            success: function(response) {
+                console.log('comment saved');
+                thisForm.hide();
+                commentContent.text(response);
+                commentContent.show();
+                commentAction.show();
+            },
+            error: function(error) {
+                // Handle any errors that occur during the Ajax request
+                console.error('Error:', error);
+            }
+        });
+    })
+
+    $(document).on('click', '.delete-comment', function(e) {
+        e.preventDefault();
+        let thisComment = $(this).parents('.comment-item')
+        let commentId = thisComment.attr('id');
+        let dbCommentId = parseInt(commentId.split('-')[1]);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '/market/delete-comment',
+            method: 'POST',
+            data: { 
+                id: dbCommentId
+            },
+            success: function(response) {
+                thisComment.hide();
+                console.log('comment deleted');
+            },
+            error: function(error) {
+                // Handle any errors that occur during the Ajax request
+                console.error('Error:', error);
+            }
+        });
+    })
 });

@@ -12446,6 +12446,10 @@ a.dropdown-item:hover {
   font-size: 10px;
   font-family: "Retro-Gaming";
 }
+.comment-item .commented-at a {
+  font-size: 10px;
+  font-family: "Retro-Gaming";
+}
 
 .notification-box {
   display: flex;
@@ -12724,6 +12728,28 @@ a.dropdown-item:hover {
   .merchandise .item {
     width: 100%;
   }
+}
+.market-page .edit-comment-form {
+  display: none;
+}
+.market-page .comment-col-right {
+  width: 100%;
+}
+.market-page .edit-comment-field {
+  font-size: 10px;
+  height: 30px;
+}
+.market-page .comment-action,
+.market-page .edit-action {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.market-page .comment-action a, .market-page .comment-action span,
+.market-page .edit-action a,
+.market-page .edit-action span {
+  font-size: 10px;
+  font-family: "Vi-Retro";
 }
 .market-page .comment-username-container {
   display: flex;
