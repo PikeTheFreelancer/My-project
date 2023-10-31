@@ -139,7 +139,7 @@ class MarketController extends Controller
         return response()->json('noti sent');
     }
 
-    public function markAsRead(Request $request)
+    public function markAsReadNoti(Request $request)
     {
         $noti_id = $request->input('noti_id');
         $notification = auth()->user()->unreadNotifications->where('id', $noti_id)->first();

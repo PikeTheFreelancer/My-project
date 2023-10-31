@@ -185,13 +185,14 @@ $(document).ready(function(){
         var noti_id = $(this).data('id');
         var this_noti = $(this);
         this_noti.removeClass('noti-unread');
+        console.log(noti_id);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
         $.ajax({
-            url: 'notification/mark-as-read',
+            url: '/notification/mark-as-read',
             method: 'POST',
             data: { noti_id: noti_id }, // Send the ID as data
             success: function(response) {
