@@ -33,7 +33,7 @@ class UserController extends Controller
             if (File::exists($path)) {
                 File::delete($path);
             }
-            $user->avatar = $this->storeBase64($request->image_base64, $imageName);
+            $user->avatar = asset($this->storeBase64($request->image_base64, $imageName));
         }
 
         //load infomations to model then save

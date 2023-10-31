@@ -77,7 +77,7 @@
                                 @php
                                     $data = json_decode($notification->data);
                                 @endphp
-                                <a class="noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} href="{{route('market')}}#comment-{{$data->comment_id}}">
+                                <a class="noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} href="{{route('merchandise',['id' => $data->merchandise_id])}}#comment-{{$data->comment_id}}">
                                     @if (isset($data->comment) && isset($data->title))
                                         <p>{{$data->title}}
                                             @if (isset($data->comment))
@@ -171,7 +171,7 @@
                         <li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                                document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
                         
@@ -204,7 +204,7 @@
             var message;
             channel.bind(recipant, function(data) {
                 var newNotificationHtml = `
-                <a class="noti-item noti-unread" href="{{route('market')}}#comment-${data.comment_id}" data-id=${data.id}>
+                <a class="noti-item noti-unread" href="/merchandise/${data.merchandise_id}#comment-${data.comment_id}" data-id=${data.id}>
                     <p>${data.title}
                         <small>${data.comment}</small>
                     </p>

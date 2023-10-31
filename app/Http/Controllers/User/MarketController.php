@@ -43,6 +43,16 @@ class MarketController extends Controller
         return view('market', ['merchandises' => $merchandises]);
     }
 
+    public function merchandise($id)
+    {
+        $merchandise = $this->marketRepo->getOnemerchandise($id);
+        $comments = $this->marketRepo->getAllComments($merchandise->id)->take(3)->reverse();
+        $merchandise->comments = $comments;
+        $merchandise->max_size = $this->marketRepo->getAllComments($merchandise->id)->count();
+        
+        return view('merchandise', ['merchandise' => $merchandise]);
+    }
+
     public function comment(Request $request)
     {
         $user = Auth::user();
@@ -98,6 +108,8 @@ class MarketController extends Controller
                 $data = $request->only([
                     'comment', 'noti_from', 'noti_to', 'title', 'comment_id'
                 ]);
+                
+                $data['merchandise_id'] = $request->input('merchandise_id');
         
                 // save recipant id to notifiable_id column
                 $recipant->notify(new CommentNotification($data));
@@ -145,7 +157,6 @@ class MarketController extends Controller
         $merchandise_id = $request->input('merchandise_id');
         $max_amount = $this->marketRepo->getAllComments($merchandise_id)->count();
         if ($amount < $max_amount) {
-            # code...
             $comments = $this->marketRepo->getSomeComments($merchandise_id, $amount);
             return response()->json($comments);
         } else {

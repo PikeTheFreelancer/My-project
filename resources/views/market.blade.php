@@ -77,12 +77,12 @@
         //event comment
         $(document).on('submit', '.form-comment', function(e) {
             e.preventDefault();
-
+            var seller_id = $(this).parents('.merchandise').data('seller-id');
             var merchandise_id = $(this).parents('.merchandise').data('id');
             var comment = $(this).find('.comment').val();
             var thisForm = $(this);
             // for comment method
-            var commentsList = $(this).siblings('.comments-list');
+            var commentsList = $(this).siblings('.comment-place').children('.comments-list');
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -96,18 +96,25 @@
                     merchandise_id: merchandise_id
                 },
                 success: function(response) {
-
+                    let isSeller = (seller_id == response.user_id) ? true : false;
                     var displayTime = 'just now' ;
-                    var commentElement = "<div class='comment-item'>"+
-                                    "<div class='comment-avatar'>"+
-                                        "<img src='"+response.user_avatar+"' alt=''>"+
-                                    "</div>"+
-                                    "<div class='comment-col-right'>"+
-                                        "<a class='comment-username' href='#'>"+response.username+"</a>"+
-                                        "<p class='comment-content'>"+response.comment+"</p>"+
-                                        "<p class='commented-at'>"+displayTime+"</p>"+
-                                    "</div>"+
-                                "</div>";
+                    var commentElement = "<div class='comment-item'>" +
+                                        "<div class='comment-avatar'>" +
+                                        "<img src='" + response.user_avatar + "' alt=''>" +
+                                        "</div>" +
+                                        "<div class='comment-col-right'>" +
+                                        "<div class='comment-username-container'>"+
+                                        "<a class='comment-username' href='#'>" + response.username + "</a>";
+
+                                        if (isSeller) {
+                                            commentElement += "<small class='user-label'>seller</small>";
+                                        }
+
+                                        commentElement += "</div>" +
+                                            "<p class='comment-content'>" + response.comment + "</p>" +
+                                            "<p class='commented-at'>" + displayTime + "</p>" +
+                                            "</div>" +
+                                            "</div>";
                     commentsList.append(commentElement);
                     sendNotification(merchandise_id, comment, response.id);
                 },

@@ -46,4 +46,15 @@ class MarketRepository implements MarketRepositoryInterface{
         }
         return $comments;
     }
+
+    public function getOnemerchandise($merchandiseId)
+    {
+        $merchandise = DB::table('merchandises')
+        ->where('merchandises.id', $merchandiseId)
+        ->join('users', 'merchandises.user_id', '=', 'users.id')
+        ->select('merchandises.*', 'users.avatar', 'users.name as username')
+        ->first();
+        
+        return $merchandise;
+    }
 }
