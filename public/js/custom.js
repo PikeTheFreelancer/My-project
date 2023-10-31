@@ -168,7 +168,7 @@ $(document).ready(function(){
     $(document).on('click', '.notification-box', function(e) {
         e.preventDefault();
         $('.menu-notification').slideToggle();
-        $('.new-notification').addClass('hidden');
+        $('.new-notification').hide();
     })
 
     $(document).on('click', function(e) {
