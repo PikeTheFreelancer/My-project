@@ -110,7 +110,7 @@ class MarketController extends Controller
                 ]);
                 
                 $data['merchandise_id'] = $request->input('merchandise_id');
-        
+                
                 // save recipant id to notifiable_id column
                 $recipant->notify(new CommentNotification($data));
         

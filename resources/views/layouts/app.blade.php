@@ -32,6 +32,7 @@
 </head>
 <body>
     @php
+        use Carbon\Carbon;
         if (Auth::check()) {
             $user_id = Auth::user()->id;
             $notifications = DB::table('notifications')
@@ -39,6 +40,11 @@
                 ->orderBy('created_at', 'desc')
                 ->limit(10)
                 ->get();
+
+            foreach ($notifications as $notification) {
+                $notification->timeAgo = Carbon::parse(DB::table('notifications')->value('created_at'))->diffForHumans();
+            }
+            
             $unreadNotifications = $notifications->filter(function ($notification) {
                 return is_null($notification->read_at);
             });
@@ -84,6 +90,7 @@
                                                 <small>{{ $data->comment }}</small>
                                             @endif
                                         </p>
+                                        <p><small class="sub-text">{{$notification->timeAgo}}</small></p>
                                     @endif
                                 </a>
                             @endforeach

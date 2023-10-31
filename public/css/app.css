@@ -12069,6 +12069,11 @@ textarea.input-border {
      object-fit: cover;
 }
 
+.sub-text {
+  color: #888;
+  font-size: 10px;
+}
+
 button {
   outline: none;
   border: none;
