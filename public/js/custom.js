@@ -184,11 +184,10 @@ $(document).ready(function(){
 
     // mark as read
     $(document).on('click', '.noti-item', function(e) {
+        this_noti.removeClass('noti-unread');
         window.location.hash = '#' + $(this).attr('href').split('#')[1];
         var noti_id = $(this).data('id');
         var this_noti = $(this);
-        this_noti.removeClass('noti-unread');
-        console.log(noti_id);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -199,11 +198,9 @@ $(document).ready(function(){
             method: 'POST',
             data: { noti_id: noti_id }, // Send the ID as data
             success: function(response) {
-                // Handle the success response from the controller
                 console.log('Marked as read:', response);
             },
             error: function(error) {
-                // Handle any errors that occur during the Ajax request
                 console.error('Error:', error);
             }
         });

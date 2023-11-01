@@ -41,9 +41,10 @@
                 ->limit(10)
                 ->get();
 
-            foreach ($notifications as $notification) {
-                $notification->timeAgo = Carbon::parse(DB::table('notifications')->value('created_at'))->diffForHumans();
-            }
+                foreach ($notifications as $notification) {
+                    $notificationData = DB::table('notifications')->find($notification->id);
+                    $notification->timeAgo = Carbon::parse($notificationData->created_at)->diffForHumans();
+                }
             
             $unreadNotifications = $notifications->filter(function ($notification) {
                 return is_null($notification->read_at);
