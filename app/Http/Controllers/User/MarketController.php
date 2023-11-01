@@ -56,7 +56,6 @@ class MarketController extends Controller
     public function sendNotification(Request $request)
     {
         $user_id = Auth::user()->id;
-        
         // commenter
         $user = $this->userRepo->find($user_id);
         $request['noti_from'] = $user->name;
@@ -136,14 +135,10 @@ class MarketController extends Controller
     {
         $amount = $request->input('amount');
         $merchandise_id = $request->input('merchandise_id');
+        $user_id = $this->merchandiseRepo->find($merchandise_id)->user->id;
         $max_amount = $this->marketRepo->getAllComments($merchandise_id)->count();
-        if ($amount < $max_amount) {
-            $comments = $this->marketRepo->getSomeComments($merchandise_id, $amount);
-            return response()->json($comments);
-        } else {
-            return response()->json(0);
-        }
-        
+        $comments = $this->marketRepo->getSomeComments($merchandise_id, $amount);
 
+        return view('user.components.comments-list', compact('comments', 'user_id', 'max_amount'));
     }
 }

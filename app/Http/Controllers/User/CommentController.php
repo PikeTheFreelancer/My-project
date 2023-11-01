@@ -6,9 +6,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Comment;
+use App\Repositories\Merchandise\MerchandiseRepositoryInterface;
 
 class CommentController extends Controller
 {
+    protected $merchandiseRepo;
+
+    public function __construct(
+        MerchandiseRepositoryInterface $merchandiseRepo
+    )
+    {
+        $this->merchandiseRepo = $merchandiseRepo;
+    }
+
     public function comment(Request $request)
     {
         $user = Auth::user();
@@ -22,10 +32,11 @@ class CommentController extends Controller
         $comment->save();
 
         //pass data to ajax
+        $seller_id = $this->merchandiseRepo->find($request->input('merchandise_id'))->user->id;
         $comment->user_avatar = asset($user->avatar);
         $comment->username = $user->name;
 
-        return response()->json($comment);
+        return view('user.components.comment', compact('comment', 'seller_id'));
     }
 
     public function edit(Request $request, $id)

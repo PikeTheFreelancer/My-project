@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
-      })
+    })
 
     $('.accordion-box').on('click', function() {
         $('#add-merchandise').slideToggle();
@@ -26,7 +26,6 @@ $(document).ready(function(){
 
     $(document).on('click', '.currently-sale .item', function() {
         var merchandise_id = $(this).data('id');
-        var this_merchandise = $(this);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -54,9 +53,11 @@ $(document).ready(function(){
     $(document).on("click", ".btn-delete", function() {
         $(this).parents('.actions-box').siblings('.confirm-delete').slideToggle();
     });
+
     $(document).on('click', '.btn-cancel-delete', function() {
         $(this).parents('.confirm-delete').slideToggle();
     })
+
     $(document).on('click', '.btn-confirm-delete', function() {
         var merchandise_id = $(this).parents('.item').data('id');
         var thisItem =  $(this).parents('.item');
@@ -171,6 +172,7 @@ $(document).ready(function(){
         $('.new-notification').hide();
     })
 
+    // toggle notification box 
     $(document).on('click', function(e) {
         if (!$(e.target).closest('.notification-box').length) {
             $('.menu-notification').slideUp();
@@ -180,6 +182,7 @@ $(document).ready(function(){
         }
     })
 
+    // mark as read
     $(document).on('click', '.noti-item', function(e) {
         window.location.hash = '#' + $(this).attr('href').split('#')[1];
         var noti_id = $(this).data('id');
@@ -234,7 +237,6 @@ $(document).ready(function(){
         $(this).on('click', function(e) {
             e.preventDefault();
             var merchandise_id = $(this).parents('.merchandise').data('id');
-            var seller_id = $(this).parents('.merchandise').data('seller-id');
             var commentList = $(this).parents('.merchandise').find('.comments-list');
             var loadCommentsBtn = $(this);
             $.ajaxSetup({
@@ -250,17 +252,13 @@ $(document).ready(function(){
                     merchandise_id: merchandise_id
                 },
                 success: function(response) {
-                    if (response) {
-                        commentList.empty();
-                        response.forEach(item => {
-                            let isSeller = (seller_id == item.user_id) ? true : false;
-                            commentList.prepend(loadComments(item, isSeller));
-                        });
+                    commentList.html(response);
+                    let responseJQuery = $(response);
+                    if(amount < responseJQuery.data('max-amount')){
                         amount = amount + 3;
                     }else{
                         loadCommentsBtn.hide();
                     }
-                    
                 },
                 error: function(error) {
                     // Handle any errors that occur during the Ajax request
@@ -269,27 +267,6 @@ $(document).ready(function(){
             });
         })
     })
-
-    function loadComments(item, isSeller) {
-        var commentElement = "<div class='comment-item'>" +
-        "<div class='comment-avatar'>" +
-        "<img src='" + item.avatar + "' alt=''>" +
-        "</div>" +
-        "<div class='comment-col-right'>" +
-        "<div class='comment-username-container'>"+
-        "<a class='comment-username' href='#'>" + item.username + "</a>";
-
-        if (isSeller) {
-            commentElement += "<small class='user-label'>seller</small>";
-        }
-
-        commentElement += "</div>" +
-            "<p class='comment-content'>" + item.comment + "</p>" +
-            "<p class='commented-at'>" + item.timeAgo + "</p>" +
-            "</div>" +
-            "</div>";
-        return commentElement;
-    }
 
     $(document).on('click', '.edit-comment', function(e) {
         e.preventDefault();
@@ -336,7 +313,6 @@ $(document).ready(function(){
                 comment: comment
             },
             success: function(response) {
-                console.log('comment saved');
                 thisForm.hide();
                 commentContent.text(response);
                 commentContent.show();
@@ -375,4 +351,72 @@ $(document).ready(function(){
             }
         });
     })
+
+    //event comment
+    $(document).on('submit', '.form-comment', function(e) {
+        e.preventDefault();
+
+        var merchandise_id = $(this).parents('.merchandise').data('id');
+        var comment = $(this).find('.comment').val();
+        var thisForm = $(this);
+        // for comment method
+        var commentsList = $(this).siblings('.comment-place').children('.comments-list');
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '/market/comment',
+            method: 'POST',
+            data: { 
+                comment: comment,
+                merchandise_id: merchandise_id
+            },
+            success: function(response) {
+                commentsList.append(response);
+
+                //convert string html to jquery object
+                let responseJQuery = $(response);
+                //get comment id to pass to notification
+                let commentId = responseJQuery.attr('id');
+                let dbCommentId = parseInt(commentId.split('-')[1]);
+                sendNotification(merchandise_id, comment, dbCommentId);
+            },
+            error: function(error) {
+                // Handle any errors that occur during the Ajax request
+                console.error('Error:', error);
+            },
+            complete: function() {
+                thisForm[0].reset();
+            }
+        });
+        //end comment method
+
+    })
+
+    function sendNotification(merchandise_id, comment, comment_id) {
+        //for send comment notification method
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '/notification/send',
+            method: 'POST',
+            data: { 
+                merchandise_id: merchandise_id,
+                comment: comment,
+                comment_id: comment_id
+            },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                // Handle any errors that occur during the Ajax request
+                console.error('Error:', error);
+            }
+        });
+    }
 });
