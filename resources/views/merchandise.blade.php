@@ -18,7 +18,7 @@
                     <div class="merchandise-details">
                         <h2>{{ $merchandise->name }}</h2>
                         <img src="{{$merchandise->image}}" alt="">
-                        <p class="merchandise-description">{{$merchandise->description}}</p>
+                        <p class="merchandise-description">{!! $merchandise->description !!}</p>
                         <div class="price-box mobile">
                             <span>
                                 <img src="{{asset('images/svg/pokedollars.svg')}}" alt="">

@@ -7,6 +7,7 @@ use App\Http\Controllers\User\Auth\LogoutController;
 use App\Http\Controllers\User\CommentController;
 use App\Http\Controllers\User\MyStoreController;
 use App\Http\Controllers\User\MarketController;
+use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\UserController;
 
 Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('login');
@@ -26,6 +27,8 @@ Route::middleware('auth:web')->group(function (){
     Route::post('/my-store/delete', [MyStoreController::class, 'delete'])->name('user.my-store.delete');
     Route::post('/my-store/get-merchandise-fields', [MyStoreController::class, 'getMerchandiseFields'])->name('user.my-store.get-merchandise-fields');
     Route::post('/my-store/save-merchandise-fields', [MyStoreController::class, 'saveMerchandiseFields'])->name('user.my-store.save-merchandise-fields');
+
+    Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile');
 });
 Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
