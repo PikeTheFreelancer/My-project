@@ -138,7 +138,7 @@ $(document).ready(function(){
             var reader = new FileReader();
             reader.readAsDataURL(blob);
             reader.onloadend = function() {
-                var base64data = reader.result; 
+                var base64data = reader.result;
                 $("input[name='image_base64']").val(base64data);
                 $(".show-image").show();
                 $(".show-image").attr("src",base64data);
@@ -172,7 +172,7 @@ $(document).ready(function(){
         $('.new-notification').hide();
     })
 
-    // toggle notification box 
+    // toggle notification box
     $(document).on('click', function(e) {
         if (!$(e.target).closest('.notification-box').length) {
             $('.menu-notification').slideUp();
@@ -213,14 +213,23 @@ $(document).ready(function(){
                     scrollTop: targetElement.offset().top
                 }, 1000);
             }
-    
-            targetElement.addClass('highlight-background');
-    
-            setTimeout(function() {
-                targetElement.removeClass('highlight-background');
-            }, 5000);
         }
+
+        targetElement.addClass('highlight-background');
+        setTimeout(function() {
+            targetElement.removeClass('highlight-background');
+        }, 5000);
     })
+
+    var current_url = $(location).attr('href');
+    if (current_url.includes("#comment-")) {
+        var hash = current_url.split("#")[1];
+        console.log(hash)
+        $(`#${hash}`).addClass('highlight-background');
+        setTimeout(function() {
+            $(`#${hash}`).removeClass('highlight-background');
+        }, 5000);
+    }
 
     //header functions
     $('.mobile-navbar').on('click', function() {
@@ -246,7 +255,7 @@ $(document).ready(function(){
             $.ajax({
                 url: '/market/load-comments',
                 method: 'POST',
-                data: { 
+                data: {
                     amount: amount,
                     merchandise_id: merchandise_id
                 },
@@ -308,7 +317,7 @@ $(document).ready(function(){
         $.ajax({
             url: `/market/edit-comment/${dbCommentId}`,
             method: 'POST',
-            data: { 
+            data: {
                 comment: comment
             },
             success: function(response) {
@@ -337,7 +346,7 @@ $(document).ready(function(){
         $.ajax({
             url: '/market/delete-comment',
             method: 'POST',
-            data: { 
+            data: {
                 id: dbCommentId
             },
             success: function(response) {
@@ -368,7 +377,7 @@ $(document).ready(function(){
         $.ajax({
             url: '/market/comment',
             method: 'POST',
-            data: { 
+            data: {
                 comment: comment,
                 merchandise_id: merchandise_id
             },
@@ -404,7 +413,7 @@ $(document).ready(function(){
         $.ajax({
             url: '/notification/send',
             method: 'POST',
-            data: { 
+            data: {
                 merchandise_id: merchandise_id,
                 comment: comment,
                 comment_id: comment_id

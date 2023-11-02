@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css"/>
-    
+
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/font-definitions.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -45,7 +45,7 @@
                     $notificationData = DB::table('notifications')->find($notification->id);
                     $notification->timeAgo = Carbon::parse($notificationData->created_at)->diffForHumans();
                 }
-            
+
             $unreadNotifications = $notifications->filter(function ($notification) {
                 return is_null($notification->read_at);
             });
@@ -100,9 +100,9 @@
                     <button class="mobile-navbar mobile">
                         <i class="fa-solid fa-bars" style="color: #131313; font-size: 21px;"></i>
                     </button>
-    
+
                     <div class="desktop-navbar desktop">
-    
+
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ms-auto nav-right desktop">
                             <!-- Authentication Links -->
@@ -112,7 +112,7 @@
                                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </li>
                                 @endif
-    
+
                                 @if (Route::has('register'))
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -125,24 +125,24 @@
                                             <img src="{{ Auth::user()->avatar }}" alt="">
                                         @endif
                                     </a>
-    
+
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
-    
+
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
                                         </form>
-    
+
                                         <a class="dropdown-item" href="{{ route('user.my-store') }}">My store</a>
                                         <a class="dropdown-item" href="{{ route('user') }}">My account</a>
                                     </div>
                                 </li>
                             @endguest
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -175,14 +175,14 @@
                                 <a class="dropdown-item" href="{{ route('user') }}">My account</a>
                             </ul>
                         </li>
-                        
+
                         <li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
-                        
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
@@ -206,23 +206,57 @@
             encrypted: true,
             cluster: "ap1"
         });
-        @if (Auth::check()) 
+        @if (Auth::check())
             var recipant = {{ Auth::user()->id }};
             var channel = pusher.subscribe('CommentNotificationEvent');
             var message;
             channel.bind(recipant, function(data) {
-                var newNotificationHtml = `
-                <a class="noti-item noti-unread" href="/merchandise/${data.merchandise_id}#comment-${data.comment_id}" data-id=${data.id}>
-                    <p>${data.title}
-                        <small>${data.comment}</small>
-                    </p>
-                </a>
-                `;
+                var current_url = $(location).attr('href');
+                var newUrlNotification = `/merchandise/${data.merchandise_id}`;
+                var newNotificationHtml;
+                if(current_url.includes(newUrlNotification)) {
+                    newNotificationHtml = `
+                        <a class="noti-item noti-unread in-page" href="javascript:void(0)" onclick="handleUnreadNoti(${data.comment_id})" data-id=${data.id}>
+                            <p>${data.title}
+                                <small>${data.comment}</small>
+                            </p>
+                        </a>
+                        `;
+                }else {
+                    newNotificationHtml = `
+                        <a class="noti-item noti-unread" href="/merchandise/${data.merchandise_id}#comment-${data.comment_id}" data-id=${data.id}>
+                            <p>${data.title}
+                                <small>${data.comment}</small>
+                            </p>
+                        </a>
+                        `;
+                }
+
                 var newNotilabel = "<span class='new-notification'>!</span>";
                 $('.notifications-list').prepend(newNotificationHtml);
                 $('.notification-box').prepend(newNotilabel);
             });
+            function handleUnreadNoti(comment_id) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    success: function(response) {
+                        $(".comment-place").html($(response).find(".comment-place").html())
+                        $(`#comment-${comment_id}`).addClass('highlight-background');
+                        setTimeout(function() {
+                            $(`#comment-${comment_id}`).removeClass('highlight-background');
+                        }, 5000);
+                    },
+                    error: function(error) {
+                        console.error('Error:', error);
+                    }
+                });
+            }
         @endif
+
     </script>
 </body>
 </html>
