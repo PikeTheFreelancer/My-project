@@ -224,7 +224,6 @@ $(document).ready(function(){
     var current_url = $(location).attr('href');
     if (current_url.includes("#comment-")) {
         var hash = current_url.split("#")[1];
-        console.log(hash)
         $(`#${hash}`).addClass('highlight-background');
         setTimeout(function() {
             $(`#${hash}`).removeClass('highlight-background');
