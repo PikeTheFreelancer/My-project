@@ -7,6 +7,7 @@ use App\Http\Controllers\User\Auth\LogoutController;
 use App\Http\Controllers\User\CommentController;
 use App\Http\Controllers\User\MyStoreController;
 use App\Http\Controllers\User\MarketController;
+use App\Http\Controllers\User\NewsfeedController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\UserController;
 
@@ -35,3 +36,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/market/load-comments', [MarketController::class, 'loadPrevComments'])->name('load-comments');
 Route::get('/market', [MarketController::class, 'index'])->name('market');
 Route::get('/merchandise/{id}', [MarketController::class, 'merchandise'])->name('merchandise');
+
+Route::get('/newsfeed', [NewsfeedController::class, 'index'])->name('newsfeed');
+Route::get('/newsfeed/post', [NewsfeedController::class, 'post'])->name('newsfeed.post');

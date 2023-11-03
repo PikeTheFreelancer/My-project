@@ -7,6 +7,12 @@
             <div class="card-header">{{ __('Dashboard') }}</div>
 
             <div class="card-body">
+                <a class="shiny home-item water" href="{{ route('newsfeed') }}">
+                    <div class="image-container">
+                        <img src="{{ asset('images/news.png') }}" alt="">
+                    </div>
+                </a>
+
                 <a class="shiny home-item glass" href="{{ route('market') }}">
                     <div class="image-container">
                         <img src="{{ asset('images/pokemart.png') }}" alt="">
