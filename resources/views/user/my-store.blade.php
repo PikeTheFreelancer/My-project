@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-field">
                             <label for="price">Price</label>
-                            <input type="text" name="price" id="">
+                            <input type="text" name="price" class="price">
                         </div>
                         <div class="form-field">
                             <button class="btn btn-primary" type="submit">submit</button>

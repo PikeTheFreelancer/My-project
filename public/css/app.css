@@ -11983,15 +11983,6 @@ textarea.form-control-lg {
   padding: 0;
 }
 
-input, textarea {
-  display: block;
-  width: 100%;
-  resize: none;
-  outline: none;
-  border-radius: 3px;
-  font-family: "Vi-Retro";
-}
-
 a {
   text-decoration: none;
   color: #000;
@@ -12025,6 +12016,18 @@ input[type=email] {
 input.input-border,
 textarea.input-border {
   border: solid 2px #ddd;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  resize: none;
+  outline: none;
+  border-radius: 3px;
+  font-family: "Vi-Retro";
+}
+input.error, textarea.error {
+  border: solid 1px #ec1818;
 }
 
 .no-image {
@@ -12281,6 +12284,12 @@ a.dropdown-item:hover {
 
 .page {
   width: 100%;
+}
+
+label.error {
+  color: #ec1818;
+  font-family: "Vi-Retro";
+  font-size: 10px;
 }
 
 @media screen and (max-width: 991px) {
@@ -12809,6 +12818,11 @@ a.dropdown-item:hover {
   -moz-column-gap: 10px;
        column-gap: 10px;
   margin-top: 0;
+  position: relative;
+}
+.market-page .form-comment .form-field label.error {
+  position: absolute;
+  bottom: -17px;
 }
 .market-page .merchandise-description {
   margin: 10px 0;
@@ -12825,6 +12839,10 @@ a.dropdown-item:hover {
   padding: 3px;
   border: solid 1px #888;
   border-radius: 3px;
+}
+
+.merchandise-details {
+  width: 100%;
 }
 
 .highlight-background {

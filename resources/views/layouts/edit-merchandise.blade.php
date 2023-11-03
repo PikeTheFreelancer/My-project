@@ -14,7 +14,7 @@
 @endphp
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <form class="modal-content" method="POST" action="{{ route('user.my-store.save-merchandise-fields') }}" enctype="multipart/form-data">
+      <form class="modal-content edit-merchandise" method="POST" action="{{ route('user.my-store.save-merchandise-fields') }}" enctype="multipart/form-data">
         @csrf
         <input id="merchandise_id" name="merchandise_id" type="hidden">
         <div class="modal-header">

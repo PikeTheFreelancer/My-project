@@ -5,6 +5,9 @@
  */
 
 require('./bootstrap');
+window.$ = window.jQuery = require('jquery');
+
+require('jquery-validation');
 
 window.Vue = require('vue').default;
 

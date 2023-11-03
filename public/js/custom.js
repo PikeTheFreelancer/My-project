@@ -300,6 +300,12 @@ $(document).ready(function(){
         let editForm = $(this).parents('.edit-comment-form');
         editForm.submit();
     })
+
+    $(document).on('keyup', '.edit-comment-field', function () {
+        $(this).attr('value', $(this).val());
+        console.log($(this).attr('value'));
+    });
+
     $(document).on('submit', '.edit-comment-form', function (e) {
         e.preventDefault();
         let comment = $(this).children('.edit-comment-field').val();
@@ -308,6 +314,7 @@ $(document).ready(function(){
         let thisForm = $(this);
         let commentContent = $(this).siblings('.comment-content');
         let commentAction = $(this).siblings('.comment-action');
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -426,4 +433,13 @@ $(document).ready(function(){
             }
         });
     }
+
+    $(document).on('keyup', '.price', function () {
+        var price = $(this).val().replace(/\./g, '');
+        if (price === '' || isNaN(price)) {
+            $(this).val(''); // Nếu rỗng hoặc không phải là số, không định dạng
+        } else {
+            $(this).val(parseFloat(price).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.'));
+        }
+    });
 });

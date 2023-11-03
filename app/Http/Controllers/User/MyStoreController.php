@@ -31,7 +31,8 @@ class MyStoreController extends Controller
         }
         $merchandise->name = $request->name;
         $merchandise->description = $request->description;
-        $merchandise->price = $request->price;
+
+        $merchandise->price = (float)str_replace('.', '', $request->price);
         $merchandise->user_id = $user_id;
 
         $merchandise->save();
