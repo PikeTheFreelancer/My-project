@@ -44,7 +44,7 @@
                                                 </div>
                                                 <div class='comment-col-right'>
                                                     <div class="comment-username-container">
-                                                        <a class='comment-username' href='#'>{{$comment->username}}</a>
+                                                        <a class='comment-username' href="{{route('profile', $comment->user_id)}}">{{$comment->username}}</a>
                                                         @if ($comment->user_id == $item->user_id)
                                                             <small class="user-label">seller</small>
                                                         @endif
