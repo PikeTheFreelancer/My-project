@@ -10,7 +10,7 @@
             @endif
         </div>
         <p class='comment-content'>{{$comment->comment}}</p>
-            
+
         <p class='comment-action'>
             @if (Auth::user() && $comment->user_id == Auth::user()->id)
                 <a href="#" class="edit-comment">Edit</a>
