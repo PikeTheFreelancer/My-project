@@ -12338,6 +12338,11 @@ label.error {
   font-size: 10px;
 }
 
+.tox .tox-toolbar__primary {
+  background-position: unset !important;
+  background-size: calc(100% - 22px) calc(100% - 41px) !important;
+}
+
 @media screen and (max-width: 991px) {
   .section-container {
     padding: 0 20px;

@@ -7,7 +7,9 @@
             <div class="card-header">{{ __('Newsfeed') }}</div>
 
             <div class="card-body">
-                
+                <form method="post">
+                    <textarea id="mytextarea">Hello, World!</textarea>
+                </form>
             </div>
         </div>
     </div>

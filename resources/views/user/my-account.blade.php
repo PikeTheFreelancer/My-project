@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('title', 'My Store')
 
-@include('layouts.upload-avatar')
-
 @section('content')
+@include('layouts.upload-avatar')
 <div class="section-container">
     <div class="my-account-page page">
         <div class="card">
@@ -44,9 +43,11 @@
                         <button class="btn btn-primary" type="submit">save</button>
                     </div>
                 </form>
+                <form method="post">
+                    <textarea class="tinymce-editor"></textarea>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
 @endsection
