@@ -5,7 +5,9 @@
 2. user có thể  upload, sửa và xóa mặt hàng cần bán
 3. user có thể chỉnh sửa thông tin cá nhân bao gồm: avatar và các thông tin trong bảng user
 4. user có thể comment trên mặt hàng đang bán trên market. Thông báo sẽ được gửi (realtime) cho những user khác cũng đang comment trên post đó.
-5. thông báo redirect đến comment tương ứng
+5. thông báo redirect đến comment tương ứng.
+6. User có thể  vào trang cá nhân của user khác để  xem thông tin và các posts của user đó.
+7. User có thể thêm/sửa/ xóa post của mình. Các posts sẽ được hiển thị trên newsfeed để  các users khác có thể  xem.
 ## Initial project
 1. composer create-project laravel/laravel my-project
 2. create db > edit .env > migrate
@@ -30,7 +32,15 @@ php artisan migrate
 ## Crop image using boostrap
 - xem tại MyStoreController function save() và custom.js > //crop image
 
+## tinymce editor - wysiwyg
+1. add CDN vào header của layout: 
+- <script src="https://cdn.tiny.cloud/1/q50oc5verflqnyvf6bi6py4cgqivi56zk5w6dqe2bon0wsrb/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+- chú ý: trong đoạn script trên chứa user api key của tinymce. đăng nhập vào trang chủ và lấy key trong my-account. sau đó set my-domain cho project đang chạy
+- <script src="{{ asset('js/tinymce-config.js') }}"></script>
+2. trong file tinymce-config: thêm các settings cho text editor.
+- tham khảo các settings tại: https://www.tiny.cloud/blog/tinymce-toolbar/
 ## Tài liệu tham khảo:
 1. https://viblo.asia/p/multiple-authenticate-trong-laravel-8-oOVlYjqQ58W
 2. https://github.com/PikeTheFreelancer/Multiple-Auth/tree/master
 3. https://viblo.asia/p/trien-khai-repository-trong-laravel-m68Z0x6MZkG
+4. https://www.tiny.cloud/blog/tinymce-toolbar/

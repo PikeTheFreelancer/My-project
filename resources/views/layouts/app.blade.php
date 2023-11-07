@@ -18,6 +18,9 @@
     <link href="{{ asset('css/font-definitions.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    {{-- wysiwyg --}}
+    <script src="https://cdn.tiny.cloud/1/q50oc5verflqnyvf6bi6py4cgqivi56zk5w6dqe2bon0wsrb/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -27,6 +30,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
 
+    <script src="{{ asset('js/tinymce-config.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/validation.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>

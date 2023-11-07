@@ -12338,6 +12338,11 @@ label.error {
   font-size: 10px;
 }
 
+.tox .tox-toolbar__primary {
+  background-position: unset !important;
+  background-size: calc(100% - 22px) calc(100% - 41px) !important;
+}
+
 @media screen and (max-width: 991px) {
   .section-container {
     padding: 0 20px;
@@ -12672,22 +12677,23 @@ label.error {
        column-gap: 20px;
 }
 
-.merchandise .accordion-box {
+.accordion-box {
   cursor: pointer;
   border-radius: 5px;
   display: inline-block;
 }
-.merchandise .accordion-box .plus-icon {
+.accordion-box .plus-icon {
   display: inline-block;
   transition: all 0.5s;
 }
-.merchandise .accordion-box:hover span:not(.plus-icon) {
+.accordion-box:hover span:not(.plus-icon) {
   background-color: #ddd;
 }
-.merchandise .accordion-box:hover .plus-icon {
+.accordion-box:hover .plus-icon {
   transform: rotate(360deg);
   transition: all 0.5s;
 }
+
 .merchandise .add {
   padding-top: 14px;
   padding-bottom: 30px;
@@ -12949,6 +12955,9 @@ label.error {
   display: block;
 }
 
+.my-account-page .edit-account {
+  padding-bottom: 20px;
+}
 .my-account-page .avatar-field {
   width: 100%;
   max-width: 250px;
@@ -12970,6 +12979,34 @@ label.error {
   padding-left: 20px;
   border-left: solid 1px #000;
   width: 60%;
+}
+.my-account-page .add {
+  border-top: solid 1px #000;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.my-account-page .add-post {
+  display: none;
+}
+.my-account-page .posts {
+  margin: 20px 0;
+}
+.my-account-page .post {
+  box-shadow: 5px 4px 10px 2px #888;
+  padding: 20px;
+  position: relative;
+}
+.my-account-page .post .post-title {
+  display: flex;
+  justify-content: space-between;
+}
+.my-account-page .post .action {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 @media screen and (max-width: 767px) {
