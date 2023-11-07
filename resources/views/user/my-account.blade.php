@@ -93,6 +93,7 @@
                                 </div>
                                 <div class="form-field">
                                     <button class="btn btn-primary" type="submit">save</button>
+                                    <button class="btn btn-secondary cancel-edit-post">cancel</button>
                                 </div>
                             </form>
                         </div>
