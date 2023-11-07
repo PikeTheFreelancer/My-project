@@ -6,17 +6,21 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use App\Models\Post;
+
 class UserController extends Controller
 {
     public function index()
     {
         $user = Auth::user();
+        $posts = Post::all();
         $data = [
             'user_name' => $user->name,
             'user_email' => $user->email,
             'avatar' => $user->avatar,
             'pro_username' => $user->pro_username,
             'pro_server' => $user->pro_server,
+            'posts' => $posts
         ];
         return view('user.my-account', $data);
     }
@@ -64,5 +68,31 @@ class UserController extends Controller
 
         $imageSource = 'images/avatars/' . $imageName;
         return $imageSource;
+    }
+
+    public function savePost(Request $request)
+    {
+        $user_id = Auth::user()->id;
+
+        if (isset($request->post_id)) {
+            $post = Post::find($request->post_id);
+        } else {
+            $post = new Post;
+        }
+        
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->user_id = $user_id;
+
+        $post->save();
+        return redirect()->back();
+    }
+
+    public function deletePost($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+
+        return redirect()->back();
     }
 }

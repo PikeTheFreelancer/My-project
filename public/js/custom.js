@@ -5,6 +5,7 @@ $(document).ready(function(){
 
     $('.accordion-box').on('click', function() {
         $('#add-merchandise').slideToggle();
+        $('.add-post').slideToggle();
     })
 
     $('.image-uploader input').on('change', function() {
@@ -442,4 +443,10 @@ $(document).ready(function(){
             $(this).val(parseFloat(price).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.'));
         }
     });
+
+    $(document).on('click', '.edit-post', function () {
+        $(this).parents('.post').find('.post-title').hide();
+        $(this).parents('.post').find('.post-content').hide();
+        $(this).parents('.posts').find('.add-post').show();
+    })
 });

@@ -16,6 +16,8 @@ Route::middleware('auth:web')->group(function (){
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('/my-account', [UserController::class, 'index'])->name('user');
     Route::post('/my-account', [UserController::class, 'save'])->name('user.save');
+    Route::post('/my-account/save-post', [UserController::class, 'savePost'])->name('user.save-post');
+    Route::get('/my-account/delete-post/{id}', [UserController::class, 'deletePost'])->name('user.delete-post');
     Route::get('/my-store', [MyStoreController::class, 'index'])->name('user.my-store');
 
     Route::post('/market/comment', [CommentController::class, 'comment'])->name('user.market.comment');

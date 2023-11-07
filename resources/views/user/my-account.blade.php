@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-header">{{ __('My Account') }}</div>
             <div class="card-body">
-                <form action="{{ route('user.save') }}" method="POST" enctype="multipart/form-data">
+                <form class="edit-account" action="{{ route('user.save') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="base-info">
                         <div class="avatar-field">
@@ -43,9 +43,61 @@
                         <button class="btn btn-primary" type="submit">save</button>
                     </div>
                 </form>
-                <form method="post">
-                    <textarea class="tinymce-editor"></textarea>
-                </form>
+                <div class="add">
+                    <div class="accordion-box">
+                        <span class="plus-icon">
+                            @include('svg.plus')
+                        </span>
+                        <span>Add new post</span>
+                    </div>
+                    <form class="add-post" method="post" action="{{route('user.save-post')}}">
+                        @csrf
+                        <div class="form-field">
+                            <label for="title">Title</label>
+                            <input class="input-border" type="text" name="title" id="">
+                        </div>
+                        <div class="form-field">
+                            <label for="content">Content</label>
+                            <textarea class="tinymce-editor" name="content"></textarea>
+                        </div>
+                        <div class="form-field">
+                            <button class="btn btn-primary" type="submit">post</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="posts">
+                    @foreach ($posts as $post)
+                        <div class="post">
+                            <div class="action">
+                                <a href="#" class="edit-post">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </a>
+                                <a href="{{route('user.delete-post', $post->id)}}">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            <div class="post-title">
+                                <h4>{{$post->title}}</h4>
+                            </div>
+                            <div class="post-content">{!! $post->content !!}</div>
+                            <form class="add-post" method="post" action="{{route('user.save-post')}}">
+                                @csrf
+                                <input type="hidden" name="post_id" value="{{$post->id}}">
+                                <div class="form-field">
+                                    <label for="title">Title</label>
+                                    <input class="input-border" type="text" name="title" value="{{$post->title}}">
+                                </div>
+                                <div class="form-field">
+                                    <label for="content">Content</label>
+                                    <textarea class="tinymce-editor" name="content">{!! $post->content !!}</textarea>
+                                </div>
+                                <div class="form-field">
+                                    <button class="btn btn-primary" type="submit">save</button>
+                                </div>
+                            </form>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
