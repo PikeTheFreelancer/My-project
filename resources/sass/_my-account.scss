@@ -58,7 +58,10 @@
         display: none;
     }
     .posts{
+        display: flex;
+        flex-direction: column;
         margin: 20px 0;
+        row-gap: 20px;
     }
     .post{
         box-shadow: 5px 4px 10px 2px #888;
@@ -74,6 +77,16 @@
             position: absolute;
             top: 20px;
             right: 20px;
+        }
+    }
+    .post-content{
+        *{
+            max-width: 100%;
+        }
+        img{
+            max-width: 100%;
+            object-fit: cover;
+            margin: 10px 0;
         }
     }
 }

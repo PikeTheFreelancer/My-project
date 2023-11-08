@@ -349,7 +349,11 @@ label.error{
     font-family: 'Vi-Retro';
     font-size: 10px;
 }
-
+iframe{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+}
 //custom mce editor
 .tox .tox-toolbar__primary{
     background-position: unset !important;

@@ -12338,6 +12338,12 @@ label.error {
   font-size: 10px;
 }
 
+iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
 .tox .tox-toolbar__primary {
   background-position: unset !important;
   background-size: calc(100% - 22px) calc(100% - 41px) !important;
@@ -12862,6 +12868,9 @@ label.error {
   flex-grow: 1;
   margin-top: 20px;
 }
+.market-page .merchandise-details * {
+  max-width: 100%;
+}
 .market-page .merchandise-details img {
   max-width: 100%;
   -o-object-fit: cover;
@@ -12989,7 +12998,10 @@ label.error {
   display: none;
 }
 .my-account-page .posts {
+  display: flex;
+  flex-direction: column;
   margin: 20px 0;
+  row-gap: 20px;
 }
 .my-account-page .post {
   box-shadow: 5px 4px 10px 2px #888;
@@ -13008,6 +13020,15 @@ label.error {
   top: 20px;
   right: 20px;
 }
+.my-account-page .post-content * {
+  max-width: 100%;
+}
+.my-account-page .post-content img {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 10px 0;
+}
 
 @media screen and (max-width: 767px) {
   .my-account-page .base-info {
@@ -13025,4 +13046,8 @@ label.error {
 }
 .post-details {
   padding-bottom: 20px;
+}
+
+.post-content p {
+  margin: 16px 0;
 }

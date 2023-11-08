@@ -18,7 +18,7 @@
                             <div class="merchandise-details">
                                 <div class="post-details">
                                     <h2>{{ $item->title }}</h2>
-                                    <div class="merchandise-description">{!! $item->content !!}</div>
+                                    <div class="post-content">{!! $item->content !!}</div>
                                 </div>
                                 
                                 {{-- comment appended here --}}

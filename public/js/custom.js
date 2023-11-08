@@ -451,12 +451,12 @@ $(document).ready(function(){
         e.preventDefault();
         $(this).parents('.post').find('.post-title').hide();
         $(this).parents('.post').find('.post-content').hide();
-        $(this).parents('.posts').find('.add-post').show();
+        $(this).parents('.post').find('.add-post').show();
     })
     $(document).on('click', '.cancel-edit-post', function(e) {
         e.preventDefault();
         $(this).parents('.post').find('.post-title').show();
         $(this).parents('.post').find('.post-content').show();
-        $(this).parents('.posts').find('.add-post').hide();
+        $(this).parents('.post').find('.add-post').hide();
     })
 });
