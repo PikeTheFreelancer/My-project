@@ -89,7 +89,7 @@
                                 @php
                                     $data = json_decode($notification->data);
                                 @endphp
-                                <a class="noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} href="{{route('merchandise',['id' => $data->merchandise_id])}}#comment-{{$data->comment_id}}">
+                                <a class="noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} @if(isset($data->merchandise_id)) href="{{route('merchandise',['id' => $data->merchandise_id])}}#comment-{{$data->comment_id}}" @else href="{{route('post',['id' => $data->post_id])}}#comment-{{$data->comment_id}}" @endif>
                                     @if (isset($data->comment) && isset($data->title))
                                         <p>{{$data->title}}
                                             @if (isset($data->comment))
@@ -217,7 +217,11 @@
             var message;
             channel.bind(recipant, function(data) {
                 var current_url = $(location).attr('href');
-                var newUrlNotification = `/merchandise/${data.merchandise_id}`;
+                if (data.merchandise_id) {
+                    var newUrlNotification = `/merchandise/${data.merchandise_id}`;
+                }else{
+                    var newUrlNotification = `/post/${data.post_id}`;
+                }
                 var newNotificationHtml;
                 if(current_url.includes(newUrlNotification)) {
                     newNotificationHtml = `
@@ -229,7 +233,7 @@
                         `;
                 }else {
                     newNotificationHtml = `
-                        <a class="noti-item noti-unread" href="/merchandise/${data.merchandise_id}#comment-${data.comment_id}" data-id=${data.id}>
+                        <a class="noti-item noti-unread" href="${newUrlNotification}#comment-${data.comment_id}" data-id=${data.id}>
                             <p>${data.title}
                                 <small>${data.comment}</small>
                             </p>

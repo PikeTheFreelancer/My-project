@@ -1,7 +1,7 @@
 tinymce.init({
     selector: '.tinymce-editor',
-    plugins: 'image code table autoresize link',
-    toolbar: 'undo redo | link | image | alignleft aligncenter alignright alignjustify | code',
+    plugins: 'image code table autoresize link media',
+    toolbar: 'undo redo | link | image media | alignleft aligncenter alignright alignjustify | code',
     /* enable title field in the Image dialog*/
     image_title: true,
     /* enable automatic uploads of images represented by blob or data URIs*/

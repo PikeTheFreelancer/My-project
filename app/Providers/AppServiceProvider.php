@@ -6,8 +6,12 @@ use App\Repositories\Comment\CommentRepository;
 use App\Repositories\Comment\CommentRepositoryInterface;
 use App\Repositories\Merchandise\MerchandiseRepository;
 use App\Repositories\Merchandise\MerchandiseRepositoryInterface;
+use App\Repositories\Notification\NotificationRepository;
+use App\Repositories\Notification\NotificationRepositoryInterface;
 use App\Repositories\User\UserRepository;
 use App\Repositories\User\UserRepositoryInterface;
+use App\Repositories\Post\PostRepository;
+use App\Repositories\Post\PostRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -34,6 +38,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(
             MerchandiseRepositoryInterface::class,
             MerchandiseRepository::class
+        );
+        $this->app->singleton(
+            PostRepositoryInterface::class,
+            PostRepository::class
+        );
+        $this->app->singleton(
+            NotificationRepositoryInterface::class,
+            NotificationRepository::class
         );
     }
 

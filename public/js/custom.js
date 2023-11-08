@@ -372,6 +372,7 @@ $(document).ready(function(){
         e.preventDefault();
 
         var merchandise_id = $(this).parents('.merchandise').data('id');
+        var post_id = $(this).parents('.merchandise').data('post-id');
         var comment = $(this).find('.comment').val();
         var thisForm = $(this);
         // for comment method
@@ -382,11 +383,12 @@ $(document).ready(function(){
             }
         });
         $.ajax({
-            url: '/market/comment',
+            url: '/comment',
             method: 'POST',
             data: {
                 comment: comment,
-                merchandise_id: merchandise_id
+                merchandise_id: merchandise_id,
+                post_id: post_id
             },
             success: function(response) {
                 commentsList.append(response);
@@ -396,7 +398,7 @@ $(document).ready(function(){
                 //get comment id to pass to notification
                 let commentId = responseJQuery.attr('id');
                 let dbCommentId = parseInt(commentId.split('-')[1]);
-                sendNotification(merchandise_id, comment, dbCommentId);
+                sendNotification(post_id, merchandise_id, comment, dbCommentId);
             },
             error: function(error) {
                 // Handle any errors that occur during the Ajax request
@@ -410,7 +412,7 @@ $(document).ready(function(){
 
     })
 
-    function sendNotification(merchandise_id, comment, comment_id) {
+    function sendNotification(post_id, merchandise_id, comment, comment_id) {
         //for send comment notification method
         $.ajaxSetup({
             headers: {
@@ -421,6 +423,7 @@ $(document).ready(function(){
             url: '/notification/send',
             method: 'POST',
             data: {
+                post_id: post_id,
                 merchandise_id: merchandise_id,
                 comment: comment,
                 comment_id: comment_id

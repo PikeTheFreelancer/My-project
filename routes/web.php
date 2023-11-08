@@ -20,7 +20,7 @@ Route::middleware('auth:web')->group(function (){
     Route::get('/my-account/delete-post/{id}', [UserController::class, 'deletePost'])->name('user.delete-post');
     Route::get('/my-store', [MyStoreController::class, 'index'])->name('user.my-store');
 
-    Route::post('/market/comment', [CommentController::class, 'comment'])->name('user.market.comment');
+    Route::post('/comment', [CommentController::class, 'comment'])->name('comment');
     Route::post('/market/edit-comment/{id}', [CommentController::class, 'edit'])->name('user.market.edit-comment');
     Route::post('/market/delete-comment', [CommentController::class, 'delete'])->name('user.market.edit-comment');
     Route::post('notification/send', [MarketController::class, 'sendNotification'])->name('notification.send');
@@ -40,4 +40,4 @@ Route::get('/market', [MarketController::class, 'index'])->name('market');
 Route::get('/merchandise/{id}', [MarketController::class, 'merchandise'])->name('merchandise');
 
 Route::get('/newsfeed', [NewsfeedController::class, 'index'])->name('newsfeed');
-Route::get('/newsfeed/post', [NewsfeedController::class, 'post'])->name('newsfeed.post');
+Route::get('/post/{id}', [NewsfeedController::class, 'post'])->name('post');

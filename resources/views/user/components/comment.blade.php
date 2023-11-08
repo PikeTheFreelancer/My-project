@@ -5,8 +5,10 @@
     <div class='comment-col-right'>
         <div class="comment-username-container">
             <a class='comment-username' href="{{route('profile', $comment->user_id)}}">{{$comment->username}}</a>
-            @if ($comment->user_id == $seller_id)
+            @if (isset($seller_id) && $comment->user_id == $seller_id)
                 <small class="user-label">seller</small>
+            @else
+                <small class="user-label">author</small>
             @endif
         </div>
         <p class='comment-content'>{{$comment->comment}}</p>
