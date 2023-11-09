@@ -75,6 +75,12 @@
                     </div>
                 </a>
                 <div class="navbar-controll">
+                    <form class="search-bar" action="{{ route('searchPokemon') }}" method="POST">
+                        @csrf
+                        <input class="input-border search-pokemon" type="text" placeholder="search pokemon..." name="searchString">
+                        <i class="fa-brands fa-searchengin"></i>
+                        <div class="search-results"></div>
+                    </form>
                     <div class="nav-item dropdown dropdown-notifications">
                         <a class="notification-box" href="/market">
                             @if (isset($unreadNotifications) && count($unreadNotifications) > 0)

@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('.stat-chart').each(function() {
         var baseStat = $(this).siblings('.stat-index').data('bs');
-        $(this).children().width((baseStat/150)*100 + '%');
+        $(this).children().width((baseStat/255)*100 + '%');
         if(baseStat >= 140){
             $(this).children().addClass('barchart-rank-6');
         }else if (baseStat >= 120) {
@@ -15,5 +15,30 @@ $(document).ready(function(){
         }else if(baseStat < 30){
             $(this).children().addClass('barchart-rank-1');
         }
+    })
+
+    $('.search-pokemon').on('keyup', function() {
+        let searchString = $(this).val();
+        let results = $(this).siblings('.search-results');
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '/get-pokemon',
+            method: 'POST',
+            data: {
+                searchString: searchString
+            },
+            success: function(response) {
+                results.empty();
+                results.append(response);
+            },
+            error: function(error) {
+                // Handle any errors that occur during the Ajax request
+                console.error('Error:', error);
+            }
+        });
     })
 })

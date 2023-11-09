@@ -27,7 +27,38 @@
 .mobile-nav-links{
     display: none;
 }
-
+.search-bar{
+    display: flex;
+    position: relative;
+    input{
+        min-width: 300px;
+    }
+    i{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px;
+        color: #777;
+        font-size: 20px;
+    }
+    .search-results{
+        position: absolute;
+        width: 100%;
+        height: max-content;
+        bottom: 0;
+        top: 100%;
+        backdrop-filter: blur(6px);
+        background: rgba(0,0,0,0.5);
+        a.search-result{
+            display: block;
+            padding: 10px 15px;
+            color: #fff;
+            &:hover{
+                background-color: #333;
+            }
+        }
+    }
+}
 .menu-notification{
     border-top: solid 1px #ddd;
     width: 360px;

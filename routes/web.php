@@ -43,3 +43,5 @@ Route::get('/merchandise/{id}', [MarketController::class, 'merchandise'])->name(
 Route::get('/newsfeed', [NewsfeedController::class, 'index'])->name('newsfeed');
 Route::get('/post/{id}', [NewsfeedController::class, 'post'])->name('post');
 Route::get('/pokemon/{name}', [GetPokemonController::class, 'index'])->name('get-pokemon');
+Route::post('/get-pokemon', [GetPokemonController::class, 'getPokemonsByString'])->name('getPokemonsByString');
+Route::post('/search-pokemon', [GetPokemonController::class, 'searchPokemon'])->name('searchPokemon');
