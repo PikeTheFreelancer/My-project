@@ -12868,9 +12868,6 @@ iframe {
   flex-grow: 1;
   margin-top: 20px;
 }
-.market-page .merchandise-details * {
-  max-width: 100%;
-}
 .market-page .merchandise-details img {
   max-width: 100%;
   -o-object-fit: cover;
