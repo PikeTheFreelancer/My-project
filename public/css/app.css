@@ -13055,7 +13055,9 @@ iframe {
 
 .pokemon-details {
   display: flex;
-  justify-content: space-between;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  align-items: flex-start;
 }
 
 .pokemon-images {
@@ -13077,7 +13079,35 @@ iframe {
 .pokemon-stats th {
   padding: 0 15px;
   text-align: end;
+  white-space: nowrap;
 }
 .pokemon-stats td {
   padding: 0 15px;
+}
+.pokemon-stats .stat-chart {
+  width: 100%;
+  max-width: 255px;
+}
+.pokemon-stats .stat-chart div {
+  width: 0;
+  height: 0.75rem;
+  background-color: #ddd;
+}
+.pokemon-stats .stat-chart .barchart-rank-1 {
+  background-color: #f34444;
+}
+.pokemon-stats .stat-chart .barchart-rank-2 {
+  background-color: #ff7f0f;
+}
+.pokemon-stats .stat-chart .barchart-rank-3 {
+  background-color: #ffdd57;
+}
+.pokemon-stats .stat-chart .barchart-rank-4 {
+  background-color: #a0e515;
+}
+.pokemon-stats .stat-chart .barchart-rank-5 {
+  background-color: #23cd5e;
+}
+.pokemon-stats .stat-chart .barchart-rank-6 {
+  background-color: #00c2b8;
 }

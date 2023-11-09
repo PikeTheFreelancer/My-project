@@ -12,23 +12,25 @@
                     </div>
                     <div class="pokemon-images">
                         <div class="gender-image">
-                            <p>Male:</p>
+                            @if ($data['sprites']['front_female'])
+                                <p>Male:</p>
+                            @else
+                                <p>Default:</p>
+                            @endif
                             <img src="{{$data['sprites']['front_default']}}" alt="">
                         </div>
-                        <div class="gender-image">
-                            <p>Female:</p>
-                            @if ($data['sprites']['front_female'])
+                        @if ($data['sprites']['front_female'])
+                            <div class="gender-image">
+                                <p>Female:</p>
                                 <img src="{{$data['sprites']['front_female']}}" alt="">
-                            @else
-                                <img src="{{$data['sprites']['front_default']}}" alt="">
-                            @endif
-                        </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <table class="detail-col">
                     <tbody>
                         <tr>
-                            <th>pokedex No:</th>
+                            <th>Pokedex No:</th>
                             <td>{{$data['id']}}</td>
                         </tr>
                         <tr>
@@ -50,11 +52,9 @@
                         <tr>
                             <th>Abilities:</th>
                             <td>
-                                <ol>
-                                    @foreach ($data['abilities'] as $ability)
-                                        <li>{{$ability['ability']['name']}} {{$ability['is_hidden'] ? '(hidden ability)' : ''}}</li>
-                                    @endforeach
-                                </ol>
+                                @foreach ($data['abilities'] as $index => $ability)
+                                    <p>{{$index+1}}. {{$ability['ability']['name']}} {{$ability['is_hidden'] ? '(hidden ability)' : ''}}</li>
+                                @endforeach
                             </td>
                         </tr>
                     </tbody>
@@ -64,13 +64,18 @@
                 <table class="pokemon-stats">
                     <h3>base stats</h3>
                     <tbody>
+                        @php
+                            $total_bs = 0;
+                        @endphp
                         @foreach ($data['stats'] as $stat)
                             @php
                                 $base_stat = ($stat['base_stat']*2) + 5;
+                                $total_bs = $total_bs + $stat['base_stat'];
                             @endphp
                             <tr>
                                 <th>{{$stat['stat']['name']}}:</th>
-                                <td>{{$stat['base_stat']}}</td>
+                                <td class="stat-index" data-bs="{{$stat['base_stat']}}">{{$stat['base_stat']}}</td>
+                                <td class="stat-chart"><div></div></td>
 
                                 {{-- minimum column --}}
                                 @if ($stat['stat']['name'] == 'hp')
@@ -87,6 +92,13 @@
                                 @endif
                             </tr>
                         @endforeach
+                        <tr>
+                            <th>total:</th>
+                            <th>{{$total_bs}}</th>
+                            <td></td>
+                            <td>min</td>
+                            <td>max</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

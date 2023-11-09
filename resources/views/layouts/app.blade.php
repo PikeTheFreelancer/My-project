@@ -34,6 +34,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/validation.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/pokemon-page.js') }}"></script>
 </head>
 <body>
     @php

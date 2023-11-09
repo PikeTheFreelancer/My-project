@@ -1,6 +1,7 @@
 .pokemon-details{
     display: flex;
-    justify-content: space-between;
+    column-gap: 20px;
+    align-items: flex-start;
 }
 .pokemon-images{
     display: flex;
@@ -21,8 +22,36 @@
     th{
         padding: 0 15px;
         text-align: end;
+        white-space: nowrap;
     }
     td{
         padding: 0 15px;
+    }
+    .stat-chart{
+        width: 100%;
+        max-width: 255px;
+        div{
+            width: 0;
+            height: 0.75rem;
+            background-color: #ddd;
+        }
+        .barchart-rank-1{
+            background-color: #f34444;
+        }
+        .barchart-rank-2{
+            background-color: #ff7f0f;
+        }
+        .barchart-rank-3{
+            background-color: #ffdd57;
+        }
+        .barchart-rank-4{
+            background-color: #a0e515;
+        }
+        .barchart-rank-5{
+            background-color: #23cd5e;
+        }
+        .barchart-rank-6{
+            background-color: #00c2b8;
+        }
     }
 }
