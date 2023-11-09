@@ -46,7 +46,7 @@
                 <div class="currently-sale">
                     @if (count($merchandises) > 0)
                         @foreach ($merchandises as $item)
-                            <div data-id="{{ $item->id }}" class="item glass">
+                            <div data-id="{{ $item->id }}" class="item grass">
                                 <p class="name">{{ $item->name }}</p>
                                 <div class="image-container @if(!$item->image) no-image @endif">
                                     @if (!$item->image)

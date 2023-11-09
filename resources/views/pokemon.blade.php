@@ -46,7 +46,7 @@
                                 <th>Types:</th>
                                 <td>
                                     @foreach ($data['types'] as $type)
-                                        <span>{{$type['type']['name']}}</span>
+                                        <span class="type glass {{$type['type']['name']}}">{{$type['type']['name']}}</span>
                                     @endforeach
                                 </td>
                             </tr>

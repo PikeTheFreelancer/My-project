@@ -12203,18 +12203,6 @@ a.dropdown-item:hover {
   background-color: #ddd;
 }
 
-.glass {
-  /* background styles */
-  position: relative;
-  display: inline-block;
-  padding: 15px 25px;
-  background-color: green; /*for compatibility with older browsers*/
-  background-image: linear-gradient(green, lightgreen);
-  /* text styles */
-  text-decoration: none;
-  font-weight: 100;
-}
-
 .glass::before {
   content: "";
   position: absolute;
@@ -12226,11 +12214,21 @@ a.dropdown-item:hover {
   background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
 }
 
+.grass {
+  /* background styles */
+  position: relative;
+  display: inline-block;
+  background-color: green; /*for compatibility with older browsers*/
+  background-image: linear-gradient(green, lightgreen);
+  /* text styles */
+  text-decoration: none;
+  font-weight: 100;
+}
+
 .fire {
   /* background styles */
   position: relative;
   display: inline-block;
-  padding: 15px 25px;
   background-color: rgb(226, 48, 3); /*for compatibility with older browsers*/
   background-image: linear-gradient(rgb(226, 48, 3), rgb(255, 88, 10));
   /* text styles */
@@ -12238,22 +12236,10 @@ a.dropdown-item:hover {
   font-weight: 100;
 }
 
-.fire::before {
-  content: "";
-  position: absolute;
-  border-radius: 10px 10px 3px 3px;
-  top: 2px;
-  left: 2px;
-  width: calc(100% - 4px);
-  height: 7%;
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
-}
-
 .water {
   /* background styles */
   position: relative;
   display: inline-block;
-  padding: 15px 25px;
   background-color: rgb(0, 102, 255); /*for compatibility with older browsers*/
   background-image: linear-gradient(rgb(0, 102, 255), rgb(0, 162, 255));
   /* text styles */
@@ -12261,15 +12247,26 @@ a.dropdown-item:hover {
   font-weight: 100;
 }
 
-.water::before {
-  content: "";
-  position: absolute;
-  border-radius: 10px 10px 3px 3px;
-  top: 2px;
-  left: 2px;
-  width: calc(100% - 4px);
-  height: 7%;
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+.poison {
+  /* background styles */
+  position: relative;
+  display: inline-block;
+  background-color: #a59; /*for compatibility with older browsers*/
+  background-image: linear-gradient(#a59, rgb(255, 115, 227));
+  /* text styles */
+  text-decoration: none;
+  font-weight: 100;
+}
+
+.electric {
+  /* background styles */
+  position: relative;
+  display: inline-block;
+  background-color: #fc3;
+  background-image: linear-gradient(#fc3, rgb(255, 223, 128));
+  /* text styles */
+  text-decoration: none;
+  font-weight: 100;
 }
 
 .shiny {
@@ -12701,6 +12698,7 @@ iframe {
   background-color: rgba(221, 221, 221, 0.75);
   border-radius: 10px;
   transition: all 0.5s;
+  padding: 15px 25px;
   display: flex;
   align-items: center;
 }
@@ -13113,6 +13111,14 @@ iframe {
 
 .detail-col th, .detail-col td {
   padding: 0 15px;
+}
+.detail-col .type {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 15px;
+  color: #fff;
+  border-radius: 3px;
+  font-family: "Retro-Computer";
 }
 
 .pokemon-stats th {
