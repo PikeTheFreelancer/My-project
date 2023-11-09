@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GetPokemonController;
 use App\Http\Controllers\User\Auth\LoginController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +42,4 @@ Route::get('/merchandise/{id}', [MarketController::class, 'merchandise'])->name(
 
 Route::get('/newsfeed', [NewsfeedController::class, 'index'])->name('newsfeed');
 Route::get('/post/{id}', [NewsfeedController::class, 'post'])->name('post');
+Route::get('/pokemon/{name}', [GetPokemonController::class, 'index'])->name('get-pokemon');

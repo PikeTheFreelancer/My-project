@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /public/images/*
+!/public/images/pokemon/
 /storage/*.key
 /vendor
 .env

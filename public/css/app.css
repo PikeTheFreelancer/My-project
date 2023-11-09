@@ -13048,3 +13048,7 @@ iframe {
 .post-content p {
   margin: 16px 0;
 }
+
+.pokemon-images {
+  display: flex;
+}
