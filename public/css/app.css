@@ -11988,11 +11988,15 @@ a {
   color: #000;
 }
 
-p {
+p, span, ul, ol, li, td, th {
   font-family: "Vi-Retro";
   margin-bottom: 0;
   font-size: 12px;
   line-height: 200%;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 textarea {
@@ -13049,6 +13053,31 @@ iframe {
   margin: 16px 0;
 }
 
+.pokemon-details {
+  display: flex;
+  justify-content: space-between;
+}
+
 .pokemon-images {
   display: flex;
+}
+
+.pokemon-shapes {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  width: 100%;
+  max-width: 256px;
+}
+
+.detail-col th, .detail-col td {
+  padding: 0 15px;
+}
+
+.pokemon-stats th {
+  padding: 0 15px;
+  text-align: end;
+}
+.pokemon-stats td {
+  padding: 0 15px;
 }

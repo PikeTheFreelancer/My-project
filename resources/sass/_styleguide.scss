@@ -7,11 +7,14 @@ a{
     text-decoration: none;
     color: #000;
 }
-p{
+p,span,ul,ol,li, td, th{
     font-family: "Vi-Retro";
     margin-bottom: 0;
     font-size: 12px;
     line-height: 200%;
+}
+.capitalize{
+    text-transform: capitalize;
 }
 textarea{
     padding: 10px;

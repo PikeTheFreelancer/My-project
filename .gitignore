@@ -3,6 +3,8 @@
 /public/storage
 /public/images/*
 !/public/images/pokemon/
+!/public/images/favicon.png
+!/public/images/news.png
 /storage/*.key
 /vendor
 .env

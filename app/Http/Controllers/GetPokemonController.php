@@ -12,6 +12,7 @@ class GetPokemonController extends Controller
     
         if ($response->successful()) {
             $data = $response->json();
+            // dd($data);
             return view('pokemon', compact('data'));
         } else {
             return response()->json(['error' => 'Pokemon not found'], 404);
