@@ -7,6 +7,7 @@
             <div class="card-header">{{$data['name']}}</div>
             <div class="card-body">
                 <div class="pokemon-images">
+                    <img src="{{asset('images/'.$data['id'].'.png')}}" alt="">
                     <div class="gender-image">
                         <p>Male:</p>
                         <img src="{{$data['sprites']['front_default']}}" alt="">
