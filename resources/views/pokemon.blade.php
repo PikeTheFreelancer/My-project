@@ -117,6 +117,11 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="card-body pokemon-moves">
+                    <table class="move-pool">
+                        
+                    </table>
+                </div>
             @else
                 <div class="card-header">
                     <h3>
