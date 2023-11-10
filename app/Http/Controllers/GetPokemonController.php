@@ -23,7 +23,7 @@ class GetPokemonController extends Controller
     {
         $searchString = $request->input('searchString');
 
-        $response = Http::get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1000");
+        $response = Http::get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10100");
 
         if ($response->successful()) {
 
@@ -37,7 +37,7 @@ class GetPokemonController extends Controller
                 }
 
                 //get 5 results maximum
-                if ($count >= 5) {
+                if ($count >= 10) {
                     break;
                 }
             }

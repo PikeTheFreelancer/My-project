@@ -11,6 +11,10 @@
 }
 .pokemon-images{
     display: flex;
+    gap: 10px;
+    .poke-thumb{
+        max-height: 96px;
+    }
 }
 .pokemon-shapes{
     display: flex;
@@ -30,6 +34,9 @@
         color: #fff;
         border-radius: 3px;
         font-family: 'Retro-Computer';
+        text-decoration: none;
+        font-weight: 100;
+        position: relative;
     }
 }
 .pokemon-stats{

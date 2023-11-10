@@ -225,66 +225,110 @@ a.dropdown-item:hover{
 //grass element
 .grass{
 	/* background styles */
-	position: relative;
-	display: inline-block;
 	background-color: green; /*for compatibility with older browsers*/
 	background-image: linear-gradient(green,lightgreen);
-
-	/* text styles */
-	text-decoration: none;
-	font-weight: 100;
 }
 
 //fire element
 .fire{
 	/* background styles */
-	position: relative;
-	display: inline-block;
 	background-color: rgb(226, 48, 3); /*for compatibility with older browsers*/
 	background-image: linear-gradient(rgb(226, 48, 3),rgb(255, 88, 10));
-
-	/* text styles */
-	text-decoration: none;
-	font-weight: 100;
 }
 
 //water element
 .water{
-	/* background styles */
-	position: relative;
-	display: inline-block;
 	background-color: rgb(0, 102, 255); /*for compatibility with older browsers*/
 	background-image: linear-gradient(rgb(0, 102, 255),rgb(0, 162, 255));
-
-	/* text styles */
-	text-decoration: none;
-	font-weight: 100;
 }
 
 //poison element
 .poison{
-	/* background styles */
-	position: relative;
-	display: inline-block;
 	background-color: #a59; /*for compatibility with older browsers*/
 	background-image: linear-gradient(#a59,rgb(255, 115, 227));
-
-	/* text styles */
-	text-decoration: none;
-	font-weight: 100;
 }
 
 //electric element
 .electric{
-	/* background styles */
-	position: relative;
-	display: inline-block;
 	background-color: #fc3;
 	background-image: linear-gradient(#fc3,rgb(255, 223, 128));
+}
+//normal element
+.normal{
+	background-color: #aa9;
+	background-image: linear-gradient(#aa9,rgb(221, 221, 211));
+}
 
-	/* text styles */
-	text-decoration: none;
-	font-weight: 100;
+//ice element
+.ice{
+	background-color: #6cf;
+	background-image: linear-gradient(#6cf,rgb(165, 225, 255));
+}
+
+//fighting element
+.fighting{
+	background-color: #b54;
+	background-image: linear-gradient(#b54,rgb(228, 130, 112));
+}
+
+//ground element
+.ground{
+	background-color: #db5;
+	background-image: linear-gradient(#db5,rgb(253, 225, 142));
+}
+
+//flying element
+.flying{
+	background-color: #89f;
+	background-image: linear-gradient(#89f,rgb(175, 187, 255));
+}
+
+//psychic element
+.psychic{
+	background-color: #f59;
+	background-image: linear-gradient(#f59,rgb(250, 140, 184));
+}
+
+//bug element
+.bug{
+	background-color: #ab2;
+	background-image: linear-gradient(#ab2,rgb(238, 255, 111));
+}
+
+//rock element
+.rock{
+	background-color: #ba6;
+	background-image: linear-gradient(#ba6,rgb(243, 226, 159));
+}
+
+//ghost element
+.ghost{
+	background-color: #66b;
+	background-image: linear-gradient(#66b,rgb(159, 159, 252));
+}
+
+//ghost element
+.ghost{
+	background-color: #76e;
+	background-image: linear-gradient(#76e,rgb(177, 177, 255));
+}
+
+//dark element
+.dark{
+	background-color: #754;
+	background-image: linear-gradient(#754,rgb(201, 152, 127));
+}
+
+//steel element
+.steel{
+	background-color: #aab;
+	background-image: linear-gradient(#aab,rgb(219, 219, 230));
+}
+
+//fairy element
+.fairy{
+	background-color: #e9e;
+	background-image: linear-gradient(#e9e,rgb(253, 184, 253));
 }
 //shiny animation
 .shiny {

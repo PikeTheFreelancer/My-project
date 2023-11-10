@@ -22,17 +22,17 @@
                                 @else
                                     <p>Default:</p>
                                 @endif
-                                <img src="{{$data['sprites']['front_default']}}" alt="">
+                                <img class="poke-thumb" src="{{$data['sprites']['front_default']}}" alt="">
                             </div>
                             @if ($data['sprites']['front_female'])
                                 <div class="gender-image">
                                     <p>Female:</p>
-                                    <img src="{{$data['sprites']['front_female']}}" alt="">
+                                    <img class="poke-thumb" src="{{$data['sprites']['front_female']}}" alt="">
                                 </div>
                             @endif
                             <div>
                                 <p>Shiny:</p>
-                                <img src="{{$data['sprites']['front_shiny']}}" alt="">
+                                <img class="poke-thumb" src="{{$data['sprites']['front_shiny']}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                         <tbody>
                             <tr>
                                 <th>Pokedex No:</th>
-                                <td>{{$data['id']}}</td>
+                                <td>{{($data['id'] < 1008) ? $data['id'] : ''}}</td>
                             </tr>
                             <tr>
                                 <th>Types:</th>
