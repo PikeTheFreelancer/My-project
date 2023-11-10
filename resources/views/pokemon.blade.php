@@ -13,7 +13,7 @@
                 <div class="card-body pokemon-details">
                     <div class="pokemon-shapes">
                         <div class="pokemon-avatar">
-                            <img src="{{asset('images/pokemon/'.$data['id'].'.png')}}" alt="">
+                            <img src="{{asset('images/pokemon-dataset/'.$data['name'].'.png')}}" alt="">
                         </div>
                         <div class="pokemon-images">
                             <div class="gender-image">

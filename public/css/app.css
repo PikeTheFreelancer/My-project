@@ -13097,6 +13097,12 @@ iframe {
   align-items: flex-start;
 }
 
+.pokemon-avatar img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .pokemon-images {
   display: flex;
 }

@@ -3,6 +3,12 @@
     column-gap: 20px;
     align-items: flex-start;
 }
+.pokemon-avatar{
+    img{
+        width: 100%;
+        object-fit: cover;
+    }
+}
 .pokemon-images{
     display: flex;
 }

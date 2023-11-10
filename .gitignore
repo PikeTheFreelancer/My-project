@@ -3,6 +3,7 @@
 /public/storage
 /public/images/*
 !/public/images/pokemon/
+!/public/images/pokemon-dataset/
 !/public/images/favicon.png
 !/public/images/news.png
 /storage/*.key
