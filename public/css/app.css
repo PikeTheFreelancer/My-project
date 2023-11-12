@@ -12015,6 +12015,10 @@ textarea {
   display: none;
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+
 input[type=file] {
   font-family: "Retro-Computer";
 }
@@ -13156,8 +13160,11 @@ iframe {
   display: grid;
   grid-template-columns: auto auto;
   gap: 60px;
-  padding-top: 20px;
-  border-top: solid 1px #000;
+  background-color: #fff;
+  padding: 20px 40px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 8px 10px 10px 0px #777;
 }
 .pokemon-moves table {
   width: 100%;
@@ -13179,6 +13186,9 @@ iframe {
 .pokemon-moves .moves-table {
   width: 100%;
 }
+.pokemon-moves .moves-table h4, .pokemon-moves .moves-table .h4 {
+  font-family: "Vi-Retro";
+}
 
 .pokemon-details {
   display: flex;
@@ -13186,6 +13196,8 @@ iframe {
        column-gap: 20px;
   align-items: flex-start;
   justify-content: space-around;
+  padding: 20px 40px;
+  box-shadow: 4px 5px 8px 0px #777;
 }
 
 .pokemon-avatar img {
@@ -13202,6 +13214,12 @@ iframe {
   max-height: 96px;
 }
 
+.pokemon-charts {
+  padding: 20px 40px;
+  margin: auto;
+  box-shadow: 4px 5px 8px 0px #777;
+}
+
 .pokemon-shapes {
   display: flex;
   flex-direction: column;
@@ -13210,6 +13228,9 @@ iframe {
   max-width: 256px;
 }
 
+.detail-col {
+  margin-top: 40px;
+}
 .detail-col th, .detail-col td {
   padding: 0 15px;
 }
@@ -13255,14 +13276,16 @@ iframe {
 }
 
 .generation-navigator {
-  top: -18px;
+  top: -29px;
+  display: flex;
+  gap: 20px;
 }
 .generation-navigator span {
   padding: 10px 20px;
-  border: solid 1px #000;
   background-color: #ddd;
   border-radius: 9px 9px 0 0;
   cursor: pointer;
+  box-shadow: 4px 5px 8px 0px #777;
 }
 .generation-navigator span.active {
   border-bottom: solid 1px #fff;

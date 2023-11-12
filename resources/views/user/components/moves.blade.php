@@ -1,4 +1,4 @@
-<div class="moves-table">
+<div class="moves-table"  data-aos="fade-right">
     <table>
         <h4>Moves learnt by level-up</h4>
         <tbody>
@@ -10,7 +10,7 @@
                 <th>Power</th>
                 <th>Accuracy</th>
             </tr>
-            @foreach ($move_pool['lv'] as $move)
+            @foreach ($move_pool['lv'] as $index => $move)
                 <tr>
                     <td>{{$move['level']}}</td>
                     <td>{{$move['move']['name']}}</td>
@@ -23,7 +23,7 @@
         </tbody>
     </table>
 </div>
-<div class="moves-table table-tm">
+<div class="moves-table table-tm"  data-aos="fade-left">
     <h4>Moves learnt by TMs/HMs</h4>
     @if ($move_pool['tm'])
         <table>
@@ -50,7 +50,7 @@
         <p>This pokemon cannot be taught any TM moves</p>                                
     @endif
 </div>
-<div class="moves-table table-egg">
+<div class="moves-table table-egg" data-aos="fade-right">
     <h4>Moves learnt by breeding (egg moves)</h4>
     @if ($move_pool['egg'])
         <table>
@@ -62,6 +62,7 @@
                     <th>Power</th>
                     <th>Accuracy</th>
                 </tr>
+                
                 @foreach ($move_pool['egg'] as $move)
                     <tr>
                         <td>{{$move['move']['name']}}</td>

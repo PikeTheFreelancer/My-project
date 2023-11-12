@@ -49,7 +49,8 @@ $(document).ready(function(){
         var target = $(this).parent().siblings('.pokemon-moves');
 
         $('.generation-navigator span').removeClass('active');
-        thisTab.addClass('active')
+        thisTab.addClass('active');
+        $('.pokemon-moves').children().addClass('opacity-0');
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
