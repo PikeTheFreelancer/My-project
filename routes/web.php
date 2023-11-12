@@ -46,7 +46,3 @@ Route::get('/pokemon/{name}', [GetPokemonController::class, 'index'])->name('get
 Route::post('/get-pokemon', [GetPokemonController::class, 'getPokemonsByString'])->name('getPokemonsByString');
 Route::post('/search-pokemon', [GetPokemonController::class, 'searchPokemon'])->name('searchPokemon');
 Route::post('/get-pokemon-moves', [GetPokemonController::class, 'getPokemonMoves'])->name('getPokemonMoves');
-
-Route::get('/run-api', [GetPokemonController::class, 'runApi'])->name('run-api');
-Route::get('/get-api', [GetPokemonController::class, 'getAllMovesData'])->name('get-api');
-
