@@ -41,4 +41,35 @@ $(document).ready(function(){
             }
         });
     })
+
+    $('.generation-navigator span').on('click', function () {
+        var thisTab = $(this);
+        var gen = $(this).data('gen');
+        var name = $(this).parent().data('pokemon');
+        var target = $(this).parent().siblings('.pokemon-moves');
+
+        $('.generation-navigator span').removeClass('active');
+        thisTab.addClass('active')
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '/get-pokemon-moves',
+            method: 'POST',
+            data: {
+                name: name,
+                gen: gen
+            },
+            success: function(response) {
+                target.empty();
+                target.append(response);
+            },
+            error: function(error) {
+                // Handle any errors that occur during the Ajax request
+                console.error('Error:', error);
+            }
+        });
+    })
 })

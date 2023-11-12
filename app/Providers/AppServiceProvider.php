@@ -8,6 +8,8 @@ use App\Repositories\Merchandise\MerchandiseRepository;
 use App\Repositories\Merchandise\MerchandiseRepositoryInterface;
 use App\Repositories\Notification\NotificationRepository;
 use App\Repositories\Notification\NotificationRepositoryInterface;
+use App\Repositories\PokemonApi\PokemonApiRepository;
+use App\Repositories\PokemonApi\PokemonApiRepositoryInterface;
 use App\Repositories\User\UserRepository;
 use App\Repositories\User\UserRepositoryInterface;
 use App\Repositories\Post\PostRepository;
@@ -46,6 +48,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(
             NotificationRepositoryInterface::class,
             NotificationRepository::class
+        );
+        $this->app->singleton(
+            PokemonApiRepositoryInterface::class,
+            PokemonApiRepository::class
         );
     }
 

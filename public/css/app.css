@@ -12003,6 +12003,18 @@ textarea {
   padding: 10px;
 }
 
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
+
 input[type=file] {
   font-family: "Retro-Computer";
 }
@@ -13127,11 +13139,53 @@ iframe {
   margin: 16px 0;
 }
 
+.pokemon-page .type {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  border-radius: 3px;
+  font-family: "Retro-Computer";
+  text-decoration: none;
+  font-weight: 100;
+  position: relative;
+  min-width: 90px;
+  justify-content: center;
+}
+
+.pokemon-moves {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 60px;
+  padding-top: 20px;
+  border-top: solid 1px #000;
+}
+.pokemon-moves table {
+  width: 100%;
+}
+.pokemon-moves .table-tm {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 2;
+}
+.pokemon-moves th, .pokemon-moves td {
+  padding: 5px;
+}
+.pokemon-moves tr:nth-child(even) {
+  background-color: #ddd;
+}
+.pokemon-moves td {
+  white-space: nowrap;
+}
+.pokemon-moves .moves-table {
+  width: 100%;
+}
+
 .pokemon-details {
   display: flex;
   -moz-column-gap: 20px;
        column-gap: 20px;
   align-items: flex-start;
+  justify-content: space-around;
 }
 
 .pokemon-avatar img {
@@ -13158,17 +13212,6 @@ iframe {
 
 .detail-col th, .detail-col td {
   padding: 0 15px;
-}
-.detail-col .type {
-  display: inline-flex;
-  align-items: center;
-  padding: 0 15px;
-  color: #fff;
-  border-radius: 3px;
-  font-family: "Retro-Computer";
-  text-decoration: none;
-  font-weight: 100;
-  position: relative;
 }
 
 .pokemon-stats th {
@@ -13205,6 +13248,28 @@ iframe {
 }
 .pokemon-stats .stat-chart .barchart-rank-6 {
   background-color: #00c2b8;
+}
+
+.pokemon-moves-container {
+  margin-top: 60px;
+}
+
+.generation-navigator {
+  top: -18px;
+}
+.generation-navigator span {
+  padding: 10px 20px;
+  border: solid 1px #000;
+  background-color: #ddd;
+  border-radius: 9px 9px 0 0;
+  cursor: pointer;
+}
+.generation-navigator span.active {
+  border-bottom: solid 1px #fff;
+  background-color: #fff;
+}
+.generation-navigator span:hover {
+  background-color: #fff;
 }
 
 @media screen and (max-width: 767px) {

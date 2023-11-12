@@ -2,19 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\PokemonApi\PokemonApiRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
 class GetPokemonController extends Controller
 {
+    private $pokemonApiRepo;
+
+    public function __construct(PokemonApiRepositoryInterface $pokemonApiRepo)
+    {
+        $this->pokemonApiRepo = $pokemonApiRepo;
+    }
+
     public function index($name) {
-        $response = Http::get("https://pokeapi.co/api/v2/pokemon/{$name}");
-    
-        if ($response->successful()) {
-            $data = $response->json();
-        } else {
-            $data = [];
+        
+        $response = $this->pokemonApiRepo->getPokemonByName($name);
+        $data = $response['pokemon'][0];
+        $move_pool = [];
+        for ($i=1; $i <= 9 ; $i++) { 
+            $move_pool['gen_'.$i]['lv'] = collect($data['moves'])->where('version.generation', $i)->where('method.name','level-up')->unique()->sortBy('level')->all();
+            $move_pool['gen_'.$i]['tm'] = collect($data['moves'])->where('version.generation', $i)->where('method.name','machine')->unique()->all();
+            $move_pool['gen_'.$i]['egg'] = collect($data['moves'])->where('version.generation', $i)->where('method.name','egg')->unique()->all();
         }
+        $data['moves'] = $move_pool;
+        // dd($data['moves']['gen_6']['egg']);
         return view('pokemon', compact('data'));
     }
 
@@ -51,37 +63,95 @@ class GetPokemonController extends Controller
     }
 
     public function runApi(){
-        $response = Http::get("https://pokeapi.co/api/v2/move?offset=0&limit=921");
+        // URL của GraphQL API
+        $graphqlEndpoint = 'https://beta.pokeapi.co/graphql/v1beta';
 
-        if ($response->successful()) {
-            $movesData = $response->json();
-            $data = [];
-            foreach ($movesData['results'] as $result) {
-                $move = Http::get("https://pokeapi.co/api/v2/move/".$result['name']);
-                $data[] = $move;
+        $graphqlQuery = <<<'EOT'
+            query GetPokemonInfo($pokemonId: Int!) {
+                pokemon:pokemon_v2_pokemon(where: { id: { _eq: $pokemonId } }) {
+                    id
+                    name
+                    height
+                    weight
+                    specy:pokemon_v2_pokemonspecy{
+                    id
+                    evolution_chain:pokemon_v2_evolutionchain{
+                        pokemonspecies:pokemon_v2_pokemonspecies {
+                        id
+                        name
+                        }
+                    }
+                    }
+                    moves:pokemon_v2_pokemonmoves{
+                    version:pokemon_v2_versiongroup{
+                        generation:generation_id
+                    }
+                    level
+                    pokemon_v2_movelearnmethod{
+                        name
+                    }
+                    move:pokemon_v2_move{
+                        name
+                        type:pokemon_v2_type{
+                        name
+                        }
+                        power
+                        accuracy
+                        damage_class:pokemon_v2_movedamageclass{
+                        name
+                        }
+                    }
+                    }
+                    types: pokemon_v2_pokemontypes {
+                    type: pokemon_v2_type {
+                        name
+                    }
+                    }
+                    abilities: pokemon_v2_pokemonabilities {
+                    is_hidden
+                    ability: pokemon_v2_ability {
+                        name
+                    }
+                    }
+                    sprites: pokemon_v2_pokemonsprites {
+                    sprites
+                    }
+                    base_stats: pokemon_v2_pokemonstats {
+                    base_stat
+                    }
+                }
             }
-            $json_data = json_encode($data, JSON_PRETTY_PRINT);
-            $file_path = public_path("json/all_moves.json");
-            file_put_contents($file_path, $json_data);
+        EOT;
 
-            return response()->json(['success' => true, 'file_path' => $file_path]);
-        } else {
-            return response()->json(['error' => "Error: {$response->status()}"], 500);
-        }
+        $client = new Client();
+        $response = $client->post($graphqlEndpoint, [
+            'headers' => [
+                'Content-Type' => 'application/json',
+            ],
+            'json' => [
+                'query' => $graphqlQuery,
+                'variables' => [
+                    'pokemonId' => 1, // Thay đổi giá trị này tùy thuộc vào Pokémon bạn muốn lấy thông tin
+                ],
+            ],
+        ]);
+
+        $data = json_decode($response->getBody(), true);
+        dd(collect($data)->first());
+        return response()->json($data);
     }
-    public function getAllMovesData()
-    {
-        $file_path = public_path("json/all_moves.json");
 
-        // Kiểm tra xem file tồn tại hay không
-        if (file_exists($file_path)) {
-            // Đọc nội dung từ file JSON và chuyển đổi thành mảng PHP
-            $movesData = json_decode(file_get_contents($file_path), true);
-            dd($movesData);
+    public function getPokemonMoves(Request $request){
+        $name = $request->input('name');
+        $gen = $request->input('gen');
+        $data = $this->pokemonApiRepo->getMovesByGen($name, $gen);
+        $result = $data['pokemon'][0]['moves'];
 
-            return response()->json(['success' => true, 'movesData' => $movesData]);
-        } else {
-            return response()->json(['error' => 'File not found'], 404);
-        }
+        $move_pool = [];
+        $move_pool['lv'] = collect($result)->where('method.name','level-up')->unique()->sortBy('level')->all();
+        $move_pool['tm'] = collect($result)->where('method.name','machine')->unique()->all();
+        $move_pool['egg'] = collect($result)->where('method.name','egg')->unique()->all();
+
+        return view('user.components.moves', compact('move_pool'));
     }
 }

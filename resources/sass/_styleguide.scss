@@ -19,6 +19,15 @@ p,span,ul,ol,li, td, th{
 textarea{
     padding: 10px;
 }
+.relative{
+    position: relative;
+}
+.absolute{
+    position: absolute;
+}
+.hidden{
+    display: none;
+}
 input[type="file"]{
     font-family: 'Retro-Computer';
 }
