@@ -18,14 +18,19 @@ class GetPokemonController extends Controller
     public function index($name) {
         
         $response = $this->pokemonApiRepo->getPokemonByName($name);
-        $data = $response['pokemon'][0];
-        $move_pool = [];
-        for ($i=1; $i <= 9 ; $i++) { 
-            $move_pool['gen_'.$i]['lv'] = collect($data['moves'])->where('version.generation', $i)->where('method.name','level-up')->unique()->sortBy('level')->all();
-            $move_pool['gen_'.$i]['tm'] = collect($data['moves'])->where('version.generation', $i)->where('method.name','machine')->unique()->all();
-            $move_pool['gen_'.$i]['egg'] = collect($data['moves'])->where('version.generation', $i)->where('method.name','egg')->unique()->all();
+        if ($response['pokemon']) {
+            $data = $response['pokemon'][0];
+            $move_pool = [];
+            for ($i=1; $i <= 9 ; $i++) { 
+                $move_pool['gen_'.$i]['lv'] = collect($data['moves'])->where('version.generation', $i)->where('method.name','level-up')->unique()->sortBy('level')->all();
+                $move_pool['gen_'.$i]['tm'] = collect($data['moves'])->where('version.generation', $i)->where('method.name','machine')->unique()->all();
+                $move_pool['gen_'.$i]['egg'] = collect($data['moves'])->where('version.generation', $i)->where('method.name','egg')->unique()->all();
+            }
+            $data['moves'] = $move_pool;
+        } else {
+            $data = [];
         }
-        $data['moves'] = $move_pool;
+        
         // dd($data['moves']['gen_6']['egg']);
         return view('pokemon', compact('data'));
     }

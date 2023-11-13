@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-@php
-    $sprites = json_decode($data['sprites'][0]['sprites'], true);
-@endphp
+
 <div class="section-container">
     <div class="pokemon-page page">
         @if ($data)
+            @php
+                $sprites = json_decode($data['sprites'][0]['sprites'], true);
+            @endphp
             <div class="pokemon-name">
                 <h1>
                     {{$data['name']}}
