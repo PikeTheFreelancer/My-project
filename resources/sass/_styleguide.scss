@@ -29,7 +29,7 @@ textarea{
 .hidden{
     display: none;
 }
-.opacity-0{
+.opacity0{
     opacity: 0;
 }
 input[type="file"]{
@@ -46,7 +46,7 @@ input[type="email"]{
 }
 input.input-border,
 textarea.input-border{
-    border: solid 2px #ddd;
+    border: solid 1px #ddd;
 }
 input, textarea{
     display: block;
@@ -57,6 +57,80 @@ input, textarea{
     font-family: 'Inter';
     &.error{
         border: solid 1px #ec1818;
+    }
+}
+.banner{
+    height: 70vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/vermilioncity.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 0;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .text-container{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 90%;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    h1{
+        font-weight: 700;
+        color: #fff;
+        font-size: 50px;
+        white-space: wrap;
+    }
+    .text-animate{
+        overflow: hidden;
+        white-space: nowrap;
+        opacity: 0;
+        animation: show 4s infinite;
+        transform: translateY(-10px);
+    }
+}
+@keyframes show {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    20%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    80%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.fade-left{
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: fadeLeft .25s forwards;
+}
+tbody{
+    tr{
+        opacity: 0;
+    }
+}
+@keyframes fadeLeft{
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 .no-image{
@@ -166,6 +240,7 @@ button{
     align-items: center;
     position: relative;
     .ball-text{
+        font-weight: 700;
         opacity: 0;
         transition: all 0.1s;
         position: absolute;
@@ -210,11 +285,6 @@ button{
             display: inline-block;
         }
     }
-}
-
-.basic-theme{
-    min-height: 100vh;
-    background-color: antiquewhite;
 }
 
 a.dropdown-item:not(:first-child){
@@ -393,13 +463,21 @@ a.dropdown-item:hover{
     display: none;
 }
 
-.section-container{
+.section-container, 
+.header-container,
+.footer-container{
     display: flex;
     width: 100%;
     max-width: 1280px;
-    padding: 0 60px;
     margin: auto;
     justify-content: space-between;
+}
+.section-container{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.footer-container{
+    padding: 40px 0;
 }
 .mobile{
     display: none;
@@ -423,14 +501,9 @@ iframe{
     background-size: calc(100% - 11px * 2) calc(100% - 41px) !important;
 }
 @media screen and (max-width: 991px) {
-    .section-container{
-        padding: 0 20px;
-    }
+    
 }
 @media screen and (max-width:767px) {
-    .section-container{
-        padding: 0 15px;
-    }
     .mobile{
         display: block;
     }

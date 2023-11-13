@@ -3,7 +3,7 @@
 @endphp
 <div id="max-amount" style="display: none;" data-max-amount="{{$max_amount}}"></div>
 @foreach ($comments as $comment)
-    <div id="comment-{{$comment->id}}" class='comment-item'>
+    <div id="comment-{{$comment->id}}" class='comment-item opacity0'>
         <div class='comment-avatar'>
             <img src='{{asset($comment->avatar)}}' alt=''>
         </div>

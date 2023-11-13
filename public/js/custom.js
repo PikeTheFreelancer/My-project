@@ -263,6 +263,15 @@ $(document).ready(function(){
                 },
                 success: function(response) {
                     commentList.html(response);
+                    var delay = 50;
+
+                    commentList.children().each(function (index) {
+                        var element = $(this);
+
+                        setTimeout(function () {
+                            element.addClass('fade-left');
+                        }, delay * index);
+                    });
                     let responseJQuery = $(response);
                     if(amount < responseJQuery.data('max-amount')){
                         amount = amount + 3;
@@ -460,5 +469,17 @@ $(document).ready(function(){
         $(this).parents('.post').find('.post-title').show();
         $(this).parents('.post').find('.post-content').show();
         $(this).parents('.post').find('.add-post').hide();
+    })
+
+    //multi load tr
+    $('tbody').each(function () {
+        let delay = 50;
+        $(this).children('tr').each(function (index) {
+            var element = $(this);
+    
+            setTimeout(function () {
+                element.addClass('fade-left');
+            }, delay * index);
+        });
     })
 });

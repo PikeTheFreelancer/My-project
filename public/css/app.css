@@ -12015,7 +12015,7 @@ textarea {
   display: none;
 }
 
-.opacity-0 {
+.opacity0 {
   opacity: 0;
 }
 
@@ -12035,7 +12035,7 @@ input[type=email] {
 
 input.input-border,
 textarea.input-border {
-  border: solid 2px #ddd;
+  border: solid 1px #ddd;
 }
 
 input, textarea {
@@ -12050,6 +12050,79 @@ input.error, textarea.error {
   border: solid 1px #ec1818;
 }
 
+.banner {
+  height: 70vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/vermilioncity.png?57f555484e40e24d4387c07f648df97d);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 0;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.banner .text-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 90%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+}
+.banner h1, .banner .h1 {
+  font-weight: 700;
+  color: #fff;
+  font-size: 50px;
+  white-space: wrap;
+}
+.banner .text-animate {
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  animation: show 4s infinite;
+  transform: translateY(-10px);
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+.fade-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: fadeLeft 0.25s forwards;
+}
+
+tbody tr {
+  opacity: 0;
+}
+
+@keyframes fadeLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .no-image {
   border: solid 1px #000;
 }
@@ -12163,6 +12236,7 @@ button {
   position: relative;
 }
 .pokeball .ball-text {
+  font-weight: 700;
   opacity: 0;
   transition: all 0.1s;
   position: absolute;
@@ -12204,11 +12278,6 @@ button {
 }
 .pokeball:hover .half-pokeball {
   display: inline-block;
-}
-
-.basic-theme {
-  min-height: 100vh;
-  background-color: antiquewhite;
 }
 
 a.dropdown-item:not(:first-child) {
@@ -12369,13 +12438,23 @@ a.dropdown-item:hover {
   display: none;
 }
 
-.section-container {
+.section-container,
+.header-container,
+.footer-container {
   display: flex;
   width: 100%;
   max-width: 1280px;
-  padding: 0 60px;
   margin: auto;
   justify-content: space-between;
+}
+
+.section-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-container {
+  padding: 40px 0;
 }
 
 .mobile {
@@ -12403,15 +12482,7 @@ iframe {
   background-size: calc(100% - 22px) calc(100% - 41px) !important;
 }
 
-@media screen and (max-width: 991px) {
-  .section-container {
-    padding: 0 20px;
-  }
-}
 @media screen and (max-width: 767px) {
-  .section-container {
-    padding: 0 15px;
-  }
   .mobile {
     display: block;
   }
@@ -12590,8 +12661,9 @@ iframe {
      object-fit: cover;
 }
 .comment-item .comment-username {
-  font-size: 12px;
+  font-size: 16px;
   font-family: "Inter";
+  font-weight: 500;
 }
 .comment-item .comment-content {
   font-size: 14px;
@@ -13060,7 +13132,8 @@ iframe {
 }
 
 .my-account-page .edit-account {
-  padding-bottom: 20px;
+  padding: 20px;
+  box-shadow: 5px 4px 10px 2px #888;
 }
 .my-account-page .avatar-field {
   width: 100%;
@@ -13085,9 +13158,9 @@ iframe {
   width: 60%;
 }
 .my-account-page .add {
-  border-top: solid 1px #000;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-top: 40px;
+  padding: 20px;
+  box-shadow: 5px 4px 10px 2px #888;
 }
 .my-account-page .add-post {
   display: none;
@@ -13305,4 +13378,45 @@ iframe {
     flex-direction: column;
     row-gap: 20px;
   }
+}
+footer {
+  background-color: #333;
+  overflow: hidden;
+}
+footer * {
+  color: #fff;
+}
+footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+footer .footer-container {
+  display: flex;
+  justify-content: space-between;
+}
+footer .footer-container .footer-col {
+  width: 100%;
+  max-width: 400px;
+}
+footer .footer-container .footer-col-2 {
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+footer .footer-container .footer-col-2 .other-links {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: -moz-max-content;
+  width: max-content;
+}
+footer .home-link {
+  display: flex;
+  align-items: center;
+}
+footer .home-link img {
+  max-width: 40px;
+}
+footer .home-link span {
+  white-space: nowrap;
 }

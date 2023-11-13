@@ -36,6 +36,7 @@
     <script src="{{ asset('js/validation.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/pokemon-page.js') }}"></script>
+    <script src="{{ asset('js/text-banner.js') }}"></script>
 </head>
 <body>
     @php
@@ -63,7 +64,7 @@
     @endphp
     <div class="basic-theme" id="app">
         <nav class="navbar-container bg-white shadow-sm">
-            <div class="main-navbar section-container">
+            <div class="main-navbar header-container">
                 <a class="home-link" href="{{ url('/') }}">
                     <div class="pokeball">
                         <div class="half-pokeball half-top">
@@ -205,9 +206,12 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="content-container">
+            @yield('banner')
             @yield('content')
         </main>
+
+        @include('layouts.footer')
     </div>
     @stack('js')
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

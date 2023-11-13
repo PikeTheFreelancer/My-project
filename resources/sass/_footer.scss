@@ -1,0 +1,39 @@
+footer{
+    background-color: #333;
+    overflow: hidden;
+    *{
+        color: #fff;
+    }
+    a:hover{
+        color: #fff;
+        text-decoration: underline;
+    }
+    .footer-container{
+        display: flex;
+        justify-content: space-between;
+        .footer-col{
+            width: 100%;
+            max-width: 400px;
+        }
+        .footer-col-2{
+            display: flex;
+            column-gap: 20px;
+            .other-links{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                width: max-content;
+            }
+        }
+    }
+    .home-link{
+        display: flex;
+        align-items: center;
+        img{
+            max-width: 40px;
+        }
+        span{
+            white-space: nowrap;
+        }
+    }
+}

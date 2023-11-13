@@ -10,7 +10,7 @@
             <div class="card-body">
                 @if (isset($merchandises) && count($merchandises) > 0)
                     @foreach ($merchandises as $item)
-                        <div class="merchandise" data-id="{{ $item->id }}" data-seller-id="{{$item->user_id}}">
+                        <div class="merchandise" data-id="{{ $item->id }}" data-seller-id="{{$item->user_id}}" data-aos="fade-up">
                             <div class="avatar-field desktop">
                                 <img src="{{asset($item->avatar)}}" alt="">
                                 <p>seller: {{$item->username}}</p>
@@ -80,7 +80,7 @@
                                 <form class="form-comment" action="">
                                     @csrf
                                     <div class="form-field">
-                                        <textarea class="comment" name="comment" placeholder="leave your comment"></textarea>
+                                        <textarea class="comment" name="comment" placeholder="Leave your comment"></textarea>
                                         <button class="btn btn-primary btn-comment">comment</button>
                                     </div>
                                 </form>

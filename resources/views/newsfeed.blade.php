@@ -73,7 +73,7 @@
                                 <form class="form-comment" action="">
                                     @csrf
                                     <div class="form-field">
-                                        <textarea class="comment" name="comment" placeholder="leave your comment"></textarea>
+                                        <textarea class="comment" name="comment" placeholder="Leave your comment"></textarea>
                                         <button class="btn btn-primary btn-comment">comment</button>
                                     </div>
                                 </form>

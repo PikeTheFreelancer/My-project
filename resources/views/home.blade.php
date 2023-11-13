@@ -1,28 +1,29 @@
 @extends('layouts.app')
 
+@section('banner')
+    <div class="banner">
+        <div class="text-container">
+            <div class="text-animate">
+                <h1>Vermilion Center</h1>
+            </div>
+        </div>
+    </div>
+@endsection
 @section('content')
 <div class="section-container">
     <div class="home-page page">
-        <div class="card">
-            <div class="card-header">
-                <h1>
-                    {{ __('Dashboard') }}
-                </h1>
-            </div>
+        <div class="card-body" data-aos="fade-up">
+            <a class="shiny home-item water glass" href="{{ route('newsfeed') }}">
+                <div class="image-container">
+                    <img src="{{ asset('images/news.png') }}" alt="">
+                </div>
+            </a>
 
-            <div class="card-body">
-                <a class="shiny home-item water glass" href="{{ route('newsfeed') }}">
-                    <div class="image-container">
-                        <img src="{{ asset('images/news.png') }}" alt="">
-                    </div>
-                </a>
-
-                <a class="shiny home-item grass glass" href="{{ route('market') }}">
-                    <div class="image-container">
-                        <img src="{{ asset('images/pokemart.png') }}" alt="">
-                    </div>
-                </a>
-            </div>
+            <a class="shiny home-item grass glass" href="{{ route('market') }}">
+                <div class="image-container">
+                    <img src="{{ asset('images/pokemart.png') }}" alt="">
+                </div>
+            </a>
         </div>
     </div>
 </div>

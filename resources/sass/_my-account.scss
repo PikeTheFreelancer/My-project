@@ -25,7 +25,8 @@
 }
 .my-account-page{
     .edit-account{
-        padding-bottom: 20px;
+        padding: 20px;
+        box-shadow: 5px 4px 10px 2px #888;
     }
     .avatar-field{
         width: 100%;
@@ -50,9 +51,9 @@
         }
     }
     .add{
-        border-top: solid 1px #000;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        margin-top: 40px;
+        padding: 20px;
+        box-shadow: 5px 4px 10px 2px #888;
     }
     .add-post{
         display: none;

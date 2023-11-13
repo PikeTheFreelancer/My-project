@@ -10,7 +10,7 @@
                 <h1>{{ __('My Account') }}</h1>
             </div>
             <div class="card-body">
-                <form class="edit-account" action="{{ route('user.save') }}" method="POST" enctype="multipart/form-data">
+                <form class="edit-account" action="{{ route('user.save') }}" method="POST" enctype="multipart/form-data" data-aos="fade-up">
                     @csrf
                     <div class="base-info">
                         <div class="avatar-field">
@@ -45,7 +45,7 @@
                         <button class="btn btn-primary" type="submit">save</button>
                     </div>
                 </form>
-                <div class="add">
+                <div class="add" data-aos="fade-up">
                     <div class="accordion-box">
                         <span class="plus-icon">
                             @include('svg.plus')
@@ -67,7 +67,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="posts">
+                <div class="posts" data-aos="fade-up">
                     @foreach ($posts as $post)
                         <div class="post">
                             <div class="action">
