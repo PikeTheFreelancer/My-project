@@ -4,7 +4,9 @@
 <div class="section-container">
     <div class="page">
         <div class="card">
-            <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+            <div class="card-header">
+                <h1>{{ __('Verify Your Email Address') }}</h1>
+            </div>
     
             <div class="card-body">
                 @if (session('resent'))

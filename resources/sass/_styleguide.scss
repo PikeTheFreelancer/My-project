@@ -1,5 +1,6 @@
 *{
-    font-family: 'Retro-Computer';
+    font-family: 'Inter';
+    font-weight: 400;
     margin: 0;
     padding: 0;
 }
@@ -7,11 +8,11 @@ a{
     text-decoration: none;
     color: #000;
 }
+
 p,span,ul,ol,li, td, th{
-    font-family: "Vi-Retro";
+    font-family: "Inter";
     margin-bottom: 0;
-    font-size: 12px;
-    line-height: 200%;
+    font-size: 16px;
 }
 .capitalize{
     text-transform: capitalize;
@@ -32,7 +33,7 @@ textarea{
     opacity: 0;
 }
 input[type="file"]{
-    font-family: 'Retro-Computer';
+    font-family: 'Inter';
 }
 input[type="text"],
 input[type="password"],
@@ -53,7 +54,7 @@ input, textarea{
     resize: none;
     outline: none;
     border-radius: 3px;
-    font-family: 'Vi-Retro';
+    font-family: 'Inter';
     &.error{
         border: solid 1px #ec1818;
     }
@@ -408,7 +409,7 @@ a.dropdown-item:hover{
 }
 label.error{
     color: #ec1818;
-    font-family: 'Vi-Retro';
+    font-family: 'Inter';
     font-size: 10px;
 }
 iframe{

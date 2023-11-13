@@ -6,7 +6,9 @@
 <div class="section-container">
     <div class="my-account-page page">
         <div class="card">
-            <div class="card-header">{{ __('My Account') }}</div>
+            <div class="card-header">
+                <h1>{{ __('My Account') }}</h1>
+            </div>
             <div class="card-body">
                 <form class="edit-account" action="{{ route('user.save') }}" method="POST" enctype="multipart/form-data">
                     @csrf

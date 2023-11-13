@@ -41,7 +41,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface{
 
     public function getSomeComments($postId, $amount)
     {
-        $comments = Comment::where('postId', $postId)
+        $comments = Comment::where('post_id', $postId)
                             ->join('users', 'comments.user_id', '=', 'users.id')
                             ->select('comments.*', 'users.avatar', 'users.name as username')
                             ->orderBy('id', 'desc')

@@ -8,18 +8,20 @@ use Illuminate\Http\Request;
 use App\Repositories\Market\MarketRepositoryInterface;
 use App\Repositories\Merchandise\MerchandiseRepositoryInterface;
 use App\Repositories\Notification\NotificationRepositoryInterface;
+use App\Repositories\Post\PostRepositoryInterface;
 use App\Repositories\User\UserRepositoryInterface;
 
 class MarketController extends Controller
 {
-    protected $marketRepo, $userRepo, $commentRepo, $merchandiseRepo, $notiRepo;
+    protected $marketRepo, $userRepo, $commentRepo, $merchandiseRepo, $notiRepo, $postRepo;
 
     public function __construct(
         MarketRepositoryInterface $marketRepo,
         UserRepositoryInterface $userRepo,
         CommentRepositoryInterface $commentRepo,
         MerchandiseRepositoryInterface $merchandiseRepo,
-        NotificationRepositoryInterface $notiRepo
+        NotificationRepositoryInterface $notiRepo,
+        PostRepositoryInterface $postRepo
     )
     {
         $this->marketRepo = $marketRepo;
@@ -27,6 +29,7 @@ class MarketController extends Controller
         $this->commentRepo = $commentRepo;
         $this->merchandiseRepo = $merchandiseRepo;
         $this->notiRepo = $notiRepo;
+        $this->postRepo = $postRepo;
     }
 
     public function index()
@@ -76,11 +79,18 @@ class MarketController extends Controller
     public function loadPrevComments(Request $request)
     {
         $amount = $request->input('amount');
-        $merchandise_id = $request->input('merchandise_id');
-        $user_id = $this->merchandiseRepo->find($merchandise_id)->user->id;
-        $max_amount = $this->marketRepo->getAllComments($merchandise_id)->count();
-        $comments = $this->marketRepo->getSomeComments($merchandise_id, $amount);
-
+        if ($request->input('merchandise_id')) {
+            $merchandise_id = $request->input('merchandise_id');
+            $user_id = $this->merchandiseRepo->find($merchandise_id)->user->id;
+            $max_amount = $this->marketRepo->getAllComments($merchandise_id)->count();
+            $comments = $this->marketRepo->getSomeComments($merchandise_id, $amount);
+        } else {
+            $post_id = $request->input('post_id');
+            $user_id = $this->postRepo->find($post_id)->user->id;
+            $max_amount = $this->postRepo->getAllComments($post_id)->count();
+            $comments = $this->postRepo->getSomeComments($post_id, $amount);
+        }
+        
         return view('user.components.comments-list', compact('comments', 'user_id', 'max_amount'));
     }
 }

@@ -9,9 +9,9 @@
         <div class="card">
             @if ($data)
                 <div class="card-header">
-                    <h3>
+                    <h1>
                         {{$data['name']}}
-                    </h3>
+                    </h1>
                 </div>
                 <div class="card-body">
                     <div class="pokemon-details" data-aos="fade-up">
@@ -77,7 +77,7 @@
                 <div class="card-body">
                     <div class="pokemon-charts" data-aos="fade-up">
                         <table class="pokemon-stats">
-                            <h3>base stats</h3>
+                            <h3>Base stats</h3>
                             <tbody>
                                 @php
                                     $total_bs = 0;
@@ -216,9 +216,9 @@
                 </div>
             @else
                 <div class="card-header">
-                    <h3>
+                    <h1>
                         opps!
-                    </h3>
+                    </h1>
                 </div>
                 <div class="card-body">
                     <h3>No pokemon found!</h3>

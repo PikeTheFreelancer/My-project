@@ -4,7 +4,9 @@
 <div class="section-container">
     <div class="my-account-page page">
         <div class="card">
-            <div class="card-header">{{ __('Profile') }}</div>
+            <div class="card-header">
+                <h1>{{ __('Profile') }}</h1>
+            </div>
 
             <div class="card-body">
                 

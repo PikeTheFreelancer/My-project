@@ -11978,7 +11978,8 @@ textarea.form-control-lg {
   }
 }
 * {
-  font-family: "Retro-Computer";
+  font-family: "Inter";
+  font-weight: 400;
   margin: 0;
   padding: 0;
 }
@@ -11989,10 +11990,9 @@ a {
 }
 
 p, span, ul, ol, li, td, th {
-  font-family: "Vi-Retro";
+  font-family: "Inter";
   margin-bottom: 0;
-  font-size: 12px;
-  line-height: 200%;
+  font-size: 16px;
 }
 
 .capitalize {
@@ -12020,7 +12020,7 @@ textarea {
 }
 
 input[type=file] {
-  font-family: "Retro-Computer";
+  font-family: "Inter";
 }
 
 input[type=text],
@@ -12044,7 +12044,7 @@ input, textarea {
   resize: none;
   outline: none;
   border-radius: 3px;
-  font-family: "Vi-Retro";
+  font-family: "Inter";
 }
 input.error, textarea.error {
   border: solid 1px #ec1818;
@@ -12388,7 +12388,7 @@ a.dropdown-item:hover {
 
 label.error {
   color: #ec1818;
-  font-family: "Vi-Retro";
+  font-family: "Inter";
   font-size: 10px;
 }
 
@@ -12450,7 +12450,7 @@ iframe {
 .admin-login-form form h1, .admin-login-form form .h1 {
   text-align: center;
   margin-bottom: 0;
-  font-family: "Retro-Gaming";
+  font-family: "Inter";
 }
 
 .admin-login-btn {
@@ -12468,7 +12468,7 @@ iframe {
   color: #fff;
   transition: 0.5s all;
   text-transform: uppercase;
-  font-family: "Retro-Gaming";
+  font-family: "Inter";
 }
 .admin-login-btn:hover {
   background-image: repeating-linear-gradient(to right, purple, blue);
@@ -12591,19 +12591,21 @@ iframe {
 }
 .comment-item .comment-username {
   font-size: 12px;
-  font-family: "Vi-Retro";
+  font-family: "Inter";
 }
 .comment-item .comment-content {
-  font-size: 10px;
+  font-size: 14px;
 }
 .comment-item .commented-at {
   color: #888;
   font-size: 10px;
-  font-family: "Retro-Gaming";
+  font-family: "Inter";
+  font-weight: 400;
 }
 .comment-item .commented-at a {
   font-size: 10px;
-  font-family: "Retro-Gaming";
+  font-family: "Inter";
+  font-weight: 400;
 }
 
 .notification-box {
@@ -12639,7 +12641,7 @@ iframe {
 
 .noti-item * {
   position: relative;
-  font-family: "Vi-Retro";
+  font-family: "Inter";
 }
 
 .noti-item:not(:first-child) {
@@ -12775,6 +12777,8 @@ iframe {
 
 .card-header h1, .card-header .h1, .card-header h2, .card-header .h2, .card-header h3, .card-header .h3, .card-header h4, .card-header .h4, .card-header h5, .card-header .h5, .card-header h6, .card-header .h6 {
   margin-bottom: 0;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .accordion-box {
@@ -12917,7 +12921,7 @@ iframe {
 .market-page .edit-action a,
 .market-page .edit-action span {
   font-size: 10px;
-  font-family: "Vi-Retro";
+  font-family: "Inter";
 }
 .market-page .comment-username-container {
   display: flex;
@@ -12925,7 +12929,7 @@ iframe {
        column-gap: 5px;
 }
 .market-page .load-prev-comments {
-  font-size: 12px;
+  font-size: 14px;
 }
 .market-page .avatar-field {
   display: flex;
@@ -12994,7 +12998,7 @@ iframe {
 .market-page .comment-place .user-label {
   color: #888;
   font-size: 10px;
-  font-family: "Retro-Gaming";
+  font-family: "Inter";
   padding: 3px;
   border: solid 1px #888;
   border-radius: 3px;
@@ -13148,9 +13152,10 @@ iframe {
   align-items: center;
   color: #fff;
   border-radius: 3px;
-  font-family: "Retro-Computer";
+  font-family: "Inter";
+  font-weight: 400;
+  text-transform: uppercase;
   text-decoration: none;
-  font-weight: 100;
   position: relative;
   min-width: 90px;
   justify-content: center;
@@ -13187,7 +13192,7 @@ iframe {
   width: 100%;
 }
 .pokemon-moves .moves-table h4, .pokemon-moves .moves-table .h4 {
-  font-family: "Vi-Retro";
+  font-family: "Inter";
 }
 
 .pokemon-details {

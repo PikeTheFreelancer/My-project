@@ -4,7 +4,11 @@
 <div class="section-container">
     <div class="home-page page">
         <div class="card">
-            <div class="card-header">{{ __('Dashboard') }}</div>
+            <div class="card-header">
+                <h1>
+                    {{ __('Dashboard') }}
+                </h1>
+            </div>
 
             <div class="card-body">
                 <a class="shiny home-item water glass" href="{{ route('newsfeed') }}">

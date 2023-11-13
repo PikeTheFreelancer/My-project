@@ -4,7 +4,9 @@
 <div class="section-container">
     <div class="market-page page">
         <div class="card">
-            <div class="card-header">{{ __('Newsfeed') }}</div>
+            <div class="card-header">
+                <h1>{{ __('Newsfeed') }}</h1>
+            </div>
 
             <div class="card-body">
                 @if (isset($posts) && count($posts) > 0)
@@ -25,7 +27,7 @@
                                 <div class="comment-place">
                                     @if ($item->max_size > 3)
                                         <a href="#" class="load-prev-comments">
-                                            load previous comments
+                                            Load previous comments
                                             <i class="fa-solid fa-caret-down" style="color: #131313;"></i>
                                         </a>
                                     @endif

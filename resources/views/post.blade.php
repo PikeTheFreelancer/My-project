@@ -4,7 +4,11 @@
 <div class="section-container">
     <div class="market-page page">
         <div class="card">
-            <div class="card-header">{{ __('Merchandise') }}</div>
+            <div class="card-header">
+                <h1>
+                    {{ __('Merchandise') }}
+                </h1>
+            </div>
             <div class="card-body">
                 <div class="merchandise" data-post-id="{{ $post->id }}" data-author-id="{{$post->user_id}}">
                     <div class="avatar-field desktop">
@@ -22,7 +26,7 @@
                         <div class="comment-place">
                             @if ($post->max_size > 3)
                                 <a href="#" class="load-prev-comments">
-                                    load previous comments
+                                    Load previous comments
                                     <i class="fa-solid fa-caret-down" style="color: #131313;"></i>
                                 </a>
                             @endif

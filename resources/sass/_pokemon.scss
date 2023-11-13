@@ -4,9 +4,10 @@
         align-items: center;
         color: #fff;
         border-radius: 3px;
-        font-family: 'Retro-Computer';
+        font-family: 'Inter';
+        font-weight: 400;
+        text-transform: uppercase;
         text-decoration: none;
-        font-weight: 100;
         position: relative;
         min-width: 90px;
         justify-content: center;
@@ -41,7 +42,7 @@
     .moves-table{
         width: 100%;
         h4{
-            font-family: 'Vi-Retro';
+            font-family: 'Inter';
         }
     }
 

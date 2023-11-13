@@ -7,7 +7,9 @@
 <div class="section-container">
     <div class="my-store-page page">
         <div class="card">
-            <div class="card-header">{{ __('My Store') }}</div>
+            <div class="card-header">
+                <h1>{{ __('My Store') }}</h1>
+            </div>
 
             <div class="card-body merchandise">
                 <div class="add">

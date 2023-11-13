@@ -244,6 +244,7 @@ $(document).ready(function(){
         let amount = 6;
         $(this).on('click', function(e) {
             e.preventDefault();
+            var post_id = $(this).parents('.merchandise').data('post-id');
             var merchandise_id = $(this).parents('.merchandise').data('id');
             var commentList = $(this).parents('.merchandise').find('.comments-list');
             var loadCommentsBtn = $(this);
@@ -256,6 +257,7 @@ $(document).ready(function(){
                 url: '/market/load-comments',
                 method: 'POST',
                 data: {
+                    post_id: post_id,
                     amount: amount,
                     merchandise_id: merchandise_id
                 },

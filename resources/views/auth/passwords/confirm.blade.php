@@ -4,7 +4,9 @@
 <div class="section-container">
     <div class="page">
         <div class="card">
-            <div class="card-header">{{ __('Confirm Password') }}</div>
+            <div class="card-header">
+                <h1>{{ __('Confirm Password') }}</h1>
+            </div>
     
             <div class="card-body">
                 {{ __('Please confirm your password before continuing.') }}

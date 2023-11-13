@@ -97,18 +97,20 @@
     }
     .comment-username{
         font-size: 12px;
-        font-family: 'Vi-Retro';
+        font-family: 'Inter';
     }
     .comment-content{
-        font-size: 10px;
+        font-size: 14px;
     }
     .commented-at{
         color: #888;
         font-size: 10px;
-        font-family: 'Retro-Gaming';
+        font-family: 'Inter';
+        font-weight: 400;
         a{
             font-size: 10px;
-            font-family: 'Retro-Gaming';
+            font-family: 'Inter';
+            font-weight: 400;
         }
     }
 }
@@ -142,7 +144,7 @@
 }
 .noti-item *{
     position: relative;
-    font-family: 'Vi-Retro';
+    font-family: 'Inter';
 }
 .noti-item:not(:first-child){
     border-top: solid 1px #ddd;
