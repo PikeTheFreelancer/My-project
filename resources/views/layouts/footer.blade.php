@@ -1,8 +1,8 @@
-<footer data-aos="fade-up">
+<footer>
     <div class="footer-container">
         <div class="footer-col" data-aos="fade-right" data-aos-delay="100">
             <a class="home-link" href="{{ url('/') }}">
-                <img src="{{asset('images/svg/pokeball.svg')}}" alt="">
+                {{-- <img src="{{asset('images/svg/pokeball.svg')}}" alt=""> --}}
                 <h5>Vermilion Center</h5>
             </a>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed ea placeat iure molestiae eius, accusantium obcaecati quos earum provident asperiores quasi alias ullam tempora officia animi dolorum hic repellat nam.</p>

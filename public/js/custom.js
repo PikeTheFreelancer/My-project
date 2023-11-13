@@ -472,14 +472,29 @@ $(document).ready(function(){
     })
 
     //multi load tr
-    $('tbody').each(function () {
-        let delay = 50;
-        $(this).children('tr').each(function (index) {
-            var element = $(this);
+    function multiload() {
+        $('tbody.multiload-right').each(function () {
+            let delay = 50;
+            $(this).children('tr').each(function (index) {
+                var element = $(this);
+        
+                setTimeout(function () {
+                    element.addClass('fade-left');
+                }, delay * index);
+            });
+        })
     
-            setTimeout(function () {
-                element.addClass('fade-left');
-            }, delay * index);
-        });
-    })
+        $('tbody.multiload-left').each(function () {
+            let delay = 50;
+            $(this).children('tr').each(function (index) {
+                var element = $(this);
+        
+                setTimeout(function () {
+                    element.addClass('fade-right');
+                }, delay * index);
+            });
+        })
+    }
+
+    multiload();
 });

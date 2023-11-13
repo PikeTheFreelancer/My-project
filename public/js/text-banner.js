@@ -5,9 +5,9 @@
       'PRO infomations and lookup further about Pokemon games.',
       ], i = 0;
   setInterval(function(){
-      $('.text-animate h1').hide(function(){
-          $(this).html(words[i=(i+1)%words.length]).show();
+      $('.text-animate h1').fadeOut(function(){
+          $(this).html(words[i=(i+1)%words.length]).fadeIn();
       });
-  }, 3999);
+  }, 4000);
     
 })();

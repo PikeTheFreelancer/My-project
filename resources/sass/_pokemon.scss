@@ -5,17 +5,20 @@
         color: #fff;
         border-radius: 3px;
         font-family: 'Inter';
-        font-weight: 400;
+        font-weight: 600;
+        font-size: 14px;
         text-transform: uppercase;
         text-decoration: none;
         position: relative;
         min-width: 90px;
         justify-content: center;
     }
+    .pokemon-name{
+        text-transform: capitalize;
+    }
 }
 .pokemon-moves{
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
     gap: 60px;
     background-color: #fff;
     padding: 20px 40px;
@@ -25,11 +28,7 @@
     table{
         width: 100%;
     }
-    .table-tm{
-        grid-row-start: 1;
-        grid-row-end: 3;
-        grid-column-start: 2;
-    }
+    
     th, td{
         padding: 5px;
     }
@@ -47,11 +46,16 @@
     }
 
 }
+.moves-col-left{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
 .pokemon-details{
     display: flex;
     column-gap: 20px;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 20px 40px;
     box-shadow: 4px 5px 8px 0px #777;
 }
@@ -69,9 +73,9 @@
     }
 }
 .pokemon-charts{
-    padding: 20px 40px;
+    padding: 20px 0;
     margin: auto;
-    box-shadow: 4px 5px 8px 0px #777;
+    // box-shadow: 4px 5px 8px 0px #777;
 }
 .pokemon-shapes{
     display: flex;
@@ -82,6 +86,8 @@
 }
 .detail-col{
     margin-top: 40px;
+    max-width: 800px;
+    width: 100%;
     th,td{
         padding: 0 15px;
     }
@@ -98,6 +104,8 @@
     .stat-chart{
         width: 100%;
         max-width: 255px;
+        padding: 0;
+        overflow: hidden;
         div{
             width: 0;
             height: 0.75rem;
@@ -127,7 +135,7 @@
     margin-top: 60px;
 }
 .generation-navigator{
-    top: -29px;
+    top: -40px;
     display: flex;
     gap: 20px;
     span{

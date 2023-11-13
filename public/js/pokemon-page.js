@@ -66,6 +66,27 @@ $(document).ready(function(){
             success: function(response) {
                 target.empty();
                 target.append(response);
+                $('tbody.multiload-right').each(function () {
+                    let delay = 50;
+                    $(this).children('tr').each(function (index) {
+                        var element = $(this);
+                
+                        setTimeout(function () {
+                            element.addClass('fade-left');
+                        }, delay * index);
+                    });
+                })
+            
+                $('tbody.multiload-left').each(function () {
+                    let delay = 50;
+                    $(this).children('tr').each(function (index) {
+                        var element = $(this);
+                
+                        setTimeout(function () {
+                            element.addClass('fade-right');
+                        }, delay * index);
+                    });
+                })
             },
             error: function(error) {
                 // Handle any errors that occur during the Ajax request

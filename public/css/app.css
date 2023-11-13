@@ -11984,6 +11984,12 @@ textarea.form-control-lg {
   padding: 0;
 }
 
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -12066,10 +12072,12 @@ input.error, textarea.error {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 90%;
   min-height: 100%;
   display: flex;
   align-items: center;
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
 }
 .banner h1, .banner .h1 {
   font-weight: 700;
@@ -12080,43 +12088,55 @@ input.error, textarea.error {
 .banner .text-animate {
   overflow: hidden;
   white-space: nowrap;
-  opacity: 0;
-  animation: show 4s infinite;
   transform: translateY(-10px);
+  animation: show 4s infinite;
 }
 
 @keyframes show {
   0% {
-    opacity: 0;
     transform: translateY(-10px);
   }
   20% {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
   80% {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
   100% {
-    opacity: 0;
     transform: translateY(-10px);
   }
 }
 .fade-left {
   opacity: 0;
-  transform: translateX(-40px);
+  transform: translateX(-100px);
   animation: fadeLeft 0.25s forwards;
 }
 
-tbody tr {
+.fade-right {
+  opacity: 0;
+  transform: translateX(100px);
+  animation: fadeRight 0.25s forwards;
+}
+
+tbody.multiload-right tr,
+tbody.multiload-left tr {
   opacity: 0;
 }
 
 @keyframes fadeLeft {
   0% {
     opacity: 0;
-    transform: translateX(-40px);
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
   }
   100% {
     opacity: 1;
@@ -13226,17 +13246,20 @@ iframe {
   color: #fff;
   border-radius: 3px;
   font-family: "Inter";
-  font-weight: 400;
+  font-weight: 600;
+  font-size: 14px;
   text-transform: uppercase;
   text-decoration: none;
   position: relative;
   min-width: 90px;
   justify-content: center;
 }
+.pokemon-page .pokemon-name {
+  text-transform: capitalize;
+}
 
 .pokemon-moves {
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
   gap: 60px;
   background-color: #fff;
   padding: 20px 40px;
@@ -13246,11 +13269,6 @@ iframe {
 }
 .pokemon-moves table {
   width: 100%;
-}
-.pokemon-moves .table-tm {
-  grid-row-start: 1;
-  grid-row-end: 3;
-  grid-column-start: 2;
 }
 .pokemon-moves th, .pokemon-moves td {
   padding: 5px;
@@ -13268,12 +13286,18 @@ iframe {
   font-family: "Inter";
 }
 
+.moves-col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 .pokemon-details {
   display: flex;
   -moz-column-gap: 20px;
        column-gap: 20px;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 20px 40px;
   box-shadow: 4px 5px 8px 0px #777;
 }
@@ -13293,9 +13317,8 @@ iframe {
 }
 
 .pokemon-charts {
-  padding: 20px 40px;
+  padding: 20px 0;
   margin: auto;
-  box-shadow: 4px 5px 8px 0px #777;
 }
 
 .pokemon-shapes {
@@ -13308,6 +13331,8 @@ iframe {
 
 .detail-col {
   margin-top: 40px;
+  max-width: 800px;
+  width: 100%;
 }
 .detail-col th, .detail-col td {
   padding: 0 15px;
@@ -13324,6 +13349,8 @@ iframe {
 .pokemon-stats .stat-chart {
   width: 100%;
   max-width: 255px;
+  padding: 0;
+  overflow: hidden;
 }
 .pokemon-stats .stat-chart div {
   width: 0;
@@ -13354,7 +13381,7 @@ iframe {
 }
 
 .generation-navigator {
-  top: -29px;
+  top: -40px;
   display: flex;
   gap: 20px;
 }
@@ -13382,6 +13409,7 @@ iframe {
 footer {
   background-color: #333;
   overflow: hidden;
+  margin-top: auto;
 }
 footer * {
   color: #fff;
@@ -13400,8 +13428,9 @@ footer .footer-container .footer-col {
 }
 footer .footer-container .footer-col-2 {
   display: flex;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  max-width: 400px;
+  width: 100%;
+  justify-content: space-between;
 }
 footer .footer-container .footer-col-2 .other-links {
   display: flex;
@@ -13409,6 +13438,9 @@ footer .footer-container .footer-col-2 .other-links {
   gap: 5px;
   width: -moz-max-content;
   width: max-content;
+}
+footer .footer-container .footer-col-2 .other-links + .other-links {
+  margin-left: 40px;
 }
 footer .home-link {
   display: flex;

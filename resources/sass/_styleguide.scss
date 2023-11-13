@@ -4,6 +4,11 @@
     margin: 0;
     padding: 0;
 }
+#app{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 a{
     text-decoration: none;
     color: #000;
@@ -74,10 +79,12 @@ input, textarea{
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        width: 90%;
         min-height: 100%;
         display: flex;
         align-items: center;
+        width: 100%;
+        max-width: 1280px;
+        margin: auto;
     }
     h1{
         font-weight: 700;
@@ -88,37 +95,39 @@ input, textarea{
     .text-animate{
         overflow: hidden;
         white-space: nowrap;
-        opacity: 0;
-        animation: show 4s infinite;
         transform: translateY(-10px);
+        animation: show 4s infinite;
     }
 }
 @keyframes show {
     0% {
-        opacity: 0;
         transform: translateY(-10px);
     }
     20%{
-        opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
     
     80%{
-        opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
     100%{
-        opacity: 0;
         transform: translateY(-10px);
     }
 }
 
 .fade-left{
     opacity: 0;
-    transform: translateX(-40px);
+    transform: translateX(-100px);
     animation: fadeLeft .25s forwards;
 }
-tbody{
+
+.fade-right{
+    opacity: 0;
+    transform: translateX(100px);
+    animation: fadeRight .25s forwards;
+}
+tbody.multiload-right,
+tbody.multiload-left{
     tr{
         opacity: 0;
     }
@@ -126,7 +135,18 @@ tbody{
 @keyframes fadeLeft{
     0% {
         opacity: 0;
-        transform: translateX(-40px);
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeRight{
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
     }
     100% {
         opacity: 1;
