@@ -6,6 +6,7 @@
 !/public/images/pokemon-dataset/
 !/public/images/favicon.png
 !/public/images/news.png
+!/public/images/vermilioncity.png
 /storage/*.key
 /vendor
 .env
