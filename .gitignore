@@ -7,6 +7,7 @@
 !/public/images/favicon.png
 !/public/images/news.png
 !/public/images/vermilioncity.png
+!/public/images/pages
 /storage/*.key
 /vendor
 .env

@@ -134,7 +134,7 @@
                 </div>
                 
                 <div class="pokemon-moves">
-                    <div class="moves-col-left">
+                    <div class="moves-col-left move-col">
                         <div class="moves-table" data-aos="fade-right">
                             <table>
                                 <h4>Moves learnt by level-up</h4>
@@ -189,34 +189,35 @@
                             @endif
                         </div>
                     </div>
-                    <div class="moves-table table-tm" data-aos="fade-left">
-                        <h4>Moves learnt by TMs/HMs</h4>
-                        @if ($data['moves']['gen_6']['tm'])
-                            <table>
-                                <tbody class="multiload-left">
-                                    <tr class="">
-                                        <th>Move</th>
-                                        <th>Type</th>
-                                        <th>Dmg.Class</th>
-                                        <th>Power</th>
-                                        <th>Accuracy</th>
-                                    </tr>
-                                    @foreach ($data['moves']['gen_6']['tm'] as $move)
-                                        <tr>
-                                            <td>{{$move['move']['name']}}</td>
-                                            <td><span class="type glass {{$move['move']['type']['name']}}">{{$move['move']['type']['name']}}</span></td>
-                                            <td>{{$move['move']['damage_class']['name']}}</td>
-                                            <td>{{$move['move']['power']}}</td>
-                                            <td>{{$move['move']['accuracy']}}</td>
+                    <div class="move-col">
+                        <div class="moves-table table-tm" data-aos="fade-left">
+                            <h4>Moves learnt by TMs/HMs</h4>
+                            @if ($data['moves']['gen_6']['tm'])
+                                <table>
+                                    <tbody class="multiload-left">
+                                        <tr class="">
+                                            <th>Move</th>
+                                            <th>Type</th>
+                                            <th>Dmg.Class</th>
+                                            <th>Power</th>
+                                            <th>Accuracy</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        @else
-                            <p>This pokemon cannot be taught any TM moves</p>                                
-                        @endif
+                                        @foreach ($data['moves']['gen_6']['tm'] as $move)
+                                            <tr>
+                                                <td>{{$move['move']['name']}}</td>
+                                                <td><span class="type glass {{$move['move']['type']['name']}}">{{$move['move']['type']['name']}}</span></td>
+                                                <td>{{$move['move']['damage_class']['name']}}</td>
+                                                <td>{{$move['move']['power']}}</td>
+                                                <td>{{$move['move']['accuracy']}}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            @else
+                                <p>This pokemon cannot be taught any TM moves</p>                                
+                            @endif
+                        </div>
                     </div>
-                    
                 </div>
             </div>
         @else

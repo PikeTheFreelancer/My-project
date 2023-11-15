@@ -13,6 +13,15 @@
 }
 
 .home-page{
+    .section-community{
+        h2{
+            margin-bottom: 20px;
+        }
+    }
+    .section-container{
+        box-shadow: 5px 4px 10px 2px #888;
+        padding: 40px;
+    }
     .home-item{
         width: 100%;
         max-width: 350px;
@@ -38,11 +47,48 @@
         display: flex;
         column-gap: 20px;
     }
+    .text-image-block{
+        display: flex;
+        gap: 20px;
+        .image{
+            max-width: 50%;
+            img{
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .text{
+            max-width: 48%;
+            h2{
+                margin-bottom: 20px;
+            }
+            .ti-content{
+                margin-bottom: 20px;
+            }
+        }
+        .cta-links{
+            display: flex;
+            gap: 10px;
+        }
+    }
 }
 .card-header{
     h1, h2, h3, h4, h5, h6{
         margin-bottom: 0;
         text-transform: uppercase;
         font-weight: 600;
+    }
+}
+@media screen and (max-width: 767px) {
+    .home-page{
+        .section-container{
+            padding: 40px 20px;
+        }
+        .text-image-block{
+            flex-direction: column;
+            .text, .image{
+                max-width: unset;
+            }
+        }
     }
 }

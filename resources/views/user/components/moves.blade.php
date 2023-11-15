@@ -1,4 +1,4 @@
-<div class="moves-col-left">
+<div class="moves-col-left move-col">
     <div class="moves-table">
         <table>
             <h4>Moves learnt by level-up</h4>
@@ -54,30 +54,32 @@
         @endif
     </div>
 </div>
-<div class="moves-table table-tm">
-    <h4>Moves learnt by TMs/HMs</h4>
-    @if ($move_pool['tm'])
-        <table>
-            <tbody class="multiload-left">
-                <tr>
-                    <th>Move</th>
-                    <th>Type</th>
-                    <th>Dmg.Class</th>
-                    <th>Power</th>
-                    <th>Accuracy</th>
-                </tr>
-                @foreach ($move_pool['tm'] as $move)
+<div class="move-col">
+    <div class="moves-table table-tm">
+        <h4>Moves learnt by TMs/HMs</h4>
+        @if ($move_pool['tm'])
+            <table>
+                <tbody class="multiload-left">
                     <tr>
-                        <td>{{$move['move']['name']}}</td>
-                        <td><span class="type glass {{$move['move']['type']['name']}}">{{$move['move']['type']['name']}}</span></td>
-                        <td>{{$move['move']['damage_class']['name']}}</td>
-                        <td>{{$move['move']['power']}}</td>
-                        <td>{{$move['move']['accuracy']}}</td>
+                        <th>Move</th>
+                        <th>Type</th>
+                        <th>Dmg.Class</th>
+                        <th>Power</th>
+                        <th>Accuracy</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-    @else
-        <p>This pokemon cannot be taught any TM moves</p>                                
-    @endif
+                    @foreach ($move_pool['tm'] as $move)
+                        <tr>
+                            <td>{{$move['move']['name']}}</td>
+                            <td><span class="type glass {{$move['move']['type']['name']}}">{{$move['move']['type']['name']}}</span></td>
+                            <td>{{$move['move']['damage_class']['name']}}</td>
+                            <td>{{$move['move']['power']}}</td>
+                            <td>{{$move['move']['accuracy']}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <p>This pokemon cannot be taught any TM moves</p>                                
+        @endif
+    </div>
 </div>

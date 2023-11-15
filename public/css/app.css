@@ -12056,8 +12056,12 @@ input.error, textarea.error {
   border: solid 1px #ec1818;
 }
 
+.reverse {
+  flex-direction: row-reverse;
+}
+
 .banner {
-  height: 70vh;
+  height: 80vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/vermilioncity.png?57f555484e40e24d4387c07f648df97d);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -12464,23 +12468,29 @@ a.dropdown-item:hover {
   display: none;
 }
 
+.content-container {
+  overflow: hidden;
+}
+
 .section-container,
 .header-container,
 .footer-container {
   width: 100%;
-  max-width: 1280px;
   margin: auto;
-  padding: 0 40px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .section-container {
   margin-top: 40px;
   margin-bottom: 40px;
+  max-width: 1280px;
 }
 
 .header-container, .footer-container {
   display: flex;
   justify-content: space-between;
+  max-width: 1360px;
 }
 
 .mobile {
@@ -12512,7 +12522,8 @@ iframe {
   .section-container,
   .header-container,
   .footer-container {
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .banner .text-container {
     padding: 0 20px;
@@ -12888,6 +12899,13 @@ iframe {
   width: 100%;
 }
 
+.home-page .section-community h2, .home-page .section-community .h2 {
+  margin-bottom: 20px;
+}
+.home-page .section-container {
+  box-shadow: 5px 4px 10px 2px #888;
+  padding: 40px;
+}
 .home-page .home-item {
   width: 100%;
   max-width: 350px;
@@ -12915,6 +12933,31 @@ iframe {
   -moz-column-gap: 20px;
        column-gap: 20px;
 }
+.home-page .text-image-block {
+  display: flex;
+  gap: 20px;
+}
+.home-page .text-image-block .image {
+  max-width: 50%;
+}
+.home-page .text-image-block .image img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.home-page .text-image-block .text {
+  max-width: 48%;
+}
+.home-page .text-image-block .text h2, .home-page .text-image-block .text .h2 {
+  margin-bottom: 20px;
+}
+.home-page .text-image-block .text .ti-content {
+  margin-bottom: 20px;
+}
+.home-page .text-image-block .cta-links {
+  display: flex;
+  gap: 10px;
+}
 
 .card-header h1, .card-header .h1, .card-header h2, .card-header .h2, .card-header h3, .card-header .h3, .card-header h4, .card-header .h4, .card-header h5, .card-header .h5, .card-header h6, .card-header .h6 {
   margin-bottom: 0;
@@ -12922,6 +12965,17 @@ iframe {
   font-weight: 600;
 }
 
+@media screen and (max-width: 767px) {
+  .home-page .section-container {
+    padding: 40px 20px;
+  }
+  .home-page .text-image-block {
+    flex-direction: column;
+  }
+  .home-page .text-image-block .text, .home-page .text-image-block .image {
+    max-width: unset;
+  }
+}
 .accordion-box {
   cursor: pointer;
   border-radius: 5px;
@@ -13310,7 +13364,7 @@ iframe {
 
 .pokemon-moves {
   display: flex;
-  gap: 60px;
+  justify-content: space-between;
   background-color: #fff;
   padding: 20px 40px;
   position: relative;
@@ -13336,10 +13390,15 @@ iframe {
   font-family: "Inter";
 }
 
+.move-col {
+  width: 50%;
+}
+
 .moves-col-left {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin-right: 40px;
 }
 
 .pokemon-details {
@@ -13433,9 +13492,11 @@ iframe {
 .generation-navigator {
   top: -40px;
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  width: 80%;
 }
 .generation-navigator span {
+  white-space: nowrap;
   padding: 10px 20px;
   background-color: #ddd;
   border-radius: 9px 9px 0 0;
@@ -13450,10 +13511,32 @@ iframe {
   background-color: #fff;
 }
 
+@media screen and (max-width: 1200px) {
+  .pokemon-moves {
+    flex-direction: column;
+    row-gap: 40px;
+  }
+  .move-col {
+    width: 100%;
+  }
+  .moves-col-left {
+    margin-right: 0;
+  }
+  .generation-navigator {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
 @media screen and (max-width: 767px) {
   .pokemon-details {
     flex-direction: column;
     row-gap: 20px;
+  }
+  .pokemon-moves {
+    padding: 20px;
+  }
+  .move-col {
+    overflow: auto;
   }
 }
 footer {
@@ -13482,7 +13565,7 @@ footer .footer-container .footer-col-2 {
   max-width: 400px;
   width: 100%;
   justify-content: space-between;
-  margin-right: 40px;
+  margin-left: 40px;
 }
 footer .footer-container .footer-col-2 .other-links {
   display: flex;
@@ -13512,7 +13595,9 @@ footer .home-link span {
   }
   footer .footer-container .footer-col {
     max-width: unset;
-    margin-right: unset;
+  }
+  footer .footer-container .footer-col-2 {
+    margin-left: unset;
   }
 }
 * {

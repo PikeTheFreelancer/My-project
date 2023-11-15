@@ -64,8 +64,11 @@ input, textarea{
         border: solid 1px #ec1818;
     }
 }
+.reverse{
+    flex-direction: row-reverse;
+}
 .banner{
-    height: 70vh;
+    height: 80vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/vermilioncity.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -486,22 +489,28 @@ a.dropdown-item:hover{
 .hidden{
     display: none;
 }
-
+.content-container{
+    overflow: hidden;
+}
 .section-container, 
 .header-container,
 .footer-container{
     width: 100%;
-    max-width: 1280px;
     margin: auto;
-    padding: 0 40px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
+
 .section-container{
     margin-top: 40px;
     margin-bottom: 40px;
+    max-width: 1280px;
 }
+
 .header-container, .footer-container{
     display: flex;
     justify-content: space-between;
+    max-width: 1360px;
 }
 .mobile{
     display: none;
@@ -531,7 +540,8 @@ iframe{
     .section-container,
     .header-container,
     .footer-container{
-        padding: 0 20px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     .banner{
         .text-container{

@@ -13,7 +13,7 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $posts = Post::all();
+        $posts = Post::where('user_id', $user->id)->get();
         $data = [
             'user_name' => $user->name,
             'user_email' => $user->email,
