@@ -99,6 +99,10 @@ input, textarea{
         animation: show 4s infinite;
     }
 }
+.filter-blur{
+    background-color: transparent;
+    backdrop-filter: blur(8px);
+}
 @keyframes show {
     0% {
         transform: translateY(-10px);

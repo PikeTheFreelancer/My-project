@@ -181,6 +181,9 @@ $(document).ready(function(){
         if (!$(e.target).closest('.mobile-navbar').length && !$(e.target).closest('.mobile-nav-links').length) {
             $('.mobile-nav-links').slideUp();
         }
+        if (!$(e.target).closest('.search-bar-mobile').length && !$(e.target).closest('.search-form-mobile').length) {
+            $('.search-form-mobile').slideUp();
+        }
     })
 
     // mark as read
@@ -497,4 +500,8 @@ $(document).ready(function(){
     }
 
     multiload();
+
+    $(document).on('click', '.search-bar-mobile', function() {
+        $('.search-form-mobile').slideToggle();
+    })
 });

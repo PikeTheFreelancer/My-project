@@ -12092,6 +12092,12 @@ input.error, textarea.error {
   animation: show 4s infinite;
 }
 
+.filter-blur {
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+
 @keyframes show {
   0% {
     transform: translateY(-10px);
@@ -12617,6 +12623,10 @@ iframe {
   font-size: 21px;
 }
 
+.search-form-mobile {
+  display: none;
+}
+
 .search-bar {
   display: flex;
   position: relative;
@@ -12632,7 +12642,8 @@ iframe {
   color: #777;
   font-size: 20px;
 }
-.search-bar .search-results {
+
+.search-results {
   position: absolute;
   width: 100%;
   height: -moz-max-content;
@@ -12643,12 +12654,12 @@ iframe {
           backdrop-filter: blur(6px);
   background: rgba(0, 0, 0, 0.5);
 }
-.search-bar .search-results a.search-result {
+.search-results a.search-result {
   display: block;
   padding: 10px 15px;
   color: #fff;
 }
-.search-bar .search-results a.search-result:hover {
+.search-results a.search-result:hover {
   background-color: #333;
 }
 
@@ -12699,6 +12710,7 @@ iframe {
 }
 .comment-item .comment-content {
   font-size: 14px;
+  margin: 0;
 }
 .comment-item .commented-at {
   color: #888;
@@ -12789,6 +12801,16 @@ iframe {
     display: flex;
     align-items: center;
   }
+  .search-form-mobile {
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    border-top: solid 1px #ddd;
+  }
+  .desktop-navbar {
+    display: none;
+  }
   .mobile-navbar {
     padding: 0 10px;
     background-color: #fff;
@@ -12820,7 +12842,7 @@ iframe {
     flex-direction: column;
     position: absolute;
     background-color: #fff;
-    box-shadow: 0px 5px 5px 0 #ddd;
+    box-shadow: 0px 5px 5px 0 #777;
   }
   .mobile-nav-links .thumbnail-avatar {
     display: inline-flex;
@@ -12832,7 +12854,7 @@ iframe {
   }
   .mobile-nav-links ul li {
     padding: 10px;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #000;
   }
   .mobile-nav-links ul li:first-child {
     border-top: none;
@@ -12931,6 +12953,7 @@ iframe {
   flex-direction: column;
   background-color: #ddd;
   background-image: none;
+  position: relative;
 }
 .merchandise .item .image-container {
   margin-top: 8px;

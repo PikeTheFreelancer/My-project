@@ -94,7 +94,7 @@
                             <i class="fa-regular fa-bell" style="font-size: 21px;"></i>
                         </a>
                     </div>
-                    <div class="menu-notification" aria-labelledby="navbarDropdown">
+                    <div class="menu-notification shadow-sm" aria-labelledby="navbarDropdown">
                         <p class="noti-label">Notification</p>
                         <div class="notifications-list">
                             @foreach ($notifications as $notification)
@@ -164,7 +164,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mobile-nav-links">
+            <div class="mobile-nav-links shadow-sm">
                 <ul class="section-container">
                     <!-- Authentication Links -->
                     @guest
@@ -207,6 +207,11 @@
                     @endguest
                 </ul>
             </div>
+            <form class="search-form-mobile shadow-sm" action="{{ route('searchPokemon') }}" method="POST">
+                @csrf
+                <input class="input-border search-pokemon" type="text" placeholder="search pokemon..." name="searchString">
+                <div class="search-results"></div>
+            </form>
         </nav>
 
         <main class="content-container">
