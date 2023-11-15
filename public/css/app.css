@@ -13532,7 +13532,7 @@ header {
   justify-content: space-between;
   width: 100%;
   max-width: 1280px;
-  margin: auto;
+  margin-left: 200px;
 }
 .admin-header .right {
   position: relative;
@@ -13581,4 +13581,5 @@ header {
 .admin-dashboard {
   flex-grow: 1;
   padding: 40px;
+  max-width: 1280px;
 }
