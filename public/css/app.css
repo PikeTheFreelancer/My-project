@@ -12088,7 +12088,6 @@ input.error, textarea.error {
 }
 .banner .text-animate {
   overflow: hidden;
-  white-space: nowrap;
   transform: translateY(-10px);
   animation: show 4s infinite;
 }
