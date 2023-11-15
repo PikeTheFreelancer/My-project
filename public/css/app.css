@@ -12649,6 +12649,7 @@ iframe {
   height: -moz-max-content;
   height: max-content;
   bottom: 0;
+  left: 0;
   top: 100%;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
@@ -12661,6 +12662,9 @@ iframe {
 }
 .search-results a.search-result:hover {
   background-color: #333;
+}
+.search-results a.search-result + a.search-result:not(:first-child) {
+  border-top: solid 1px #fff;
 }
 
 .menu-notification {
