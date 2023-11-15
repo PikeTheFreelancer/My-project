@@ -9,4 +9,5 @@ Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name
 Route::middleware('auth:admin')->group(function (){
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
     Route::get('/logout', [LogoutController::class, 'logout'])->name('admin.logout');
+    Route::post('/save', [HomeController::class, 'save'])->name('home.save');
 });
