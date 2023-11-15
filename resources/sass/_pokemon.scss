@@ -170,6 +170,8 @@
     .moves-col-left{
         margin-right: 0;
     }
+}
+@media screen and (max-width: 992px) {
     .generation-navigator{
         width: 100%;
         overflow-x: auto;
@@ -179,11 +181,17 @@
     .pokemon-details{
         flex-direction: column;
         row-gap: 20px;
+        padding: 20px;
     }
     .pokemon-moves{
         padding: 20px;
     }
     .move-col{
         overflow: auto;
+    }
+    .pokemon-stats{
+        th{
+            padding: 0;
+        }
     }
 }

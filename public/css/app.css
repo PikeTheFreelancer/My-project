@@ -12619,6 +12619,7 @@ iframe {
   display: flex;
   -moz-column-gap: 20px;
        column-gap: 20px;
+  align-items: center;
 }
 
 .desktop-navbar {
@@ -13522,6 +13523,8 @@ iframe {
   .moves-col-left {
     margin-right: 0;
   }
+}
+@media screen and (max-width: 992px) {
   .generation-navigator {
     width: 100%;
     overflow-x: auto;
@@ -13531,12 +13534,16 @@ iframe {
   .pokemon-details {
     flex-direction: column;
     row-gap: 20px;
+    padding: 20px;
   }
   .pokemon-moves {
     padding: 20px;
   }
   .move-col {
     overflow: auto;
+  }
+  .pokemon-stats th {
+    padding: 0;
   }
 }
 footer {

@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="section-container">
-    <div class="pokemon-page page">
+<div class="pokemon-page page">
+    <div class="section-container">
         @if ($data)
             @php
                 $sprites = json_decode($data['sprites'][0]['sprites'], true);
@@ -106,18 +106,18 @@
         
                                             {{-- maximum column --}}
                                             @if ($stat['name']['name'] == 'hp')
-                                                <td>{{($stat['base_stat']*2)+110+31+63}}</td>
+                                                <td class="p-0">{{($stat['base_stat']*2)+110+31+63}}</td>
                                             @else
-                                                <td>{{(int)(($base_stat + 31 + 63) + ($base_stat + 31 + 63)/10)}}</td>
+                                                <td class="p-0">{{(int)(($base_stat + 31 + 63) + ($base_stat + 31 + 63)/10)}}</td>
                                             @endif
                                         </tr>
                                     @endforeach
                                     <tr>
                                         <th>total:</th>
-                                        <th>{{$total_bs}}</th>
-                                        <td></td>
+                                        <td>{{$total_bs}}</td>
+                                        <td class="p-0"></td>
                                         <td>min</td>
-                                        <td>max</td>
+                                        <td class="p-0">max</td>
                                     </tr>
                                 </tbody>
                             </table>
