@@ -10,8 +10,9 @@
     </div>
 @endsection
 @section('content')
-<div class="section-container">
-    <div class="home-page page">
+<div class="home-page page">
+    <div class="section-container">
+        <h2>Visit our community</h2>
         <div class="card-body" data-aos="fade-up">
             <a class="shiny home-item water glass" href="{{ route('newsfeed') }}">
                 <div class="image-container">

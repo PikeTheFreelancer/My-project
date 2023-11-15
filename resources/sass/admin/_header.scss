@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    background-color: #fff;
+    position: sticky;
+}
+.admin-header{
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    .right{
+        position: relative;
+        cursor: pointer;
+        .logout-btn{
+            position: absolute;
+            right: 0;
+            top: 100%;
+            width: 100%;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            border-radius: 6px;
+            border: solid 1px #ddd;
+            display: none;
+        }
+    }
+}

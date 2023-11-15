@@ -4,7 +4,6 @@
 
 @section('content')
     <div class="admin-dashboard">
-        <h2>Hello, {{ $admin->name }}</h2>
-        <a href="{{ route('admin.logout') }}">Logout</a>
+        <h1>Dashboard</h1>
     </div>
 @endsection

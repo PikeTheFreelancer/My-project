@@ -490,18 +490,19 @@ a.dropdown-item:hover{
 .section-container, 
 .header-container,
 .footer-container{
-    display: flex;
     width: 100%;
     max-width: 1280px;
     margin: auto;
-    justify-content: space-between;
     padding: 0 40px;
 }
 .section-container{
     margin-top: 40px;
     margin-bottom: 40px;
 }
-
+.header-container, .footer-container{
+    display: flex;
+    justify-content: space-between;
+}
 .mobile{
     display: none;
 }
