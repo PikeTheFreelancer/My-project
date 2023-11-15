@@ -27,6 +27,12 @@
 .mobile-nav-links{
     display: none;
 }
+.search-bar-mobile{
+    display: none;
+    i{
+        font-size: 21px;
+    }
+}
 .search-bar{
     display: flex;
     position: relative;
@@ -176,6 +182,13 @@
     border-bottom: solid 1px #ddd;
 }
 @media screen and (max-width:767px) {
+    .search-bar{
+        display: none;
+    }
+    .search-bar-mobile{
+        display: flex;
+        align-items: center;
+    }
     .mobile-navbar{
         padding: 0 10px;
         background-color: #fff;
@@ -214,6 +227,7 @@
         ul{
             list-style: none;
             flex-direction: column;
+            margin: 0;
             li{
                 padding: 10px;
                 border-top: 1px solid #ddd;

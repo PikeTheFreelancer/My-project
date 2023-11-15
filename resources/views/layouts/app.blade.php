@@ -83,6 +83,9 @@
                         <i class="fa-brands fa-searchengin"></i>
                         <div class="search-results"></div>
                     </form>
+                    <div class="search-bar-mobile">
+                        <i class="fa-brands fa-searchengin"></i>
+                    </div>
                     <div class="nav-item dropdown dropdown-notifications">
                         <a class="notification-box" href="/market">
                             @if (isset($unreadNotifications) && count($unreadNotifications) > 0)
