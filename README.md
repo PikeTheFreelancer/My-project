@@ -8,6 +8,8 @@
 5. thông báo redirect đến comment tương ứng.
 6. User có thể  vào trang cá nhân của user khác để  xem thông tin và các posts của user đó.
 7. User có thể thêm/sửa/ xóa post của mình. Các posts sẽ được hiển thị trên newsfeed để  các users khác có thể  xem.
+8. Tích hợp tinymce (text editor)
+
 ## Initial project
 1. composer create-project laravel/laravel my-project
 2. create db > edit .env > migrate
@@ -39,6 +41,7 @@ php artisan migrate
 - <script src="{{ asset('js/tinymce-config.js') }}"></script>
 2. trong file tinymce-config: thêm các settings cho text editor.
 - tham khảo các settings tại: https://www.tiny.cloud/blog/tinymce-toolbar/
+- xây dựng upload image trong tinymce tại hàm file_picker_callback trong file tinymce-config.js
 ## Tài liệu tham khảo:
 1. https://viblo.asia/p/multiple-authenticate-trong-laravel-8-oOVlYjqQ58W
 2. https://github.com/PikeTheFreelancer/Multiple-Auth/tree/master
