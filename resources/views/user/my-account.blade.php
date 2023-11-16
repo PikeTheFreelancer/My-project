@@ -57,6 +57,7 @@
                 <div class="form-field">
                     <label for="content">Content</label>
                     <textarea class="tinymce-editor" name="content"></textarea>
+                    <label class="error error-tinymce"></label>
                 </div>
                 <div class="form-field">
                     <button class="btn btn-primary" type="submit">post</button>
