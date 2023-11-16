@@ -13345,6 +13345,21 @@ iframe {
   margin: 16px 0;
 }
 
+.limit-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.see-more-btn {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.see-more-btn:hover {
+  color: #333;
+}
+
 .pokemon-page .type {
   display: inline-flex;
   align-items: center;

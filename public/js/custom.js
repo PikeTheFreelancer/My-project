@@ -504,4 +504,34 @@ $(document).ready(function(){
     $(document).on('click', '.search-bar-mobile', function() {
         $('.search-form-mobile').slideToggle();
     })
+
+    // see more/less on each post
+
+    $('.limit-content').each(function () {
+        
+        var content = $(this);
+        var button = $(this).siblings('.see-more-btn');
+        
+        var contentHeight = content.height();
+        var lineHeight = parseInt(content.css('line-height'));
+    
+        var linesToShow = Math.floor(contentHeight / lineHeight);
+        console.log(linesToShow);
+        if (linesToShow >= 10) {
+            button.show();
+        } else {
+            button.hide();
+        }
+    })
+    $('.see-more-btn').each(function() {
+        $(this).on('click', function() {
+            $(this).siblings('.post-content').toggleClass('limit-content');
+            $(this).siblings('.merchandise-description').toggleClass('limit-content');
+            if ($(this).text() == 'See more') {
+                $(this).text('See less');
+            } else {
+                $(this).text('See more');
+            }
+        })
+    })
 });

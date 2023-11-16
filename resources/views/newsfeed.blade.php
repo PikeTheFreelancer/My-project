@@ -19,7 +19,8 @@
                         <div class="merchandise-details">
                             <div class="post-details">
                                 <h2>{{ $item->title }}</h2>
-                                <div class="post-content">{!! $item->content !!}</div>
+                                <div class="post-content limit-content">{!! $item->content !!}</div>
+                                <span class="see-more-btn">See more</span>
                             </div>
                             
                             {{-- comment appended here --}}

@@ -17,9 +17,12 @@
                     </div>
                 </div>
                 <div class="merchandise-details">
-                    <h2>{{ $merchandise->name }}</h2>
-                    <img src="{{$merchandise->image}}" alt="">
-                    <p class="merchandise-description">{!! $merchandise->description !!}</p>
+                    <div class="post-details">
+                        <h2>{{ $merchandise->name }}</h2>
+                        <img src="{{$merchandise->image}}" alt="">
+                        <p class="merchandise-description limit-content">{!! $merchandise->description !!}</p>
+                        <span class="see-more-btn">See more</span>
+                    </div>
                     <div class="price-box mobile">
                         <span>
                             <img src="{{asset('images/svg/pokedollars.svg')}}" alt="">
