@@ -3,7 +3,7 @@
 
 @section('content')
 @include('layouts.upload-avatar')
-<div class="my-account-page page section-container">
+<div class="my-account-page page">
     <h1>{{ __('My Account') }}</h1>
     <div class="card-body">
         <form class="edit-account" action="{{ route('user.save') }}" method="POST" enctype="multipart/form-data" data-aos="fade-up">
