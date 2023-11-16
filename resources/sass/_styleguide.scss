@@ -540,6 +540,21 @@ iframe{
     background-position: unset !important;
     background-size: calc(100% - 11px * 2) calc(100% - 41px) !important;
 }
+.authentication{
+    h1{
+        margin-bottom: 40px;
+    }
+    .card-body{
+        max-width: 800px;
+        margin: auto;
+        label{
+            font-weight: 500;
+        }
+        input{
+            border: solid 1px #ddd;
+        }
+    }
+}
 @media screen and (max-width: 991px) {
     
 }

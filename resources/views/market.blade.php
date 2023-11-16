@@ -8,7 +8,7 @@
     <div class="card-body">
         @if (isset($merchandises) && count($merchandises) > 0)
             @foreach ($merchandises as $item)
-                <div class="merchandise section-container" data-id="{{ $item->id }}" data-seller-id="{{$item->user_id}}" data-aos="fade-up">
+                <div class="merchandise section-container bg-white" data-id="{{ $item->id }}" data-seller-id="{{$item->user_id}}" data-aos="fade-up">
                     <div class="avatar-field desktop">
                         <p>Seller: {{$item->username}}</p>
                         <img src="{{asset($item->avatar)}}" alt="">

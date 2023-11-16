@@ -12525,6 +12525,20 @@ iframe {
   background-size: calc(100% - 22px) calc(100% - 41px) !important;
 }
 
+.authentication h1, .authentication .h1 {
+  margin-bottom: 40px;
+}
+.authentication .card-body {
+  max-width: 800px;
+  margin: auto;
+}
+.authentication .card-body label {
+  font-weight: 500;
+}
+.authentication .card-body input {
+  border: solid 1px #ddd;
+}
+
 @media screen and (max-width: 767px) {
   .page {
     padding-left: 20px;
