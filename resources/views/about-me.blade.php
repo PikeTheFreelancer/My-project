@@ -183,7 +183,7 @@
                 </ul>
             </div>
             <div class="image">
-                <img src="{{asset('images/pages/iac.png')}}" alt="">
+                <img src="{{asset('images/pages/iac_alter.png')}}" alt="">
             </div>
         </div>
         <div class="section-container text-image-block reverse" data-aos="fade-up">
