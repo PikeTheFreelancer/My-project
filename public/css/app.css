@@ -13283,6 +13283,7 @@ iframe {
 }
 
 .my-account-page .edit-account {
+  margin-top: 40px;
   padding: 20px;
   box-shadow: 5px 4px 10px 2px #888;
 }
