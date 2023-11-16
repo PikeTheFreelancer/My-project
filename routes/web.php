@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GetPokemonController;
 use App\Http\Controllers\MCE\ImageController;
+use App\Http\Controllers\User\AboutMeController;
 use App\Http\Controllers\User\Auth\LoginController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -48,3 +49,4 @@ Route::post('/get-pokemon', [GetPokemonController::class, 'getPokemonsByString']
 Route::post('/search-pokemon', [GetPokemonController::class, 'searchPokemon'])->name('searchPokemon');
 Route::post('/get-pokemon-moves', [GetPokemonController::class, 'getPokemonMoves'])->name('getPokemonMoves');
 Route::post('/upload_handler', [ImageController::class, 'upload'])->name('upload_handler');
+Route::get('/about-me', [AboutMeController::class, 'index'])->name('about-me');
