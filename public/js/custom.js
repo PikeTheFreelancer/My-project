@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     $('.accordion-box').on('click', function() {
         $('#add-merchandise').slideToggle();
-        $('.add-post').slideToggle();
+        $(this).siblings('.add-post').slideToggle();
     })
 
     $('.image-uploader input').on('change', function() {

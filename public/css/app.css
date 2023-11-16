@@ -12980,13 +12980,12 @@ iframe {
 .accordion-box {
   cursor: pointer;
   border-radius: 5px;
-  display: inline-block;
 }
 .accordion-box .plus-icon {
   display: inline-block;
   transition: all 0.5s;
 }
-.accordion-box:hover span:not(.plus-icon) {
+.accordion-box:hover {
   background-color: #ddd;
 }
 .accordion-box:hover .plus-icon {

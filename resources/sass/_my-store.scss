@@ -1,15 +1,13 @@
 .accordion-box{
     cursor: pointer;
     border-radius: 5px;
-    display: inline-block;
+    
     .plus-icon{
         display: inline-block;
         transition: all .5s;
     }
     &:hover{
-        span:not(.plus-icon){
-            background-color: #ddd;
-        }
+        background-color: #ddd;
         .plus-icon{
             transform: rotate(360deg);
             transition: all .5s;
