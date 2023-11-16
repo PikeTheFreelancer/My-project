@@ -12080,7 +12080,7 @@ input.error, textarea.error {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1360px;
   margin: auto;
   padding: 0 40px;
 }
@@ -12485,6 +12485,8 @@ a.dropdown-item:hover {
   margin-top: 40px;
   margin-bottom: 40px;
   max-width: 1280px;
+  box-shadow: 5px 4px 10px 2px #888;
+  padding: 40px;
 }
 
 .header-container, .footer-container {
@@ -12499,12 +12501,17 @@ a.dropdown-item:hover {
 
 .page {
   width: 100%;
+  max-width: 1360px;
+  margin: 40px auto;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 label.error {
   color: #ec1818;
   font-family: "Inter";
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 iframe {
@@ -12519,6 +12526,10 @@ iframe {
 }
 
 @media screen and (max-width: 767px) {
+  .page {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .section-container,
   .header-container,
   .footer-container {
@@ -13123,6 +13134,7 @@ iframe {
   display: flex;
   -moz-column-gap: 5px;
        column-gap: 5px;
+  align-items: center;
 }
 .market-page .load-prev-comments {
   font-size: 14px;
@@ -13135,8 +13147,6 @@ iframe {
   display: flex;
   -moz-column-gap: 20px;
        column-gap: 20px;
-  box-shadow: 5px 4px 10px 2px #888;
-  padding: 20px;
 }
 .market-page .merchandise:not(:first-child) {
   margin-top: 25px;
@@ -13195,9 +13205,10 @@ iframe {
   color: #888;
   font-size: 10px;
   font-family: "Inter";
-  padding: 3px;
+  padding: 0 5px;
   border: solid 1px #888;
   border-radius: 3px;
+  align-items: center;
 }
 
 .merchandise-details {
@@ -13393,6 +13404,7 @@ iframe {
   position: relative;
   z-index: 1;
   box-shadow: 8px 10px 10px 0px #777;
+  overflow: hidden;
 }
 .pokemon-moves table {
   width: 100%;

@@ -86,7 +86,7 @@ input, textarea{
         display: flex;
         align-items: center;
         width: 100%;
-        max-width: 1280px;
+        max-width: 1360px;
         margin: auto;
         padding: 0 40px;
     }
@@ -505,6 +505,8 @@ a.dropdown-item:hover{
     margin-top: 40px;
     margin-bottom: 40px;
     max-width: 1280px;
+    box-shadow: 5px 4px 10px 2px #888;
+    padding: 40px;
 }
 
 .header-container, .footer-container{
@@ -517,11 +519,16 @@ a.dropdown-item:hover{
 }
 .page{
     width: 100%;
+    max-width: 1360px;
+    margin: 40px auto;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 label.error{
     color: #ec1818;
     font-family: 'Inter';
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: 500;
 }
 iframe{
     width: 100%;
@@ -537,6 +544,10 @@ iframe{
     
 }
 @media screen and (max-width:767px) {
+    .page{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
     .section-container,
     .header-container,
     .footer-container{

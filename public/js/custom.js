@@ -417,6 +417,10 @@ $(document).ready(function(){
             error: function(error) {
                 // Handle any errors that occur during the Ajax request
                 console.error('Error:', error);
+                var message = $('<label></label>');
+                message.addClass('error');
+                message.text('You need to login to continue');
+                thisForm.append(message);
             },
             complete: function() {
                 thisForm[0].reset();

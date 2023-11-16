@@ -165,7 +165,7 @@
                 </div>
             </div>
             <div class="mobile-nav-links shadow-sm">
-                <ul class="section-container">
+                <ul class="header-container">
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))

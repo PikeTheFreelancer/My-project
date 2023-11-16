@@ -11,7 +11,7 @@
 @endsection
 @section('content')
 <div class="home-page page">
-    <div class="section-container section-community" data-aos="fade-up">
+    <div class="section-container section-community bg-white" data-aos="fade-up">
         <h2>Visit our community</h2>
         <div class="card-body">
             <a class="shiny home-item water glass" href="{{ route('newsfeed') }}">
@@ -27,7 +27,7 @@
             </a>
         </div>
     </div>
-    <div class="section-container" data-aos="fade-up">
+    <div class="section-container bg-white" data-aos="fade-up">
         <div class="text-image-block">
             <div class="text">
                 <h2>Recommended game</h2>
@@ -47,7 +47,7 @@
         </div>
     </div>
 
-    <div class="section-container" data-aos="fade-up">
+    <div class="section-container bg-white" data-aos="fade-up">
         <div class="text-image-block reverse">
             <div class="text">
                 <h2>Became one of us!</h2>
