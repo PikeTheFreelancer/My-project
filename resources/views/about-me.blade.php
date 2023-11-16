@@ -166,7 +166,7 @@
         <div class="section-container text-image-block" data-aos="fade-up">
             <div class="text">
                 <h2 class="underline">Indigenous art code</h2>
-                <p><a href="https://indigenousartcode.org/"></a></p>
+                <p><a class="underline" href="https://indigenousartcode.org/">Link here</a></p>
                 <h5 class="sub-title">Technique:</h5>
                 <p>Laravel, scss, jquery, mysql, Laravel twill, docker.</p>
                 <p>Development duration: 9 months.</p>
@@ -189,7 +189,7 @@
         <div class="section-container text-image-block reverse" data-aos="fade-up">
             <div class="text">
                 <h2 class="underline">Keksia</h2>
-                <p><a href="https://keksia.com.au/"></a></p>
+                <p><a class="underline" href="https://keksia.com.au/">Link here</a></p>
                 <h5 class="sub-title">Technique:</h5>
                 <p>Laravel, scss, jquery, mysql, Laravel twill.</p>
                 <p>Development duration: 1 year.</p>
