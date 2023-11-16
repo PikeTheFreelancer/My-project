@@ -13352,6 +13352,13 @@ iframe {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.limit-content p {
+  display: inline;
+}
+.limit-content p::after {
+  content: " \a\a";
+  white-space: pre;
+}
 
 .see-more-btn {
   cursor: pointer;

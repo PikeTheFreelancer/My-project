@@ -13,6 +13,14 @@
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    p {
+        display: inline;
+    }
+    
+    p::after {
+        content: " \A\A";
+        white-space: pre;
+    }
 }
 .see-more-btn{
     cursor: pointer;
