@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Illuminate\Session\TokenMismatchException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -42,9 +43,11 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
         if ($exception instanceof NotFoundHttpException) {
-            return response()->view('user.errors.page-404', [], 404);
+            return response()->view('user.errors.page-404', ['title' => '404 - Not found', 'content' => 'Page not found.'], 404);
         }
-
+        if ($exception instanceof TokenMismatchException) {
+            return response()->view('user.errors.page-404', ['title' => '419 - Page expired', 'content' => 'Please check your submittion.'], 419);
+        }
         return parent::render($request, $exception);
     }
 }
