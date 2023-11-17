@@ -20,7 +20,9 @@
                     </div>
                     <div class="merchandise-details">
                         <div class="post-details">
-                            <h2>{{ $item->title }}</h2>
+                            <a href="/post/{{$item->id}}">
+                                <h2>{{ $item->title }}</h2>
+                            </a>
                             <div class="post-content limit-content">{!! $item->content !!}</div>
                             <span class="see-more-btn">See more</span>
                         </div>

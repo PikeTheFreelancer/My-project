@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="section-container">
-    <div class="market-page page">
-        <div class="page-title">
-            <h1>{{ __('Merchandise') }}</h1>
-        </div>
+<div class="market-page page">
+    <div class="page-title">
+        <h1>{{ __('Merchandise') }}</h1>
+    </div>
+    <div class="section-container">
         <div class="card-body">
             <div class="merchandise" data-id="{{ $merchandise->id }}" data-seller-id="{{$merchandise->user_id}}">
                 <div class="avatar-field desktop">
-                    <p>seller: {{$merchandise->username}}</p>
+                    <p>Seller:</p>
+                    <p>{{$merchandise->username}}</p>
                     @if ($merchandise->avatar)
                         <img src="{{asset($merchandise->avatar)}}" alt="">
                     @else
@@ -22,7 +23,9 @@
                 </div>
                 <div class="merchandise-details">
                     <div class="post-details">
-                        <h2>{{ $merchandise->name }}</h2>
+                        <a href="/merchandise/{{$merchandise->id}}">
+                            <h2>{{ $merchandise->name }}</h2>
+                        </a>
                         <img src="{{$merchandise->image}}" alt="">
                         <p class="merchandise-description limit-content">{!! $merchandise->description !!}</p>
                         <span class="see-more-btn">See more</span>

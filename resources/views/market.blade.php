@@ -10,7 +10,8 @@
             @foreach ($merchandises as $item)
                 <div class="merchandise section-container bg-white" data-id="{{ $item->id }}" data-seller-id="{{$item->user_id}}" data-aos="fade-up">
                     <div class="avatar-field desktop">
-                        <p>Seller: {{$item->username}}</p>
+                        <p>Seller:</p>
+                        <p>{{$item->username}}</p>
                         @if ($item->avatar)
                             <img src="{{asset($item->avatar)}}" alt="">
                         @else
@@ -23,7 +24,9 @@
                     </div>
                     <div class="merchandise-details">
                         <div class="post-details">
-                            <h2>{{ $item->name }}</h2>
+                            <a href="/merchandise/{{$item->id}}">
+                                <h2>{{ $item->name }}</h2>
+                            </a>
                             <img src="{{$item->image}}" alt="">
                             <p class="merchandise-description limit-content">{!! $item->description !!}</p>
                             <span class="see-more-btn">See more</span>
