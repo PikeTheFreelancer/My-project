@@ -5,7 +5,7 @@
                 {{-- <img src="{{asset('images/svg/pokeball.svg')}}" alt=""> --}}
                 <h5>Vermilion Center</h5>
             </a>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed ea placeat iure molestiae eius, accusantium obcaecati quos earum provident asperiores quasi alias ullam tempora officia animi dolorum hic repellat nam.</p>
+            <p>This website is a project conducted by <i>Pike Freeman</i>. The idea of this website is to support <i>Pokemon Revolution Online</i> players and other Pokemon fans. You are free to selling items and communicate here. Enjoy!</p>
         </div>
         <div class="footer-col-2" data-aos="fade-left" data-aos-delay="100">
             <div class="other-links">
@@ -15,9 +15,9 @@
             </div>
             <div class="other-links">
                 <h5>Contact</h5>
-                <a href="#">Email</a>
-                <a href="#">Facbook</a>
-                <a href="#">Phone</a>
+                <a href="mailto:pikefreeman1997@gmail.com">Email</a>
+                <a href="https://www.facebook.com/nghia.vutrong.71/">Facbook</a>
+                <a href="tel:0356414477">Phone</a>
             </div>
         </div>
     </div>
