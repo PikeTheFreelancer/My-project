@@ -9,7 +9,6 @@
 6. User có thể  vào trang cá nhân của user khác để  xem thông tin và các posts của user đó.
 7. User có thể thêm/sửa/ xóa post của mình. Các posts sẽ được hiển thị trên newsfeed để  các users khác có thể  xem.
 8. Tích hợp tinymce (text editor)
-
 ## Initial project
 1. composer create-project laravel/laravel my-project
 2. create db > edit .env > migrate
@@ -30,7 +29,11 @@ php artisan migrate
 - config\auth.php > providers
 5. app/Providers/RouteServiceProvider.php > boot()
 6. chỉnh sửa Routes, Controller và view
-
+## install jquery
+1. npm install jquery --save-dev
+2. resource/js/bootstrap.js:
+- window.$ = window.jQuery = require('jquery');
+3. ensure that resource/js/bootstrap.js was attached in app.js
 ## Crop image using boostrap
 - xem tại MyStoreController function save() và custom.js > //crop image
 
