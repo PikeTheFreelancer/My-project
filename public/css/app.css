@@ -12529,6 +12529,10 @@ iframe {
   aspect-ratio: 16/9;
 }
 
+img {
+  max-width: 100%;
+}
+
 .tox .tox-toolbar__primary {
   background-position: unset !important;
   background-size: calc(100% - 22px) calc(100% - 41px) !important;

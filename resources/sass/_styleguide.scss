@@ -542,6 +542,9 @@ iframe{
     height: auto;
     aspect-ratio: 16/9;
 }
+img{
+    max-width: 100%;
+}
 //custom mce editor
 .tox .tox-toolbar__primary{
     background-position: unset !important;

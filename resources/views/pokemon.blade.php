@@ -218,14 +218,11 @@
             </div>
         </div>
     @else
-        <div class="">
-            <h1>
-                opps!
-            </h1>
-        </div>
-        <div class="card-body">
-            <h3>No pokemon found!</h3>
-        </div>
+        <h1>opps!</h1>
+        <br>
+        <h5>No pokemon found!</h5>
+        <br>
+        <img src="{{asset('images/pages/404.gif')}}" alt="">
     @endif
 </div>
 @endsection
