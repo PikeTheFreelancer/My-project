@@ -29,6 +29,10 @@
     .avatar-field{
         display: flex;
         flex-direction: column;
+        img{
+            width: 100%;
+            max-width: 160px;
+        }
     }
     .merchandise{
         display: flex;

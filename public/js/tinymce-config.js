@@ -5,6 +5,7 @@ tinymce.init({
     media_dimensions: false,
     image_title: true,
     file_picker_types: 'image',
+    paste_data_images:false,
     
     file_picker_callback: function (cb, value, meta) {
       var input = document.createElement('input');

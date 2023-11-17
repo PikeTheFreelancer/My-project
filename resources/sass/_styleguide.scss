@@ -547,6 +547,9 @@ iframe{
     background-position: unset !important;
     background-size: calc(100% - 11px * 2) calc(100% - 41px) !important;
 }
+.tox .tox-editor-header{
+    z-index: 0 !important;
+}
 .authentication{
     h1{
         margin-bottom: 40px;

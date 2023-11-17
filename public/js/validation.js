@@ -106,16 +106,15 @@ $(document).ready(function() {
             }
         },
     })
-    $('.add-post').submit(function(event) {
-        event.preventDefault();
+    // $('.add-post').submit(function(event) {
+    //     event.preventDefault();
     
-        var content = tinymce.get('mce_0').getContent();
-        if (content.trim() === '') {
-            console.log(content);
-            $(this).find('.error-tinymce').text('This field is required.').show();
-            $(this).find('.tox-tinymce').css('border', 'solid 1px #ec1818');
-        } else {
-            this.submit();
-        }
-    });
+    //     var content = tinymce.get('mce_0').getContent();
+    //     if (content.trim() === '') {
+    //         $(this).find('.error-tinymce').text('This field is required.').show();
+    //         $(this).find('.tox-tinymce').css('border', 'solid 1px #ec1818');
+    //     } else {
+    //         this.submit();
+    //     }
+    // });
 });
