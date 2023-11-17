@@ -520,7 +520,6 @@ $(document).ready(function(){
         var lineHeight = parseInt(content.css('line-height'));
     
         var linesToShow = Math.floor(contentHeight / lineHeight);
-        console.log(linesToShow);
         if (linesToShow >= 10) {
             button.show();
         } else {

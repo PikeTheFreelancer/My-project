@@ -40,7 +40,7 @@ class CommentController extends Controller
         $comment->save();
 
         //pass data to ajax
-        $comment->user_avatar = asset($user->avatar);
+        $comment->user_avatar = $user->avatar;
         $comment->username = $user->name;
         if ($request->input('merchandise_id')){
             $seller_id = $this->merchandiseRepo->find($request->input('merchandise_id'))->user->id;

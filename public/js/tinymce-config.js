@@ -15,13 +15,13 @@ tinymce.init({
         var file = this.files[0];
         var formData = new FormData();
         formData.append('file', file);
-        console.log(file.name);
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/upload_handler');
         xhr.onload = function () {
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
                 if (response && response.location) {
+                    console.log(response.location);
                     cb(response.location, { title: file.name, height: 'auto' });
                 } else {
                     console.error('Invalid response: ', response);

@@ -10,7 +10,7 @@
             <div class="merchandise" data-id="{{ $merchandise->id }}" data-seller-id="{{$merchandise->user_id}}">
                 <div class="avatar-field desktop">
                     <p>seller: {{$merchandise->username}}</p>
-                    @if ()
+                    @if ($merchandise->avatar)
                         <img src="{{asset($merchandise->avatar)}}" alt="">
                     @else
                         <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">

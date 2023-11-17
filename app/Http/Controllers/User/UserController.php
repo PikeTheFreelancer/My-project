@@ -79,9 +79,9 @@ class UserController extends Controller
         } else {
             $post = new Post;
         }
-        
         $post->title = $request->title;
         $post->content = $request->content;
+        $post->content = str_replace('src="images/tinymce/', 'src="/images/tinymce/', $post->content);
         $post->user_id = $user_id;
 
         $post->save();
