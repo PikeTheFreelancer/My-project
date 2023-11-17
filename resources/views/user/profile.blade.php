@@ -13,7 +13,11 @@
                 <div class="base-info">
                     <div class="avatar-field">
                         <div class="form-field image-uploader">
-                            <img class="thumbnail show-image" src="{{$user->avatar}}" alt="">
+                            @if ($user->avatar)
+                                <img class="thumbnail show-image" src="{{$user->avatar}}" alt="">
+                            @else
+                                <img class="thumbnail show-image" src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                            @endif
                         </div>
                     </div>
                     <div class="info-fields">

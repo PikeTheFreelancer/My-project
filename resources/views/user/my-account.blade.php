@@ -16,7 +16,11 @@
                     <div class="form-field image-uploader">
                         <input type="file" name="avatar" class="avatar">
                         <input type="hidden" name="image_base64">
-                        <img class="thumbnail show-image" src="{{$avatar}}" alt="">
+                        @if ($avatar)
+                            <img class="thumbnail show-image" src="{{$avatar}}" alt="">
+                        @else
+                            <img class="thumbnail show-image" src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                        @endif
                     </div>
                 </div>
                 <div class="info-fields">

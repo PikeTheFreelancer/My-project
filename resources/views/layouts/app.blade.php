@@ -140,6 +140,8 @@
                                     <a id="navbarDropdown" class="thumbnail-avatar" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         @if (Auth::user()->avatar)
                                             <img src="{{ Auth::user()->avatar }}" alt="">
+                                        @else
+                                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
                                         @endif
                                     </a>
 

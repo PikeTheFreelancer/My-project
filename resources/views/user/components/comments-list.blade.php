@@ -5,7 +5,11 @@
 @foreach ($comments as $comment)
     <div id="comment-{{$comment->id}}" class='comment-item opacity0'>
         <div class='comment-avatar'>
-            <img src='{{asset($comment->avatar)}}' alt=''>
+            @if ($comment->avatar)
+                <img src='{{asset($comment->avatar)}}' alt=''>
+            @else
+                <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+            @endif
         </div>
         <div class='comment-col-right'>
             <div class="comment-username-container">

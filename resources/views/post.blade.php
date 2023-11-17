@@ -12,7 +12,11 @@
             <div class="merchandise" data-post-id="{{ $post->id }}" data-author-id="{{$post->user_id}}">
                 <div class="avatar-field desktop">
                     <p>Author:</p>
-                    <img src="{{asset($post->avatar)}}" alt="">
+                    @if ($post->avatar)
+                        <img src="{{asset($post->avatar)}}" alt="">
+                    @else
+                        <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                    @endif
                     <p>{{$post->username}}</p>
                 </div>
                 <div class="merchandise-details">
@@ -34,7 +38,11 @@
                             @foreach ($post->comments as $comment)
                                 <div id="comment-{{$comment->id}}" class='comment-item'>
                                     <div class='comment-avatar'>
-                                        <img src='{{asset($comment->avatar)}}' alt=''>
+                                        @if ($comment->avatar)
+                                            <img src='{{asset($comment->avatar)}}' alt=''>
+                                        @else
+                                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                                        @endif
                                     </div>
                                     <div class='comment-col-right'>
                                         <div class="comment-username-container">

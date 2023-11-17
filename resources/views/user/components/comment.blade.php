@@ -1,6 +1,10 @@
 <div id="comment-{{$comment->id}}" class='comment-item'>
     <div class='comment-avatar'>
-        <img src='{{asset($comment->user_avatar)}}' alt=''>
+        @if ($comment->user_avatar)
+            <img src='{{asset($comment->user_avatar)}}' alt=''>
+        @else
+            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+        @endif
     </div>
     <div class='comment-col-right'>
         <div class="comment-username-container">

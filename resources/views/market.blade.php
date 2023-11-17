@@ -11,7 +11,11 @@
                 <div class="merchandise section-container bg-white" data-id="{{ $item->id }}" data-seller-id="{{$item->user_id}}" data-aos="fade-up">
                     <div class="avatar-field desktop">
                         <p>Seller: {{$item->username}}</p>
-                        <img src="{{asset($item->avatar)}}" alt="">
+                        @if ($item->avatar)
+                            <img src="{{asset($item->avatar)}}" alt="">
+                        @else
+                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                        @endif
                         <div class="price-box">
                             <span>@include('svg.pokedollars')</span>
                             <span class="price">{{ number_format($item->price, 0, ",", ".") }}</span>
@@ -44,7 +48,11 @@
                                 @foreach ($item->comments as $comment)
                                     <div id="comment-{{$comment->id}}" class='comment-item'>
                                         <div class='comment-avatar'>
-                                            <img src='{{asset($comment->avatar)}}' alt=''>
+                                            @if ($comment->avatar)
+                                                <img src='{{asset($comment->avatar)}}' alt=''>
+                                            @else
+                                                <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                                            @endif
                                         </div>
                                         <div class='comment-col-right'>
                                             <div class="comment-username-container">
