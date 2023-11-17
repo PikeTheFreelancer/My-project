@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="section-container">
-    <div class="market-page page">
-        <div class="page-title">
-            <h1>
-                {{ __('Post') }}
-            </h1>
-        </div>
+<div class="market-page page">
+    <div class="page-title">
+        <h1>
+            {{ __('Post') }}
+        </h1>
+    </div>
+    <div class="section-container">
         <div class="card-body">
             <div class="merchandise" data-post-id="{{ $post->id }}" data-author-id="{{$post->user_id}}">
                 <div class="avatar-field desktop">

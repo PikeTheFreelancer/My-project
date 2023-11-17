@@ -11,7 +11,7 @@
             <div class="other-links">
                 <h5>About</h5>
                 <a href="#">About Vermilion Center</a>
-                <a href="#">About me</a>
+                <a href="{{route('about-me')}}">About me</a>
             </div>
             <div class="other-links">
                 <h5>Contact</h5>

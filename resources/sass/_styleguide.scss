@@ -489,6 +489,13 @@ a.dropdown-item:hover{
 .hidden{
     display: none;
 }
+.underline{
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+.white-space-nowrap{
+    white-space: nowrap;
+}
 .content-container{
     overflow: hidden;
 }
