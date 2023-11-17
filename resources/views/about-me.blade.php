@@ -75,7 +75,7 @@
                     </tr>
                     <tr>
                         <th>Framework:</th>
-                        <td>Laravel, Reacjs.</td>
+                        <td>Laravel, Reactjs.</td>
                     </tr>
                     <tr>
                         <th>CMS:</th>
@@ -83,7 +83,7 @@
                     </tr>
                     <tr>
                         <th>Knowledge:</th>
-                        <td>HTML, CSS, Boostrap, Tailwind, Jquery.</td>
+                        <td>HTML, CSS, Bootstrap, Tailwind, Jquery.</td>
                     </tr>
                 </table>
             </div>
@@ -135,7 +135,7 @@
             </ul>
             <h5 class="sub-title">Frontend</h5>
             <ul style="list-style: circle">
-                <li>Having experience in Reacjs, basic Vuejs.</li>
+                <li>Having experience in Reactjs, basic Vuejs.</li>
                 <li>HTML, CSS, SCSS, JS, Jquery, Ajax.</li>
                 <li>Having experience in working with figma, making UI/UX perfect pixel, well handle mobile responsive.</li>
             </ul>
