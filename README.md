@@ -9,6 +9,7 @@
 6. User có thể  vào trang cá nhân của user khác để  xem thông tin và các posts của user đó.
 7. User có thể thêm/sửa/ xóa post của mình. Các posts sẽ được hiển thị trên newsfeed để  các users khác có thể  xem.
 8. Tích hợp tinymce (text editor)
+9. Admin có thể  xóa hoặc ban tài khoản của Users. User bị banned lập tức bị logout và không thể login vào account được nữa.
 ## Initial project
 1. composer create-project laravel/laravel my-project
 2. create db > edit .env > migrate
