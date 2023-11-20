@@ -12878,6 +12878,7 @@ img {
   position: absolute;
   background-color: #fff;
   width: 80px;
+  top: 40px;
   list-style: none;
   border-radius: 3px;
   padding: 0;
