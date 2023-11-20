@@ -13,7 +13,7 @@ class LogoutController extends Controller
         Auth::guard('admin')->logout();
 
         // clear phiên đăng nhập trên trình duyệt
-        $request->session()->invalidate();
+        // $request->session()->invalidate();
 
         return redirect('/admin/login');
     }

@@ -5,4 +5,19 @@
     flex-grow: 1;
     padding: 40px;
     max-width: 1280px;
+    table{
+        width: 100%;
+    }
+    th{
+        font-weight: 700;
+    }
+    th, td{
+        padding: 5px;
+    }
+    tr:nth-child(even){
+        background-color: #ddd;
+    }
+    td{
+        white-space: nowrap;
+    }
 }

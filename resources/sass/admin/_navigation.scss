@@ -1,6 +1,6 @@
 .nav-column{
     display: flex;
-    padding: 20px;
+    padding: 20px 0;
     flex-direction: column;
     background-color: rgb(24, 49, 83);
     width: 100%;
@@ -11,12 +11,31 @@
         color: #fff;
         padding: 10px 0;
         font-weight: 600;
+        padding: 10px 20px;
+        cursor: pointer;
+        &:hover{
+            background-color: rgb(15, 29, 49);
+        }
+        a{
+            color: #fff;
+            padding: 10px 0;
+            font-weight: 600;
+        }
     }
     .nav-child{
-        padding: 10px 0;
+        padding: 10px 20px;
         border-top: solid 1px #fff;
         a{
             color: #fff;
         }
+    }
+    .nav-children{
+        display: none;
+    }
+    .nav-item{
+        border-bottom: solid 1px #fff;
+    }
+    .nav-dropdown{
+        cursor: pointer;
     }
 }

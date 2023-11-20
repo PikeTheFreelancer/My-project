@@ -13,7 +13,7 @@ class LogoutController extends Controller
         Auth::guard('web')->logout();
 
         // xóa phiên đăng nhập
-        $request->session()->invalidate();
+        // $request->session()->invalidate();
 
         return redirect('/login');
     }

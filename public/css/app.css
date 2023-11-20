@@ -13810,7 +13810,7 @@ header {
 
 .nav-column {
   display: flex;
-  padding: 20px;
+  padding: 20px 0;
   flex-direction: column;
   background-color: rgb(24, 49, 83);
   width: 100%;
@@ -13822,13 +13822,32 @@ header {
   color: #fff;
   padding: 10px 0;
   font-weight: 600;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.nav-column .nav-title:hover {
+  background-color: rgb(15, 29, 49);
+}
+.nav-column .nav-title a {
+  color: #fff;
+  padding: 10px 0;
+  font-weight: 600;
 }
 .nav-column .nav-child {
-  padding: 10px 0;
+  padding: 10px 20px;
   border-top: solid 1px #fff;
 }
 .nav-column .nav-child a {
   color: #fff;
+}
+.nav-column .nav-children {
+  display: none;
+}
+.nav-column .nav-item {
+  border-bottom: solid 1px #fff;
+}
+.nav-column .nav-dropdown {
+  cursor: pointer;
 }
 
 .admin-page {
@@ -13839,4 +13858,19 @@ header {
   flex-grow: 1;
   padding: 40px;
   max-width: 1280px;
+}
+.admin-dashboard table {
+  width: 100%;
+}
+.admin-dashboard th {
+  font-weight: 700;
+}
+.admin-dashboard th, .admin-dashboard td {
+  padding: 5px;
+}
+.admin-dashboard tr:nth-child(even) {
+  background-color: #ddd;
+}
+.admin-dashboard td {
+  white-space: nowrap;
 }
