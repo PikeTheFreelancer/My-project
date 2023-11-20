@@ -12,7 +12,7 @@
 @section('content')
 <div class="home-page page">
     <div class="section-container section-community bg-white" data-aos="fade-up">
-        <h2>Visit our community</h2>
+        <h2>{{__('messages.welcome')}}</h2>
         <div class="card-body">
             <a class="shiny home-item water glass" href="{{ route('newsfeed') }}">
                 <div class="image-container">

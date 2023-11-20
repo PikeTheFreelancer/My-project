@@ -15,7 +15,7 @@ use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\UserController;
 
 Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('login');
-Route::middleware(['auth:web', 'checkstatus'])->group(function (){
+Route::middleware(['auth:web', 'checkstatus', 'localization'])->group(function (){
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('/my-account', [UserController::class, 'index'])->name('user');
     Route::post('/my-account', [UserController::class, 'save'])->name('user.save');
@@ -37,16 +37,21 @@ Route::middleware(['auth:web', 'checkstatus'])->group(function (){
     Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile');
 });
 Auth::routes();
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::post('/market/load-comments', [MarketController::class, 'loadPrevComments'])->name('load-comments');
-Route::get('/market', [MarketController::class, 'index'])->name('market');
-Route::get('/merchandise/{id}', [MarketController::class, 'merchandise'])->name('merchandise');
+Route::middleware('localization')->group(function (){
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::post('/market/load-comments', [MarketController::class, 'loadPrevComments'])->name('load-comments');
+    Route::get('/market', [MarketController::class, 'index'])->name('market');
+    Route::get('/merchandise/{id}', [MarketController::class, 'merchandise'])->name('merchandise');
+    
+    Route::get('/newsfeed', [NewsfeedController::class, 'index'])->name('newsfeed');
+    Route::get('/post/{id}', [NewsfeedController::class, 'post'])->name('post');
+    Route::get('/pokemon/{name}', [GetPokemonController::class, 'index'])->name('get-pokemon');
+    Route::post('/get-pokemon', [GetPokemonController::class, 'getPokemonsByString'])->name('getPokemonsByString');
+    Route::post('/search-pokemon', [GetPokemonController::class, 'searchPokemon'])->name('searchPokemon');
+    Route::post('/get-pokemon-moves', [GetPokemonController::class, 'getPokemonMoves'])->name('getPokemonMoves');
+    Route::post('/upload_handler', [ImageController::class, 'upload'])->name('upload_handler');
+    Route::get('/about-me', [AboutMeController::class, 'index'])->name('about-me');
+    Route::get('change-language/{language}', [HomeController::class, 'changeLanguage'])->name('change-language');
+});
 
-Route::get('/newsfeed', [NewsfeedController::class, 'index'])->name('newsfeed');
-Route::get('/post/{id}', [NewsfeedController::class, 'post'])->name('post');
-Route::get('/pokemon/{name}', [GetPokemonController::class, 'index'])->name('get-pokemon');
-Route::post('/get-pokemon', [GetPokemonController::class, 'getPokemonsByString'])->name('getPokemonsByString');
-Route::post('/search-pokemon', [GetPokemonController::class, 'searchPokemon'])->name('searchPokemon');
-Route::post('/get-pokemon-moves', [GetPokemonController::class, 'getPokemonMoves'])->name('getPokemonMoves');
-Route::post('/upload_handler', [ImageController::class, 'upload'])->name('upload_handler');
-Route::get('/about-me', [AboutMeController::class, 'index'])->name('about-me');
+

@@ -537,4 +537,8 @@ $(document).ready(function(){
             }
         })
     })
+
+    $('.lang').on('click', function () {
+        $('.lang-items').slideToggle();        
+    })
 });

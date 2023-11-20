@@ -200,6 +200,30 @@
     padding: 10px;
     border-bottom: solid 1px #ddd;
 }
+.lang{
+    position: relative;
+    cursor: pointer;
+}
+.lang-items{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    width: 80px;
+    list-style: none;
+    border-radius: 3px;
+    padding: 0;
+    box-shadow: 4px 2px 7px -3px #000;
+    li{
+        &:hover{
+            background-color: #ddd;
+        }
+        a{
+            display: block;
+            padding: 10px;
+            width: 100%;
+        }
+    }
+}
 @media screen and (max-width:767px) {
     .search-bar{
         display: none;
