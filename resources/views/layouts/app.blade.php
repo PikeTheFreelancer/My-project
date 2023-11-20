@@ -86,8 +86,16 @@
                     <div class="search-bar-mobile">
                         <i class="fa-brands fa-searchengin"></i>
                     </div>
+                    <div class="lang">
+                        <span>{{ Session::get('language') }}</span>
+                        <i class="fa-solid fa-caret-down"></i>
+                        <ul class="lang-items">
+                            <li><a href="{{route('change-language', 'en')}}">En</a></li>
+                            <li><a href="{{route('change-language', 'vi')}}">Vi</a></li>
+                        </ul>
+                    </div>
                     <div class="nav-item dropdown dropdown-notifications">
-                        <a class="notification-box" href="/market">
+                        <a class="notification-box" href="#">
                             @if (isset($unreadNotifications) && count($unreadNotifications) > 0)
                                 <span class='new-notification'>!</span>
                             @endif
@@ -114,6 +122,7 @@
                             @endforeach
                         </div>
                     </div>
+                    
                     <button class="mobile-navbar mobile">
                         <i class="fa-solid fa-bars" style="color: #131313; font-size: 21px;"></i>
                     </button>
