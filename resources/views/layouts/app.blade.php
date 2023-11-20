@@ -87,7 +87,11 @@
                         <i class="fa-brands fa-searchengin"></i>
                     </div>
                     <div class="lang">
-                        <span>{{ Session::get('language') }}</span>
+                        @if (Session::get('language'))
+                            <span>{{ Session::get('language') }}</span>
+                        @else
+                            <span>En</span>
+                        @endif
                         <i class="fa-solid fa-caret-down"></i>
                         <ul class="lang-items">
                             <li><a href="{{route('change-language', 'en')}}">En</a></li>
