@@ -184,6 +184,9 @@ $(document).ready(function(){
         if (!$(e.target).closest('.search-bar-mobile').length && !$(e.target).closest('.search-form-mobile').length) {
             $('.search-form-mobile').slideUp();
         }
+        if (!$(e.target).closest('.lang').length && !$(e.target).closest('.lang').length) {
+            $('.lang-items').slideUp();
+        }
     })
 
     // mark as read
