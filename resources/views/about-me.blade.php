@@ -130,6 +130,7 @@
                         <li>Using scss to making style and use npm cli for compiling to css.</li>
                         <li>Using API to retrieve data (RESTfulAPI, GraphQL).</li>
                         <li>Integrate tinyMCE as an text-editor for making content and upload images.</li>
+                        <li>Admin is able to delete or ban/unban user accounts.</li>
                     </ol>
                 </li>
             </ul>
