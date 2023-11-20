@@ -7,7 +7,7 @@
                 {{ __('About me') }}
             </h1>
         </div>
-        <div class="section-container first-section" data-aos="fade-up">
+        <div class="section-container first-section bg-white" data-aos="fade-up">
             <div class="my-avatar">
                 <img src="{{asset('images/pages/pike.jpg')}}" alt="">
             </div>
@@ -42,7 +42,7 @@
                 </table>
             </div>
         </div>
-        <div class="section-container second-section text-image-block" data-aos="fade-up">
+        <div class="section-container second-section text-image-block bg-white" data-aos="fade-up">
             <div class="text">
                 <h2>CAREER GOALS</h2>
                 <ul>
@@ -57,7 +57,7 @@
                 <img src="{{asset('images/pages/career-goals.jpg')}}" alt="">
             </div>
         </div>
-        <div class="section-container text-image-block reverse" data-aos="fade-up">
+        <div class="section-container text-image-block reverse bg-white" data-aos="fade-up">
             <div class="text">
                 <h2>CAREER</h2>
                 <table>
@@ -91,7 +91,7 @@
                 <img src="{{asset('images/pages/careers.jpg')}}" alt="">
             </div>
         </div>
-        <div class="section-container" data-aos="fade-up">
+        <div class="section-container bg-white" data-aos="fade-up">
             <h2 class="underline">SKILLS</h2>
             <h5 class="sub-title">English</h5>
             <ul style="list-style: circle">
@@ -164,7 +164,7 @@
                 {{ __('Project worked in') }}
             </h2>
         </div>
-        <div class="section-container text-image-block" data-aos="fade-up">
+        <div class="section-container text-image-block bg-white" data-aos="fade-up">
             <div class="text">
                 <h2 class="underline">Indigenous art code</h2>
                 <p><a class="underline" href="https://indigenousartcode.org/">Link here</a></p>
@@ -187,7 +187,7 @@
                 <img src="{{asset('images/pages/iac_alter.png')}}" alt="">
             </div>
         </div>
-        <div class="section-container text-image-block reverse" data-aos="fade-up">
+        <div class="section-container text-image-block reverse bg-white" data-aos="fade-up">
             <div class="text">
                 <h2 class="underline">Keksia</h2>
                 <p><a class="underline" href="https://keksia.com.au/">Link here</a></p>
