@@ -4,7 +4,7 @@
     <div class="page about-me">
         <div class="page-title">
             <h1>
-                {{ __('About me') }}
+                {{ __('about.title') }}
             </h1>
         </div>
         <div class="section-container first-section bg-white" data-aos="fade-up">
@@ -12,7 +12,7 @@
                 <img src="{{asset('images/pages/pike.jpg')}}" alt="">
             </div>
             <div class="basic-info">
-                <h2>Vu Trong Nghia</h2>
+                <h2>{{ __('about.name') }}</h2>
                 <h5>Full stack developer</h5>
                 <table>
                     <tr>
@@ -36,7 +36,7 @@
                     <tr>
                         <td class="text-end white-space-nowrap"><i class="fa-solid fa-location-dot"></i> :</td>
                         <td>
-                            Dong Trach - Ngu Hiep - Thanh Tri - Hanoi
+                            {{ __('about.address') }}
                         </td>
                     </tr>
                 </table>
@@ -44,13 +44,13 @@
         </div>
         <div class="section-container second-section text-image-block bg-white" data-aos="fade-up">
             <div class="text">
-                <h2>CAREER GOALS</h2>
+                <h2>{{ __('about.career_goals') }}</h2>
                 <ul>
-                    <li>Looking for a chance to become a Fullstack developer.</li>
-                    <li>Want to study new technical skills for improve my career.</li>
-                    <li>Happy to work in a positive and professional workplace.</li>
-                    <li>Looking for a workplace where I am able to work with foreigners and improve my English skills.</li>
-                    <li>Long term partnership desire.</li>
+                    <li>{{ __('about.career_goals.1') }}</li>
+                    <li>{{ __('about.career_goals.2') }}</li>
+                    <li>{{ __('about.career_goals.3') }}</li>
+                    <li>{{ __('about.career_goals.4') }}</li>
+                    <li>{{ __('about.career_goals.5') }}</li>
                 </ul>
             </div>
             <div class="image">
@@ -59,18 +59,18 @@
         </div>
         <div class="section-container text-image-block reverse bg-white" data-aos="fade-up">
             <div class="text">
-                <h2>CAREER</h2>
+                <h2>{{ __('about.career') }}</h2>
                 <table>
                     <tr>
-                        <th>Thuy Loi University</th>
+                        <th>{{ __('about.career.edu') }}</th>
                         <td>10/2016 - 05/2021</td>
                     </tr>
                     <tr>
                         <th>AHT Tech JSC </th>
-                        <td>12/2020 - Present</td>
+                        <td>12/2020 - {{ __('about.career.present') }}</td>
                     </tr>
                     <tr>
-                        <th>Position:</th>
+                        <th>{{ __('about.career.pos') }}:</th>
                         <td>ITO dev.</td>
                     </tr>
                     <tr>
@@ -82,8 +82,8 @@
                         <td>Shopify, Wordpress.</td>
                     </tr>
                     <tr>
-                        <th>Knowledge:</th>
-                        <td>HTML, CSS, Bootstrap, Tailwind, Jquery.</td>
+                        <th>{{ __('about.career.knowledge') }}:</th>
+                        <td>HTML, CSS, JS, Bootstrap, Tailwind, Jquery, PHP.</td>
                     </tr>
                 </table>
             </div>
@@ -92,95 +92,96 @@
             </div>
         </div>
         <div class="section-container bg-white" data-aos="fade-up">
-            <h2 class="underline">SKILLS</h2>
-            <h5 class="sub-title">English</h5>
+            <h2 class="underline">{{ __('about.skills') }}</h2>
+            <h5 class="sub-title">{{ __('about.skills.english') }}</h5>
             <ul style="list-style: circle">
                 <li>
-                    English skills equivalent to TOEIC 700.
+                    {{ __('about.skills.english1') }}
                 </li>
-                <li>Reading: 8/10.</li>
-                <li>writing: 7.5/10.</li>
-                <li>speaking: 6.5/10.</li>
-                <i>All of the above data is purely self-assessment.</i>
+                <li>{{ __('about.skills.english2') }}</li>
+                <li>{{ __('about.skills.english3') }}</li>
+                <li>{{ __('about.skills.english4') }}</li>
+                <i>{{ __('about.skills.english5') }}</i>
             </ul>
-            <h5 class="sub-title">Laravel</h5>
-            <p>Knowledge:</p>
+            <h5 class="sub-title">{{ __('about.skills.laravel') }}</h5>
+            <p>{{ __('about.knowledge') }}:</p>
             <ul style="list-style: circle">
-                <li>Buiding database, model, view, controller</li>
-                <li>Well handle CRUD</li>
-                <li>Understand Laravel design pattern, request life cycle</li>
-                <li>Having experience in data tracing with laravel eloquent</li>
-                <li>Experience in template blade in use</li>
-                <li>Able to customizing complex modules</li>
+                <li>{{ __('about.knowledge1') }}</li>
+                <li>{{ __('about.knowledge2') }}</li>
+                <li>{{ __('about.knowledge3') }}</li>
+                <li>{{ __('about.knowledge4') }}</li>
+                <li>{{ __('about.knowledge5') }}</li>
+                <li>{{ __('about.knowledge6') }}</li>
             </ul>
-            <p>Individual self-improving project:</p>
+            <p>{{ __('about.myProj') }}:</p>
             <ul style="list-style: circle">
-                <li><a class="underline" href="https://github.com/PikeTheFreelancer/My-project">Github link here</a></li>
-                <li><a class="underline" href="{{route('home')}}">About this project here</a></li>
-                <li>Development duration: 1 month.</li>
-                <li>Work done on project:
+                <li><a class="underline" href="https://github.com/PikeTheFreelancer/My-project">{{ __('about.myProj.git') }}</a></li>
+                <li><a class="underline" href="{{route('home')}}">{{ __('about.myProj.about') }}</a></li>
+                <li>{{ __('about.myProj.duration') }}</li>
+                <li>{{ __('about.myProj.works') }}:
                     <ol>
-                        <li>Multi-authentication: Admin role/ User role.</li>
-                        <li>Users are able to upload, edit and delete merchandises.</li>
-                        <li>Users are able to edit their profile: avatar, name and other details (user table).</li>
-                        <li>Users are able to comment on merchandies in market. After that, a notification will be sent(realtime) to other users that commented on the same merchandise(same to facebook comment feature).</li>
-                        <li>User can lookup Pokemon info with quick search-bar.</li>
-                        <li>Making design, icon, css animation.</li>
-                        <li>Using ajax jquery to get/post data with out reload page.</li>
-                        <li>Using scss to making style and use npm cli for compiling to css.</li>
-                        <li>Using API to retrieve data (RESTfulAPI, GraphQL).</li>
-                        <li>Integrate tinyMCE as an text-editor for making content and upload images.</li>
-                        <li>Admin is able to delete or ban/unban user accounts.</li>
+                        <li>{{ __('about.myProj.works1') }}</li>
+                        <li>{{ __('about.myProj.works2') }}</li>
+                        <li>{{ __('about.myProj.works3') }}</li>
+                        <li>{!! __('about.myProj.works4') !!}</li>
+                        <li>{{ __('about.myProj.works5') }}</li>
+                        <li>{{ __('about.myProj.works6') }}</li>
+                        <li>{{ __('about.myProj.works7') }}</li>
+                        <li>{{ __('about.myProj.works8') }}</li>
+                        <li>{{ __('about.myProj.works9') }}</li>
+                        <li>{{ __('about.myProj.works10') }}</li>
+                        <li>{{ __('about.myProj.works11') }}</li>
+                        <li>{{ __('about.myProj.works12') }}</li>
                     </ol>
                 </li>
             </ul>
-            <h5 class="sub-title">Frontend</h5>
+            <h5 class="sub-title">{{ __('about.frontend') }}</h5>
             <ul style="list-style: circle">
-                <li>Having experience in Reactjs, basic Vuejs.</li>
-                <li>HTML, CSS, SCSS, JS, Jquery, Ajax.</li>
-                <li>Having experience in working with figma, making UI/UX perfect pixel, well handle mobile responsive.</li>
+                <li>{{ __('about.frontend1') }}</li>
+                <li>{{ __('about.frontend2') }}</li>
+                <li>{{ __('about.frontend3') }}</li>
             </ul>
             <h5 class="sub-title">Git</h5>
-            <p>Using github, gitlab for management and storing source code.</p>
+            <p>{{ __('about.git') }}</p>
             <h5>Linux & CLI</h5>
             <ul style="list-style: circle">
-                <li>Having knowledge in installing and deploying development environment in Linux OS.</li>
-                <li>Work with package managers like npm, yarn.</li>
+                <li>{{ __('about.linux1') }}</li>
+                <li>{{ __('about.linux2') }}</li>
             </ul>
-            <h5>Database/API</h5>
+            <h5>{{ __('about.database') }}</h5>
             <ul style="list-style: circle">
                 <li>MySQL.</li>
                 <li>RESTfulAPI, GraphQL.</li>
             </ul>
-            <h5>Others</h5>
+            <h5>{{ __('about.others') }}</h5>
             <ul style="list-style: circle">
-                <li>Team work skills.</li>
-                <li>Using Jira in tasks management.</li>
-                <li>Presentation skills.</li>
+                <li>{{ __('about.others1') }}</li>
+                <li>{{ __('about.others2') }}</li>
+                <li>{{ __('about.others3') }}</li>
             </ul>
         </div>
         <div class="page-title">
             <h2>
-                {{ __('Project worked in') }}
+                {{ __('about.project') }}
             </h2>
         </div>
         <div class="section-container text-image-block bg-white" data-aos="fade-up">
             <div class="text">
                 <h2 class="underline">Indigenous art code</h2>
-                <p><a class="underline" href="https://indigenousartcode.org/">Link here</a></p>
-                <h5 class="sub-title">Technique:</h5>
-                <p>Laravel, scss, jquery, mysql, Laravel twill, docker.</p>
-                <p>Development duration: 9 months.</p>
-                <p>Team size: 10.</p>
-                <p>Role: Developer.</p>
-                <p>Description: A website for artists communication.</p>
-                <h5 class="sub-title">Works:</h5>
+                <p><a class="underline" href="https://indigenousartcode.org/">{{ __('about.iac.link') }}</a></p>
+                <h5 class="sub-title">{{ __('about.iac.tech') }}:</h5>
+                <p>{{ __('about.iac.tech1') }}</p>
+                <p>{{ __('about.iac.tech2') }}</p>
+                <p>{{ __('about.iac.tech3') }}</p>
+                <p>{{ __('about.iac.tech4') }}</p>
+                <p>{{ __('about.iac.tech5') }}</p>
+                <h5 class="sub-title">{{ __('about.iac.works') }}:</h5>
                 <ul>
-                    <li>Using CMS toolkit Twill to build admin sites.</li>
-                    <li>Making BE functions and get data to FE.</li>
-                    <li>Making style follow design perfect pixel.</li>
-                    <li>Maintain after go live.</li>
-                    <li>Review & optimize code performance.</li>
+                    <li>{!! __('about.iac.works1') !!}</li>
+                    <li>{{ __('about.iac.works2') }}</li>
+                    <li>{{ __('about.iac.works3') }}</li>
+                    <li>{{ __('about.iac.works4') }}</li>
+                    <li>{{ __('about.iac.works5') }}</li>
                 </ul>
             </div>
             <div class="image">
@@ -190,20 +191,20 @@
         <div class="section-container text-image-block reverse bg-white" data-aos="fade-up">
             <div class="text">
                 <h2 class="underline">Keksia</h2>
-                <p><a class="underline" href="https://keksia.com.au/">Link here</a></p>
-                <h5 class="sub-title">Technique:</h5>
-                <p>Laravel, scss, jquery, mysql, Laravel twill.</p>
-                <p>Development duration: 1 year.</p>
-                <p>Team size: 4.</p>
-                <p>Role: Developer.</p>
-                <p>Description: A website introducing mechanic products, building materials and interiors.</p>
-                <h5 class="sub-title">Works:</h5>
+                <p><a class="underline" href="https://keksia.com.au/">{{ __('about.iac.link') }}</a></p>
+                <h5 class="sub-title">{{ __('about.iac.tech') }}:</h5>
+                <p>{{ __('about.keksia.tech1') }}</p>
+                <p>{{ __('about.keksia.tech2') }}</p>
+                <p>{{ __('about.keksia.tech3') }}</p>
+                <p>{{ __('about.keksia.tech4') }}</p>
+                <p>{{ __('about.keksia.tech5') }}</p>
+                <h5 class="sub-title">{{ __('about.iac.works') }}:</h5>
                 <ul>
-                    <li>Using CMS toolkit Twill to build admin sites.</li>
-                    <li>Making BE functions and get data to FE.</li>
-                    <li>Making style follow design perfect pixel.</li>
-                    <li>Maintain after go live.</li>
-                    <li>Review & optimize code performance.</li>
+                    <li>{!! __('about.keksia.works1') !!}</li>
+                    <li>{{ __('about.keksia.works2') }}</li>
+                    <li>{{ __('about.keksia.works3') }}</li>
+                    <li>{{ __('about.keksia.works4') }}</li>
+                    <li>{{ __('about.keksia.works5') }}</li>
                 </ul>
             </div>
             <div class="image">

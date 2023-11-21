@@ -3,7 +3,7 @@
 @section('banner')
     <div class="banner">
         <div class="text-container">
-            <div class="text-animate">
+            <div class="text-animate" data-text-arr='["Vermilion Center", "{{__('messages.banner.text2')}}", "{{__('messages.banner.text3')}}"]'>
                 <h1>Vermilion Center</h1>
             </div>
         </div>
@@ -30,15 +30,15 @@
     <div class="section-container bg-white" data-aos="fade-up">
         <div class="text-image-block">
             <div class="text">
-                <h2>Recommended game</h2>
+                <h2>{{__('messages.recommended_game')}}</h2>
                 <div class="ti-content">
                     <p>
-                        "Pokemon revolution online - PRO" is an online game for original Pokemon fans all around the world. This website was made for supporting the game's players. Where you are able to post your topics, trade game items and communicate with other players.
+                        {{__('messages.rg_desc')}}
                     </p>
                 </div>
                 <div class="cta-links">
-                    <a class="btn btn-primary" href="https://pokemonrevolution.net/">Visit PRO</a>
-                    <a class="btn btn-secondary" href="{{route('newsfeed')}}">See posts</a>
+                    <a class="btn btn-primary" href="https://pokemonrevolution.net/">{{__('messages.visit_pro')}}</a>
+                    <a class="btn btn-secondary" href="{{route('newsfeed')}}">{{__('messages.see_posts')}}</a>
                 </div>
             </div>
             <div class="image">
@@ -50,14 +50,14 @@
     <div class="section-container bg-white" data-aos="fade-up">
         <div class="text-image-block reverse">
             <div class="text">
-                <h2>Became one of us!</h2>
+                <h2>{{__('messages.become_us')}}</h2>
                 <div class="ti-content">
                     <p>
-                        By register to our website, you are free to make a post in <i>My account</i> > <i>Add new post</i>. You are also able to upload your merchandise for selling on our website in <i>My store</i> > <i>Add new merchandise</i>.
+                        {!! __('messages.become_us_desc') !!}
                     </p>
                 </div>
                 <div class="cta-links">
-                    <a class="btn btn-primary" href="/register">Join us</a>
+                    <a class="btn btn-primary" href="/register">{{__('messages.join_us')}}</a>
                 </div>
             </div>
             <div class="image">

@@ -1,13 +1,13 @@
-(function(){
-  var words = [
-      'Vermilion Center',
-      'Here is a playground for Pokemon fans.',
-      'PRO infomations and lookup further about Pokemon games.',
-      ], i = 0;
-  setInterval(function(){
-      $('.text-animate h1').fadeOut(function(){
-          $(this).html(words[i=(i+1)%words.length]).fadeIn();
-      });
-  }, 4000);
+$(document).ready(function() {
+    (function(){
+        console.log($('.text-animate').attr('data-text-arr'));
+        var words = JSON.parse($('.text-animate').attr('data-text-arr')),
+            i = 0;
     
-})();
+        setInterval(function(){
+            $('.text-animate h1').fadeOut(function(){
+                $(this).html(words[i = (i + 1) % words.length]).fadeIn();
+            });
+        }, 4000);
+    })();
+})

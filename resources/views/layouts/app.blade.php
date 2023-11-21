@@ -70,7 +70,7 @@
                         <div class="half-pokeball half-top">
                             @include('svg.half-top')
                         </div>
-                        <span class="ball-text">Home</span>
+                        <span class="ball-text">{{__('messages.header.home')}}</span>
                         <div class="half-pokeball half-bottom">
                             @include('svg.half-bottom')
                         </div>
@@ -79,7 +79,7 @@
                 <div class="navbar-controll">
                     <form class="search-bar" action="{{ route('searchPokemon') }}" method="POST">
                         @csrf
-                        <input class="input-border search-pokemon" type="text" placeholder="search pokemon..." name="searchString">
+                        <input class="input-border search-pokemon" type="text" placeholder="{{__('messages.header.search_holder')}}" name="searchString">
                         <i class="fa-brands fa-searchengin"></i>
                         <div class="search-results"></div>
                     </form>
@@ -139,13 +139,13 @@
                             @guest
                                 @if (Route::has('login'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('messages.header.login') }}</a>
                                     </li>
                                 @endif
 
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('messages.header.register') }}</a>
                                     </li>
                                 @endif
                             @else

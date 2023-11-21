@@ -1,4 +1,29 @@
 <?php
 return [
     'welcome' => 'Visit our community!',
+    'recommended_game' => 'Recommended game',
+    'rg_desc' => "'Pokemon revolution online - PRO' is an online game for original Pokemon fans all around the world. This website was made for supporting the game's players. Where you are able to post your topics, trade game items and communicate with other players.",
+    'visit_pro' => 'Visit PRO',
+    'see_posts' => 'See posts',
+    'become_us' => 'Became one of us!',
+    'become_us_desc' => 'By register to our website, you are free to make a post in <i>My account</i> > <i>Add new post</i>. You are also able to upload your merchandise for selling on our website in <i>My store</i> > <i>Add new merchandise</i>.',
+    'join_us' => 'Join us',
+    'footer' => [
+        'desc' => 'This website is a project conducted by <i>Pike Freeman</i>. The idea of this website is to support <i>Pokemon Revolution Online</i> players and other Pokemon fans. You are free to sell items and communicate here. Enjoy!',
+        'about' => 'About',
+        'about_page' => 'About Vermilion Center',
+        'about_me' => 'About me',
+        'contact' => 'Contact',
+        'phone' => 'Phone',
+    ],
+    'header' => [
+        'home' => 'Home',
+        'login' => 'Login',
+        'register' => 'Register',
+        'search_holder' => 'Search pokemon...',
+    ],
+    'banner' => [
+        'text2' => 'Here is a playground for Pokemon fans.',
+        'text3' => 'PRO infomations and lookup further about Pokemon games.'
+    ]
 ];
