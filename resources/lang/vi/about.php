@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'About me',
+    'title' => 'Giới thiệu bản thân',
     'name' => 'Vũ Trọng Nghĩa (Pike Freeman)',
     'address' => 'Đông Trạch - Ngũ Hiệp - Thanh Trì - Hà Nội',
     'career_goals' => 'MỤC TIÊU NGHỀ NGHIỆP',
