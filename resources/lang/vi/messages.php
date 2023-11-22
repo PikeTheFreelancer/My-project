@@ -6,7 +6,7 @@ return [
     'community' => 'Ghé thăm cộng đồng của chúng tôi!',
     'recommended_game' => 'Game nên thử',
     'rg_desc' => "'Pokemon revolution online - PRO' là một tựa game online dành cho các fans ruột của các phiên bản game 'Pokemon' trên khắp thế giới. Trang web này được tạo ra để hỗ trợ PRO players nói riêng và Pokemon fans nói chung. Ở đây bạn có thể tra cứu thông tin về Pokemons, đăng bài, trao đổi vật phẩm và giao lưu với mọi người.",
-    'visit_pro' => 'Xem PRO',
+    'visit_pro' => 'Tìm hiểu PRO',
     'see_posts' => 'Xem bài đăng',
     'become_us' => 'Tham gia với chúng tôi',
     'become_us_desc' => 'Bằng cách đăng kí tài khoản trên đây, bạn có thể tự do đăng bài trong <i>Tài khoản > Tạo bài viết</i>. Bạn cũng có thể đăng bán các mặt hàng trong mục <i>Cửa hàng > Thêm mặt hàng</i>.',

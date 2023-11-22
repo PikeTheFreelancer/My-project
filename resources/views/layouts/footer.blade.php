@@ -10,7 +10,7 @@
         <div class="footer-col-2" data-aos="fade-left" data-aos-delay="100">
             <div class="other-links">
                 <h5>{{__('messages.footer.about')}}</h5>
-                <a href="#">{{__('messages.footer.about_page')}}</a>
+                <a href="{{ route('home','#welcome') }}">{{__('messages.footer.about_page')}}</a>
                 <a href="{{route('about-me')}}">{{__('messages.footer.about_me')}}</a>
             </div>
             <div class="other-links">

@@ -6,6 +6,7 @@
             <div class="text-animate" data-text-arr='["Vermilion Center", "{{__('messages.banner.text2')}}", "{{__('messages.banner.text3')}}"]'>
                 <h1>Vermilion Center</h1>
             </div>
+            <div id="welcome">anchor</div>
         </div>
     </div>
 @endsection

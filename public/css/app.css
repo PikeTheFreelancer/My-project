@@ -12981,6 +12981,13 @@ img {
   width: 100%;
 }
 
+#welcome {
+  position: absolute;
+  width: 100%;
+  top: 90%;
+  opacity: 0;
+}
+
 .home-page .section-community h2, .home-page .section-community .h2 {
   margin-bottom: 20px;
 }
