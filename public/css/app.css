@@ -13021,6 +13021,7 @@ img {
 }
 .home-page .text-image-block .image {
   max-width: 50%;
+  width: 100%;
 }
 .home-page .text-image-block .image img {
   width: 100%;

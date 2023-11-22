@@ -1,6 +1,9 @@
 <?php
 return [
     'welcome' => 'Ghé thăm cộng đồng của chúng tôi!',
+    'welcome.desc1' => '<b>Vermilion city</b> là một thành phố ở Kanto. Nằm gần một cửa biển ở phía nam, nó đóng vai trò là một cảng biển cho các con tàu, trong số đó là con tàu S.S. Anne. Vịnh Vermilion là cảng chính cho nhiều tàu thủy. Tàu S.S. Anne đi ra khắp thế giới và trở về Vermilion một lần mỗi năm. Tàu S.S. Aqua khởi hành từ thành phố Olivine ở Johto đến cảng Vermilion. Công ty phà Seagallop thường xuyên cung cấp dịch vụ phà đến tất cả các Đảo Sevii. Ngoài cảng, các lối ra khác của thành phố là Route 11 và Hang Động Diglett ở phía đông. Phía bắc thành phố là Route 6.',
+    'welcome.desc2' => 'Trong <i>Pokemon revolution online</i>, <b>Vermilion Poke Center</b> là nơi diễn ra hoạt động trao đổi buôn bán nhộn nhịp nhất. Dựa trên ý tưởng đó, trang web này được tạo ra nhằm mục đích trao đổi vật phẩm và chia sẻ những kiến thức về tựa game này.',
+    'community' => 'Ghé thăm cộng đồng của chúng tôi!',
     'recommended_game' => 'Game nên thử',
     'rg_desc' => "'Pokemon revolution online - PRO' là một tựa game online dành cho các fans ruột của các phiên bản game 'Pokemon' trên khắp thế giới. Trang web này được tạo ra để hỗ trợ PRO players nói riêng và Pokemon fans nói chung. Ở đây bạn có thể tra cứu thông tin về Pokemons, đăng bài, trao đổi vật phẩm và giao lưu với mọi người.",
     'visit_pro' => 'Xem PRO',

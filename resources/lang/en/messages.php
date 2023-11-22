@@ -1,6 +1,9 @@
 <?php
 return [
-    'welcome' => 'Visit our community!',
+    'welcome' => 'Welcome to Vermilion Center!',
+    'welcome.desc1' => '<b>Vermilion city</b> is a city in Kanto. Situated near a sea inlet to the south, it serves as a popular sea port for ships such as the S.S. Anne. Vermilion Harbor is a home port for many ships. The S.S. Anne sails around the world and returns to Vermilion once a year. The S.S. Aqua sails from Olivine City in Johto to Vermilion Harbor. The Seagallop Ferries sail regularly to all of the Sevii Islands. Aside from the harbor, the other exits to the city are Route 11 and Diglett\'s Cave to the east. North of the city is Route 6.',
+    'welcome.desc2' => 'In <i>Pokemon revolution online</i>, <b>Vermilion Pokecenter</b> is the busiest trading activities take place. According to that idea, this website was created for trading and sharing their knowledge about the game.',
+    'community' => 'Visit our community!',
     'recommended_game' => 'Recommended game',
     'rg_desc' => "'Pokemon revolution online - PRO' is an online game for original Pokemon fans all around the world. This website was made for supporting the game's players. Where you are able to post your topics, trade game items and communicate with other players.",
     'visit_pro' => 'Visit PRO',

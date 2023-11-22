@@ -12,7 +12,27 @@
 @section('content')
 <div class="home-page page">
     <div class="section-container section-community bg-white" data-aos="fade-up">
-        <h2>{{__('messages.welcome')}}</h2>
+        <div class="text-image-block">
+            <div class="text">
+                <h2>{{__('messages.welcome')}}</h2>
+                <div class="ti-content">
+                    <p>
+                        {!!__('messages.welcome.desc1')!!}
+                    </p>
+                </div>
+                <div class="ti-content">
+                    <p>
+                        {!!__('messages.welcome.desc2')!!}
+                    </p>
+                </div>
+            </div>
+            <div class="image">
+                <img src="{{asset('images/pages/kanto.gif')}}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="section-container section-community bg-white" data-aos="fade-up">
+        <h2>{{__('messages.community')}}</h2>
         <div class="card-body">
             <a class="shiny home-item water glass" href="{{ route('newsfeed') }}">
                 <div class="image-container">
@@ -28,7 +48,7 @@
         </div>
     </div>
     <div class="section-container bg-white" data-aos="fade-up">
-        <div class="text-image-block">
+        <div class="text-image-block reverse">
             <div class="text">
                 <h2>{{__('messages.recommended_game')}}</h2>
                 <div class="ti-content">
@@ -48,7 +68,7 @@
     </div>
 
     <div class="section-container bg-white" data-aos="fade-up">
-        <div class="text-image-block reverse">
+        <div class="text-image-block">
             <div class="text">
                 <h2>{{__('messages.become_us')}}</h2>
                 <div class="ti-content">
