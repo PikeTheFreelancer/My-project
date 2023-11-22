@@ -18,32 +18,32 @@
         @csrf
         <input id="merchandise_id" name="merchandise_id" type="hidden">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Edit Merchandise</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">{{__('messages.merchandise.edit')}}</h5>
         </div>
         <div class="modal-body">
             <div class="form-group">
-                <label for="name">Merchandise</label>
+                <label for="name">{{__('messages.merchandise')}}</label>
                 <input class="input-border" type="text" name="name" id="item_name">
             </div>
             <div class="form-group">
-                <label for="image">Image</label>
+                <label for="image">{{__('messages.image')}}</label>
                 <div class="image-uploader">
                   <input type="file" name="image" id="image_uploader">
                   <img class="thumbnail" src="" alt="" id="item_image">
                 </div>
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
+                <label for="description">{{__('messages.desc')}}</label>
                 <textarea class="input-border" name="description" id="item_description" cols="30" rows="10"></textarea>
             </div>
             <div class="form-group">
-                <label for="price">Price</label>
+                <label for="price">{{__('messages.price')}}</label>
                 <input class="input-border" type="text" name="price" id="item_price">
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('messages.close')}}</button>
+          <button type="submit" class="btn btn-primary">{{__('messages.save_changes')}}</button>
         </div>
       </form>
     </div>

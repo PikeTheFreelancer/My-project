@@ -5,14 +5,14 @@
 @include('layouts.upload-avatar')
 <div class="my-account-page page">
     <div class="card-header">
-        <h1>{{ __('My Account') }}</h1>
+        <h1>{{ __('messages.header.account') }}</h1>
     </div>
     <div class="card-body">
         <form class="edit-account" action="{{ route('user.save') }}" method="POST" enctype="multipart/form-data" data-aos="fade-up">
             @csrf
             <div class="base-info">
                 <div class="avatar-field">
-                    <label for="image">Change avatar</label>
+                    <label for="image">{{ __('messages.account.avatar') }}</label>
                     <div class="form-field image-uploader">
                         <input type="file" name="avatar" class="avatar">
                         <input type="hidden" name="image_base64">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="info-fields">
                     <div>
-                        <label for="name">User name</label>
+                        <label for="name">{{ __('messages.account.name') }}</label>
                         <input class="input-border" value="{{$user_name}}" type="text" name="name" id="">
                     </div>
                     <div class="form-field">
@@ -44,7 +44,7 @@
             </div>
             
             <div class="form-field">
-                <button class="btn btn-primary" type="submit">save</button>
+                <button class="btn btn-primary" type="submit">{{ __('messages.save_changes') }}</button>
             </div>
         </form>
         <div class="add" data-aos="fade-up">
@@ -52,21 +52,21 @@
                 <span class="plus-icon">
                     @include('svg.plus')
                 </span>
-                <span>Add new post</span>
+                <span>{{ __('messages.post.add') }}</span>
             </div>
             <form class="add-post" method="post" action="{{route('user.save-post')}}">
                 @csrf
                 <div class="form-field">
-                    <label for="title">Title</label>
+                    <label for="title">{{ __('messages.title') }}</label>
                     <input class="input-border" type="text" name="title" id="">
                 </div>
                 <div class="form-field">
-                    <label for="content">Content</label>
+                    <label for="content">{{ __('messages.content') }}</label>
                     <textarea class="tinymce-editor" name="content"></textarea>
                     <label class="error error-tinymce"></label>
                 </div>
                 <div class="form-field">
-                    <button class="btn btn-primary" type="submit">post</button>
+                    <button class="btn btn-primary" type="submit">{{ __('messages.post') }}</button>
                 </div>
             </form>
         </div>
@@ -89,16 +89,16 @@
                         @csrf
                         <input type="hidden" name="post_id" value="{{$post->id}}">
                         <div class="form-field">
-                            <label for="title">Title</label>
+                            <label for="title">{{ __('messages.title') }}</label>
                             <input class="input-border" type="text" name="title" value="{{$post->title}}">
                         </div>
                         <div class="form-field">
-                            <label for="content">Content</label>
+                            <label for="content">{{ __('messages.content') }}</label>
                             <textarea class="tinymce-editor" name="content">{!! $post->content !!}</textarea>
                         </div>
                         <div class="form-field">
-                            <button class="btn btn-primary" type="submit">save</button>
-                            <button class="btn btn-secondary cancel-edit-post">cancel</button>
+                            <button class="btn btn-primary" type="submit">{{ __('messages.save_changes') }}</button>
+                            <button class="btn btn-secondary cancel-edit-post">{{ __('community.cancel') }}</button>
                         </div>
                     </form>
                 </div>

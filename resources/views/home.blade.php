@@ -87,3 +87,7 @@
     </div>
 </div>
 @endsection
+
+@push('js')
+    <script src="{{ asset('js/text-banner.js') }}"></script>
+@endpush

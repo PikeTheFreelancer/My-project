@@ -27,7 +27,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
 
@@ -36,7 +36,6 @@
     <script src="{{ asset('js/validation.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/pokemon-page.js') }}"></script>
-    <script src="{{ asset('js/text-banner.js') }}"></script>
 </head>
 <body>
     @php
@@ -107,7 +106,7 @@
                         </a>
                     </div>
                     <div class="menu-notification shadow-sm" aria-labelledby="navbarDropdown">
-                        <p class="noti-label">Notification</p>
+                        <p class="noti-label">{{ __('messages.header.notifications') }}</p>
                         <div class="notifications-list">
                             @foreach ($notifications as $notification)
                                 @php
@@ -159,18 +158,19 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('user.my-store') }}">{{ __('messages.header.store') }}</a>
+                                        <a class="dropdown-item" href="{{ route('user') }}">{{ __('messages.header.account') }}</a>
+
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                            {{ __('messages.header.logout') }}
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
                                         </form>
 
-                                        <a class="dropdown-item" href="{{ route('user.my-store') }}">My store</a>
-                                        <a class="dropdown-item" href="{{ route('user') }}">My account</a>
                                     </div>
                                 </li>
                             @endguest
@@ -203,8 +203,8 @@
                             </a>
                             <i class="fa-solid fa-caret-down" style="color: #131313;"></i>
                             <ul class="sub-links">
-                                <a class="dropdown-item" href="{{ route('user.my-store') }}">My store</a>
-                                <a class="dropdown-item" href="{{ route('user') }}">My account</a>
+                                <a class="dropdown-item" href="{{ route('user.my-store') }}">{{ __('messages.header.store') }}</a>
+                                <a class="dropdown-item" href="{{ route('user') }}">{{ __('messages.header.account') }}</a>
                             </ul>
                         </li>
 
@@ -212,7 +212,7 @@
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('messages.header.logout') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
