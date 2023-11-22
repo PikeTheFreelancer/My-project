@@ -224,7 +224,7 @@
             </div>
             <form class="search-form-mobile shadow-sm" action="{{ route('searchPokemon') }}" method="POST">
                 @csrf
-                <input class="input-border search-pokemon" type="text" placeholder="search pokemon..." name="searchString">
+                <input class="input-border search-pokemon" type="text" placeholder="{{ __('messages.header.search_holder') }}" name="searchString">
                 <div class="search-results"></div>
             </form>
         </nav>
