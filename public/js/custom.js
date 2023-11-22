@@ -533,10 +533,10 @@ $(document).ready(function(){
         $(this).on('click', function() {
             $(this).siblings('.post-content').toggleClass('limit-content');
             $(this).siblings('.merchandise-description').toggleClass('limit-content');
-            if ($(this).text() == 'See more') {
-                $(this).text('See less');
+            if ($(this).text() == $(this).data('more')) {
+                $(this).text($(this).data('less'));
             } else {
-                $(this).text('See more');
+                $(this).text($(this).data('more'));
             }
         })
     })

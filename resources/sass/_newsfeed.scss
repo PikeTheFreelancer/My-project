@@ -25,6 +25,8 @@
 .see-more-btn{
     cursor: pointer;
     text-decoration: underline;
+    display: inline-block;
+    margin-top: 10px;
     &:hover{
         color: #333;
     }

@@ -81,16 +81,17 @@ class MarketController extends Controller
         $amount = $request->input('amount');
         if ($request->input('merchandise_id')) {
             $merchandise_id = $request->input('merchandise_id');
-            $user_id = $this->merchandiseRepo->find($merchandise_id)->user->id;
+            $seller_id = $this->merchandiseRepo->find($merchandise_id)->user->id;
             $max_amount = $this->marketRepo->getAllComments($merchandise_id)->count();
             $comments = $this->marketRepo->getSomeComments($merchandise_id, $amount);
+            return view('user.components.comments-list', compact('comments', 'seller_id', 'max_amount'));
         } else {
             $post_id = $request->input('post_id');
-            $user_id = $this->postRepo->find($post_id)->user->id;
+            $author_id = $this->postRepo->find($post_id)->user->id;
             $max_amount = $this->postRepo->getAllComments($post_id)->count();
             $comments = $this->postRepo->getSomeComments($post_id, $amount);
+            return view('user.components.comments-list', compact('comments', 'author_id', 'max_amount'));
         }
         
-        return view('user.components.comments-list', compact('comments', 'user_id', 'max_amount'));
     }
 }
