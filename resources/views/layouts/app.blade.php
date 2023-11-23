@@ -19,10 +19,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
     <meta name="description" content="{!!__('messages.meta.desc')!!}">
-    <title>{{ config('app.name', 'Vermilion Center') }}</title>
+    @if (Request::path() == '/')
+        <title>{{ config('app.name', 'Vermilion Center') }}</title>
+    @else
+        <title>{{ config('app.name', 'Vermilion Center') }} - {{ucfirst(Request::path())}}</title>
+    @endif
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" /> --}}
-
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css"/>
 
     <!-- Fonts -->
