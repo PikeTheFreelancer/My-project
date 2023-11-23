@@ -3,12 +3,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="robots" content="INDEX,FOLLOW">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta property="og:site_name" content="{{ config('app.name', 'Vermilion Center') }}">
+    <meta property="og:title" content="{{ config('app.name', 'Vermilion Center') }}">
+    <meta property="og:url" content="{{Request::url()}}">
+    <meta name="twitter:title" content="{{ config('app.name', 'Vermilion Center') }}">
+    <meta itemprop="name" content="{{ config('app.name', 'Vermilion Center') }}">
+    <meta property="og:image" content="{{asset('images/vermilioncity.png')}}">
+    <meta property="og:description" content="{!!__('messages.meta.desc')!!}">
+    <meta name="twitter:description" content="{!!__('messages.meta.desc')!!}">
+    <meta itemprop="description" content="{!!__('messages.meta.desc')!!}">
+    <link rel="canonical" href="{{Request::url()}}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
     <meta name="description" content="{!!__('messages.meta.desc')!!}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Vermilion Center') }}</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" /> --}}
 
