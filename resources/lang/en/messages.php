@@ -32,7 +32,7 @@ return [
     'account.avatar' => 'Change avatar',
     'account.name' => 'User name',
     'post.add' => 'Add new post',
-
+    'meta.desc' => 'Vermilion city is a city in Kanto. In Pokemon revolution online, Vermilion Poke Center is the busiest trading activities take place. According to that idea, this website was created for trading and sharing their knowledge about the game.',
     'footer' => [
         'desc' => 'This website is a project conducted by <i>Pike Freeman</i>. The idea of this website is to support <i>Pokemon Revolution Online</i> players and other Pokemon fans. You are free to sell items and communicate here. Enjoy!',
         'about' => 'About',

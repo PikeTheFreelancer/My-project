@@ -32,7 +32,7 @@ return [
     'account.avatar' => 'Thay ảnh đại diện',
     'account.name' => 'Tên hiển thị',
     'post.add' => 'Tạo bài viết',
-
+    'meta.desc' => 'Vermilion là một thành phố ở Kanto. Trong Pokemon revolution online, Vermilion Poke Center là nơi diễn ra hoạt động trao đổi buôn bán nhộn nhịp nhất. Dựa trên ý tưởng đó, trang web này được tạo ra nhằm mục đích trao đổi vật phẩm và chia sẻ những kiến thức về tựa game này.',
     'footer' => [
         'desc' => 'Website này được thực hiện bởi <i>Pike Freeman</i>. Ý tưởng cho trang web là tạo ra một cộng đồng cho người chơi <i>Pokemon Revolution Online</i> nói riêng và các fans của tựa game Pokemon nói chung. Bạn có thể tự do đăng bài và trao đổi vật phẩm ở đây. Enjoy!',
         'about' => 'Thông tin',
