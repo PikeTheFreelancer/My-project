@@ -13,9 +13,9 @@
                         <p>{{ __('community.seller') }}:</p>
                         <p>{{$item->username}}</p>
                         @if ($item->avatar)
-                            <img src="{{asset($item->avatar)}}" alt="">
+                            <img src="{{asset($item->avatar)}}" alt="avatar">
                         @else
-                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
                         @endif
                         <div class="price-box">
                             <span>@include('svg.pokedollars')</span>
@@ -27,14 +27,14 @@
                             <a href="/merchandise/{{$item->id}}">
                                 <h2>{{ $item->name }}</h2>
                             </a>
-                            <img src="{{$item->image}}" alt="">
+                            <img src="{{$item->image}}" alt="avatar">
                             <p class="merchandise-description limit-content">{!! $item->description !!}</p>
                             <span class="see-more-btn" data-more="{{ __('community.see_more') }}" data-less="{{ __('community.see_less') }}">{{ __('community.see_more') }}</span>
                         </div>
                         
                         <div class="price-box mobile">
                             <span>
-                                <img src="{{asset('images/svg/pokedollars.svg')}}" alt="">
+                                <img src="{{asset('images/svg/pokedollars.svg')}}" alt="pokedollars.svg">
                             </span>
                             <span class="price">{{ number_format($item->price, 0, ",", ".") }}</span>
                         </div>
@@ -52,9 +52,9 @@
                                     <div id="comment-{{$comment->id}}" class='comment-item'>
                                         <div class='comment-avatar'>
                                             @if ($comment->avatar)
-                                                <img src='{{asset($comment->avatar)}}' alt=''>
+                                                <img src='{{asset($comment->avatar)}}' alt='avatar'>
                                             @else
-                                                <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                                                <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
                                             @endif
                                         </div>
                                         <div class='comment-col-right'>

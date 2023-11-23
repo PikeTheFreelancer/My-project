@@ -163,9 +163,9 @@
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="thumbnail-avatar" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         @if (Auth::user()->avatar)
-                                            <img src="{{ Auth::user()->avatar }}" alt="">
+                                            <img src="{{ Auth::user()->avatar }}" alt="avatar">
                                         @else
-                                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
                                         @endif
                                     </a>
 
@@ -210,7 +210,7 @@
                         <li class="mobile-nav-link">
                             <a class="thumbnail-avatar" href="#">
                                 @if (Auth::user()->avatar)
-                                    <img src="{{ Auth::user()->avatar }}" alt="">
+                                    <img src="{{ Auth::user()->avatar }}" alt="avatar">
                                 @endif
                             </a>
                             <i class="fa-solid fa-caret-down" style="color: #131313;"></i>

@@ -12,9 +12,9 @@
                     <div class="avatar-field desktop">
                         <p>{{ __('community.author') }}:</p>
                         @if ($item->avatar)
-                            <img src="{{asset($item->avatar)}}" alt="">
+                            <img src="{{asset($item->avatar)}}" alt="avatar">
                         @else
-                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
                         @endif
                         <p>{{$item->username}}</p>
                     </div>
@@ -40,9 +40,9 @@
                                     <div id="comment-{{$comment->id}}" class='comment-item'>
                                         <div class='comment-avatar'>
                                             @if ($comment->avatar)
-                                                <img src='{{asset($comment->avatar)}}' alt=''>
+                                                <img src='{{asset($comment->avatar)}}' alt='avatar'>
                                             @else
-                                                <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                                                <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
                                             @endif
                                         </div>
                                         <div class='comment-col-right'>

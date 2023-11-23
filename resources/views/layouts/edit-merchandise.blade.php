@@ -29,7 +29,7 @@
                 <label for="image">{{__('messages.image')}}</label>
                 <div class="image-uploader">
                   <input type="file" name="image" id="image_uploader">
-                  <img class="thumbnail" src="" alt="" id="item_image">
+                  <img class="thumbnail" src="" alt="thumbnail" id="item_image">
                 </div>
             </div>
             <div class="form-group">

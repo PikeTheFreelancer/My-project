@@ -9,7 +9,7 @@
         </div>
         <div class="section-container first-section bg-white" data-aos="fade-up">
             <div class="my-avatar">
-                <img src="{{asset('images/pages/pike.jpg')}}" alt="">
+                <img src="{{asset('images/pages/pike.jpg')}}" alt="pike.jpg">
             </div>
             <div class="basic-info">
                 <h2>{{ __('about.name') }}</h2>
@@ -54,7 +54,7 @@
                 </ul>
             </div>
             <div class="image">
-                <img src="{{asset('images/pages/career-goals.jpg')}}" alt="">
+                <img src="{{asset('images/pages/career-goals.jpg')}}" alt="career-goals.jpg">
             </div>
         </div>
         <div class="section-container text-image-block reverse bg-white" data-aos="fade-up">
@@ -88,7 +88,7 @@
                 </table>
             </div>
             <div class="image">
-                <img src="{{asset('images/pages/careers.jpg')}}" alt="">
+                <img src="{{asset('images/pages/careers.jpg')}}" alt="careers.jpg">
             </div>
         </div>
         <div class="section-container bg-white" data-aos="fade-up">
@@ -185,7 +185,7 @@
                 </ul>
             </div>
             <div class="image">
-                <img src="{{asset('images/pages/iac_alter.png')}}" alt="">
+                <img src="{{asset('images/pages/iac_alter.png')}}" alt="iac_alter.png">
             </div>
         </div>
         <div class="section-container text-image-block reverse bg-white" data-aos="fade-up">
@@ -208,7 +208,7 @@
                 </ul>
             </div>
             <div class="image">
-                <img src="{{asset('images/pages/keksia_alter.png')}}" alt="">
+                <img src="{{asset('images/pages/keksia_alter.png')}}" alt="keksia_alter.png">
             </div>
         </div>
     </div>

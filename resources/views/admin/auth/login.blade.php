@@ -27,7 +27,7 @@
 </head>
 <body>
     <div class="admin-login">
-        <img src="{{ asset('/images/admin/admin-bg.jpg') }}" alt="">
+        <img src="{{ asset('/images/admin/admin-bg.jpg') }}" alt="admin-bg.jpg">
         <div class="admin-login-form">
             <form method="POST" action="{{ route('admin.login') }}">
                 @csrf

@@ -6,9 +6,9 @@
     <div id="comment-{{$comment->id}}" class='comment-item opacity0'>
         <div class='comment-avatar'>
             @if ($comment->avatar)
-                <img src='{{asset($comment->avatar)}}' alt=''>
+                <img src='{{asset($comment->avatar)}}' alt='avatar'>
             @else
-                <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
             @endif
         </div>
         <div class='comment-col-right'>

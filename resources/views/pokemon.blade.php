@@ -15,7 +15,7 @@
         <div class="pokemon-details bg-white section-container" data-aos="fade-up">
             <div class="pokemon-shapes">
                 <div class="pokemon-avatar">
-                    <img src="{{asset('images/pokemon-dataset/'.$data['name'].'.png')}}" alt="">
+                    <img src="{{asset('images/pokemon-dataset/'.$data['name'].'.png')}}" alt="{{$data['name']}}.png'">
                 </div>
                 <div class="pokemon-images">
                     <div class="gender-image">
@@ -24,17 +24,17 @@
                         @else
                             <p>Default:</p>
                         @endif
-                        <img class="poke-thumb" src="{{$sprites['front_default']}}" alt="">
+                        <img class="poke-thumb" src="{{$sprites['front_default']}}" alt="poke-thumb">
                     </div>
                     @if ($sprites['front_female'])
                         <div class="gender-image">
                             <p>Female:</p>
-                            <img class="poke-thumb" src="{{$sprites['front_female']}}" alt="">
+                            <img class="poke-thumb" src="{{$sprites['front_female']}}" alt="poke-thumb">
                         </div>
                     @endif
                     <div>
                         <p>Shiny:</p>
-                        <img class="poke-thumb" src="{{$sprites['front_shiny']}}" alt="">
+                        <img class="poke-thumb" src="{{$sprites['front_shiny']}}" alt="poke-thumb">
                     </div>
                 </div>
             </div>
@@ -222,7 +222,7 @@
         <br>
         <h5>No pokemon found!</h5>
         <br>
-        <img src="{{asset('images/pages/404.gif')}}" alt="">
+        <img src="{{asset('images/pages/404.gif')}}" alt="404.gif">
     @endif
 </div>
 @endsection

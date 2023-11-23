@@ -14,9 +14,9 @@
                     <div class="avatar-field">
                         <div class="form-field image-uploader">
                             @if ($user->avatar)
-                                <img class="thumbnail show-image" src="{{$user->avatar}}" alt="">
+                                <img class="thumbnail show-image" src="{{$user->avatar}}" alt="thumbnail">
                             @else
-                                <img class="thumbnail show-image" src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                                <img class="thumbnail show-image" src="{{asset('images/pages/Unknown_person.jpg')}}" alt="thumbnail">
                             @endif
                         </div>
                     </div>

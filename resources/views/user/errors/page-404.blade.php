@@ -7,6 +7,6 @@
     <br>
     <h5>{{$content}}</h5>
     <br>
-    <img src="{{asset('images/pages/404.gif')}}" alt="">
+    <img src="{{asset('images/pages/404.gif')}}" alt="404.gif">
 </div>
 @endsection

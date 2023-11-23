@@ -27,7 +27,7 @@
                     <label for="image">{{ __('messages.image') }}</label>
                     <div class="image-uploader">
                         <input type="file" name="image" id="image_uploader">
-                        <img class="thumbnail" src="" alt="" id="item_image">
+                        <img class="thumbnail" src="" alt="thumbnail" id="item_image">
                     </div>
                 </div>
                 <div class="form-field">
@@ -52,7 +52,7 @@
                             @if (!$item->image)
                             {{ __('messages.merchandise.no_img') }}
                             @else
-                                <img src="{{ $item->image }}" alt="">
+                                <img src="{{ $item->image }}" alt="item">
                             @endif
                         </div>
                         <p class="description">{{ $item->description }}</p>

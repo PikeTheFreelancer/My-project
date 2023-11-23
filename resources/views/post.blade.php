@@ -13,9 +13,9 @@
                 <div class="avatar-field desktop">
                     <p>Author:</p>
                     @if ($post->avatar)
-                        <img src="{{asset($post->avatar)}}" alt="">
+                        <img src="{{asset($post->avatar)}}" alt="avatar">
                     @else
-                        <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                        <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
                     @endif
                     <p>{{$post->username}}</p>
                 </div>
@@ -39,9 +39,9 @@
                                 <div id="comment-{{$comment->id}}" class='comment-item'>
                                     <div class='comment-avatar'>
                                         @if ($comment->avatar)
-                                            <img src='{{asset($comment->avatar)}}' alt=''>
+                                            <img src='{{asset($comment->avatar)}}' alt='avatar'>
                                         @else
-                                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
                                         @endif
                                     </div>
                                     <div class='comment-col-right'>

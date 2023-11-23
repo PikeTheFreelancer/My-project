@@ -17,9 +17,9 @@
                         <input type="file" name="avatar" class="avatar">
                         <input type="hidden" name="image_base64">
                         @if ($avatar)
-                            <img class="thumbnail show-image" src="{{$avatar}}" alt="">
+                            <img class="thumbnail show-image" src="{{$avatar}}" alt="thumbnail">
                         @else
-                            <img class="thumbnail show-image" src="{{asset('images/pages/Unknown_person.jpg')}}" alt="">
+                            <img class="thumbnail show-image" src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
                         @endif
                     </div>
                 </div>
