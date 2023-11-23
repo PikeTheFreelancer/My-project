@@ -37,13 +37,13 @@
         <div class="card-body">
             <a class="shiny home-item water glass" href="{{ route('newsfeed') }}">
                 <div class="image-container">
-                    <img src="{{ asset('images/news.png') }}" alt="news.png">
+                    <img src="{{ asset('images/pages/news.webp') }}" alt="news.webp">
                 </div>
             </a>
 
             <a class="shiny home-item grass glass" href="{{ route('market') }}">
                 <div class="image-container">
-                    <img src="{{ asset('images/pokemart.png') }}" alt="pokemart.png">
+                    <img src="{{ asset('images/pages/pokemart.webp') }}" alt="pokemart.webp">
                 </div>
             </a>
         </div>
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="image">
-                <img src="{{asset('images/pages/pro_image.png')}}" alt="pro_image.png">
+                <img src="{{asset('images/pages/pro_image.webp')}}" alt="pro_image.webp">
             </div>
         </div>
     </div>
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div class="image">
-                <img src="{{asset('images/pages/squirtle-squad.jpg')}}" alt="squirtle-squad.jpg">
+                <img src="{{asset('images/pages/squirtle-squad.webp')}}" alt="squirtle-squad.webp">
             </div>
         </div>
     </div>

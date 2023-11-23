@@ -19,7 +19,7 @@
                         @if ($avatar)
                             <img class="thumbnail show-image" src="{{$avatar}}" alt="thumbnail">
                         @else
-                            <img class="thumbnail show-image" src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
+                            <img class="thumbnail show-image" src="{{asset('images/pages/Unknown_person.webp')}}" alt="Unknown_person.webp">
                         @endif
                     </div>
                 </div>

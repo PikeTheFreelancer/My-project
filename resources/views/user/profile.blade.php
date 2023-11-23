@@ -16,7 +16,7 @@
                             @if ($user->avatar)
                                 <img class="thumbnail show-image" src="{{$user->avatar}}" alt="thumbnail">
                             @else
-                                <img class="thumbnail show-image" src="{{asset('images/pages/Unknown_person.jpg')}}" alt="thumbnail">
+                                <img class="thumbnail show-image" src="{{asset('images/pages/Unknown_person.webp')}}" alt="thumbnail">
                             @endif
                         </div>
                     </div>

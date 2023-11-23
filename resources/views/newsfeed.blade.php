@@ -14,7 +14,7 @@
                         @if ($item->avatar)
                             <img src="{{asset($item->avatar)}}" alt="avatar">
                         @else
-                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
+                            <img src="{{asset('images/pages/Unknown_person.webp')}}" alt="Unknown_person.webp">
                         @endif
                         <p>{{$item->username}}</p>
                     </div>
@@ -42,7 +42,7 @@
                                             @if ($comment->avatar)
                                                 <img src='{{asset($comment->avatar)}}' alt='avatar'>
                                             @else
-                                                <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
+                                                <img src="{{asset('images/pages/Unknown_person.webp')}}" alt="Unknown_person.webp">
                                             @endif
                                         </div>
                                         <div class='comment-col-right'>

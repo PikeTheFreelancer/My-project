@@ -14,7 +14,7 @@
                     @if ($merchandise->avatar)
                         <img src="{{asset($merchandise->avatar)}}" alt="avatar">
                     @else
-                        <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
+                        <img src="{{asset('images/pages/Unknown_person.webp')}}" alt="Unknown_person.webp">
                     @endif
                     <div class="price-box">
                         <span>@include('svg.pokedollars')</span>
@@ -52,7 +52,7 @@
                                         @if ($comment->avatar)
                                             <img src='{{asset($comment->avatar)}}' alt='avatar'>
                                         @else
-                                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
+                                            <img src="{{asset('images/pages/Unknown_person.webp')}}" alt="Unknown_person.webp">
                                         @endif
                                     </div>
                                     <div class='comment-col-right'>

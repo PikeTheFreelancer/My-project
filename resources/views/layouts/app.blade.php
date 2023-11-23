@@ -10,14 +10,14 @@
     <meta property="og:url" content="{{Request::url()}}">
     <meta name="twitter:title" content="{{ config('app.name', 'Vermilion Center') }}">
     <meta itemprop="name" content="{{ config('app.name', 'Vermilion Center') }}">
-    <meta property="og:image" content="{{asset('images/vermilioncity.png')}}">
+    <meta property="og:image" content="{{asset('images/pages/vermilioncity.webp')}}">
     <meta property="og:description" content="{!!__('messages.meta.desc')!!}">
     <meta name="twitter:description" content="{!!__('messages.meta.desc')!!}">
     <meta itemprop="description" content="{!!__('messages.meta.desc')!!}">
     <link rel="canonical" href="{{Request::url()}}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/pages/favicon.webp') }}">
     <meta name="description" content="{!!__('messages.meta.desc')!!}">
     @if (Request::path() == '/')
         <title>{{ config('app.name', 'Vermilion Center') }}</title>
@@ -169,7 +169,7 @@
                                         @if (Auth::user()->avatar)
                                             <img src="{{ Auth::user()->avatar }}" alt="avatar">
                                         @else
-                                            <img src="{{asset('images/pages/Unknown_person.jpg')}}" alt="Unknown_person.jpg">
+                                            <img src="{{asset('images/pages/Unknown_person.webp')}}" alt="Unknown_person.webp">
                                         @endif
                                     </a>
 
