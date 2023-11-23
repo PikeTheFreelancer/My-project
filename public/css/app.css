@@ -12464,10 +12464,6 @@ a.dropdown-item:hover {
     transform: translateX(100%);
   }
 }
-.hidden {
-  display: none;
-}
-
 .underline {
   text-decoration: underline;
   text-underline-offset: 5px;

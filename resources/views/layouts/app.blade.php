@@ -115,6 +115,7 @@
                     </div>
                     <div class="nav-item dropdown dropdown-notifications">
                         <a class="notification-box" href="#">
+                            <span class="hidden">notification</span>
                             @if (isset($unreadNotifications) && count($unreadNotifications) > 0)
                                 <span class='new-notification'>!</span>
                             @endif

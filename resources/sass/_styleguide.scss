@@ -480,15 +480,13 @@ a.dropdown-item:hover{
         transform: scale(1.01);
       }
   }
-  /* animation */
-  
-  @keyframes slide {
-      0% {transform:translateX(-100%);}
-      100% {transform:translateX(100%);}
-  }
-.hidden{
-    display: none;
+/* animation */
+
+@keyframes slide {
+    0% {transform:translateX(-100%);}
+    100% {transform:translateX(100%);}
 }
+
 .underline{
     text-decoration: underline;
     text-underline-offset: 5px;
