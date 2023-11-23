@@ -165,7 +165,11 @@ $(document).ready(function(){
             this.style.height = (this.scrollHeight) + 'px';
         }
     });
-
+    //thumbnail avatar
+    $(document).on('click', '.thumbnail-avatar', function(e) {
+        e.preventDefault();
+        $('.dropdown-actions').slideToggle();
+    })
     //notification dropdown
     $(document).on('click', '.notification-box', function(e) {
         e.preventDefault();
@@ -186,6 +190,9 @@ $(document).ready(function(){
         }
         if (!$(e.target).closest('.lang').length && !$(e.target).closest('.lang').length) {
             $('.lang-items').slideUp();
+        }
+        if (!$(e.target).closest('.thumbnail-avatar').length && !$(e.target).closest('.thumbnail-avatar').length) {
+            $('.dropdown-actions').slideUp();
         }
     })
 

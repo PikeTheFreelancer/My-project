@@ -90,5 +90,5 @@
 @endsection
 
 @push('js')
-    <script src="{{ asset('js/text-banner.js') }}"></script>
+    <script src="{{ asset('js/text-banner.js') }}" defer></script>
 @endpush

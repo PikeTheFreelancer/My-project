@@ -36,21 +36,21 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     {{-- wysiwyg --}}
-    <script src="https://cdn.tiny.cloud/1/q50oc5verflqnyvf6bi6py4cgqivi56zk5w6dqe2bon0wsrb/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/q50oc5verflqnyvf6bi6py4cgqivi56zk5w6dqe2bon0wsrb/tinymce/6/tinymce.min.js" referrerpolicy="origin" defer></script>
     
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" defer></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" defer></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
-
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/tinymce-config.js') }}"></script>
-    <script src="{{ asset('js/validation.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
-    <script src="{{ asset('js/pokemon-page.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <script src="{{ asset('js/tinymce-config.js') }}" defer></script>
+    <script src="{{ asset('js/validation.js') }}" defer></script>
+    <script src="{{ asset('js/custom.js') }}" defer></script>
+    <script src="{{ asset('js/pokemon-page.js') }}" defer></script>
 </head>
 <body>
     @php
@@ -121,7 +121,7 @@
                             <i class="fa-regular fa-bell" style="font-size: 21px;"></i>
                         </a>
                     </div>
-                    <div class="menu-notification shadow-sm" aria-labelledby="navbarDropdown">
+                    <div class="menu-notification" aria-labelledby="navbarDropdown">
                         <p class="noti-label">{{ __('messages.header.notifications') }}</p>
                         <div class="notifications-list">
                             @foreach ($notifications as $notification)
@@ -164,8 +164,8 @@
                                     </li>
                                 @endif
                             @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="thumbnail-avatar" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <li class="nav-item">
+                                    <a class="thumbnail-avatar" href="#">
                                         @if (Auth::user()->avatar)
                                             <img src="{{ Auth::user()->avatar }}" alt="avatar">
                                         @else
@@ -173,7 +173,7 @@
                                         @endif
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-actions">
                                         <a class="dropdown-item" href="{{ route('user.my-store') }}">{{ __('messages.header.store') }}</a>
                                         <a class="dropdown-item" href="{{ route('user') }}">{{ __('messages.header.account') }}</a>
 
