@@ -55,4 +55,31 @@ $(document).ready(function () {
             });
         }
     })
+
+    $('#addCategory').on('submit', function (e) {
+        e.preventDefault();
+        thisForm = $(this);
+        let categories = $(this).find('.categories');
+        let categ_name = $('.categ_name').val();
+        console.log(this);
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
+        // $.ajax({
+        //     url: '/admin/categories/save',
+        //     method: 'POST',
+        //     data: {
+        //         categ_name: categ_name
+        //     },
+        //     success: function(response) {
+        //         console.log(response);
+        //     },
+        //     error: function(error) {
+        //         // Handle any errors that occur during the Ajax request
+        //         console.error('Error:', error);
+        //     }
+        // });
+    })
 })

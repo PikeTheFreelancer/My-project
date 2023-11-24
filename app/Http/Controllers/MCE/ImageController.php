@@ -15,7 +15,7 @@ class ImageController extends Controller
         $imageName = time() . '.' . $image->getClientOriginalExtension();
 
         $img = Image::make($image->getRealPath());
-        $img->resize(800, null, function ($constraint) {
+        $img->resize(400, null, function ($constraint) {
             $constraint->aspectRatio();
         });
         

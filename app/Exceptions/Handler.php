@@ -42,9 +42,9 @@ class Handler extends ExceptionHandler
     }
     public function render($request, Throwable $exception)
     {
-        if ($exception instanceof NotFoundHttpException) {
-            return response()->view('user.errors.page-404', ['title' => '404 - Not found', 'content' => 'Page not found.'], 404);
-        }
+        // if ($exception instanceof NotFoundHttpException) {
+        //     return response()->view('user.errors.page-404', ['title' => '404 - Not found', 'content' => 'Page not found.'], 404);
+        // }
         if ($exception instanceof TokenMismatchException) {
             return response()->view('user.errors.page-404', ['title' => '419 - Page expired', 'content' => 'Please check your submittion.'], 419);
         }

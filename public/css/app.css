@@ -13921,3 +13921,16 @@ header {
 .admin-dashboard td {
   white-space: nowrap;
 }
+.admin-dashboard .add-categ {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 15px 20px;
+  background-color: #fff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+.admin-dashboard .add-categ:hover {
+  background-color: #ddd;
+}
+.admin-dashboard .add-categ:focus {
+  box-shadow: none;
+}

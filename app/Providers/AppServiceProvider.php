@@ -14,6 +14,8 @@ use App\Repositories\User\UserRepository;
 use App\Repositories\User\UserRepositoryInterface;
 use App\Repositories\Post\PostRepository;
 use App\Repositories\Post\PostRepositoryInterface;
+use App\Repositories\PostCategory\PostCategoryRepository;
+use App\Repositories\PostCategory\PostCategoryRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -52,6 +54,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(
             PokemonApiRepositoryInterface::class,
             PokemonApiRepository::class
+        );
+        $this->app->singleton(
+            PostCategoryRepositoryInterface::class,
+            PostCategoryRepository::class
         );
     }
 
