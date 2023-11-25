@@ -7,6 +7,11 @@
         <h1>Categories</h1>
         
         <a class="add-categ" href="#">+ Add Category</a>
+        <form id="addCategory" action="/categories/save" method="POST">
+            @csrf
+            <input class="categ_name input-border" type="text" name="categ_name">
+            <button type="submit">Save</button>
+        </form>
         <table style="margin-top: 40px">
             <tbody class="categories">
                 <tr>
@@ -18,23 +23,26 @@
                 @foreach ($categories as $category)
                     <tr class="userData">
                         <td class="userId">{{$category->id}}</td>
-                        <td class="userName">{{$category->name}}</td>
-                        <td class="userCreatedAt">{{$category->created_at}}</td>
+                        <td class="userName">
+                            <span>{{$category->name}}</span>
+                            <input style="width: auto; display:none;" class="input-border" type="text" data-trans="edit-categ-{{$category->id}}" value="{{$category->name}}">
+                        </td>
+                        <td class="userCreatedAt">
+                            {{$category->updated_at}}
+                        </td>
                         <td>
-                            <a data-id="{{$category->id}}" class="categ_edit" href="#">Edit</a> /
-                            <a data-id="{{$category->id}}" class="categ_delete" href="#">Delete</a>
+                            <span class="categ_save" data-id="{{$category->id}}" data-title="{{$category->name}}" style="display: none">
+                                Save
+                            </span>
+                            <span class="categ_action">
+                                <a data-id="{{$category->id}}" class="categ_edit" href="#">Edit</a> /
+                                <a data-id="{{$category->id}}" class="categ_delete" href="{{route('admin.categories.delete',$category->id)}}">Delete</a>
+                            </span>
                         </td>
                     </tr>
                 @endforeach
-                <tr>
-                    <form id="addCategory" action="/categories/save" method="POST">
-                        @csrf
-                        <td>{{ $categories->count() ? $categories->count() : 1 }}</td>
-                        <td><input class="categ_name" type="text" name="categ_name"></td>
-                        <td><button type="submit">Save</button></td>
-                    </form>
-                </tr>
             </tbody>
         </table>
+        
     </div>
 @endsection

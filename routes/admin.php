@@ -16,5 +16,7 @@ Route::middleware('auth:admin')->group(function (){
     Route::get('/users/ban/{id}', [UsersController::class, 'banUser'])->name('admin.users.ban');
     Route::get('/users/delete/{id}', [UsersController::class, 'deleteUser'])->name('admin.users.delete');
     Route::get('/categories', [PostCategoriesController::class, 'index'])->name('admin.categories');
+    Route::get('/categories/delete/{id}', [PostCategoriesController::class, 'delete'])->name('admin.categories.delete');
+    Route::get('/categories/edit/{id}', [PostCategoriesController::class, 'edit'])->name('admin.categories.edit');
     Route::post('/categories/save', [PostCategoriesController::class, 'save'])->name('admin.categories.save');
 });

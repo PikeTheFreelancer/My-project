@@ -23,11 +23,26 @@ class PostCategoriesController extends Controller
 
     public function save(Request $request){
         $name = $request->input('categ_name');
-        dd($name);
-        $category = new PostCategory;
-        $category->name = $name;
-        $category->save();
-        dd($category);
-        // return view('admin.components.category', compact('category', $category));
+        $id = $request->input('id');
+        if ($id) {
+            $category = $this->cateRepo->find($id);
+            $category->name = $name;
+            $category->save();
+            return response()->json($category->name);
+        }else{
+            $category = new PostCategory;
+            $category->name = $name;
+            $category->save();
+            return view('admin.components.category', compact('category', $category));
+        }
+    }
+    public function delete($id){
+        $category = $this->cateRepo->find($id);
+        $category->delete();
+        return response()->json('deleted');
+    }
+    public function edit($id){
+        $category = $this->cateRepo->find($id);
+        return view('admin.components.category-edit-form', compact('category', $category));
     }
 }

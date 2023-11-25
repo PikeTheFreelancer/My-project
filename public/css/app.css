@@ -13921,6 +13921,9 @@ header {
 .admin-dashboard td {
   white-space: nowrap;
 }
+.admin-dashboard td.userName {
+  width: 200px;
+}
 .admin-dashboard .add-categ {
   display: inline-block;
   border-radius: 10px;
@@ -13931,6 +13934,18 @@ header {
 .admin-dashboard .add-categ:hover {
   background-color: #ddd;
 }
-.admin-dashboard .add-categ:focus {
-  box-shadow: none;
+.admin-dashboard .categ_save {
+  cursor: pointer;
+}
+.admin-dashboard .categ_save:hover {
+  text-decoration: underline;
+}
+.admin-dashboard #addCategory {
+  display: none;
+  padding-top: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+.admin-dashboard #addCategory button {
+  padding: 0 20px;
 }
