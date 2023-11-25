@@ -31,3 +31,80 @@
         color: #333;
     }
 }
+.newsfeed-page{
+    .post{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        .post-col-left{
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+        }
+        .author{
+            font-size: 14px;
+        }
+        .avatar-field{
+            display: flex;
+            gap: 10px;
+            
+            img{
+                max-width: 60px;
+            }
+        }
+        .post-title{
+            text-transform: uppercase;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        .post-content{
+            margin-top: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            p{
+                display: inline;
+            }
+            img, iframe{
+                display: none;
+            }
+        }
+    }
+    .page-item{
+        a:focus{
+            box-shadow: none;
+        }
+        &.active{
+            a{
+                border-color: #777;
+                background-color: #777;
+                color: #fff;
+            }
+        }
+        .page-item:first-child a,
+        .page-item:last-child a{
+            font-weight: 600;
+        }
+    }
+    .page-link{
+        color: #000;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .newsfeed-page{
+        .post{
+            align-items: normal;
+            .post-title{
+                margin-bottom: auto;
+            }
+            .avatar-field{
+                flex-direction: column-reverse;
+                align-items: flex-end;
+                p{
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

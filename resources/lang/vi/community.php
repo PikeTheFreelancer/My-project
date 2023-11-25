@@ -14,5 +14,7 @@ return [
     'seller' => 'Người bán',
     'save' => 'Lưu',
     'cancel' => 'Hủy',
-    'just_now' => 'Vừa xong'
+    'just_now' => 'Vừa xong',
+    'next' => 'Tiếp',
+    'prev' => 'Trước',
 ];

@@ -18,7 +18,8 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface{
     {
         $posts = DB::table('posts')
                         ->join('users', 'posts.user_id', '=', 'users.id')
-                        ->select('posts.*', 'users.avatar', 'users.name as username')->get();
+                        ->select('posts.*', 'users.avatar', 'users.name as username')
+                        ->paginate(10);
         
         return $posts;
     }

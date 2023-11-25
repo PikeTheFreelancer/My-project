@@ -11,26 +11,26 @@
         <div class="card-body">
             <div class="merchandise" data-post-id="{{ $post->id }}" data-author-id="{{$post->user_id}}">
                 <div class="avatar-field desktop">
-                    <p>Author:</p>
+                    <p>{{ __('community.author') }}:</p>
+                    <p>{{$post->username}}</p>
                     @if ($post->avatar)
                         <img src="{{asset($post->avatar)}}" alt="avatar">
                     @else
                         <img src="{{asset('images/pages/Unknown_person.webp')}}" alt="Unknown_person.webp">
                     @endif
-                    <p>{{$post->username}}</p>
                 </div>
                 <div class="merchandise-details">
                     <div class="post-details">
                         <h2>{{ $post->title }}</h2>
                         <div class="post-content limit-content">{!! $post->content !!}</div>
-                        <span class="see-more-btn">See more</span>
+                            <span class="see-more-btn" data-more="{{ __('community.see_more') }}" data-less="{{ __('community.see_less') }}">{{ __('community.see_more') }}</span>
                     </div>
                     
                     {{-- comment appended here --}}
                     <div class="comment-place">
                         @if ($post->max_size > 3)
                             <a href="#" class="load-prev-comments">
-                                Load previous comments
+                                {{__('community.load_comment')}}
                                 <i class="fa-solid fa-caret-down" style="color: #131313;"></i>
                             </a>
                         @endif
@@ -48,14 +48,14 @@
                                         <div class="comment-username-container">
                                             <a class='comment-username' href="{{route('profile', $comment->user_id)}}">{{$comment->username}}</a>
                                             @if ($comment->user_id == $post->user_id)
-                                                <small class="user-label">author</small>
+                                                <small class="user-label">{{__('community.author')}}</small>
                                             @endif
                                         </div>
                                         <p class='comment-content'>{{$comment->comment}}</p>
                                         <p class='comment-action'>
                                             @if (Auth::user() && $comment->user_id == Auth::user()->id)
-                                                <a href="#" class="edit-comment">Edit</a>
-                                                <a href="#" class="delete-comment">Delete</a>
+                                                <a href="#" class="edit-comment">{{__('community.edit')}}</a>
+                                                <a href="#" class="delete-comment">{{__('community.delete')}}</a>
                                             @endif
                                             <span class="commented-at">
                                                 {{$comment->timeAgo}}
@@ -67,8 +67,8 @@
                                                 @csrf
                                                 <input class="input-border edit-comment-field" type="text" name="comment" value="{{$comment->comment}}">
                                                 <p class='edit-action'>
-                                                    <a href="#" class="save-comment">Save</a>
-                                                    <a href="#" class="cancel-edit">Cancel</a>
+                                                    <a href="#" class="save-comment">{{__('community.save')}}</a>
+                                                    <a href="#" class="cancel-edit">{{__('community.cancel')}}</a>
                                                 </p>
                                             </form>
                                         @endif
@@ -80,8 +80,8 @@
                     <form class="form-comment" action="">
                         @csrf
                         <div class="form-field">
-                            <textarea class="comment" name="comment" placeholder="Leave your comment"></textarea>
-                            <button class="btn btn-primary btn-comment">comment</button>
+                            <textarea class="comment" name="comment" placeholder="{{__('community.comment_text')}}"></textarea>
+                            <button class="btn btn-primary btn-comment white-space-nowrap">{{__('community.comment')}}</button>
                         </div>
                     </form>
                 </div>

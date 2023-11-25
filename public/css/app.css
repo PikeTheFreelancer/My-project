@@ -13477,6 +13477,74 @@ img {
   color: #333;
 }
 
+.newsfeed-page .post {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.newsfeed-page .post .post-col-left {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+.newsfeed-page .post .author {
+  font-size: 14px;
+}
+.newsfeed-page .post .avatar-field {
+  display: flex;
+  gap: 10px;
+}
+.newsfeed-page .post .avatar-field img {
+  max-width: 60px;
+}
+.newsfeed-page .post .post-title {
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.newsfeed-page .post .post-content {
+  margin-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.newsfeed-page .post .post-content p {
+  display: inline;
+}
+.newsfeed-page .post .post-content img, .newsfeed-page .post .post-content iframe {
+  display: none;
+}
+.newsfeed-page .page-item a:focus {
+  box-shadow: none;
+}
+.newsfeed-page .page-item.active a {
+  border-color: #777;
+  background-color: #777;
+  color: #fff;
+}
+.newsfeed-page .page-item .page-item:first-child a,
+.newsfeed-page .page-item .page-item:last-child a {
+  font-weight: 600;
+}
+.newsfeed-page .page-link {
+  color: #000;
+}
+
+@media screen and (max-width: 767px) {
+  .newsfeed-page .post {
+    align-items: normal;
+  }
+  .newsfeed-page .post .post-title {
+    margin-bottom: auto;
+  }
+  .newsfeed-page .post .avatar-field {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+  .newsfeed-page .post .avatar-field p {
+    text-align: right;
+  }
+}
 .pokemon-page .type {
   display: inline-flex;
   align-items: center;

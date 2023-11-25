@@ -7,14 +7,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Models\Post;
+use App\Repositories\PostCategory\PostCategoryRepositoryInterface;
 
 class UserController extends Controller
 {
+    protected $cateRepo;
+
+    public function __construct(PostCategoryRepositoryInterface $cateRepo)
+    {
+        $this->cateRepo = $cateRepo;
+    }
     public function index()
     {
+        $categories = $this->cateRepo->getAll();
         $user = Auth::user();
         $posts = Post::where('user_id', $user->id)->get();
         $data = [
+            'categories' => $categories,
             'user_name' => $user->name,
             'user_email' => $user->email,
             'avatar' => $user->avatar,
@@ -79,6 +88,7 @@ class UserController extends Controller
         } else {
             $post = new Post;
         }
+        $post->post_category_id = $request->post_category_id;
         $post->title = $request->title;
         $post->content = $request->content;
         $post->content = str_replace('src="images/tinymce/', 'src="/images/tinymce/', $post->content);

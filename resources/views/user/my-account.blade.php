@@ -57,6 +57,14 @@
             <form class="add-post" method="post" action="{{route('user.save-post')}}">
                 @csrf
                 <div class="form-field">
+                    <label for="title">Category</label>
+                    <select style="display: block; min-width: 300px" name="post_category_id">
+                        @foreach ($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-field">
                     <label for="title">{{ __('messages.title') }}</label>
                     <input class="input-border" type="text" name="title" id="">
                 </div>

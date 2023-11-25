@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\Post\PostRepositoryInterface;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class NewsfeedController extends Controller
@@ -23,6 +24,7 @@ class NewsfeedController extends Controller
             $comments = $this->postRepo->getAllComments($post->id)->take(3)->reverse();
             $post->comments = $comments;
             $post->max_size = $this->postRepo->getAllComments($post->id)->count();
+            $post->timeAgo = Carbon::parse($post->created_at)->diffForHumans();
         }
         return view('newsfeed', compact('posts'));
     }
