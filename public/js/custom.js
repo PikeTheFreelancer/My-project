@@ -551,4 +551,8 @@ $(document).ready(function(){
     $('.lang').on('click', function () {
         $('.lang-items').slideToggle();        
     })
+
+    $('.filter-box').on('click', function() {
+        $('.filter-options').slideToggle();
+    })
 });

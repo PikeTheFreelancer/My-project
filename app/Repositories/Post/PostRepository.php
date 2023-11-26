@@ -65,4 +65,27 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface{
         
         return $post;
     }
+
+    public function getPostsByCategory($category_id){
+        $posts = DB::table('posts')
+                        ->where('post_category_id', $category_id)
+                        ->join('users', 'posts.user_id', '=', 'users.id')
+                        ->select('posts.*', 'users.avatar', 'users.name as username')
+                        ->paginate(10);
+        
+        return $posts;
+    }
+
+    public function searchPosts($text){
+        $posts = DB::table('posts')
+                        ->where(function ($query) use ($text) {
+                            $query->where('title', 'like', '%' . $text . '%')
+                                ->orWhere('content', 'like', '%' . $text . '%');
+                        })
+                        ->join('users', 'posts.user_id', '=', 'users.id')
+                        ->select('posts.*', 'users.avatar', 'users.name as username')
+                        ->paginate(10);
+        
+        return $posts;
+    }
 }

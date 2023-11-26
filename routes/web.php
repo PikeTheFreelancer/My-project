@@ -22,7 +22,9 @@ Route::middleware('localization')->group(function (){
     Route::get('/merchandise/{id}', [MarketController::class, 'merchandise'])->name('merchandise');
     
     Route::get('/newsfeed', [NewsfeedController::class, 'index'])->name('newsfeed');
+    Route::get('/post/search', [NewsfeedController::class, 'searchPosts'])->name('post.search');
     Route::get('/post/{id}', [NewsfeedController::class, 'post'])->name('post');
+    Route::get('/post/filter/{category}', [NewsfeedController::class, 'categoryFilter'])->name('post.filter');
     Route::get('/pokemon/{name}', [GetPokemonController::class, 'index'])->name('get-pokemon');
     Route::post('/get-pokemon', [GetPokemonController::class, 'getPokemonsByString'])->name('getPokemonsByString');
     Route::post('/search-pokemon', [GetPokemonController::class, 'searchPokemon'])->name('searchPokemon');

@@ -12,4 +12,9 @@ class PostCategoryRepository extends BaseRepository implements PostCategoryRepos
     {
         return PostCategory::class;
     }
+
+    public function getByName($name)
+    {
+        return $this->model->where('name', $name)->first();
+    }
 }

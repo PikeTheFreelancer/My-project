@@ -529,6 +529,11 @@ a.dropdown-item:hover{
     padding-left: 40px;
     padding-right: 40px;
 }
+.ellipsis{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 label.error{
     color: #ec1818;
     font-family: 'Inter';
