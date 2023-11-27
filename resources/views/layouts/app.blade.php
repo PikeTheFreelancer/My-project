@@ -127,10 +127,11 @@
                             @foreach ($notifications as $notification)
                                 @php
                                     $data = json_decode($notification->data);
+                                    $abc = 'Merchandise';
                                 @endphp
                                 <a class="noti-item @if(!$notification->read_at) noti-unread @endif" data-id={{$notification->id}} @if(isset($data->merchandise_id)) href="{{route('merchandise',['id' => $data->merchandise_id])}}#comment-{{$data->comment_id}}" @else href="{{route('post',['id' => $data->post_id])}}#comment-{{$data->comment_id}}" @endif>
                                     @if (isset($data->comment) && isset($data->title))
-                                        <p>{{$data->title}}
+                                        <p>{{$data->noti_from}} {{__($data->title)}}:
                                             @if (isset($data->comment))
                                                 <small>{{ $data->comment }}</small>
                                             @endif
@@ -280,7 +281,7 @@
                 if(current_url.includes(newUrlNotification)) {
                     newNotificationHtml = `
                         <a class="noti-item noti-unread in-page" href="javascript:void(0)" onclick="handleUnreadNoti(${data.comment_id})" data-id=${data.id}>
-                            <p>${data.title}
+                            <p>${data.noti_from} ${data.title}:
                                 <small>${data.comment}</small>
                             </p>
                         </a>
@@ -288,7 +289,7 @@
                 }else {
                     newNotificationHtml = `
                         <a class="noti-item noti-unread" href="${newUrlNotification}#comment-${data.comment_id}" data-id=${data.id}>
-                            <p>${data.title}
+                            <p>${data.noti_from} ${data.title}:
                                 <small>${data.comment}</small>
                             </p>
                         </a>

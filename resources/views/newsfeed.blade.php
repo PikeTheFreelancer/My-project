@@ -7,7 +7,7 @@
         <div class="newsfeed-actions">
             <div class="search-box">
                 <form action="{{route('post.search')}}" method="GET">
-                    <input class="input-border" type="text" name="text" placeholder="Search post..." value="{{isset($text) ? $text : ''}}">
+                    <input class="input-border" type="text" name="text" placeholder="{{__('Search post...')}}" value="{{isset($text) ? $text : ''}}">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <button type="submit"></button>
                 </form>
@@ -16,14 +16,14 @@
                 @if (isset($category_name))
                     <span class="ellipsis d-block">{{$category_name}}</span>            
                 @else
-                    <span class="ellipsis d-block">All</span>
+                    <span class="ellipsis d-block">{{__('All')}}</span>
                 @endif
                 <i class="fa-solid fa-caret-down" style="color: #131313;"></i>
     
                 <div class="filter-options">
-                    <a href="{{route('newsfeed')}}">All</a>
+                    <a href="{{route('newsfeed')}}">{{__('All')}}</a>
                     @foreach ($categories as $category)
-                        <a href="{{route('post.filter', $category->name)}}">{{$category->name}}</a>
+                        <a href="{{route('post.filter', $category->name)}}">{{__($category->name)}}</a>
                     @endforeach
                 </div>
             </div>

@@ -4,7 +4,7 @@
 <div class="market-page page">
     <div class="page-title">
         <h1>
-            {{ __('Post') }}
+            {{ $post->title }}
         </h1>
     </div>
     <div class="section-container">

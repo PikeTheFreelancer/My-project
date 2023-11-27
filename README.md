@@ -46,6 +46,16 @@ php artisan migrate
 2. trong file tinymce-config: thêm các settings cho text editor.
 - tham khảo các settings tại: https://www.tiny.cloud/blog/tinymce-toolbar/
 - xây dựng upload image trong tinymce tại hàm file_picker_callback trong file tinymce-config.js
+## Tự động translate đa ngôn ngữ
+1. composer require tanmuhittin/laravel-google-translate --dev
+2. php artisan vendor:publish --provider=Tanmuhittin\LaravelGoogleTranslate\LaravelGoogleTranslateServiceProvider
+3. php artisan config:cache
+4. đảm bảo các text target có dạng __('text') hoặc translate('text')
+5. tiến hành dịch(generate file lang):
+- php artisan translate:files
+- Force overwrite existing translations? - 1
+- Verbose each translation? - 1
+- Use text exploration and json translation or php files? - json
 ## Tài liệu tham khảo:
 1. https://viblo.asia/p/multiple-authenticate-trong-laravel-8-oOVlYjqQ58W
 2. https://github.com/PikeTheFreelancer/Multiple-Auth/tree/master

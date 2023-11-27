@@ -53,9 +53,9 @@ class NotificationRepository implements NotificationRepositoryInterface{
             $request['title'] = '';
 
             if ($merchandise_owner->id == $recipant_id) {
-                $request['title'] = $request['noti_from'].' has commented on your merchandise:';
+                $request['title'] = ' has commented on your merchandise:';
             } else {
-                $request['title'] = $request['noti_from'].' has replied on their merchandise:';
+                $request['title'] = ' has replied on their merchandise:';
             }
             
 
@@ -117,9 +117,9 @@ class NotificationRepository implements NotificationRepositoryInterface{
             $request['title'] = '';
 
             if ($author->id == $recipant_id) {
-                $request['title'] = $request['noti_from'].' has commented on your post:';
+                $request['title'] = 'has commented on your post';
             } else {
-                $request['title'] = $request['noti_from'].' has replied on their post:';
+                $request['title'] = 'has replied on their post';
             }
             
 
