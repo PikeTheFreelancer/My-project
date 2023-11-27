@@ -12473,10 +12473,6 @@ a.dropdown-item:hover {
   white-space: nowrap;
 }
 
-.content-container {
-  overflow: hidden;
-}
-
 .section-container,
 .header-container,
 .footer-container {
