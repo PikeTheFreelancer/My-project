@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Admin extends Authenticatable
+class Admin extends Authenticatable implements FilamentUser
 {
     use HasFactory, Notifiable;
 
@@ -21,4 +22,9 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function canAccessFilament(): bool
+    {
+        return str_ends_with($this->email, '@wru.vn') && $this->hasVerifiedEmail();
+    }
 }

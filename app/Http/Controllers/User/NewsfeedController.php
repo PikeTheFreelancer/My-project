@@ -26,13 +26,14 @@ class NewsfeedController extends Controller
     {
         $posts = $this->postRepo->getAllPosts();
         $categories = $this->cateRepo->getAll();
+        // dd($posts);
         foreach ($posts as $post) {
             $comments = $this->postRepo->getAllComments($post->id)->take(3)->reverse();
             $post->comments = $comments;
             $post->max_size = $this->postRepo->getAllComments($post->id)->count();
             $post->timeAgo = Carbon::parse($post->created_at)->diffForHumans();
         }
-        return view('newsfeed', compact('posts', $posts))->with('categories',$categories);
+        return view('newsfeed')->with('posts', $posts)->with('categories',$categories);
     }
 
     public function post($id) {

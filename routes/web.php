@@ -13,6 +13,8 @@ use App\Http\Controllers\User\MarketController;
 use App\Http\Controllers\User\NewsfeedController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\UserController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 Route::middleware('localization')->group(function (){
     Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('login');
@@ -32,6 +34,8 @@ Route::middleware('localization')->group(function (){
     Route::post('/upload_handler', [ImageController::class, 'upload'])->name('upload_handler');
     Route::get('/about-me', [AboutMeController::class, 'index'])->name('about-me');
     Route::get('change-language/{language}', [HomeController::class, 'changeLanguage'])->name('change-language');
+    Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile');
+    
 });
 
 Route::middleware(['auth:web', 'checkstatus', 'localization'])->group(function (){
@@ -53,8 +57,9 @@ Route::middleware(['auth:web', 'checkstatus', 'localization'])->group(function (
     Route::post('/my-store/get-merchandise-fields', [MyStoreController::class, 'getMerchandiseFields'])->name('user.my-store.get-merchandise-fields');
     Route::post('/my-store/save-merchandise-fields', [MyStoreController::class, 'saveMerchandiseFields'])->name('user.my-store.save-merchandise-fields');
 
-    Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile');
 });
-Auth::routes();
+
+
+Auth::routes(['verify' => true]);
 
 
