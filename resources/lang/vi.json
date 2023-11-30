@@ -3,8 +3,8 @@
     "All": "Tất cả",
     "Verify Your Email Address": "Xác minh địa chỉ email của bạn",
     "A fresh verification link has been sent to your email address.": "Một liên kết xác minh mới đã được gửi đến địa chỉ email của bạn.",
-    "Before proceeding, please check your email for a verification link.": "Trước khi tiếp tục, vui lòng kiểm tra email của bạn để lấy liên kết xác minh.",
-    "If you did not receive the email": "Nếu bạn không nhận được email",
+    "A fresh verification link has been sent to your email address. Please check your email for a verification link.": "Một liên kết xác minh mới đã được gửi đến địa chỉ email của bạn. Vui lòng kiểm tra email của bạn để có liên kết xác minh.",
+    "If you did not receive the email, click the following button to resend verification link": "Nếu bạn không nhận được email, hãy nhấp vào nút sau để gửi lại liên kết xác minh",
     "click here to request another": "bấm vào đây để yêu cầu khác",
     "Confirm Password": "Xác nhận mật khẩu",
     "Please confirm your password before continuing.": "Vui lòng xác nhận mật khẩu của bạn trước khi tiếp tục.",
@@ -18,7 +18,5 @@
     "Register": "Đăng ký",
     "Name": "Tên",
     "Merchandise": "Hàng hóa",
-    "Profile": "Hồ sơ",
-    "has commented on your merchandise": "đã nhận xét về hàng hóa của bạn",
-    "has commented on your post": "đã bình luận về bài viết của bạn"
+    "Profile": "Hồ sơ"
 }
