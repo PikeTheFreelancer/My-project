@@ -38,7 +38,7 @@ Route::middleware('localization')->group(function (){
     
 });
 
-Route::middleware(['auth:web', 'checkstatus', 'localization'])->group(function (){
+Route::middleware(['auth:web', 'checkstatus', 'localization', 'verified'])->group(function (){
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('/my-account', [UserController::class, 'index'])->name('user');
     Route::post('/my-account', [UserController::class, 'save'])->name('user.save');
