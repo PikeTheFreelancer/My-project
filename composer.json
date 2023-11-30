@@ -8,6 +8,7 @@
         "php": "^7.3|^8.0",
         "doctrine/dbal": "^3.7",
         "filament/filament": "^2.0",
+        "flowframe/laravel-trend": "^0.1.5",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.8",
         "intervention/image": "^2.7",

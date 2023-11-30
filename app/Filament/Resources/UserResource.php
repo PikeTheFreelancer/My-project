@@ -12,12 +12,14 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-
+use Filament\Tables\Filters\Filter;
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-user';
+    
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Form $form): Form
     {
@@ -49,6 +51,7 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('email_verified_at')
@@ -64,7 +67,8 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('pro_server'),
             ])
             ->filters([
-                //
+                Filter::make('Active')->query(fn (Builder $query): Builder => $query->where('status', true)),
+                Filter::make('Banned')->query(fn (Builder $query): Builder => $query->where('status', false))
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

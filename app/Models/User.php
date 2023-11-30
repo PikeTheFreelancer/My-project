@@ -23,7 +23,6 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
-
     public function canAccessFilament(): bool
     {
         return str_ends_with($this->email, '@vermilioncenter.com') && $this->hasVerifiedEmail();
