@@ -72,7 +72,7 @@ class PokemonApiRepository implements PokemonApiRepositoryInterface{
                 }
             }
         EOT;
-
+        opcache_reset();
         $client = new Client();
         $response = $client->post($graphqlEndpoint, [
             'headers' => [
@@ -122,7 +122,7 @@ class PokemonApiRepository implements PokemonApiRepositoryInterface{
             }
         }
         EOT;
-
+        opcache_reset();
         $client = new Client();
         $response = $client->post($graphqlEndpoint, [
             'headers' => [
