@@ -79,17 +79,23 @@
     <div class="basic-theme" id="app">
         <nav class="navbar-container bg-white shadow-sm">
             <div class="main-navbar header-container">
-                <a class="home-link" href="{{ url('/') }}">
-                    <div class="pokeball">
-                        <div class="half-pokeball half-top">
-                            @include('svg.half-top')
+                <div class="navbar-left">
+                    <a class="home-link" href="{{ url('/') }}">
+                        <div class="pokeball">
+                            <div class="half-pokeball half-top">
+                                @include('svg.half-top')
+                            </div>
+                            <span class="ball-text">{{__('messages.header.home')}}</span>
+                            <div class="half-pokeball half-bottom">
+                                @include('svg.half-bottom')
+                            </div>
                         </div>
-                        <span class="ball-text">{{__('messages.header.home')}}</span>
-                        <div class="half-pokeball half-bottom">
-                            @include('svg.half-bottom')
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                    <a class="nav-link-text" href="{{route('newsfeed')}}">
+                        {{ __('community.newsfeed') }}
+                    </a>
+                    <a class="nav-link-text" href="#">{{__('Bosses')}}</a>
+                </div>
                 <div class="navbar-controll">
                     <form class="search-bar" action="{{ route('searchPokemon') }}" method="POST">
                         @csrf
@@ -175,7 +181,6 @@
                                     </a>
 
                                     <div class="dropdown-actions">
-                                        <a class="dropdown-item" href="{{ route('user.my-store') }}">{{ __('messages.header.store') }}</a>
                                         <a class="dropdown-item" href="{{ route('user') }}">{{ __('messages.header.account') }}</a>
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"

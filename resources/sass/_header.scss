@@ -7,6 +7,9 @@
     padding-top: 10px;
     padding-bottom: 10px;
     position: relative;
+    .home-link{
+        margin-right: 30px;
+    }
 }
 .navbar{
     padding: 0;
@@ -239,6 +242,21 @@
             padding: 10px;
             width: 100%;
         }
+    }
+}
+.navbar-left{
+    display: flex;
+    gap: 10px;
+}
+.nav-link-text{
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    &:hover{
+        background-color: #ddd;
     }
 }
 @media screen and (max-width:767px) {

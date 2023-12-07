@@ -40,12 +40,6 @@
                     <img src="{{ asset('images/pages/news.webp') }}" alt="news.webp">
                 </div>
             </a>
-
-            <a class="shiny home-item grass glass" href="{{ route('market') }}">
-                <div class="image-container">
-                    <img src="{{ asset('images/pages/pokemart.webp') }}" alt="pokemart.webp">
-                </div>
-            </a>
         </div>
     </div>
     <div class="section-container bg-white" data-aos="fade-up">
