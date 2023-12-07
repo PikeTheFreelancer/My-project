@@ -23,6 +23,14 @@
         display: block;
     }
 }
+.add{
+    margin-top: 40px;
+    padding: 20px;
+    box-shadow: 5px 4px 10px 2px #888;
+}
+.edit-post-form{
+    display: none;
+}
 .my-account-page{
     .edit-account{
         margin-top: 40px;
@@ -51,14 +59,7 @@
             width: 60%;
         }
     }
-    .add{
-        margin-top: 40px;
-        padding: 20px;
-        box-shadow: 5px 4px 10px 2px #888;
-    }
-    .add-post{
-        display: none;
-    }
+    
     .posts{
         display: flex;
         flex-direction: column;

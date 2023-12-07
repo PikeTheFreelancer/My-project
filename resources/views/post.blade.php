@@ -12,7 +12,7 @@
             <div class="merchandise" data-post-id="{{ $post->id }}" data-author-id="{{$post->user_id}}">
                 <div class="avatar-field desktop">
                     <p>{{ __('community.author') }}:</p>
-                    <p>{{$post->username}}</p>
+                    <p><a class="hover-underline" href="{{route('profile', $post->userId)}}">{{$post->username}}</a></p>
                     @if ($post->avatar)
                         <img src="{{asset($post->avatar)}}" alt="avatar">
                     @else
@@ -23,7 +23,13 @@
                     <div class="post-details">
                         <h2>{{ $post->title }}</h2>
                         <div class="post-content limit-content">{!! $post->content !!}</div>
-                            <span class="see-more-btn" data-more="{{ __('community.see_more') }}" data-less="{{ __('community.see_less') }}">{{ __('community.see_more') }}</span>
+                        <div class="mobile">
+                            <p>{{ __('community.author') }}: <a href="{{route('profile', $post->userId)}}">{{$post->username}}</a></p>
+                        </div>
+                        <span class="see-more-btn" data-more="{{ __('community.see_more') }}" data-less="{{ __('community.see_less') }}">
+                            {{ __('community.see_more') }}
+                        </span>
+                        
                     </div>
                     
                     {{-- comment appended here --}}

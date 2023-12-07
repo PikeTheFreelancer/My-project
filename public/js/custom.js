@@ -3,11 +3,6 @@ $(document).ready(function(){
         $('#myInput').trigger('focus')
     })
 
-    $('.accordion-box').on('click', function() {
-        $('#add-merchandise').slideToggle();
-        $(this).siblings('.add-post').slideToggle();
-    })
-
     $('.image-uploader input').on('change', function() {
         const fileInput = this;
         const imagePreview = $(this).siblings('img');
@@ -479,13 +474,13 @@ $(document).ready(function(){
         e.preventDefault();
         $(this).parents('.post').find('.post-title').hide();
         $(this).parents('.post').find('.post-content').hide();
-        $(this).parents('.post').find('.add-post').show();
+        $(this).parents('.post').find('.edit-post-form').show();
     })
     $(document).on('click', '.cancel-edit-post', function(e) {
         e.preventDefault();
         $(this).parents('.post').find('.post-title').show();
         $(this).parents('.post').find('.post-content').show();
-        $(this).parents('.post').find('.add-post').hide();
+        $(this).parents('.post').find('.edit-post-form').hide();
     })
 
     //multi load tr

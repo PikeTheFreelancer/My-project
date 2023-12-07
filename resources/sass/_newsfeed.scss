@@ -31,6 +31,13 @@
         color: #333;
     }
 }
+.form-select:focus{
+    border: solid 1px #ddd;
+    box-shadow: none;
+}
+.form-select{
+    max-width: 300px;
+}
 .page-title{
     display: flex;
     justify-content: space-between;

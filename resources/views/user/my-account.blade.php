@@ -3,6 +3,7 @@
 
 @section('content')
 @include('layouts.upload-avatar')
+@include('layouts.add-post')
 <div class="my-account-page page">
     <div class="card-header">
         <h1>{{ __('messages.header.account') }}</h1>
@@ -47,36 +48,12 @@
                 <button class="btn btn-primary" type="submit">{{ __('messages.save_changes') }}</button>
             </div>
         </form>
-        <div class="add" data-aos="fade-up">
-            <div class="accordion-box">
-                <span class="plus-icon">
-                    @include('svg.plus')
-                </span>
-                <span>{{ __('messages.post.add') }}</span>
-            </div>
-            <form class="add-post" method="post" action="{{route('user.save-post')}}">
-                @csrf
-                <div class="form-field">
-                    <label for="title">Category</label>
-                    <select style="display: block; min-width: 300px" name="post_category_id">
-                        @foreach ($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-field">
-                    <label for="title">{{ __('messages.title') }}</label>
-                    <input class="input-border" type="text" name="title" id="">
-                </div>
-                <div class="form-field">
-                    <label for="content">{{ __('messages.content') }}</label>
-                    <textarea class="tinymce-editor" name="content"></textarea>
-                    <label class="error error-tinymce"></label>
-                </div>
-                <div class="form-field">
-                    <button class="btn btn-primary" type="submit">{{ __('messages.post') }}</button>
-                </div>
-            </form>
+        <!-- Button trigger modal -->
+        <div class="add accordion-box" data-aos="fade-up" data-toggle="modal" data-target="#addPost">
+            <span class="plus-icon">
+                @include('svg.plus')
+            </span>
+            <span>{{ __('messages.post.add') }}</span>
         </div>
         <div class="posts" data-aos="fade-up">
             @foreach ($posts as $post)
@@ -93,12 +70,20 @@
                         <h4>{{$post->title}}</h4>
                     </div>
                     <div class="post-content">{!! $post->content !!}</div>
-                    <form class="add-post" method="post" action="{{route('user.save-post')}}">
+                    <form class="edit-post-form" method="post" action="{{route('user.save-post')}}">
                         @csrf
                         <input type="hidden" name="post_id" value="{{$post->id}}">
                         <div class="form-field">
                             <label for="title">{{ __('messages.title') }}</label>
                             <input class="input-border" type="text" name="title" value="{{$post->title}}">
+                        </div>
+                        <div class="form-field">
+                            <label for="title">{{__('Category')}}</label>
+                            <select class="form-select mb-3" name="post_category_id">
+                                @foreach ($categories as $category)
+                                    <option value="{{$category->id}}" {{($post->post_category_id == $category->id) ? 'selected' : ''}}>{{$category->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-field">
                             <label for="content">{{ __('messages.content') }}</label>

@@ -12473,6 +12473,10 @@ a.dropdown-item:hover {
   white-space: nowrap;
 }
 
+.hover-underline:hover {
+  text-decoration: underline;
+}
+
 .section-container,
 .header-container,
 .footer-container {
@@ -13082,7 +13086,6 @@ img {
 }
 .accordion-box {
   cursor: pointer;
-  border-radius: 5px;
 }
 .accordion-box .plus-icon {
   display: inline-block;
@@ -13364,6 +13367,16 @@ img {
   display: block;
 }
 
+.add {
+  margin-top: 40px;
+  padding: 20px;
+  box-shadow: 5px 4px 10px 2px #888;
+}
+
+.edit-post-form {
+  display: none;
+}
+
 .my-account-page .edit-account {
   margin-top: 40px;
   padding: 20px;
@@ -13390,14 +13403,6 @@ img {
   padding-left: 20px;
   border-left: solid 1px #000;
   width: 60%;
-}
-.my-account-page .add {
-  margin-top: 40px;
-  padding: 20px;
-  box-shadow: 5px 4px 10px 2px #888;
-}
-.my-account-page .add-post {
-  display: none;
 }
 .my-account-page .posts {
   display: flex;
@@ -13477,6 +13482,15 @@ img {
 }
 .see-more-btn:hover {
   color: #333;
+}
+
+.form-select:focus {
+  border: solid 1px #ddd;
+  box-shadow: none;
+}
+
+.form-select {
+  max-width: 300px;
 }
 
 .page-title {

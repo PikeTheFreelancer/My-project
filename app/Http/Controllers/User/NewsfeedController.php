@@ -56,7 +56,7 @@ class NewsfeedController extends Controller
             $post->max_size = $this->postRepo->getAllComments($post->id)->count();
             $post->timeAgo = Carbon::parse($post->created_at)->diffForHumans();
         }
-        return view('newsfeed', compact('posts', $posts))->with('categories',$categories)->with('category_name',$category_name);
+        return view('newsfeed', compact('posts'))->with('categories',$categories)->with('category_name',$category_name);
     }
 
     public function searchPosts(Request $request){
@@ -71,6 +71,6 @@ class NewsfeedController extends Controller
             $post->max_size = $this->postRepo->getAllComments($post->id)->count();
             $post->timeAgo = Carbon::parse($post->created_at)->diffForHumans();
         }
-        return view('newsfeed', compact('posts', $posts))->with('categories',$categories)->with('text', $text);
+        return view('newsfeed', compact('posts'))->with('categories',$categories)->with('text', $text);
     }
 }

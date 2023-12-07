@@ -60,7 +60,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface{
         $post = DB::table('posts')
         ->where('posts.id', $postId)
         ->join('users', 'posts.user_id', '=', 'users.id')
-        ->select('posts.*', 'users.avatar', 'users.name as username')
+        ->select('posts.*', 'users.avatar', 'users.name as username', 'users.id as userId')
         ->first();
         
         return $post;

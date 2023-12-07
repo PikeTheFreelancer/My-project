@@ -30,6 +30,13 @@
         </div>
     </div>
     <div class="card-body">
+        <!-- Button trigger modal -->
+        <div class="add accordion-box" data-aos="fade-up" data-toggle="modal" data-target="#addPost">
+            <span class="plus-icon">
+                @include('svg.plus')
+            </span>
+            <span>{{ __('messages.post.add') }}</span>
+        </div>
         @if (isset($posts) && count($posts) > 0)
             @foreach ($posts as $item)
                 <div class="post section-container bg-white" data-aos="fade-up">
@@ -77,6 +84,8 @@
             </ul>
         @endif
     </div>
-    
 </div>
+
+@include('layouts.add-post')
+
 @endsection
