@@ -486,7 +486,12 @@ a.dropdown-item:hover{
     0% {transform:translateX(-100%);}
     100% {transform:translateX(100%);}
 }
-
+.space-between{
+    justify-content: space-between;
+}
+.justify-center{
+    justify-content: center;
+}
 .underline{
     text-decoration: underline;
     text-underline-offset: 5px;
@@ -513,10 +518,11 @@ a.dropdown-item:hover{
     box-shadow: 5px 4px 10px 2px #888;
     padding: 40px;
 }
-
+.header-container{
+    background-color: #fff;
+}
 .header-container, .footer-container{
     display: flex;
-    justify-content: space-between;
     max-width: 1360px;
 }
 .mobile{

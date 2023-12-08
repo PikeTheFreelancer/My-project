@@ -244,8 +244,10 @@ $(document).ready(function(){
         $('.mobile-nav-links').slideToggle();
     })
 
-    $('.mobile-nav-link').on('click', function() {
-        $('.sub-links').slideToggle();
+    $('.mobile-nav-link').on('click', function(e) {
+        e.stopPropagation();
+        $(this).children('.sub-links').slideToggle();
+        console.log($(this));
     })
 
     $('.load-prev-comments').each(function() {
@@ -550,4 +552,5 @@ $(document).ready(function(){
     $('.filter-box').on('click', function() {
         $('.filter-options').slideToggle();
     })
+    
 });

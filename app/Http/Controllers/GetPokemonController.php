@@ -52,7 +52,7 @@ class GetPokemonController extends Controller
                     $count++;
                 }
 
-                //get 5 results maximum
+                //get 10 results maximum
                 if ($count >= 10) {
                     break;
                 }

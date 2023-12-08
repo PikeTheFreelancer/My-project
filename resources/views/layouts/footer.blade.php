@@ -1,5 +1,5 @@
 <footer>
-    <div class="footer-container">
+    <div class="footer-container space-between">
         <div class="footer-col" data-aos="fade-right" data-aos-delay="100">
             <a class="home-link" href="{{ url('/') }}">
                 {{-- <img src="{{asset('images/svg/pokeball.svg')}}" alt=""> --}}

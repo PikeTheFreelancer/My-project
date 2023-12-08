@@ -55,6 +55,8 @@
 <body>
     @php
         use Carbon\Carbon;
+        use App\Models\Boss;
+
         if (Auth::check()) {
             $user_id = Auth::user()->id;
             $notifications = DB::table('notifications')
@@ -75,10 +77,12 @@
         } else {
             $notifications = [];
         }
+
+        $kanto_bosses = Boss::where('region', 'kanto')->get();
     @endphp
     <div class="basic-theme" id="app">
         <nav class="navbar-container bg-white shadow-sm">
-            <div class="main-navbar header-container">
+            <div class="main-navbar space-between header-container">
                 <div class="navbar-left">
                     <a class="home-link" href="{{ url('/') }}">
                         <div class="pokeball">
@@ -91,10 +95,20 @@
                             </div>
                         </div>
                     </a>
-                    <a class="nav-link-text" href="{{route('newsfeed')}}">
-                        {{ __('community.newsfeed') }}
-                    </a>
-                    <a class="nav-link-text" href="#">{{__('Bosses')}}</a>
+                    <ul>
+                        <li>
+                            <a class="nav-link-text desktop" href="{{route('newsfeed')}}">
+                                {{ __('community.newsfeed') }}
+                            </a>
+                        </li>
+                        <li class="bosses">
+                            <a class="nav-link-text desktop" href="#">
+                                {{__('Bosses')}}
+                            </a>
+                            @include('user.components.bosses-menu')
+                            
+                        </li>
+                    </ul>
                 </div>
                 <div class="navbar-controll">
                     <form class="search-bar" action="{{ route('searchPokemon') }}" method="POST">
@@ -203,6 +217,16 @@
             </div>
             <div class="mobile-nav-links shadow-sm">
                 <ul class="header-container">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('newsfeed')}}">
+                            {{ __('community.newsfeed') }}
+                        </a>
+                    </li>
+                    <li class="nav-item mobile-nav-link">
+                        {{ __('Bosses') }}
+                        <i class="fa-solid fa-caret-down" style="color: #131313;"></i>
+                        @include('user.components.bosses-menu-mobile')
+                    </li>
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
@@ -225,21 +249,17 @@
                             </a>
                             <i class="fa-solid fa-caret-down" style="color: #131313;"></i>
                             <ul class="sub-links">
-                                <a class="dropdown-item" href="{{ route('user.my-store') }}">{{ __('messages.header.store') }}</a>
                                 <a class="dropdown-item" href="{{ route('user') }}">{{ __('messages.header.account') }}</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    {{ __('messages.header.logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </ul>
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                {{ __('messages.header.logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
                         </li>
                     @endguest
                 </ul>

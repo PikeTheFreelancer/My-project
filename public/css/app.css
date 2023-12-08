@@ -12464,6 +12464,14 @@ a.dropdown-item:hover {
     transform: translateX(100%);
   }
 }
+.space-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
 .underline {
   text-decoration: underline;
   text-underline-offset: 5px;
@@ -12494,9 +12502,12 @@ a.dropdown-item:hover {
   padding: 40px;
 }
 
+.header-container {
+  background-color: #fff;
+}
+
 .header-container, .footer-container {
   display: flex;
-  justify-content: space-between;
   max-width: 1360px;
 }
 
@@ -12642,13 +12653,12 @@ img {
 .navbar-container {
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 20;
 }
 
 .main-navbar {
   padding-top: 10px;
   padding-bottom: 10px;
-  position: relative;
 }
 .main-navbar .home-link {
   margin-right: 30px;
@@ -12712,7 +12722,8 @@ img {
   position: relative;
 }
 .search-bar input {
-  min-width: 300px;
+  max-width: 300px;
+  width: 100%;
 }
 .search-bar i {
   position: absolute;
@@ -12892,6 +12903,7 @@ img {
 .lang {
   position: relative;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .lang-items {
@@ -12918,6 +12930,37 @@ img {
   display: flex;
   gap: 10px;
 }
+.navbar-left ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+.navbar-left ul li {
+  display: flex;
+  margin: -10px 0;
+}
+.navbar-left ul li.bosses:hover .bosses-menu {
+  opacity: 1;
+  visibility: visible;
+  top: 100%;
+}
+.navbar-left .bosses-menu {
+  border-top: solid 1px #ddd;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  z-index: -10;
+  transition: all 0.3s;
+}
 
 .nav-link-text {
   display: flex;
@@ -12926,9 +12969,39 @@ img {
   border-radius: 5px;
   font-size: 18px;
   font-weight: 600;
+  margin: 10px 0;
 }
 .nav-link-text:hover {
   background-color: #ddd;
+}
+
+.boss-list-container {
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
+  z-index: -11;
+  transition: all 0.5s;
+}
+
+.boss-list {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.kanto-boss-list:hover .boss-list-container {
+  opacity: 1;
+  visibility: visible;
+  top: 100%;
 }
 
 @media screen and (max-width: 767px) {
@@ -12947,6 +13020,9 @@ img {
     border-top: solid 1px #ddd;
   }
   .desktop-navbar {
+    display: none;
+  }
+  .nav-link-text.desktop {
     display: none;
   }
   .mobile-navbar {
@@ -12981,6 +13057,8 @@ img {
     position: absolute;
     background-color: #fff;
     box-shadow: 0px 5px 5px 0 #777;
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
   }
   .mobile-nav-links .thumbnail-avatar {
     display: inline-flex;
