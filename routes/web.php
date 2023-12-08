@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BossController;
 use App\Http\Controllers\GetPokemonController;
 use App\Http\Controllers\MCE\ImageController;
 use App\Http\Controllers\User\AboutMeController;
@@ -35,6 +36,8 @@ Route::middleware('localization')->group(function (){
     Route::get('/about-me', [AboutMeController::class, 'index'])->name('about-me');
     Route::get('change-language/{language}', [HomeController::class, 'changeLanguage'])->name('change-language');
     Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/bosses/{region}', [BossController::class, 'getBossesByRegion'])->name('getBossesByRegion');
+    Route::get('/boss/{id}', [BossController::class, 'index'])->name('getBoss');
     
 });
 

@@ -106,7 +106,7 @@
                         </li>
                         <li class="bosses">
                             <a class="nav-link-text desktop" href="#">
-                                {{__('Bosses')}}
+                                Bosses
                             </a>
                             @include('user.components.bosses-menu')
                             
