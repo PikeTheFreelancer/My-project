@@ -79,6 +79,9 @@
         }
 
         $kanto_bosses = Boss::where('region', 'kanto')->get();
+        $johto_bosses = Boss::where('region', 'johto')->get();
+        $hoenn_bosses = Boss::where('region', 'hoenn')->get();
+        $sinnoh_bosses = Boss::where('region', 'sinnoh')->get();
     @endphp
     <div class="basic-theme" id="app">
         <nav class="navbar-container bg-white shadow-sm">
@@ -223,8 +226,10 @@
                         </a>
                     </li>
                     <li class="nav-item mobile-nav-link">
-                        {{ __('Bosses') }}
-                        <i class="fa-solid fa-caret-down" style="color: #131313;"></i>
+                        <div class="mobile-nav-link">
+                            {{ __('Bosses') }}
+                            <i class="fa-solid fa-caret-down" style="color: #131313;"></i>
+                        </div>
                         @include('user.components.bosses-menu-mobile')
                     </li>
                     <!-- Authentication Links -->
@@ -241,13 +246,15 @@
                             </li>
                         @endif
                     @else
-                        <li class="mobile-nav-link">
-                            <a class="thumbnail-avatar" href="#">
-                                @if (Auth::user()->avatar)
-                                    <img src="{{ Auth::user()->avatar }}" alt="avatar">
-                                @endif
-                            </a>
-                            <i class="fa-solid fa-caret-down" style="color: #131313;"></i>
+                        <li>
+                            <div class="mobile-nav-link">
+                                <a class="thumbnail-avatar" href="#">
+                                    @if (Auth::user()->avatar)
+                                        <img src="{{ Auth::user()->avatar }}" alt="avatar">
+                                    @endif
+                                </a>
+                                <i class="fa-solid fa-caret-down" style="color: #131313;"></i>
+                            </div>
                             <ul class="sub-links">
                                 <a class="dropdown-item" href="{{ route('user') }}">{{ __('messages.header.account') }}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"

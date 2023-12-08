@@ -246,8 +246,7 @@ $(document).ready(function(){
 
     $('.mobile-nav-link').on('click', function(e) {
         e.stopPropagation();
-        $(this).children('.sub-links').slideToggle();
-        console.log($(this));
+        $(this).siblings('.sub-links').slideToggle();
     })
 
     $('.load-prev-comments').each(function() {

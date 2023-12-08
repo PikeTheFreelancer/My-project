@@ -1,7 +1,7 @@
 <div class="bosses-menu">
     <div class="header-container justify-center">
         <ul>
-            <li class="kanto-boss-list">
+            <li class="region-boss-list">
                 <a class="nav-link-text" href="#">Kanto</a>
                 <div class="boss-list-container">
                     <div class="boss-list header-container">
@@ -11,14 +11,37 @@
                     </div>
                 </div>
             </li>
-            <li>
+            <li class="region-boss-list">
                 <a class="nav-link-text" href="#">Johto</a>
+                <div class="boss-list-container">
+                    <div class="boss-list header-container">
+                        @foreach ($johto_bosses as $boss)
+                            <a class="hover-underline" href="">{{$boss->name}}</a>
+                        @endforeach
+                    </div>
+                </div>
             </li>
-            <li>
+            
+            <li class="region-boss-list">
                 <a class="nav-link-text" href="#">Hoenn</a>
+                <div class="boss-list-container">
+                    <div class="boss-list header-container">
+                        @foreach ($hoenn_bosses as $boss)
+                            <a class="hover-underline" href="">{{$boss->name}}</a>
+                        @endforeach
+                    </div>
+                </div>
             </li>
-            <li>
+            
+            <li class="region-boss-list">
                 <a class="nav-link-text" href="#">Sinnoh</a>
+                <div class="boss-list-container">
+                    <div class="boss-list header-container">
+                        @foreach ($sinnoh_bosses as $boss)
+                            <a class="hover-underline" href="">{{$boss->name}}</a>
+                        @endforeach
+                    </div>
+                </div>
             </li>
         </ul>
     </div>
