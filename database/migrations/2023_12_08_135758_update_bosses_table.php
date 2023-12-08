@@ -15,7 +15,7 @@ class UpdateBossesTable extends Migration
     public function up()
     {
         Schema::table('bosses', function(Blueprint $table){
-            $table->text('notes')->nullable()->change();
+            $table->text('notes')->nullable();
         });
         
         Schema::table('line_ups', function(Blueprint $table){
