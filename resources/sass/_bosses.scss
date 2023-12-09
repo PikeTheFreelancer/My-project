@@ -1,0 +1,64 @@
+.boss-page{
+    .first-section{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .my-avatar{
+        display: flex;
+        width: 100%;
+        max-width: 300px;
+        margin-right: 40px;
+        overflow: hidden;
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .basic-info{
+        max-width: 600px;
+        width: 100%;
+    }
+    table{
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td{
+        border: 1px solid #000;
+        padding: 8px;
+    }
+    .line-up-level{
+        margin-bottom: 20px;
+    }
+    .line-up{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        &-pokemon{
+            width: calc(50% - 10px);
+        }
+        
+        h5{
+            text-transform: capitalize;
+            margin-top: 10px;
+        }
+    }
+    .line-up-pokemon{
+        gap: 15px;
+        &-info{
+            display: flex;
+            gap: 15px;
+        }
+        img{
+            width: 70px;
+        }
+    }
+    .pokemon-name{
+        display: flex;
+        gap: 10px;
+        svg{
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

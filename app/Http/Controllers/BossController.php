@@ -11,7 +11,7 @@ class BossController extends Controller
     public function index($id){
         $boss = Boss::find($id);
         $boss->line_ups = $boss->lineUp()->get();
-        
+        // dd($boss->line_ups);
         return view('bosses.boss')->with('boss', $boss);
     }
 

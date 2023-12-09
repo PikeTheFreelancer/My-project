@@ -14101,6 +14101,69 @@ footer .home-link span {
     overflow-wrap: anywhere;
   }
 }
+.boss-page .first-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.boss-page .my-avatar {
+  display: flex;
+  width: 100%;
+  max-width: 300px;
+  margin-right: 40px;
+  overflow: hidden;
+}
+.boss-page .my-avatar img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.boss-page .basic-info {
+  max-width: 600px;
+  width: 100%;
+}
+.boss-page table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.boss-page th, .boss-page td {
+  border: 1px solid #000;
+  padding: 8px;
+}
+.boss-page .line-up-level {
+  margin-bottom: 20px;
+}
+.boss-page .line-up {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.boss-page .line-up-pokemon {
+  width: calc(50% - 10px);
+}
+.boss-page .line-up h5, .boss-page .line-up .h5 {
+  text-transform: capitalize;
+  margin-top: 10px;
+}
+.boss-page .line-up-pokemon {
+  gap: 15px;
+}
+.boss-page .line-up-pokemon-info {
+  display: flex;
+  gap: 15px;
+}
+.boss-page .line-up-pokemon img {
+  width: 70px;
+}
+.boss-page .pokemon-name {
+  display: flex;
+  gap: 10px;
+}
+.boss-page .pokemon-name svg {
+  width: 20px;
+  height: 20px;
+}
+
 * {
   margin: 0;
   padding: 0;

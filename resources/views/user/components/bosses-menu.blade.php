@@ -6,7 +6,7 @@
                 <div class="boss-list-container shadow-sm">
                     <div class="boss-list header-container">
                         @foreach ($kanto_bosses as $boss)
-                            <a class="hover-underline" href="">{{$boss->name}}</a>
+                            <a class="hover-underline" href="{{route('getBoss', $boss->id)}}">{{$boss->name}}</a>
                         @endforeach
                     </div>
                 </div>
@@ -16,7 +16,7 @@
                 <div class="boss-list-container shadow-sm">
                     <div class="boss-list header-container">
                         @foreach ($johto_bosses as $boss)
-                            <a class="hover-underline" href="">{{$boss->name}}</a>
+                            <a class="hover-underline" href="{{route('getBoss', $boss->id)}}">{{$boss->name}}</a>
                         @endforeach
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="boss-list-container shadow-sm">
                     <div class="boss-list header-container">
                         @foreach ($hoenn_bosses as $boss)
-                            <a class="hover-underline" href="">{{$boss->name}}</a>
+                            <a class="hover-underline" href="{{route('getBoss', $boss->id)}}">{{$boss->name}}</a>
                         @endforeach
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                 <div class="boss-list-container shadow-sm">
                     <div class="boss-list header-container">
                         @foreach ($sinnoh_bosses as $boss)
-                            <a class="hover-underline" href="">{{$boss->name}}</a>
+                            <a class="hover-underline" href="{{route('getBoss', $boss->id)}}">{{$boss->name}}</a>
                         @endforeach
                     </div>
                 </div>
