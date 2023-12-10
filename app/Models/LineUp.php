@@ -12,7 +12,7 @@ class LineUp extends Model
     protected $table = 'line_ups';
 
     protected $fillable = [
-        'level', 'boss_id', 'line_up', 'rewards', 'notes', 'nature', 'ability'
+        'level', 'boss_id', 'line_up', 'rewards', 'notes'
     ];
 
     protected $casts = [
