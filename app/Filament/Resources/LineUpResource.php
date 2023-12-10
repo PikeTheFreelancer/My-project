@@ -27,11 +27,13 @@ class LineUpResource extends Resource
         $pokemonData = Http::get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10100")->json()['results'];
         $pokemonMoves = Http::get("https://pokeapi.co/api/v2/move/?offset=0&limit=900")->json()['results'];
         $pokemonItems = Http::get("https://pokeapi.co/api/v2/item/?offset=0&limit=2000")->json()['results'];
-        $pokemonNatures = Http::get("https://pokeapi.co/api/v2/nature")->json()['results'];
+        $pokemonNatures = Http::get("https://pokeapi.co/api/v2/nature/?offset=0&limit=30")->json()['results'];
+        $pokemonAbilities = Http::get("https://pokeapi.co/api/v2/ability/?offset=0&limit=400")->json()['results'];
         $pokemonOptions = [];
         $natureOptions = [];
         $itemOptions = [];
         $moveOptions = [];
+        $abiOptions = [];
         foreach ($pokemonNatures as $nature) {
             $natureOptions[$nature['name']] = $nature['name'];
         }
@@ -43,6 +45,9 @@ class LineUpResource extends Resource
         }
         foreach ($pokemonMoves as $move) {
             $moveOptions[$move['name']] = $move['name'];
+        }
+        foreach ($pokemonAbilities as $abi) {
+            $abiOptions[$abi['name']] = $abi['name'];
         }
         return $form
             ->schema([
@@ -69,15 +74,19 @@ class LineUpResource extends Resource
                                 ->options($pokemonOptions)
                                 ->required()
                                 ->columns(2),
-                            
+
+                            Forms\Components\Select::make('nature')
+                            ->searchable()
+                            ->options($natureOptions),
+                            Forms\Components\Select::make('ability')
+                            ->searchable()
+                            ->options($abiOptions),
                             Forms\Components\Select::make('item')
                                 ->searchable()
                                 ->options($itemOptions)
                                 ->columns(2),
                             
-                            Forms\Components\Select::make('nature')
-                                ->searchable()
-                                ->options($natureOptions),
+                            
                             Forms\Components\Select::make('moves')
                             ->multiple()
                             ->searchable()
