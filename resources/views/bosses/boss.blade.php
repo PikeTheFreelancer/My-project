@@ -45,6 +45,8 @@
                             <img src="{{asset('images/pokemon-dataset/'.$pokemon['pokemon'].'.png')}}" alt="{{$pokemon['pokemon']}}.png'">
                         </div>
                         <div class="col-right">
+                            <p>Nature: {{isset($pokemon['nature']) ? $pokemon['nature'] : ''}}</p>
+                            <p>Ability: {{isset($pokemon['ability']) ? $pokemon['ability'] : ''}}</p>
                             <p>Item: {{$pokemon['item']}}</p>
                             <p>Moves:</p>
                             <ul>
