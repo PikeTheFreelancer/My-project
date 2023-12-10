@@ -10,7 +10,7 @@ class Boss extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'region', 'location', 'cooldown'
+        'name', 'region', 'location', 'cooldown', 'rewards', 'notes'
     ];
 
     public function lineUp()

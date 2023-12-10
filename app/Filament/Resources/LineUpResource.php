@@ -24,9 +24,26 @@ class LineUpResource extends Resource
 
     public static function form(Form $form): Form
     {
-        $pokemonOptions = Http::get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10100")->json()['results'];
+        $pokemonData = Http::get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10100")->json()['results'];
         $pokemonMoves = Http::get("https://pokeapi.co/api/v2/move/?offset=0&limit=900")->json()['results'];
         $pokemonItems = Http::get("https://pokeapi.co/api/v2/item/?offset=0&limit=2000")->json()['results'];
+        $pokemonNatures = Http::get("https://pokeapi.co/api/v2/nature")->json()['results'];
+        $pokemonOptions = [];
+        $natureOptions = [];
+        $itemOptions = [];
+        $moveOptions = [];
+        foreach ($pokemonNatures as $nature) {
+            $natureOptions[$nature['name']] = $nature['name'];
+        }
+        foreach ($pokemonItems as $item) {
+            $itemOptions[$item['name']] = $item['name'];
+        }
+        foreach ($pokemonData as $pokemon) {
+            $pokemonOptions[$pokemon['name']] = $pokemon['name'];
+        }
+        foreach ($pokemonMoves as $move) {
+            $moveOptions[$move['name']] = $move['name'];
+        }
         return $form
             ->schema([
                 Grid::make(2)->schema([
@@ -49,67 +66,22 @@ class LineUpResource extends Resource
                         ->schema([
                             Forms\Components\Select::make('pokemon')
                                 ->searchable()
-                                ->getSearchResultsUsing(function (string $search) use($pokemonOptions) {
-                                    $pokemons = [];
-                                    $count = 0;
-                                    foreach ($pokemonOptions as $result) {
-    
-                                        if (stripos($result['name'], $search) !== false) {
-                                            $pokemons[$result['name']] = $result['name'];
-                                            $count++;
-                                        }
-    
-                                        //get 10 results maximum
-                                        if ($count >= 10) {
-                                            break;
-                                        }
-                                    }
-                                    return $pokemons;
-                                })
+                                ->options($pokemonOptions)
                                 ->required()
                                 ->columns(2),
                             
                             Forms\Components\Select::make('item')
                                 ->searchable()
-                                ->getSearchResultsUsing(function (string $search) use($pokemonItems) {
-                                    $filterItems = [];
-                                    $count = 0;
-                                    foreach ($pokemonItems as $result) {
-
-                                        if (stripos($result['name'], $search) !== false) {
-                                            $filterItems[$result['name']] = $result['name'];
-                                            $count++;
-                                        }
-
-                                        //get 10 results maximum
-                                        if ($count >= 10) {
-                                            break;
-                                        }
-                                    }
-                                    return $filterItems;
-                                })
+                                ->options($itemOptions)
                                 ->columns(2),
-
+                            
+                            Forms\Components\Select::make('nature')
+                                ->searchable()
+                                ->options($natureOptions),
                             Forms\Components\Select::make('moves')
                             ->multiple()
                             ->searchable()
-                            ->getSearchResultsUsing(function (string $search) use($pokemonMoves) {
-                                $filterMoves = [];
-                                $count = 0;
-                                foreach ($pokemonMoves as $result) {
-
-                                    if (stripos($result['name'], $search) !== false) {
-                                        $filterMoves[$result['name']] = $result['name'];
-                                        $count++;
-                                    }
-
-                                    //get 10 results maximum
-                                    if ($count >= 10) {
-                                        break;
-                                    }
-                                }
-                                return $filterMoves;
-                            })
+                            ->options($moveOptions)
                             ->required()
                             ->columns(2),
                         ])

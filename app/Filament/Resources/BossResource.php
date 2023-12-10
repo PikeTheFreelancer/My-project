@@ -40,6 +40,14 @@ class BossResource extends Resource
                 Forms\Components\TextInput::make('cooldown')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\RichEditor::make('rewards')
+                    ->toolbarButtons([
+                        'bold','italic','link','orderedList','bulletList'
+                    ]),
+                Forms\Components\RichEditor::make('notes')
+                    ->toolbarButtons([
+                        'bold','italic','link','orderedList','bulletList'
+                    ]),
             ]);
     }
 
