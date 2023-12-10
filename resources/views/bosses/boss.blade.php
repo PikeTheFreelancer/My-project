@@ -10,7 +10,7 @@
     </div>
     <div class="section-container first-section bg-white" data-aos="fade-up">
         <div class="my-avatar">
-            <img src="{{asset('images/pages/Unknown_person.webp')}}" alt="unknown">
+            <img src="{{asset('images/pages/noimageavailable.webp')}}" alt="unknown">
         </div>
         <div class="basic-info">
             <h2>{{ $boss->name }}</h2>
@@ -42,7 +42,11 @@
                     </h5>
                     <div class="line-up-pokemon-info">
                         <div class="col-left">
-                            <img src="{{asset('images/pokemon-dataset/'.$pokemon['pokemon'].'.png')}}" alt="{{$pokemon['pokemon']}}.png'">
+                            @if (file_exists('images/pokemon-dataset/'.$pokemon['pokemon'].'.png'))
+                                <img src="{{asset('images/pokemon-dataset/'.$pokemon['pokemon'].'.png')}}" alt="{{$pokemon['pokemon']}}.png'">
+                            @else
+                                <img src="{{asset('images/pages/noimageavailable.webp')}}" alt="noimageavailable.webp">
+                            @endif
                         </div>
                         <div class="col-right">
                             <p>Nature: {{isset($pokemon['nature']) ? $pokemon['nature'] : ''}}</p>
