@@ -5,7 +5,7 @@
 <div class="boss-page page">
     <div class="page-title">
         <h1>
-            Boss
+            Boss: {{ $boss->name }}
         </h1>
     </div>
     <div class="section-container first-section bg-white" data-aos="fade-up">

@@ -62,3 +62,29 @@
         }
     }
 }
+
+@media screen and (max-width: 600px) {
+    .boss-page{
+        .page-title{
+            h1{
+                margin-bottom: 0;
+            }
+        }
+        .my-avatar{
+            margin-right: 0;
+            max-width: unset;
+        }
+        .first-section{
+            flex-direction: column;
+        }
+        .basic-info{
+            max-width: unset;
+        }
+        .line-up-pokemon{
+            width: 100%;
+            &-info{
+                justify-content: space-around;
+            }
+        }
+    }
+}

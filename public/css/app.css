@@ -14164,6 +14164,27 @@ footer .home-link span {
   height: 20px;
 }
 
+@media screen and (max-width: 600px) {
+  .boss-page .page-title h1, .boss-page .page-title .h1 {
+    margin-bottom: 0;
+  }
+  .boss-page .my-avatar {
+    margin-right: 0;
+    max-width: unset;
+  }
+  .boss-page .first-section {
+    flex-direction: column;
+  }
+  .boss-page .basic-info {
+    max-width: unset;
+  }
+  .boss-page .line-up-pokemon {
+    width: 100%;
+  }
+  .boss-page .line-up-pokemon-info {
+    justify-content: space-around;
+  }
+}
 * {
   margin: 0;
   padding: 0;
