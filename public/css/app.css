@@ -12767,7 +12767,7 @@ img {
   position: absolute;
   z-index: 2;
   background-color: #fff;
-  right: 0;
+  right: auto;
   top: 100%;
 }
 .menu-notification .noti-item {
