@@ -6,6 +6,9 @@ use App\Repositories\PokemonApi\PokemonApiRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
+
 class GetPokemonController extends Controller
 {
     private $pokemonApiRepo;
@@ -79,5 +82,25 @@ class GetPokemonController extends Controller
         $move_pool['egg'] = collect($result)->where('method.name','egg')->unique()->all();
 
         return view('user.components.moves', compact('move_pool'));
+    }
+
+    public function getAllPokemons(){
+        $response = Http::get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1300");
+        if ($response->successful()) {
+            $data = $response->json(); // Chuyển đổi JSON thành mảng PHP
+            $collection = collect($data['results']); // Tạo collection từ mảng
+        
+            $perPage = 100;
+            $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        
+            $currentPageItems = $collection->slice(($currentPage - 1) * $perPage, $perPage)->values();
+        
+            $paginator = new LengthAwarePaginator($currentPageItems, $collection->count(), $perPage, $currentPage);
+        
+            $paginator->withPath('/pokemon'); // Đặt đường dẫn cho phân trang
+            
+            $items = $paginator->items();
+            return view('pokedex')->with('paginator', $paginator)->with('items', $items);
+        }
     }
 }

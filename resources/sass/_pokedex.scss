@@ -1,0 +1,19 @@
+.pokedex-page{
+    .pokedex-datas{
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 25px;
+        row-gap: 40px;
+    }
+    .pokedex-data{
+        width: 100%;
+        max-width: 150px;
+        a{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block;
+        }
+    }
+}

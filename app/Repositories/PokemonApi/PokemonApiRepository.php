@@ -81,7 +81,7 @@ class PokemonApiRepository implements PokemonApiRepositoryInterface{
             'json' => [
                 'query' => $graphqlQuery,
                 'variables' => [
-                    'name' => $name, // Thay đổi giá trị này tùy thuộc vào Pokémon bạn muốn lấy thông tin
+                    'name' => $name,
                 ],
             ],
         ]);

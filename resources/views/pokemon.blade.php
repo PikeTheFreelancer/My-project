@@ -15,7 +15,11 @@
         <div class="pokemon-details bg-white section-container" data-aos="fade-up">
             <div class="pokemon-shapes">
                 <div class="pokemon-avatar">
-                    <img src="{{asset('images/pokemon-dataset/'.$data['name'].'.png')}}" alt="{{$data['name']}}.png'">
+                    @if (file_exists('images/pokemon-dataset/'.$data['name'].'.png'))
+                        <img src="{{asset('images/pokemon-dataset/'.$data['name'].'.png')}}" alt="{{$data['name']}}.png'">
+                    @else
+                        <img src="{{asset('images/pages/noimageavailable.webp')}}" alt="noimageavailable.webp">
+                    @endif
                 </div>
                 <div class="pokemon-images">
                     <div class="gender-image">
