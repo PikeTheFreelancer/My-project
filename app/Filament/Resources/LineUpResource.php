@@ -97,8 +97,8 @@ class LineUpResource extends Resource
                         ->columnSpan(1)
                         ->required(),
                 ]),
-                Forms\Components\Textarea::make('rewards'),
-                Forms\Components\Textarea::make('notes'),
+                Forms\Components\RichEditor::make('rewards'),
+                Forms\Components\RichEditor::make('notes'),
             ])->columns(1);
     }
 

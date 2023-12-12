@@ -33,6 +33,10 @@
     @foreach ($boss->line_ups as $line_up)
         <div class="section-container">
             <h2 class="line-up-level">Level: {{$line_up->level}}</h2>
+            <h4>Notes:</h4>
+            @if ($line_up->notes)
+                <div>{!! $line_up->notes !!}</div>
+            @endif
             <div class="line-up">
                 @foreach ($line_up->line_up as $pokemon)
                 <div class="line-up-pokemon">
