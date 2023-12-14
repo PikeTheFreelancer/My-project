@@ -85,6 +85,7 @@
     @endphp
     <div class="basic-theme" id="app">
         <nav class="navbar-container bg-white shadow-sm">
+            <div class="nav-bar-container">
             <div class="main-navbar space-between header-container">
                 <div class="navbar-left">
                     <a class="home-link" href="{{ url('/') }}">
@@ -276,6 +277,7 @@
                 <input class="input-border search-pokemon" type="text" placeholder="{{ __('messages.header.search_holder') }}" name="searchString">
                 <div class="search-results"></div>
             </form>
+        </div>
         </nav>
 
         <main class="content-container">

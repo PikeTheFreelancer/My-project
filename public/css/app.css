@@ -12654,6 +12654,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 20;
+  border-bottom: solid 1px #ddd;
 }
 
 .main-navbar {
@@ -12742,8 +12743,8 @@ img {
   bottom: 0;
   left: 0;
   top: 100%;
+  backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
   background: rgba(0, 0, 0, 0.5);
 }
 .search-results a.search-result {
@@ -12943,10 +12944,9 @@ img {
 .navbar-left ul li.bosses:hover .bosses-menu {
   opacity: 1;
   visibility: visible;
-  top: 100%;
+  top: calc(100% + 1px);
 }
 .navbar-left .bosses-menu {
-  border-top: solid 1px #ddd;
   opacity: 0;
   visibility: hidden;
   position: absolute;

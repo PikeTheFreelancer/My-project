@@ -2,6 +2,7 @@
     position: sticky;
     top: 0;
     z-index: 20;
+    border-bottom: solid 1px #ddd;
 }
 .main-navbar{
     padding-top: 10px;
@@ -78,6 +79,7 @@
     left: 0;
     top: 100%;
     backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     background: rgba(0,0,0,0.5);
     a.search-result{
         display: block;
@@ -260,12 +262,11 @@
         li.bosses:hover .bosses-menu{
             opacity: 1;
             visibility: visible;
-            top: 100%;
+            top: calc(100% + 1px);
         }
     }
 
     .bosses-menu {
-        border-top: solid 1px #ddd;
         opacity: 0;
         visibility: hidden;
         position: absolute;
