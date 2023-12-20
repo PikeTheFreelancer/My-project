@@ -189,6 +189,9 @@ $(document).ready(function(){
         if (!$(e.target).closest('.thumbnail-avatar').length && !$(e.target).closest('.thumbnail-avatar').length) {
             $('.dropdown-actions').slideUp();
         }
+        if (!$(e.target).closest('.search-pokemon').length && !$(e.target).closest('.search-pokemon').length) {
+            $('.search-results').hide();
+        }
     })
 
     // mark as read

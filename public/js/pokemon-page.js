@@ -20,6 +20,7 @@ $(document).ready(function(){
     $('.search-pokemon').on('keyup', function() {
         let searchString = $(this).val();
         let results = $(this).siblings('.search-results');
+        results.show();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
