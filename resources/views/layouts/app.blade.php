@@ -106,7 +106,7 @@
                             </a>
                         </li>
                         <li class="bosses">
-                            <a class="nav-link-text desktop" href="#">
+                            <a class="nav-link-text desktop" href="{{route('getBosses')}}">
                                 Bosses
                             </a>
                             @include('user.components.bosses-menu')

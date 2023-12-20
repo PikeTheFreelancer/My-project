@@ -16,15 +16,15 @@
             <h2>{{ $boss->name }}</h2>
             <table>
                 <tr>
-                    <th>Region</th>
+                    <th>{{__('Region')}}</th>
                     <td>{{$boss->region}}</td>
                 </tr>
                 <tr>
-                    <th>Location</th>
+                    <th>{{__('Location')}}</th>
                     <td>{{$boss->location}}</td>
                 </tr>
                 <tr>
-                    <th>Cooldown</th>
+                    <th>{{__('Cooldown')}}</th>
                     <td>{{$boss->cooldown}}</td>
                 </tr>
             </table>

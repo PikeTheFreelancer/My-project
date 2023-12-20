@@ -54,5 +54,9 @@ return [
     'banner' => [
         'text2' => 'Sân chơi dành cho Pokemon fans.',
         'text3' => 'Tra cứu thông tin về PRO và các thông tin về tựa game gốc.'
+    ],
+    'bosses' => [
+        'text1' => 'Ở chế độ <i>Hard/Medium</i> : Bạn không thể sử dụng pokemon trùng lặp và chúng phải không cùng giống loài (species) hoặc có cùng National dex id. Ví dụ, bạn không thể sử dụng 2 hoặc nhiều hơn <a class="underline" href="/pokemon/wobbuffet">Wobbuffet</a>s, hoặc là sử dụng các form khác của <a class="underline" href="/pokemon/rotom">Rotom</a> trong team của bạn.',
+        'text2' => 'Phần thưởng phụ thuộc vào độ khó mà bạn chọn để đấu với boss. Đánh bại boss mang lại cho bạn 1 phần thưởng gồm 3 phần: Random items, Pokedollars và PVE coins. Ngoài ra, sau 3 lần thắng liên tiếp, bạn được nhận thêm 1 phần thưởng nữa: bạn được chọn để encounter 1 pokemon hiếm được hiển thị trong danh sách mà boss cung cấp (đừng quên sử dụng synchronize pokemon).',
     ]
 ];

@@ -18,6 +18,12 @@ class BossController extends Controller
     public function getBossesByRegion($region){
         $bosses = Boss::where('region', $region)->get();
         
-        return view('bosses.region')->with('bosses', $bosses);
+        return view('bosses.region')->with('bosses', $bosses)->with('region', $region);
+    }
+
+    public function allBosses(){
+        $bosses = Boss::all();
+
+        return view('bosses.all')->with('bosses', $bosses);
     }
 }

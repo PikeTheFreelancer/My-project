@@ -57,4 +57,8 @@ return [
         'text2' => 'Here is a playground for Pokemon fans.',
         'text3' => 'PRO infomations and lookup further about Pokemon games.'
     ],
+    'bosses' => [
+        'text1' => 'In the <i>Hard/Medium</i> mode: You can not use duplicate Pokemon and they must be different species/have different national dex numbers. For example, You can not use 2 or more <a class="underline" href="/pokemon/wobbuffet">Wobbuffet</a>s, or use multi-forms of <a class="underline" href="/pokemon/rotom">Rotom</a> in your team.',
+        'text2' => 'Rewards depending on which level of the boss you choose to fight. Beating a boss give you a Rewards consist of 3 parts: Random items, Pokedollars and PVE coins. Furthermore, after 3 consecutive wins, you are offered an extra reward: you are able to choose one of rare pokemon in the showing list (don\'t forget to bring a synchronize pokemon with you).',
+    ]
 ];

@@ -39,6 +39,7 @@ Route::middleware('localization')->group(function (){
     Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile');
     Route::get('/bosses/{region}', [BossController::class, 'getBossesByRegion'])->name('getBossesByRegion');
     Route::get('/boss/{id}', [BossController::class, 'index'])->name('getBoss');
+    Route::get('/bosses', [BossController::class, 'allBosses'])->name('getBosses');
     
 });
 

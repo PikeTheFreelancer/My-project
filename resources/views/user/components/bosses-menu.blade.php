@@ -2,7 +2,7 @@
     <div class="header-container justify-center">
         <ul>
             <li class="region-boss-list">
-                <a class="nav-link-text" href="#">Kanto</a>
+                <a class="nav-link-text" href="{{route('getBossesByRegion', 'kanto')}}">Kanto</a>
                 <div class="boss-list-container shadow-sm">
                     <div class="boss-list header-container">
                         @foreach ($kanto_bosses as $boss)
@@ -12,7 +12,7 @@
                 </div>
             </li>
             <li class="region-boss-list">
-                <a class="nav-link-text" href="#">Johto</a>
+                <a class="nav-link-text" href="{{route('getBossesByRegion', 'johto')}}">Johto</a>
                 <div class="boss-list-container shadow-sm">
                     <div class="boss-list header-container">
                         @foreach ($johto_bosses as $boss)
@@ -23,7 +23,7 @@
             </li>
             
             <li class="region-boss-list">
-                <a class="nav-link-text" href="#">Hoenn</a>
+                <a class="nav-link-text" href="{{route('getBossesByRegion', 'hoenn')}}">Hoenn</a>
                 <div class="boss-list-container shadow-sm">
                     <div class="boss-list header-container">
                         @foreach ($hoenn_bosses as $boss)
@@ -34,7 +34,7 @@
             </li>
             
             <li class="region-boss-list">
-                <a class="nav-link-text" href="#">Sinnoh</a>
+                <a class="nav-link-text" href="{{route('getBossesByRegion', 'sinnoh')}}">Sinnoh</a>
                 <div class="boss-list-container shadow-sm">
                     <div class="boss-list header-container">
                         @foreach ($sinnoh_bosses as $boss)
