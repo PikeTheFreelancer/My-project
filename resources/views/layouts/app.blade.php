@@ -118,7 +118,9 @@
                     <form class="search-bar" action="{{ route('searchPokemon') }}" method="POST">
                         @csrf
                         <input class="input-border search-pokemon" type="text" placeholder="{{__('messages.header.search_holder')}}" name="searchString">
-                        <i class="fa-brands fa-searchengin"></i>
+                        <button type="submit">
+                            <i class="fa-brands fa-searchengin"></i>
+                        </button>
                         <div class="search-results"></div>
                     </form>
                     <div class="search-bar-mobile">
