@@ -23,10 +23,10 @@
         </div>
         <div class="section-container bg-white" data-aos="fade-up">
             <h5>{{__('Rewards')}}</h5>
-            <p>
+            <p class="mb-3">
                 {{__("messages.bosses.text2")}}
             </p>
-            <div class="overflow-auto">
+            <div class="overflow-auto mb-3">
                 <table>
                     <tr>
                         <th rowspan="2">{{__('Difficulty')}}</th>
