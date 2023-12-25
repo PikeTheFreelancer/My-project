@@ -40,14 +40,16 @@
         @if (isset($posts) && count($posts) > 0)
             @foreach ($posts as $item)
                 <div class="post section-container bg-white" data-aos="fade-up">
-                    <a href="{{route('post', $item->id)}}" class="post-col-left">
-                        <h5 class="post-title">{{$item->title}}</h5>
+                    <div class="post-col-left">
+                        <a class="post-title" href="{{route('post', $item->id)}}">
+                            <h5>{{$item->title}}</h5>
+                        </a>
                         <div class="no-media post-content">{!! $item->content !!}</div>
                         <p>
                             <i class="fa-regular fa-comment"></i>
                             <span>{{$item->comments->count()}}</span>
                         </p>
-                    </a>
+                    </div>
                     <div class="flex">
                         <div class="avatar-field">
                             <div>
