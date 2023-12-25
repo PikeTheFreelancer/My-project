@@ -17,6 +17,27 @@
     opacity: 0;
     bottom: 37px;
 }
+.home-item{
+    width: 100%;
+    max-width: 350px;
+    background-color: rgba($color: #ddd, $alpha: 0.75);
+    border-radius: 10px;
+    transition: all .5s;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    &:hover{
+        transition: all .5s;
+        box-shadow: 5px 10px 8px 0 #888;
+        transform: scale(1.01);
+    }
+    img{
+        width: 100%;
+        object-fit: cover;
+        max-height: 350px;
+        max-width: 350px;
+    }
+}
 .home-page{
     .section-community{
         h2{
@@ -26,27 +47,6 @@
     .section-container{
         box-shadow: 5px 4px 10px 2px #888;
         padding: 40px;
-    }
-    .home-item{
-        width: 100%;
-        max-width: 350px;
-        background-color: rgba($color: #ddd, $alpha: 0.75);
-        border-radius: 10px;
-        transition: all .5s;
-	    padding: 15px 25px;
-        display: flex;
-        align-items: center;
-        &:hover{
-            transition: all .5s;
-            box-shadow: 5px 10px 8px 0 #888;
-            transform: scale(1.01);
-        }
-        img{
-            width: 100%;
-            object-fit: cover;
-            max-height: 350px;
-            max-width: 350px;
-        }
     }
     .card-body{
         display: flex;

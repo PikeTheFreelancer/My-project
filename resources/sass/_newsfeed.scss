@@ -153,6 +153,7 @@
             text-transform: uppercase;
             text-decoration: underline;
             font-weight: 600;
+            text-underline-offset: 4px;
         }
         a.post-title::after{
             content: '';

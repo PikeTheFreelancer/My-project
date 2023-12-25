@@ -31,9 +31,9 @@
     </div>
     <div class="card-body">
         <!-- Button trigger modal -->
-        <div class="add accordion-box bg-white" data-aos="fade-up" data-toggle="modal" data-target="#addPost">
+        <div class="accordion-box bg-white" data-toggle="modal" data-target="#addPost">
             <span class="plus-icon">
-                @include('svg.plus')
+                <i class="fa-regular fa-pen-to-square"></i>
             </span>
             <span>{{ __('messages.post.add') }}</span>
         </div>

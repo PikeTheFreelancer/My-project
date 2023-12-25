@@ -1,5 +1,11 @@
 .accordion-box{
     cursor: pointer;
+    margin-top: 40px;
+    padding: 20px;
+    transition: all .2s;
+    box-shadow: 3px 4px 5px 1px #888;
+    border-radius: 5px;
+    max-width: 600px;
     
     .plus-icon{
         display: inline-block;
@@ -7,10 +13,8 @@
     }
     &:hover{
         background-color: #ddd;
-        .plus-icon{
-            transform: rotate(360deg);
-            transition: all .5s;
-        }
+        transition: all .2s;
+        box-shadow: 3px 8px 5px 1px #888
     }
 }
 .merchandise{
@@ -83,6 +87,7 @@
             justify-content: center;
             border: solid 2px #000;
             backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             background: hsla(0,0%,100%,.2);
             .actions-box{
                 display: flex;
