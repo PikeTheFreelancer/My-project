@@ -13772,8 +13772,8 @@ img {
   .newsfeed-page .post {
     align-items: normal;
   }
-  .newsfeed-page .post .post-title {
-    margin-bottom: auto;
+  .newsfeed-page .post .post-col-left > p {
+    margin-top: auto;
   }
   .newsfeed-page .post .avatar-field {
     flex-direction: column-reverse;
@@ -13781,6 +13781,9 @@ img {
   }
   .newsfeed-page .post .avatar-field p {
     text-align: right;
+  }
+  .newsfeed-page .post .pin-icon {
+    right: 20px;
   }
   .page-title {
     flex-direction: column;

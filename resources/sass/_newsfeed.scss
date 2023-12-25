@@ -214,8 +214,10 @@
         }
         .post{
             align-items: normal;
-            .post-title{
-                margin-bottom: auto;
+            .post-col-left{
+                > p{
+                    margin-top: auto;
+                }
             }
             
             .avatar-field{
@@ -224,6 +226,9 @@
                 p{
                     text-align: right;
                 }
+            }
+            .pin-icon{
+                right: 20px;
             }
         }
     }
