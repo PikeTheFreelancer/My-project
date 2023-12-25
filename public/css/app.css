@@ -12734,6 +12734,7 @@ img {
   max-width: 300px;
   width: 100%;
   padding-right: 35px;
+  border: solid 1px #333;
 }
 .search-bar i {
   position: absolute;
