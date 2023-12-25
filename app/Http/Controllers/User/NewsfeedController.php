@@ -26,14 +26,14 @@ class NewsfeedController extends Controller
     {
         $posts = $this->postRepo->getAllPosts();
         $categories = $this->cateRepo->getAll();
-        // dd($posts);
         foreach ($posts as $post) {
             $comments = $this->postRepo->getAllComments($post->id)->take(3)->reverse();
             $post->comments = $comments;
             $post->max_size = $this->postRepo->getAllComments($post->id)->count();
             $post->timeAgo = Carbon::parse($post->created_at)->diffForHumans();
         }
-        return view('newsfeed')->with('posts', $posts)->with('categories',$categories);
+        $pinned_posts = $posts->where('is_pinned', 1)->all();
+        return view('newsfeed')->with('posts', $posts)->with('categories',$categories)->with('pinned_posts', $pinned_posts);
     }
 
     public function post($id) {

@@ -49,7 +49,7 @@
             </div>
         </form>
         <!-- Button trigger modal -->
-        <div class="add accordion-box" data-aos="fade-up" data-toggle="modal" data-target="#addPost">
+        <div class="add accordion-box bg-white" data-aos="fade-up" data-toggle="modal" data-target="#addPost">
             <span class="plus-icon">
                 @include('svg.plus')
             </span>

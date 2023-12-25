@@ -36,6 +36,7 @@ class PostResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('post_category_id')
                     ->required(),
+                Forms\Components\Checkbox::make('is_pinned')
             ]);
     }
 
@@ -51,6 +52,7 @@ class PostResource extends Resource
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('post_category_id'),
+                Tables\Columns\TextColumn::make('is_pinned'),
             ])
             ->filters([
                 //
