@@ -192,6 +192,9 @@ $(document).ready(function(){
         if (!$(e.target).closest('.search-pokemon').length && !$(e.target).closest('.search-pokemon').length) {
             $('.search-results').hide();
         }
+        if (!$(e.target).closest('.filter-box').length && !$(e.target).closest('.filter-box').length) {
+            $('.filter-options').slideUp();
+        }
     })
 
     // mark as read
