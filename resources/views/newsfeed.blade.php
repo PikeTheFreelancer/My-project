@@ -119,8 +119,14 @@
                             <a class="page-link" href="{{ $posts->url($i) }}">{{ $i }}</a>
                         </li>
                     @endfor
-                @else
+                @elseif($posts->lastPage() - 3 > 1)
                     @for ($i = ($posts->lastPage() - 3); $i <= $posts->lastPage(); $i++)
+                        <li class="page-item {{ $i == $posts->currentPage() ? 'active' : '' }}">
+                            <a class="page-link" href="{{ $posts->url($i) }}">{{ $i }}</a>
+                        </li>
+                    @endfor
+                @else
+                    @for ($i = 1; $i <= $posts->lastPage(); $i++)
                         <li class="page-item {{ $i == $posts->currentPage() ? 'active' : '' }}">
                             <a class="page-link" href="{{ $posts->url($i) }}">{{ $i }}</a>
                         </li>
@@ -138,7 +144,7 @@
                     <form class="page-controller" action="{{route('redirectToNewsfeed')}}">
                         <label for="page_number">Page Number:</label>
                         <div class="d-flex">
-                            <input class="mr-1" type="number" name="page_number">
+                            <input class="mr-1" type="number" name="page_number" max="{{$posts->lastPage()}}">
                             <button class="btn btn-secondary shadow-none">Go</button>
                         </div>
                     </form>

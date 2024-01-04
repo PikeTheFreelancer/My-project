@@ -20,7 +20,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface{
                         ->join('users', 'posts.user_id', '=', 'users.id')
                         ->select('posts.*', 'users.avatar', 'users.name as username')
                         ->orderBy('created_at', 'desc')
-                        ->paginate(2);
+                        ->paginate(10);
         
         return $posts;
     }
