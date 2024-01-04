@@ -74,9 +74,10 @@
                     </div>
                 </div>
             @endforeach
+            <div class="line" data-aos="fade-up"></div>
         @endif
         {{-- end pinned posts --}}
-
+        
         @if (isset($posts) && count($posts) > 0)
             @foreach ($posts as $item)
                 <div class="post section-container bg-white" data-aos="fade-up">

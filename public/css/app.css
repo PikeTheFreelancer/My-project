@@ -13825,6 +13825,12 @@ img {
   border: solid 1px #fff;
 }
 
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: #555;
+}
+
 @media screen and (max-width: 767px) {
   .newsfeed-page .section-container:first-child {
     margin-top: 20px;

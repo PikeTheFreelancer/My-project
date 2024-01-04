@@ -19,9 +19,17 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface{
         $posts = DB::table('posts')
                         ->join('users', 'posts.user_id', '=', 'users.id')
                         ->select('posts.*', 'users.avatar', 'users.name as username')
+                        ->orderBy('created_at', 'desc')->get();        
+        return $posts;
+    }
+
+    public function getPaginatedPosts()
+    {
+        $posts = DB::table('posts')
+                        ->join('users', 'posts.user_id', '=', 'users.id')
+                        ->select('posts.*', 'users.avatar', 'users.name as username')
                         ->orderBy('created_at', 'desc')
-                        ->paginate(10);
-        
+                        ->paginate(10);        
         return $posts;
     }
 

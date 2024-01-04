@@ -24,15 +24,23 @@ class NewsfeedController extends Controller
 
     public function index()
     {
-        $posts = $this->postRepo->getAllPosts();
         $categories = $this->cateRepo->getAll();
+        
+        $posts = $this->postRepo->getPaginatedPosts();
         foreach ($posts as $post) {
             $comments = $this->postRepo->getAllComments($post->id)->take(3)->reverse();
             $post->comments = $comments;
             $post->max_size = $this->postRepo->getAllComments($post->id)->count();
             $post->timeAgo = Carbon::parse($post->created_at)->diffForHumans();
         }
-        $pinned_posts = $posts->where('is_pinned', 1)->all();
+
+        $pinned_posts = $this->postRepo->getAllPosts()->where('is_pinned', 1)->all();
+        foreach ($pinned_posts as $pinned_post) {
+            $comments = $this->postRepo->getAllComments($pinned_post->id)->take(3)->reverse();
+            $pinned_post->comments = $comments;
+            $pinned_post->max_size = $this->postRepo->getAllComments($pinned_post->id)->count();
+            $pinned_post->timeAgo = Carbon::parse($pinned_post->created_at)->diffForHumans();
+        }
         return view('newsfeed')->with('posts', $posts)->with('categories',$categories)->with('pinned_posts', $pinned_posts);
     }
 
