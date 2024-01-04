@@ -98,6 +98,9 @@ $(document).ready(function() {
         onkeyup: false,
         onclick: false,
         rules: {
+            "post_category_id": {
+                required: true,
+            },
             "title": {
                 required: true,
             },

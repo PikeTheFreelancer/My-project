@@ -195,6 +195,9 @@ $(document).ready(function(){
         if (!$(e.target).closest('.filter-box').length && !$(e.target).closest('.filter-box').length) {
             $('.filter-options').slideUp();
         }
+        if (!$(e.target).closest('.page-status').length && !$(e.target).closest('.page-status').length) {
+            $('.page-controller').fadeOut();
+        }
     })
 
     // mark as read
@@ -557,5 +560,7 @@ $(document).ready(function(){
     $('.filter-box').on('click', function() {
         $('.filter-options').slideToggle();
     })
-    
+    $('.page-status span').on('click', function() {
+        $('.page-controller').fadeToggle();
+    })
 });

@@ -14,7 +14,7 @@ class UpdatePostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function(Blueprint $table){
-            $table->boolean('is_pinned');
+            $table->boolean('is_pinned')->default(0);
         });
     }
 

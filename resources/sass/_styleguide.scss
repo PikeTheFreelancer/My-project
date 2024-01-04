@@ -37,6 +37,12 @@ textarea{
 .opacity0{
     opacity: 0;
 }
+.mr-1{
+    margin-right: 4px;
+}
+.shadow-none{
+    box-shadow: none;
+}
 .mb-5{
     margin-bottom: 20px;
 }
@@ -66,6 +72,9 @@ input, textarea{
     &.error{
         border: solid 1px #ec1818;
     }
+}
+select.error{
+    border: solid 1px #ec1818 !important;
 }
 .reverse{
     flex-direction: row-reverse;

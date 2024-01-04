@@ -8,9 +8,10 @@
         <div class="modal-body">
             <form class="add-post" method="post" action="{{route('user.save-post')}}">
                 @csrf
-                <div class="form-field">
+                <div class="form-field mb-3">
                     <label for="title">{{__('Category')}}</label>
-                    <select class="form-select mb-3" name="post_category_id">
+                    <select class="form-select" name="post_category_id">
+                        <option value=""></option>
                         @foreach ($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach

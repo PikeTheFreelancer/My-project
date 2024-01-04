@@ -73,4 +73,9 @@ class NewsfeedController extends Controller
         }
         return view('newsfeed', compact('posts'))->with('categories',$categories)->with('text', $text);
     }
+
+    public function goToPage(Request $request){
+        $pageNumber = $request->input('page_number');
+        return redirect()->route('newsfeed', ['page' => $pageNumber]);
+    }
 }

@@ -113,16 +113,36 @@
                 <li class="page-item {{ $posts->previousPageUrl() ? '' : 'disabled' }}">
                     <a class="page-link" href="{{ $posts->previousPageUrl() }}">{{__('community.prev')}}</a>
                 </li>
-        
-                @for ($i = 1; $i <= $posts->lastPage(); $i++)
-                    <li class="page-item {{ $i == $posts->currentPage() ? 'active' : '' }}">
-                        <a class="page-link" href="{{ $posts->url($i) }}">{{ $i }}</a>
-                    </li>
-                @endfor
+                @if (($posts->currentPage() + 3) <= $posts->lastPage())
+                    @for ($i = $posts->currentPage(); $i <= ($posts->currentPage() + 3); $i++)
+                        <li class="page-item {{ $i == $posts->currentPage() ? 'active' : '' }}">
+                            <a class="page-link" href="{{ $posts->url($i) }}">{{ $i }}</a>
+                        </li>
+                    @endfor
+                @else
+                    @for ($i = ($posts->lastPage() - 3); $i <= $posts->lastPage(); $i++)
+                        <li class="page-item {{ $i == $posts->currentPage() ? 'active' : '' }}">
+                            <a class="page-link" href="{{ $posts->url($i) }}">{{ $i }}</a>
+                        </li>
+                    @endfor
+                @endif
         
                 <li class="page-item {{ $posts->nextPageUrl() ? '' : 'disabled' }}">
                     <a class="page-link" href="{{ $posts->nextPageUrl() }}">{{__('community.next')}}</a>
                 </li>
+                <div class="page-status">
+                    <span class="mr-1">
+                        Page {{$posts->currentPage()}} of {{$posts->lastPage()}}
+                    </span>
+                    <i class="fa-solid fa-caret-down"></i>
+                    <form class="page-controller" action="{{route('redirectToNewsfeed')}}">
+                        <label for="page_number">Page Number:</label>
+                        <div class="d-flex">
+                            <input class="mr-1" type="number" name="page_number">
+                            <button class="btn btn-secondary shadow-none">Go</button>
+                        </div>
+                    </form>
+                </div>
             </ul>
         @endif
     </div>
