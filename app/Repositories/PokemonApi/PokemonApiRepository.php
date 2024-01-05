@@ -17,13 +17,8 @@ class PokemonApiRepository implements PokemonApiRepositoryInterface{
                     height
                     weight
                     specy:pokemon_v2_pokemonspecy{
+                        evolution_chain_id
                         id
-                        evolution_chain:pokemon_v2_evolutionchain{
-                            pokemonspecies:pokemon_v2_pokemonspecies {
-                                id
-                                name
-                            }
-                        }
                     }
                     moves:pokemon_v2_pokemonmoves (where: {
                         pokemon_v2_versiongroup: {
@@ -133,6 +128,51 @@ class PokemonApiRepository implements PokemonApiRepositoryInterface{
                 'variables' => [
                     'name' => $name,
                     'gen' => $gen
+                ],
+            ],
+        ]);
+
+        $data = json_decode($response->getBody(), true);
+        return collect($data)->first();   
+    }
+
+    public function getEvolutionChainById($id){
+        $graphqlEndpoint = 'https://beta.pokeapi.co/graphql/v1beta';
+        $graphqlQuery = <<<'EOT'
+        query GetEvolutionChain($id: Int!){
+            evolutionchain:pokemon_v2_evolutionchain(where: {id: {_eq: $id} }){
+            id
+            species:pokemon_v2_pokemonspecies{
+              name
+              id
+              order
+              specy:pokemon_v2_pokemonspecy{
+                name
+              }
+              evolutions:pokemon_v2_pokemonevolutions{
+                trigger:pokemon_v2_evolutiontrigger{
+                  name
+                }
+                min_level
+                min_happiness
+                pokemon_v2_item{
+                  name
+                }
+              }
+            }
+          }
+        }
+        EOT;
+        
+        $client = new Client();
+        $response = $client->post($graphqlEndpoint, [
+            'headers' => [
+                'Content-Type' => 'application/json',
+            ],
+            'json' => [
+                'query' => $graphqlQuery,
+                'variables' => [
+                    'id' => $id,
                 ],
             ],
         ]);

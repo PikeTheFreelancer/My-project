@@ -33,9 +33,11 @@ class GetPokemonController extends Controller
         } else {
             $data = [];
         }
+        $evolution_chain_id = $data['specy']['evolution_chain_id'];
+        $evolution_chain = $this->pokemonApiRepo->getEvolutionChainById($evolution_chain_id);
         
-        // dd($data['moves']['gen_6']['egg']);
-        return view('pokemon', compact('data'));
+        // dd($evolution_chain['evolutionchain'][0]['species']);
+        return view('pokemon', compact('data'))->with('evolution_chain', $evolution_chain['evolutionchain'][0]);
     }
 
     public function getPokemonsByString(Request $request)

@@ -47,7 +47,7 @@
                     <tbody>
                         <tr>
                             <th>Pokedex No:</th>
-                            <td>{{($data['id'] < 1008) ? $data['id'] : ''}}</td>
+                            <td>{{$data['specy']['id']}}</td>
                         </tr>
                         <tr>
                             <th>Types:</th>
@@ -219,6 +219,14 @@
                         @endif
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="section-container evolution-chart">
+            <h2>Evolution Chain</h2>
+            <div class="evolution-chain">
+                @foreach ($evolution_chain['species'] as $item)
+                    <div>{{$item['name']}}</div>
+                @endforeach
             </div>
         </div>
     @else
