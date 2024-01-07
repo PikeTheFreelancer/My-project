@@ -13965,6 +13965,9 @@ img {
 .detail-col th, .detail-col td {
   padding: 0 15px;
 }
+.detail-col th {
+  text-align: right;
+}
 
 .pokemon-stats th {
   padding: 0 15px;

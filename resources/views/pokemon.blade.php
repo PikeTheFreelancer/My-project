@@ -24,15 +24,15 @@
                 <div class="pokemon-images">
                     <div class="gender-image">
                         @if ($sprites['front_female'])
-                            <p>Male:</p>
+                            <p>{{__('Male')}}:</p>
                         @else
-                            <p>Default:</p>
+                            <p>{{__('Default')}}:</p>
                         @endif
                         <img class="poke-thumb" src="{{$sprites['front_default']}}" alt="poke-thumb">
                     </div>
                     @if ($sprites['front_female'])
                         <div class="gender-image">
-                            <p>Female:</p>
+                            <p>{{__('Female')}}:</p>
                             <img class="poke-thumb" src="{{$sprites['front_female']}}" alt="poke-thumb">
                         </div>
                     @endif
@@ -50,7 +50,7 @@
                             <td>{{$data['specy']['id']}}</td>
                         </tr>
                         <tr>
-                            <th>Types:</th>
+                            <th>{{__('Types')}}:</th>
                             <td>
                                 @foreach ($data['types'] as $type)
                                     <span class="type glass {{$type['type']['name']}}">{{$type['type']['name']}}</span>
@@ -58,11 +58,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Height:</th>
+                            <th>{{__('Height')}}:</th>
                             <td>{{$data['height']/10}}m</td>
                         </tr>
                         <tr>
-                            <th>Weight:</th>
+                            <th>{{__('Weight')}}:</th>
                             <td>{{$data['weight']/10}}kg</td>
                         </tr>
                         <tr>
@@ -126,8 +126,8 @@
                 </div>
                 @if (isset($evolves_from))
                     <div class="evolution-chart">
-                        <h3>Evolution Details</h3>
-                        <p>This Pokemon evolved from: <a class="underline" href="{{route('get-pokemon', $evolves_from['name'])}}">{{ucfirst($evolves_from['name'])}}</a></p>
+                        <h3>{{__('Evolution Details')}}</h3>
+                        <p>{{__('This Pokemon evolved from')}}: <a class="underline" href="{{route('get-pokemon', $evolves_from['name'])}}">{{ucfirst($evolves_from['name'])}}</a></p>
                         @php
                             $evolves_from_img = json_decode($evolves_from['pokemon_v2_pokemonsprites'][0]['sprites'], true);
                         @endphp
@@ -151,15 +151,15 @@
                 <div class="moves-col-left move-col">
                     <div class="moves-table" data-aos="fade-right">
                         <table>
-                            <h4>Moves learnt by level-up</h4>
+                            <h4>{{__('Moves learnt by level-up')}}</h4>
                             <tbody class="multiload-right">
                                 <tr>
-                                    <th>Level</th>
+                                    <th>{{__('Level')}}</th>
                                     <th>Move</th>
-                                    <th>Type</th>
-                                    <th>Dmg.Class</th>
-                                    <th>Power</th>
-                                    <th>Accuracy</th>
+                                    <th>{{__('Type')}}</th>
+                                    <th>{{__('Dmg.Class')}}</th>
+                                    <th>{{__('Power')}}</th>
+                                    <th>{{__('Accuracy')}}</th>
                                 </tr>
                                 @foreach ($data['moves']['gen_6']['lv'] as $index => $move)
                                     <tr>
@@ -176,16 +176,16 @@
 
                     </div>
                     <div class="moves-table table-egg" data-aos="fade-right">
-                        <h4>Moves learnt by breeding (egg moves)</h4>
+                        <h4>{{__('Moves learnt by breeding (egg moves)')}}</h4>
                         @if ($data['moves']['gen_6']['egg'])
                             <table>
                                 <tbody class="multiload-right">
                                     <tr>
                                         <th>Move</th>
-                                        <th>Type</th>
-                                        <th>Dmg.Class</th>
-                                        <th>Power</th>
-                                        <th>Accuracy</th>
+                                        <th>{{__('Type')}}</th>
+                                        <th>{{__('Dmg.Class')}}</th>
+                                        <th>{{__('Power')}}</th>
+                                        <th>{{__('Accuracy')}}</th>
                                     </tr>
                                     @foreach ($data['moves']['gen_6']['egg'] as $move)
                                         <tr>
@@ -199,22 +199,22 @@
                                 </tbody>
                             </table>
                         @else
-                            <p>This pokemon does not learn any moves by breeding</p>
+                            <p>{{__('This pokemon does not learn any moves by breeding')}}</p>
                         @endif
                     </div>
                 </div>
                 <div class="move-col">
                     <div class="moves-table table-tm" data-aos="fade-left">
-                        <h4>Moves learnt by TMs/HMs</h4>
+                        <h4>{{__('Moves learnt by TMs/HMs')}}</h4>
                         @if ($data['moves']['gen_6']['tm'])
                             <table>
                                 <tbody class="multiload-left">
                                     <tr class="">
                                         <th>Move</th>
-                                        <th>Type</th>
-                                        <th>Dmg.Class</th>
-                                        <th>Power</th>
-                                        <th>Accuracy</th>
+                                        <th>{{__('Type')}}</th>
+                                        <th>{{__('Dmg.Class')}}</th>
+                                        <th>{{__('Power')}}</th>
+                                        <th>{{__('Accuracy')}}</th>
                                     </tr>
                                     @foreach ($data['moves']['gen_6']['tm'] as $move)
                                         <tr>
@@ -228,7 +228,7 @@
                                 </tbody>
                             </table>
                         @else
-                            <p>This pokemon cannot be taught any TM moves</p>                                
+                            <p>{{_('This pokemon cannot be taught any TM moves')}}</p>                                
                         @endif
                     </div>
                 </div>

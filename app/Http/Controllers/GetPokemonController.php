@@ -19,26 +19,26 @@ class GetPokemonController extends Controller
     }
 
     private function convertToSentence($evol_details) {
-        $sentence = "Evolution method: ";
+        $sentence = __('Evolution method').": ";
         $parts = [];
     
         if (isset($evol_details['pokemon_v2_evolutiontrigger']['name'])) {
-            $parts[] = str_replace('-', ' ', ucfirst($evol_details['pokemon_v2_evolutiontrigger']['name']));
+            $parts[] = __(str_replace('-', ' ', ucfirst($evol_details['pokemon_v2_evolutiontrigger']['name'])));
         }
     
         if ($evol_details['min_level'] !== null) {
-            $parts[] = 'at level ' . $evol_details['min_level'];
+            $parts[] = __('at level ') . $evol_details['min_level'];
         }
     
         if ($evol_details['min_happiness'] !== null) {
-            $parts[] = 'at happiness ' . $evol_details['min_happiness'];
+            $parts[] = __('at happiness ') . $evol_details['min_happiness'];
         }
 
         if ($evol_details['pokemon_v2_item'] !== null) {
             $parts[] = str_replace('-', ' ', $evol_details['pokemon_v2_item']['name']);
         }
         if ($evol_details['needs_overworld_rain']) {
-            $parts[] = 'during rain';
+            $parts[] = __('during rain');
         }
         if ($evol_details['time_of_day'] !== '') {
             $parts[] = 'at ' . str_replace('-', ' ', $evol_details['time_of_day']);
