@@ -18,6 +18,42 @@ class GetPokemonController extends Controller
         $this->pokemonApiRepo = $pokemonApiRepo;
     }
 
+    private function convertToSentence($evol_details) {
+        $sentence = "Evolution method: ";
+        $parts = [];
+    
+        if (isset($evol_details['pokemon_v2_evolutiontrigger']['name'])) {
+            $parts[] = str_replace('-', ' ', ucfirst($evol_details['pokemon_v2_evolutiontrigger']['name']));
+        }
+    
+        if ($evol_details['min_level'] !== null) {
+            $parts[] = 'at level ' . $evol_details['min_level'];
+        }
+    
+        if ($evol_details['min_happiness'] !== null) {
+            $parts[] = 'at happiness ' . $evol_details['min_happiness'];
+        }
+
+        if ($evol_details['pokemon_v2_item'] !== null) {
+            $parts[] = str_replace('-', ' ', $evol_details['pokemon_v2_item']['name']);
+        }
+        if ($evol_details['needs_overworld_rain']) {
+            $parts[] = 'during rain';
+        }
+        if ($evol_details['time_of_day'] !== '') {
+            $parts[] = 'at ' . str_replace('-', ' ', $evol_details['time_of_day']);
+        }
+        if ($evol_details['held_item_id'] !== null) {
+            $held_item = $this->pokemonApiRepo->getItemById($evol_details['held_item_id']);
+            $parts[] = 'holding ' . str_replace('-', ' ', $held_item['pokemon_v2_item'][0]['name']);
+        }
+    
+        $sentence .= implode(" ", $parts);
+        $sentence .= ".";
+    
+        return $sentence;
+    }
+
     public function index($name) {
         
         $response = $this->pokemonApiRepo->getPokemonByName($name);
@@ -33,11 +69,14 @@ class GetPokemonController extends Controller
         } else {
             $data = [];
         }
-        $evolution_chain_id = $data['specy']['evolution_chain_id'];
-        $evolution_chain = $this->pokemonApiRepo->getEvolutionChainById($evolution_chain_id);
-        
-        // dd($evolution_chain['evolutionchain'][0]['species']);
-        return view('pokemon', compact('data'))->with('evolution_chain', $evolution_chain['evolutionchain'][0]);
+        // $evolution_chain_id = $data['specy']['evolution_chain_id'];
+        // $evolution_chain = $this->pokemonApiRepo->getEvolutionChainById($evolution_chain_id);
+        $evolves_from = $data['specy']['evolves_from_species_id'] ? $this->pokemonApiRepo->getPokemonById($data['specy']['evolves_from_species_id'])['pokemon_v2_pokemon'][0] : null;
+        $evol_details = $data['specy']['evolves_from_species_id'] ? $data['specy']['evolutions']['nodes'][0] : null;
+
+        $evol_details_sentence = $evol_details ? $this->convertToSentence($evol_details) : null;
+
+        return view('pokemon', compact('data'))->with('evolves_from', $evolves_from)->with('evol_details_sentence', $evol_details_sentence);
     }
 
     public function getPokemonsByString(Request $request)

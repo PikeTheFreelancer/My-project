@@ -12958,6 +12958,7 @@ img {
   list-style: none;
   display: flex;
   gap: 10px;
+  margin-right: 10px;
 }
 .navbar-left ul li {
   display: flex;
@@ -14027,6 +14028,16 @@ img {
 }
 .generation-navigator span:hover {
   background-color: #fff;
+}
+
+.evolution-chain {
+  display: flex;
+  gap: 50px;
+}
+
+.evol-from-card {
+  display: inline-flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 1200px) {

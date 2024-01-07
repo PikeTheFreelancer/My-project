@@ -124,6 +124,19 @@
                         </tbody>
                     </table>
                 </div>
+                @if (isset($evolves_from))
+                    <div class="evolution-chart">
+                        <h3>Evolution Details</h3>
+                        <p>This Pokemon evolved from: <a class="underline" href="{{route('get-pokemon', $evolves_from['name'])}}">{{ucfirst($evolves_from['name'])}}</a></p>
+                        @php
+                            $evolves_from_img = json_decode($evolves_from['pokemon_v2_pokemonsprites'][0]['sprites'], true);
+                        @endphp
+                        <div class="evol-from-card">
+                            <img class="poke-thumb" src="{{$evolves_from_img['front_default']}}" alt="poke-thumb">
+                        </div>
+                        <p>{{$evol_details_sentence}}</p>
+                    </div>
+                @endif
             </div>
         </div>
         
@@ -219,14 +232,6 @@
                         @endif
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="section-container evolution-chart">
-            <h2>Evolution Chain</h2>
-            <div class="evolution-chain">
-                @foreach ($evolution_chain['species'] as $item)
-                    <div>{{$item['name']}}</div>
-                @endforeach
             </div>
         </div>
     @else

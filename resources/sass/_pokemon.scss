@@ -160,6 +160,14 @@
         }
     }
 }
+.evolution-chain{
+    display: flex;
+    gap: 50px;
+}
+.evol-from-card{
+    display: inline-flex;
+    flex-direction: column;
+}
 @media screen and (max-width: 1200px) {
     .pokemon-moves{
         flex-direction: column;

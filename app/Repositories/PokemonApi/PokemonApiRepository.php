@@ -17,8 +17,27 @@ class PokemonApiRepository implements PokemonApiRepositoryInterface{
                     height
                     weight
                     specy:pokemon_v2_pokemonspecy{
-                        evolution_chain_id
                         id
+                        evolution_chain_id
+                        evolves_from_species_id
+                        evolutions:pokemon_v2_pokemonevolutions_aggregate{
+                            nodes{
+                            pokemon_v2_evolutiontrigger{
+                                name
+                            }
+                            min_level
+                            pokemon_v2_item{
+                                name
+                            }
+                            held_item_id
+                            min_happiness
+                            pokemon_v2_move{
+                                name
+                            }
+                            needs_overworld_rain
+                            time_of_day
+                            }
+                        }
                     }
                     moves:pokemon_v2_pokemonmoves (where: {
                         pokemon_v2_versiongroup: {
@@ -77,6 +96,45 @@ class PokemonApiRepository implements PokemonApiRepositoryInterface{
                 'query' => $graphqlQuery,
                 'variables' => [
                     'name' => $name,
+                ],
+            ],
+        ]);
+
+        $data = json_decode($response->getBody(), true);
+        return collect($data)->first();   
+    }
+
+    public function getPokemonById($id)
+    {
+        // URL của GraphQL API
+        $graphqlEndpoint = 'https://beta.pokeapi.co/graphql/v1beta';
+
+        $graphqlQuery = <<<'EOT'
+            query GetPokemonById($id: Int!) {
+                pokemon_v2_pokemon(where: { id: {_eq: $id}}){
+                    id
+                    name
+                    pokemon_v2_pokemontypes{
+                        pokemon_v2_type{
+                            name
+                        }
+                    }
+                    pokemon_v2_pokemonsprites{
+                        sprites
+                    }
+                }
+            }
+        EOT;
+
+        $client = new Client();
+        $response = $client->post($graphqlEndpoint, [
+            'headers' => [
+                'Content-Type' => 'application/json',
+            ],
+            'json' => [
+                'query' => $graphqlQuery,
+                'variables' => [
+                    'id' => $id,
                 ],
             ],
         ]);
@@ -164,6 +222,35 @@ class PokemonApiRepository implements PokemonApiRepositoryInterface{
         }
         EOT;
         
+        $client = new Client();
+        $response = $client->post($graphqlEndpoint, [
+            'headers' => [
+                'Content-Type' => 'application/json',
+            ],
+            'json' => [
+                'query' => $graphqlQuery,
+                'variables' => [
+                    'id' => $id,
+                ],
+            ],
+        ]);
+
+        $data = json_decode($response->getBody(), true);
+        return collect($data)->first();   
+    }
+
+    public function getItemById($id){
+        // URL của GraphQL API
+        $graphqlEndpoint = 'https://beta.pokeapi.co/graphql/v1beta';
+
+        $graphqlQuery = <<<'EOT'
+            query GetItem($id: Int!){
+                pokemon_v2_item(where: {id: {_eq: $id}}){
+                    name
+                }
+            }
+        EOT;
+
         $client = new Client();
         $response = $client->post($graphqlEndpoint, [
             'headers' => [
