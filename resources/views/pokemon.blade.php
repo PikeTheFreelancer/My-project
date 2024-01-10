@@ -5,7 +5,7 @@
 <div class="pokemon-page page">
     @if ($data)
         @php
-            $sprites = json_decode($data['sprites'][0]['sprites'], true);
+            $sprites = $data['sprites'][0]['sprites'];
         @endphp
         <div class="pokemon-name">
             <h1>
@@ -129,7 +129,7 @@
                         <h3>{{__('Evolution Details')}}</h3>
                         <p>{{__('This Pokemon evolved from')}}: <a class="underline" href="{{route('get-pokemon', $evolves_from['name'])}}">{{ucfirst($evolves_from['name'])}}</a></p>
                         @php
-                            $evolves_from_img = json_decode($evolves_from['pokemon_v2_pokemonsprites'][0]['sprites'], true);
+                            $evolves_from_img = $evolves_from['pokemon_v2_pokemonsprites'][0]['sprites'];
                         @endphp
                         <div class="evol-from-card">
                             <img class="poke-thumb" src="{{$evolves_from_img['front_default']}}" alt="poke-thumb">
