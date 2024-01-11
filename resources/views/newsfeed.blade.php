@@ -77,81 +77,82 @@
             <div class="line" data-aos="fade-up"></div>
         @endif
         {{-- end pinned posts --}}
-        
-        @if (isset($posts) && count($posts) > 0)
-            @foreach ($posts as $item)
-                <div class="post section-container bg-white" data-aos="fade-up">
-                    <div class="post-col-left">
-                        <a class="post-title" href="{{route('post', $item->id)}}">
-                            <h5>{{$item->title}}</h5>
-                        </a>
-                        <div class="no-media post-content">{!! $item->content !!}</div>
-                        <p>
-                            <i class="fa-regular fa-comment"></i>
-                            <span>{{$item->comments->count()}}</span>
-                        </p>
-                    </div>
-                    <div class="flex">
-                        <div class="avatar-field">
-                            <div>
-                                <p class="author">
-                                    <a href="{{route('profile',$item->user_id)}}">
-                                        {{__('community.author')}}: {{$item->username}}
-                                    </a>
-                                </p>
-                                <p><small class="sub-text">{{$item->timeAgo}}</small></p>
+        <div class="multiload-right">
+            @if (isset($posts) && count($posts) > 0)
+                @foreach ($posts as $item)
+                    <div class="post section-container bg-white">
+                        <div class="post-col-left">
+                            <a class="post-title" href="{{route('post', $item->id)}}">
+                                <h5>{{$item->title}}</h5>
+                            </a>
+                            <div class="no-media post-content">{!! $item->content !!}</div>
+                            <p>
+                                <i class="fa-regular fa-comment"></i>
+                                <span>{{$item->comments->count()}}</span>
+                            </p>
+                        </div>
+                        <div class="flex">
+                            <div class="avatar-field">
+                                <div>
+                                    <p class="author">
+                                        <a href="{{route('profile',$item->user_id)}}">
+                                            {{__('community.author')}}: {{$item->username}}
+                                        </a>
+                                    </p>
+                                    <p><small class="sub-text">{{$item->timeAgo}}</small></p>
+                                </div>
+                                @if ($item->avatar)
+                                    <img src="{{asset($item->avatar)}}" alt="avatar">
+                                @else
+                                    <img src="{{asset('images/pages/Unknown_person.webp')}}" alt="Unknown_person.webp">
+                                @endif
                             </div>
-                            @if ($item->avatar)
-                                <img src="{{asset($item->avatar)}}" alt="avatar">
-                            @else
-                                <img src="{{asset('images/pages/Unknown_person.webp')}}" alt="Unknown_person.webp">
-                            @endif
                         </div>
                     </div>
-                </div>
-            @endforeach
-            <ul class="pagination">
-                <li class="page-item {{ $posts->previousPageUrl() ? '' : 'disabled' }}">
-                    <a class="page-link" href="{{ $posts->previousPageUrl() }}">{{__('community.prev')}}</a>
-                </li>
-                @if (($posts->currentPage() + 3) <= $posts->lastPage())
-                    @for ($i = $posts->currentPage(); $i <= ($posts->currentPage() + 3); $i++)
-                        <li class="page-item {{ $i == $posts->currentPage() ? 'active' : '' }}">
-                            <a class="page-link" href="{{ $posts->url($i) }}">{{ $i }}</a>
-                        </li>
-                    @endfor
-                @elseif($posts->lastPage() - 3 > 1)
-                    @for ($i = ($posts->lastPage() - 3); $i <= $posts->lastPage(); $i++)
-                        <li class="page-item {{ $i == $posts->currentPage() ? 'active' : '' }}">
-                            <a class="page-link" href="{{ $posts->url($i) }}">{{ $i }}</a>
-                        </li>
-                    @endfor
-                @else
-                    @for ($i = 1; $i <= $posts->lastPage(); $i++)
-                        <li class="page-item {{ $i == $posts->currentPage() ? 'active' : '' }}">
-                            <a class="page-link" href="{{ $posts->url($i) }}">{{ $i }}</a>
-                        </li>
-                    @endfor
-                @endif
-        
-                <li class="page-item {{ $posts->nextPageUrl() ? '' : 'disabled' }}">
-                    <a class="page-link" href="{{ $posts->nextPageUrl() }}">{{__('community.next')}}</a>
-                </li>
-                <div class="page-status">
-                    <span class="mr-1">
-                        Page {{$posts->currentPage()}} of {{$posts->lastPage()}}
-                    </span>
-                    <i class="fa-solid fa-caret-down"></i>
-                    <form class="page-controller" action="{{route('redirectToNewsfeed')}}">
-                        <label for="page_number">Page Number:</label>
-                        <div class="d-flex">
-                            <input class="mr-1" type="number" name="page_number" max="{{$posts->lastPage()}}">
-                            <button class="btn btn-secondary shadow-none">Go</button>
-                        </div>
-                    </form>
-                </div>
-            </ul>
-        @endif
+                @endforeach
+                <ul class="pagination">
+                    <li class="page-item {{ $posts->previousPageUrl() ? '' : 'disabled' }}">
+                        <a class="page-link" href="{{ $posts->previousPageUrl() }}">{{__('community.prev')}}</a>
+                    </li>
+                    @if (($posts->currentPage() + 3) <= $posts->lastPage())
+                        @for ($i = $posts->currentPage(); $i <= ($posts->currentPage() + 3); $i++)
+                            <li class="page-item {{ $i == $posts->currentPage() ? 'active' : '' }}">
+                                <a class="page-link" href="{{ $posts->url($i) }}">{{ $i }}</a>
+                            </li>
+                        @endfor
+                    @elseif($posts->lastPage() - 3 > 1)
+                        @for ($i = ($posts->lastPage() - 3); $i <= $posts->lastPage(); $i++)
+                            <li class="page-item {{ $i == $posts->currentPage() ? 'active' : '' }}">
+                                <a class="page-link" href="{{ $posts->url($i) }}">{{ $i }}</a>
+                            </li>
+                        @endfor
+                    @else
+                        @for ($i = 1; $i <= $posts->lastPage(); $i++)
+                            <li class="page-item {{ $i == $posts->currentPage() ? 'active' : '' }}">
+                                <a class="page-link" href="{{ $posts->url($i) }}">{{ $i }}</a>
+                            </li>
+                        @endfor
+                    @endif
+            
+                    <li class="page-item {{ $posts->nextPageUrl() ? '' : 'disabled' }}">
+                        <a class="page-link" href="{{ $posts->nextPageUrl() }}">{{__('community.next')}}</a>
+                    </li>
+                    <div class="page-status">
+                        <span class="mr-1">
+                            Page {{$posts->currentPage()}} of {{$posts->lastPage()}}
+                        </span>
+                        <i class="fa-solid fa-caret-down"></i>
+                        <form class="page-controller" action="{{route('redirectToNewsfeed')}}">
+                            <label for="page_number">Page Number:</label>
+                            <div class="d-flex">
+                                <input class="mr-1" type="number" name="page_number" max="{{$posts->lastPage()}}">
+                                <button class="btn btn-secondary shadow-none">Go</button>
+                            </div>
+                        </form>
+                    </div>
+                </ul>
+            @endif
+        </div>
     </div>
 </div>
 

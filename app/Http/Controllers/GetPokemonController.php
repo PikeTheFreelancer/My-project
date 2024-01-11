@@ -144,4 +144,10 @@ class GetPokemonController extends Controller
             return view('pokedex')->with('paginator', $paginator)->with('items', $items);
         }
     }
+
+    public function getMoveByName($name){
+        $move = $this->pokemonApiRepo->getMoveByName($name)['pokemon_v2_move'][0];
+        // dd($move['pokemon_v2_moveeffect']['pokemon_v2_moveeffecteffecttexts'][0]['effect']);
+        return view('move')->with('move', $move);
+    }
 }

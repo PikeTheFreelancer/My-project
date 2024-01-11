@@ -13862,7 +13862,7 @@ img {
     max-width: unset;
   }
 }
-.pokemon-page .type {
+.type {
   display: inline-flex;
   align-items: center;
   color: #fff;
@@ -13876,6 +13876,7 @@ img {
   min-width: 90px;
   justify-content: center;
 }
+
 .pokemon-page .pokemon-name {
   text-transform: capitalize;
 }
@@ -14323,6 +14324,23 @@ footer .home-link span {
     justify-content: space-around;
   }
 }
+.move-details {
+  display: flex;
+}
+.move-details th, .move-details td {
+  padding: 10px 15px;
+}
+
+.move-page .col-left {
+  max-width: 300px;
+  width: 100%;
+  padding-right: 20px;
+  border-right: solid 1px #ddd;
+}
+.move-page .col-right {
+  padding-left: 20px;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -8,4 +8,5 @@ interface PokemonApiRepositoryInterface {
     public function getMovesByGen($name, $gen);
     public function getEvolutionChainById($id);
     public function getItemById($id);
+    public function getMoveByName($name);
 }
