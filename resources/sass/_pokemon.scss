@@ -1,18 +1,18 @@
+.type{
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+    border-radius: 3px;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    min-width: 90px;
+    justify-content: center;
+}
 .pokemon-page{
-    .type{
-        display: inline-flex;
-        align-items: center;
-        color: #fff;
-        border-radius: 3px;
-        font-family: 'Inter';
-        font-weight: 600;
-        font-size: 14px;
-        text-transform: uppercase;
-        text-decoration: none;
-        position: relative;
-        min-width: 90px;
-        justify-content: center;
-    }
     .pokemon-name{
         text-transform: capitalize;
     }

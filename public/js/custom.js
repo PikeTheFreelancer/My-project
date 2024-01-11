@@ -495,7 +495,7 @@ $(document).ready(function(){
 
     //multi load tr
     function multiload() {
-        $('tbody.multiload-right').each(function () {
+        $('multiload-right').each(function () {
             let delay = 50;
             $(this).children('tr').each(function (index) {
                 var element = $(this);
@@ -506,7 +506,7 @@ $(document).ready(function(){
             });
         })
     
-        $('tbody.multiload-left').each(function () {
+        $('multiload-left').each(function () {
             let delay = 50;
             $(this).children('tr').each(function (index) {
                 var element = $(this);

@@ -267,4 +267,48 @@ class PokemonApiRepository implements PokemonApiRepositoryInterface{
         $data = json_decode($response->getBody(), true);
         return collect($data)->first();   
     }
+
+    public function getMoveByName($name){
+        // URL của GraphQL API
+        $graphqlEndpoint = 'https://beta.pokeapi.co/graphql/v1beta';
+
+        $graphqlQuery = <<<'EOT'
+            query getMoveByName($name: String!){
+                pokemon_v2_move(where: {name: {_eq: $name}}){
+                name
+                type:pokemon_v2_type{
+                    name
+                }
+                effect_chance:move_effect_chance
+                accuracy
+                power
+                dmg_class:pokemon_v2_movedamageclass{
+                    name
+                }
+                pp
+                pokemon_v2_moveeffect{
+                    pokemon_v2_moveeffecteffecttexts{
+                        effect
+                    }
+                }
+                }
+            }
+        EOT;
+
+        $client = new Client();
+        $response = $client->post($graphqlEndpoint, [
+            'headers' => [
+                'Content-Type' => 'application/json',
+            ],
+            'json' => [
+                'query' => $graphqlQuery,
+                'variables' => [
+                    'name' => $name,
+                ],
+            ],
+        ]);
+
+        $data = json_decode($response->getBody(), true);
+        return collect($data)->first();   
+    }
 }
