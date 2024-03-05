@@ -12509,6 +12509,7 @@ a.dropdown-item:hover {
 
 .hover-underline:hover {
   text-decoration: underline;
+  text-underline-offset: 5px;
 }
 
 .section-container,
@@ -13845,9 +13846,6 @@ img {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.newsfeed-page .post .post-content p {
-  display: inline;
 }
 .newsfeed-page .post .post-content img, .newsfeed-page .post .post-content iframe {
   display: none;

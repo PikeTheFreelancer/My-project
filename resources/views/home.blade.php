@@ -56,7 +56,7 @@
                         <a class="fw-500 hover-underline" href="{{route('post', $post->id)}}">View more</a>
                     </div>
                     <div class="post-comment">
-                        <a class="hover-underline" href="{{route('post', $post->id)}}">
+                        <a class="hover-underline" href="{{route('post', $post->id)}}#form-comment">
                             <i class="fa-regular fa-comment"></i>
                             <span>{{$post->comments ? $post->comments->count() : 0}}</span>
                         </a>

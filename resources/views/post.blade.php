@@ -83,7 +83,7 @@
                             @endforeach
                         </div>
                     </div>
-                    <form class="form-comment" action="">
+                    <form id="form-comment" class="form-comment" action="">
                         @csrf
                         <div class="form-field">
                             <textarea class="comment" name="comment" placeholder="{{__('community.comment_text')}}"></textarea>

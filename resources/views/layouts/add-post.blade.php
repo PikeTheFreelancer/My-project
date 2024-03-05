@@ -10,10 +10,10 @@
                 @csrf
                 <div class="form-field mb-3">
                     <label for="title">{{__('Category')}}</label>
-                    <select class="form-select" name="post_category_id">
+                    <select class="bg-white form-select" name="post_category_id">
                         <option value=""></option>
                         @foreach ($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option value="{{$category->id}}">{{__($category->name)}}</option>
                         @endforeach
                     </select>
                 </div>
