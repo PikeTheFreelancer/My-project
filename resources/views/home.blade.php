@@ -52,11 +52,14 @@
                         </div>
                     </div>
                     <div class="post-content">{!! $post->content !!}</div>
+                    <div class="view-more">
+                        <a class="fw-500 hover-underline" href="{{route('post', $post->id)}}">View more</a>
+                    </div>
                     <div class="post-comment">
-                        <p>
+                        <a class="hover-underline" href="{{route('post', $post->id)}}">
                             <i class="fa-regular fa-comment"></i>
                             <span>{{$post->comments ? $post->comments->count() : 0}}</span>
-                        </p>
+                        </a>
                         <p><small class="sub-text">{{$post->timeAgo}}</small></p>
                     </div>
                 </div>
