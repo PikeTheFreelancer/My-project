@@ -12,7 +12,7 @@
 @endsection
 @section('content')
 <div class="home-page page">
-    <div class="section-container section-community bg-white" data-aos="fade-up">
+    <div class="section-container bg-white" data-aos="fade-up">
         <div class="text-image-block">
             <div class="text">
                 <h2>{{__('messages.welcome')}}</h2>
@@ -33,13 +33,34 @@
         </div>
     </div>
     <div class="section-container section-community bg-white" data-aos="fade-up">
-        <h2>{{__('messages.community')}}</h2>
-        <div class="card-body">
-            <a class="shiny home-item water glass" href="{{ route('newsfeed') }}">
-                <div class="image-container">
-                    <img src="{{ asset('images/pages/news.webp') }}" alt="news.webp">
+        <h2>{{__('messages.latests')}}</h2>
+        
+        <div class="owl-carousel owl-theme">
+            @foreach ($posts as $post)
+                <div class="post-item">
+                    <div class="author">
+                        <div class="avartar-frame">
+                            @if ($post->avatar)
+                                <img src="{{asset($post->avatar)}}" alt="avatar">
+                            @else
+                                <img src="{{asset('images/pages/Unknown_person.webp')}}" alt="Unknown_person.webp">
+                            @endif
+                        </div>
+                        <div class="author-right">
+                            <h4 class="post-title hover-underline ellipsis"><a href="{{route('post', $post->id)}}">{{ $post->title }}</a></h4>
+                            <a class="hover-underline ellipsis block" href="{{route('profile', $post->user_id)}}">{{ $post->username }}</a>
+                        </div>
+                    </div>
+                    <div class="post-content">{!! $post->content !!}</div>
+                    <div class="post-comment">
+                        <p>
+                            <i class="fa-regular fa-comment"></i>
+                            <span>{{$post->comments ? $post->comments->count() : 0}}</span>
+                        </p>
+                        <p><small class="sub-text">{{$post->timeAgo}}</small></p>
+                    </div>
                 </div>
-            </a>
+            @endforeach
         </div>
     </div>
     <div class="section-container bg-white" data-aos="fade-up">

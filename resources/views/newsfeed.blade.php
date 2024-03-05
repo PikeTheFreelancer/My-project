@@ -41,6 +41,7 @@
         {{-- pinned posts --}}
         @if (isset($pinned_posts) && count($pinned_posts) > 0)
             @foreach ($pinned_posts as $item)
+                
                 <div class="post section-container bg-white" data-aos="fade-up">
                     <div class="pin-icon">
                         <i class="fas fa-thumbtack"></i>

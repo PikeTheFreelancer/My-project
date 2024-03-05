@@ -9,6 +9,9 @@
     flex-direction: column;
     min-height: 100vh;
 }
+.block{
+    display: block;
+}
 a{
     text-decoration: none;
     color: #000;
@@ -229,6 +232,7 @@ button{
     border: none;
     transition: all .1s;
     position: relative;
+    font-weight: 600;
     &::before{
         content: "";
         background-color: #fff;
@@ -533,6 +537,7 @@ a.dropdown-item:hover{
     max-width: 1280px;
     box-shadow: 5px 4px 10px 2px #888;
     padding: 40px;
+    border-radius: 8px;
 }
 .header-container{
     background-color: #fff;

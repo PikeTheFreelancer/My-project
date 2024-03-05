@@ -29,6 +29,9 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css"/>
 
+    <!-- carousel -->
+    <link rel="stylesheet" href="{{ asset('owlcarousel/owl.carousel.min.css')}}">
+    {{-- <link rel="stylesheet" href="{{ asset('owlcarousel/owl.theme.default.min.css')}}"> --}}
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Styles -->
@@ -46,11 +49,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" defer></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js" defer></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="{{ asset('owlcarousel/owl.carousel.min.js') }}" defer></script>
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <script src="{{ asset('js/tinymce-config.js') }}" defer></script>
     <script src="{{ asset('js/validation.js') }}" defer></script>
-    <script src="{{ asset('js/custom.js') }}" defer></script>
     <script src="{{ asset('js/pokemon-page.js') }}" defer></script>
+    <script src="{{ asset('js/custom.js') }}" defer></script>
+
 </head>
 <body>
     @php
@@ -290,7 +296,6 @@
         @include('layouts.footer')
     </div>
     @stack('js')
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

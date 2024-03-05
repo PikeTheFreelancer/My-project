@@ -1,4 +1,20 @@
 $(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+        dots: true,
+        dotEach: 1,
+        responsive:{
+            0:{
+                items: 1,
+            },
+            480:{
+                items: 2,
+            },
+            768:{
+                items: 3
+            }
+        }
+    });
+
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
     })
@@ -562,5 +578,29 @@ $(document).ready(function(){
     })
     $('.page-status span').on('click', function() {
         $('.page-controller').fadeToggle();
+    })
+
+    const images = [
+        '/images/pokemon-dataset/bulbasaur.png',
+        '/images/pokemon-dataset/charmander.png',
+        '/images/pokemon-dataset/squirtle.png',
+        '/images/pokemon-dataset/gengar.png',
+        '/images/pokemon-dataset/charizard.png',
+        '/images/pokemon-dataset/blastoise.png',
+        '/images/pokemon-dataset/venusaur.png',
+        '/images/pokemon-dataset/dragonite.png',
+        '/images/pokemon-dataset/mew.png',
+        '/images/pokemon-dataset/abra.png',
+        '/images/pokemon-dataset/arbok.png',
+        '/images/pokemon-dataset/weezing.png',
+        '/images/pokemon-dataset/victreebel.png',
+        '/images/pokemon-dataset/gyarados.png',
+        '/images/pokemon-dataset/starmie.png',
+        '/images/pokemon-dataset/onix.png',
+        // Thêm các đường dẫn đến các hình ảnh khác tại đây
+    ];
+    $('.home-page .post-item').each(function(){
+        let randomImage = images[Math.floor(Math.random() * images.length)];
+        $(this).css('background-image', 'url(' + randomImage + '),url("/images/pages/paper-texture.jpg")');
     })
 });

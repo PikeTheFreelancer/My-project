@@ -38,11 +38,41 @@
         max-width: 350px;
     }
 }
+.owl-theme .owl-controls .owl-dot {
+    display: inline-block;
+}
+.owl-theme .owl-dot span {
+    background: none repeat scroll 0 0 #869791;
+    border-radius: 20px;
+    display: block;
+    height: 12px;
+    margin: 5px 7px;
+    width: 12px;
+    transition: all 0.15s;
+}
+.owl-theme .owl-dot.active span {
+    background: url('/images/pokeball.svg') no-repeat;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    transition: all 0.15s;
+}
+.owl-dots{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.owl-item{
+    padding: 0 10px;
+}
 .home-page{
     .section-community{
         h2{
             margin-bottom: 20px;
         }
+        background-image: url('/images/pages/news.webp');
+        background-repeat: no-repeat;
+        background-blend-mode: overlay;
     }
     .section-container{
         box-shadow: 5px 4px 10px 2px #888;
@@ -75,6 +105,51 @@
         .cta-links{
             display: flex;
             gap: 10px;
+        }
+    }
+    .post-item{
+        display: flex;
+        flex-direction: column;
+        padding: 20px 10px;
+        row-gap: 15px;
+        background-image: url('/images/pokemon-dataset/bulbasaur.png'), url('/images/pages/paper-texture.jpg');
+        background-size: 100% auto, cover;
+        background-blend-mode: overlay;
+        background-repeat: no-repeat;
+        .author{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            .avartar-frame{
+                max-width: 60px;
+                border-radius: 100%;
+                aspect-ratio: 1/1;
+                overflow: hidden;
+                border: solid 1px #333;
+            }
+            img{
+                object-fit: cover;
+            }
+        }
+        .post-content{
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            p{
+                margin-top: 0;
+            }
+        }
+        .author-right{
+            max-width: 60%;
+        }
+        .post-comment{
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+        }
+        .sub-text{
+            font-size: 14px;
         }
     }
 }
