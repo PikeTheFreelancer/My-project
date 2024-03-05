@@ -47,7 +47,7 @@
                             @endif
                         </div>
                         <div class="author-right">
-                            <h4 class="post-title hover-underline ellipsis"><a href="{{route('post', $post->id)}}">{{ $post->title }}</a></h4>
+                            <h4 class="post-title hover-underline ellipsis"><a class="fw-700" href="{{route('post', $post->id)}}">{{ $post->title }}</a></h4>
                             <a class="hover-underline ellipsis block" href="{{route('profile', $post->user_id)}}">{{ $post->username }}</a>
                         </div>
                     </div>
