@@ -136,7 +136,7 @@
                         @if (Session::get('language'))
                             <span>{{ Session::get('language') }}</span>
                         @else
-                            <span>En</span>
+                            <span>Vi</span>
                         @endif
                         <i class="fa-solid fa-caret-down"></i>
                         <ul class="lang-items">
