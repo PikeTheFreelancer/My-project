@@ -2,7 +2,7 @@
     <div class="footer-container space-between">
         <div class="footer-col" data-aos="fade-right" data-aos-delay="100">
             <a class="home-link" href="{{ url('/') }}">
-                {{-- <img src="{{asset('images/svg/pokeball.svg')}}" alt=""> --}}
+                <img src="{{asset('images/favicon.png')}}" alt="">
                 <h5>Vermilion Center</h5>
             </a>
             <p>{!!__('messages.footer.desc')!!}</p>

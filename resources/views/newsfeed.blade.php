@@ -82,6 +82,16 @@
         @if (isset($posts) && count($posts) > 0)
             @foreach ($posts as $item)
                 <div class="post section-container bg-white" data-aos="fade-up">
+                    <div class="post-options">
+                        <span class="ellipsis-icon">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </span>
+                        <ul class="ellipsis-options hidden">
+                            <li data-toggle="modal" data-target="#reportForm"><span>Report</span></li>
+                            <li><span><a href="{{route('post', $item->id)}}" target="_blank">View</a></span></li>
+                        </ul>
+                    </div>
+                    
                     <div class="post-col-left">
                         <a class="post-title" href="{{route('post', $item->id)}}">
                             <h5>{{$item->title}}</h5>
@@ -157,5 +167,6 @@
 </div>
 
 @include('layouts.add-post')
+@include('layouts.report-form',['reasons' => $reasons, 'url'=>route('post', $item->id)])
 
 @endsection

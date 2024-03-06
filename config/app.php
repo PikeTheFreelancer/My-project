@@ -80,8 +80,8 @@ return [
     |
     */
 
-    'locale' => 'en',
-
+    'locale' => 'vi',
+    'mailto' => env('MAIL_USERNAME'),
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

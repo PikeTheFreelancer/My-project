@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\ReportReason;
 use App\Repositories\Post\PostRepositoryInterface;
 use App\Repositories\PostCategory\PostCategoryRepositoryInterface;
 use Carbon\Carbon;
@@ -41,7 +42,9 @@ class NewsfeedController extends Controller
             $pinned_post->max_size = $this->postRepo->getAllComments($pinned_post->id)->count();
             $pinned_post->timeAgo = Carbon::parse($pinned_post->created_at)->diffForHumans();
         }
-        return view('newsfeed')->with('posts', $posts)->with('categories',$categories)->with('pinned_posts', $pinned_posts);
+
+        $reasons = ReportReason::all();
+        return view('newsfeed')->with('posts', $posts)->with('categories',$categories)->with('pinned_posts', $pinned_posts)->with('reasons', $reasons);
     }
 
     public function post($id) {

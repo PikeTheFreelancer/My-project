@@ -214,6 +214,9 @@ $(document).ready(function(){
         if (!$(e.target).closest('.page-status').length && !$(e.target).closest('.page-status').length) {
             $('.page-controller').fadeOut();
         }
+        if (!$(e.target).closest('.ellipsis-icon').length && !$(e.target).closest('.ellipsis-icon').length) {
+            $('.ellipsis-options').hide();
+        }
     })
 
     // mark as read
@@ -579,7 +582,9 @@ $(document).ready(function(){
     $('.page-status span').on('click', function() {
         $('.page-controller').fadeToggle();
     })
-
+    $('.ellipsis-icon').on('click', function() {
+        $('.ellipsis-options').toggle();
+    })
     const images = [
         '/images/pokemon-dataset/bulbasaur.png',
         '/images/pokemon-dataset/charmander.png',

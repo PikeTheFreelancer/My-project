@@ -3,6 +3,7 @@
 use App\Http\Controllers\BossController;
 use App\Http\Controllers\GetPokemonController;
 use App\Http\Controllers\MCE\ImageController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\User\AboutMeController;
 use App\Http\Controllers\User\Auth\LoginController;
 use App\Http\Controllers\User\HomeController;
@@ -41,6 +42,7 @@ Route::middleware('localization')->group(function (){
     Route::get('/boss/{id}', [BossController::class, 'index'])->name('getBoss');
     Route::get('/bosses', [BossController::class, 'allBosses'])->name('getBosses');
     Route::get('/redirect-to-newsfeed', [NewsfeedController::class, 'goToPage'])->name('redirectToNewsfeed');
+    Route::get('/test-link', [ReportController::class, 'sendMail'])->name('test');
     
 });
 
@@ -63,6 +65,7 @@ Route::middleware(['auth:web', 'checkstatus', 'localization', 'verified'])->grou
     Route::post('/my-store/get-merchandise-fields', [MyStoreController::class, 'getMerchandiseFields'])->name('user.my-store.get-merchandise-fields');
     Route::post('/my-store/save-merchandise-fields', [MyStoreController::class, 'saveMerchandiseFields'])->name('user.my-store.save-merchandise-fields');
 
+    Route::post('/report', [ReportController::class, 'sendMail'])->name('report');
 });
 
 
