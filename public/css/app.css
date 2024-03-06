@@ -13693,6 +13693,22 @@ img {
   color: #0866ff;
 }
 
+@supports (-webkit-overflow-scrolling: touch) {
+  /* CSS specific to iOS devices */
+  .post-content p {
+    margin: 16px 0;
+    margin-bottom: 0;
+    display: inline;
+  }
+  .post-content p::after {
+    content: " \a\a";
+    white-space: pre;
+  }
+  .post-content p a {
+    text-decoration: underline;
+    color: #0866ff;
+  }
+}
 .limit-content {
   display: -webkit-box;
   -webkit-line-clamp: 10;
@@ -13886,6 +13902,9 @@ img {
 }
 .newsfeed-page .post .post-title h5, .newsfeed-page .post .post-title .h5 {
   line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .newsfeed-page .post a.post-title::after {
   content: "";

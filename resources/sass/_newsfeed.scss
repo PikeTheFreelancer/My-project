@@ -5,9 +5,28 @@
     p{
         margin: 16px 0;
         margin-bottom: 0;
+        
         a{
             text-decoration: underline;
             color: #0866ff;
+        }
+    }
+}
+@supports (-webkit-overflow-scrolling: touch) {
+    /* CSS specific to iOS devices */ 
+    .post-content{
+        p{
+            margin: 16px 0;
+            margin-bottom: 0;
+            display: inline;
+            &::after{
+                content: " \A\A";
+                white-space: pre;
+            }
+            a{
+                text-decoration: underline;
+                color: #0866ff;
+            }
         }
     }
 }
@@ -200,6 +219,9 @@
             text-underline-offset: 4px;
             h5{
                 line-height: 1.5;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
         }
         a.post-title::after{
