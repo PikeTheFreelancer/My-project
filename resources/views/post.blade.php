@@ -83,13 +83,16 @@
                             @endforeach
                         </div>
                     </div>
-                    <form id="form-comment" class="form-comment" action="">
-                        @csrf
-                        <div class="form-field">
-                            <textarea class="comment" name="comment" placeholder="{{__('community.comment_text')}}"></textarea>
-                            <button class="btn btn-primary btn-comment white-space-nowrap">{{__('community.comment')}}</button>
-                        </div>
-                    </form>
+                    @guest
+                    @else
+                        <form id="form-comment" class="form-comment" action="">
+                            @csrf
+                            <div class="form-field">
+                                <textarea class="comment" name="comment" placeholder="{{__('community.comment_text')}}"></textarea>
+                                <button class="btn btn-primary btn-comment white-space-nowrap">{{__('community.comment')}}</button>
+                            </div>
+                        </form>
+                    @endguest
                 </div>
             </div>
         </div>

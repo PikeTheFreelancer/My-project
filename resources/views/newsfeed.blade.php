@@ -87,7 +87,10 @@
                             <i class="fa-solid fa-ellipsis"></i>
                         </span>
                         <ul class="ellipsis-options hidden">
-                            <li data-toggle="modal" data-target="#reportForm"><span>Report</span></li>
+                            @guest
+                            @else
+                                <li data-toggle="modal" data-target="#reportForm"><span>Report</span></li>
+                            @endguest
                             <li><span><a href="{{route('post', $item->id)}}" target="_blank">View</a></span></li>
                         </ul>
                     </div>
@@ -167,6 +170,9 @@
 </div>
 
 @include('layouts.add-post')
-@include('layouts.report-form',['reasons' => $reasons, 'url'=>route('post', $item->id)])
+@guest
+@else
+    @include('layouts.report-form',['reasons' => $reasons, 'url'=>route('post', $item->id)])
+@endguest
 
 @endsection
