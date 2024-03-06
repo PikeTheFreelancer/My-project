@@ -12720,6 +12720,7 @@ img {
   -moz-column-gap: 20px;
        column-gap: 20px;
   align-items: center;
+  position: relative;
 }
 
 .desktop-navbar {
@@ -12809,7 +12810,7 @@ img {
   position: absolute;
   z-index: 2;
   background-color: #fff;
-  right: auto;
+  right: 0;
   top: 100%;
 }
 .menu-notification .noti-item {
@@ -13121,8 +13122,11 @@ img {
   a.dropdown-item:not(:first-child) {
     border-top: none;
   }
+}
+@media screen and (max-width: 480px) {
   .menu-notification {
     width: 100%;
+    min-width: 300px;
   }
 }
 .thumbnail-avatar {
