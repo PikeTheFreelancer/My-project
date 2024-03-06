@@ -13,7 +13,7 @@
             </div>
             <div class="basic-info">
                 <h2>Pike Freeman</h2>
-                <h5>{{__('Founder ,Project developer, Administrator')}}</h5>
+                <h5>{{__('Founder, Project developer, Administrator')}}</h5>
                 <table>
                     <tr>
                         <td class="text-end white-space-nowrap"><i class="fa-solid fa-phone"></i> :</td>
