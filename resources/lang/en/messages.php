@@ -38,6 +38,7 @@ return [
         'about' => 'About',
         'about_page' => 'About Vermilion Center',
         'about_me' => 'About me',
+        'about_us' => 'About us',
         'contact' => 'Contact',
         'phone' => 'Phone',
     ],

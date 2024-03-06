@@ -36,6 +36,7 @@ Route::middleware('localization')->group(function (){
     Route::post('/get-pokemon-moves', [GetPokemonController::class, 'getPokemonMoves'])->name('getPokemonMoves');
     Route::post('/upload_handler', [ImageController::class, 'upload'])->name('upload_handler');
     Route::get('/about-me', [AboutMeController::class, 'index'])->name('about-me');
+    Route::get('/about-us', [AboutMeController::class, 'aboutUs'])->name('about-us');
     Route::get('change-language/{language}', [HomeController::class, 'changeLanguage'])->name('change-language');
     Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile');
     Route::get('/bosses/{region}', [BossController::class, 'getBossesByRegion'])->name('getBossesByRegion');

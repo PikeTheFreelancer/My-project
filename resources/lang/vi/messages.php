@@ -38,6 +38,7 @@ return [
         'about' => 'Thông tin',
         'about_page' => 'Về Vermilion Center',
         'about_me' => 'Về tôi',
+        'about_us' => 'Về chúng tôi',
         'contact' => 'Liên hệ',
         'phone' => 'Điện thoại',
     ],

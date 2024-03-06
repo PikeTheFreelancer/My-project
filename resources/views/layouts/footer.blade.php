@@ -11,7 +11,7 @@
             <div class="other-links">
                 <h5>{{__('messages.footer.about')}}</h5>
                 <a href="{{ route('home','#welcome') }}">{{__('messages.footer.about_page')}}</a>
-                <a href="{{route('about-me')}}">{{__('messages.footer.about_me')}}</a>
+                <a href="{{route('about-us')}}">{{__('messages.footer.about_us')}}</a>
             </div>
             <div class="other-links">
                 <h5>{{__('messages.footer.contact')}}</h5>

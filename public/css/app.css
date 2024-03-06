@@ -14311,6 +14311,7 @@ footer .home-link span {
   max-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  width: 100%;
 }
 .about-me .basic-info {
   max-width: 600px;
