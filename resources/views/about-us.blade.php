@@ -36,7 +36,7 @@
                     <tr>
                         <td class="text-end white-space-nowrap"><i class="fa-solid fa-location-dot"></i> :</td>
                         <td>
-                            {{ __('about.address') }}
+                            {{ __('Hanoi') }}
                         </td>
                     </tr>
                 </table>
