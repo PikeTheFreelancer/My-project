@@ -12,6 +12,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\FileUpload;
 
 class BossResource extends Resource
 {
@@ -23,6 +24,10 @@ class BossResource extends Resource
     {
         return $form
             ->schema([
+                FileUpload::make('image')
+                ->disk(config('storage.driver'))
+                ->image()
+                ->preserveFilenames(),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),

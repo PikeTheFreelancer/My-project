@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropForeignKeyUserIdInMerchandises extends Migration
+class UpdateRewardToBossesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class DropForeignKeyUserIdInMerchandises extends Migration
      */
     public function up()
     {
-        Schema::table('merchandises', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
+        Schema::table('bosses', function (Blueprint $table) {
+            $table->text('rewards')->nullable()->change();
         });
     }
 
@@ -25,7 +25,7 @@ class DropForeignKeyUserIdInMerchandises extends Migration
      */
     public function down()
     {
-        Schema::table('merchandises', function (Blueprint $table) {
+        Schema::table('bosses', function (Blueprint $table) {
             //
         });
     }
