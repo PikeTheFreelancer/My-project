@@ -7,7 +7,7 @@
         <ul class="sub-links">
             @foreach ($kanto_bosses as $boss)
                 <li class="dropdown-item">
-                    <a class="hover-underline" href="">{{$boss->name}}</a>
+                    <a class="hover-underline" href="{{route('getBoss', $boss->id)}}">{{$boss->name}}</a>
                 </li>
             @endforeach
         </ul>
@@ -21,7 +21,7 @@
         <ul class="sub-links">
             @foreach ($johto_bosses as $boss)
                 <li class="dropdown-item">
-                    <a class="hover-underline" href="">{{$boss->name}}</a>
+                    <a class="hover-underline" href="{{route('getBoss', $boss->id)}}">{{$boss->name}}</a>
                 </li>
             @endforeach
         </ul>
@@ -35,7 +35,7 @@
         <ul class="sub-links">
             @foreach ($hoenn_bosses as $boss)
                 <li class="dropdown-item">
-                    <a class="hover-underline" href="">{{$boss->name}}</a>
+                    <a class="hover-underline" href="{{route('getBoss', $boss->id)}}">{{$boss->name}}</a>
                 </li>
             @endforeach
         </ul>
@@ -49,7 +49,7 @@
         <ul class="sub-links">
             @foreach ($sinnoh_bosses as $boss)
                 <li class="dropdown-item">
-                    <a class="hover-underline" href="">{{$boss->name}}</a>
+                    <a class="hover-underline" href="{{route('getBoss', $boss->id)}}">{{$boss->name}}</a>
                 </li>
             @endforeach
         </ul>
