@@ -583,7 +583,7 @@ $(document).ready(function(){
         $('.page-controller').fadeToggle();
     })
     $('.ellipsis-icon').on('click', function() {
-        $('.ellipsis-options').toggle();
+        $(this).siblings('.ellipsis-options').toggle();
     })
     const images = [
         '/images/pokemon-dataset/bulbasaur.png',
