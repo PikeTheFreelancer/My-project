@@ -17,7 +17,7 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-field">
+                <div class="form-field mb-3">
                     <label for="title">{{ __('messages.title') }}</label>
                     <input class="input-border" type="text" name="title" id="">
                 </div>

@@ -1,7 +1,7 @@
 tinymce.init({
     selector: '.tinymce-editor',
-    plugins: 'image code table autoresize link media',
-    toolbar: 'undo redo | link | image media | alignleft aligncenter alignright alignjustify | code',
+    plugins: 'image code table autoresize link media lists',
+    toolbar: 'undo redo | link | image media | alignleft aligncenter alignright alignjustify numlist bullist| code',
     media_dimensions: false,
     image_title: true,
     file_picker_types: 'image',
