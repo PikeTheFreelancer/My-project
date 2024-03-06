@@ -81,7 +81,7 @@
                     @foreach ($bosses as $boss)
                         <tr>
                             <td>
-                                <a class="hover-underline" href="{{route('getBoss', $boss->id)}}">{{$boss->name}}</a>
+                                <a class="hover-underline fw-700" href="{{route('getBoss', $boss->id)}}">{{$boss->name}}</a>
                             </td>
                             <td>{{$boss->location}}</td>
                             <td>{{$boss->cooldown}}</td>
