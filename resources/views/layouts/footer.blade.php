@@ -15,7 +15,7 @@
             </div>
             <div class="other-links">
                 <h5>{{__('messages.footer.contact')}}</h5>
-                <a href="mailto:pikefreeman1997@gmail.com">Email</a>
+                <a href="mailto:piketheadmin@vermilioncenter.com">Email</a>
                 <a href="https://www.facebook.com/nghia.vutrong.71/">Facbook</a>
                 <a href="tel:0356414477">{{__('messages.footer.phone')}}</a>
             </div>
