@@ -17,7 +17,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     img{
-        display: none;
+        display: none !important;
     }
 }
 .see-more-btn{

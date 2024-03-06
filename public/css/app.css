@@ -13700,7 +13700,7 @@ img {
   overflow: hidden;
 }
 .limit-content img {
-  display: none;
+  display: none !important;
 }
 
 .see-more-btn {
