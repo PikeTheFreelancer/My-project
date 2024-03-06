@@ -13884,6 +13884,9 @@ img {
   font-weight: 600;
   text-underline-offset: 4px;
 }
+.newsfeed-page .post .post-title h5, .newsfeed-page .post .post-title .h5 {
+  line-height: 1.5;
+}
 .newsfeed-page .post a.post-title::after {
   content: "";
   position: absolute;
